@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"elements_helpers",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"elements_helpers",
+  "parent":{
+    "name":"Elements",
+    "path":"folders/Elements.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

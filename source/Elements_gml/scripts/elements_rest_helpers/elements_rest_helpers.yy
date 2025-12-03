@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"elements_rest_helpers",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"elements_rest_helpers",
+  "parent":{
+    "name":"Rest",
+    "path":"folders/Elements/Rest.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

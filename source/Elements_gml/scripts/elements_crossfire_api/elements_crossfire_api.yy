@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"elements_crossfire_api",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"elements_crossfire_api",
+  "parent":{
+    "name":"Crossfire",
+    "path":"folders/Elements/Crossfire.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
