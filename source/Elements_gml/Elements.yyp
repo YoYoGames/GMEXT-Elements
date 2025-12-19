@@ -26,7 +26,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1400.2.940",
+    "IDEVersion":"2024.1400.3.946",
   },
   "name":"Elements",
   "resources":[
@@ -51,10 +51,10 @@
     {"id":{"name":"obj_gm_button","path":"objects/obj_gm_button/obj_gm_button.yy",},},
     {"id":{"name":"obj_gm_text","path":"objects/obj_gm_text/obj_gm_text.yy",},},
     {"id":{"name":"obj_gm_textbox","path":"objects/obj_gm_textbox/obj_gm_textbox.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"id":{"name":"elements_crossfire_api","path":"scripts/elements_crossfire_api/elements_crossfire_api.yy",},},
     {"id":{"name":"elements_crossfire_client","path":"scripts/elements_crossfire_client/elements_crossfire_client.yy",},},
-    {"id":{"name":"elements_helpers","path":"scripts/elements_helpers/elements_helpers.yy",},},
+    {"id":{"name":"elements_crossfire_helpers","path":"scripts/elements_crossfire_helpers/elements_crossfire_helpers.yy",},},
     {"id":{"name":"elements_rest_api","path":"scripts/elements_rest_api/elements_rest_api.yy",},},
     {"id":{"name":"elements_rest_helpers","path":"scripts/elements_rest_helpers/elements_rest_helpers.yy",},},
     {"id":{"name":"elements_rest_schemas","path":"scripts/elements_rest_schemas/elements_rest_schemas.yy",},},
@@ -65,7 +65,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

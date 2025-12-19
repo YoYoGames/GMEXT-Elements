@@ -3,13 +3,11 @@
 // #####################################################################
 
 var _async_id = async_load[? "id"];
-var _request = requests[? _async_id];
 
 // Early exit if there is no registered request with given id
-if (_request == undefined) {
-	exit;
-}
+if (!ds_map_exists(requests, _async_id)) exit;
 
+var _request = requests[? _async_id];
 var _status = async_load[? "status"];
 
 // Early exit if the _request has not finished yet

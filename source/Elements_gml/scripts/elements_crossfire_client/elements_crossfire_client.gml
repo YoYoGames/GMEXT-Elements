@@ -93,7 +93,7 @@ function ElementsCrossfireClient(_host, _port) constructor {
     static connect = function() {
         if (phase != CF_PHASE.DISCONNECTED) return;
 
-        socket = network_create_socket(network_socket_wss);
+        socket = network_create_socket(network_socket_ws);
         _set_phase(CF_PHASE.HANDSHAKE);
 
         return network_connect_raw_async(socket, host, port);

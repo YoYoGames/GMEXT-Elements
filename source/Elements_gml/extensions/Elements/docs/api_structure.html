@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>None - GMEXT-Elements</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <link href="assets/css/gmext_style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "None";
+        var mkdocs_page_input_path = "api_structure.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/gml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> GMEXT-Elements
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="home.html">GMEXT-Elements</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">None</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="elements_rest_api.html">Elements REST API</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="elements_rest_schemas.html">Schemas</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">GMEXT-Elements</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">None</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/YoYoGames/GMEXT-Elements/edit/master/docs/api_structure.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="1-big-picture">1. Big picture</h2>
+<ul>
+<li>Every exported <code>elements_...</code> function is a thin wrapper around <strong>one HTTP request</strong>.</li>
+<li>Requests are <strong>async and callback-based</strong> (GameMaker’s HTTP async event).</li>
+<li>Auth is handled via <strong>named tokens</strong> (<code>"auth_bearer"</code>, <code>"session_secret"</code>) that you store once and which are then injected into all requests that need them.</li>
+<li>Request bodies are formatted based on a <strong>Content-Type → converter</strong> mapping.</li>
+<li>Responses go through an optional <strong>hook system</strong> and then into your callback.</li>
+</ul>
+<p>Once you understand that pattern, every endpoint behaves the same way.</p>
+<hr />
+<h2 id="2-calling-an-endpoint">2. Calling an endpoint</h2>
+<p>All endpoints follow this shape:</p>
+<pre class="highlight"><code class="language-gml">function some_elements_endpoint(arg1, arg2, ..., _callback = undefined)
+{
+    // validate arguments
+    // build URL
+    // (optionally) build query params
+    // define required security schemes
+    return _elements_create_request(_url, _params, _method, _body, _content_type, _security, _callback, _GMFUNCTION_);
+}</code></pre>
+<h3 id="example-simple-get-without-body">Example: simple GET without body</h3>
+<pre class="highlight"><code class="language-gml">elements_get_application("my-app-id", function(_code, _data, _request) {
+    if (_code == 200) {
+        show_debug_message("App: " + string(_data));
+    } else {
+        show_debug_message("Error: " + string(_code));
+    }
+});</code></pre>
+<ul>
+<li>
+<p><code>elements_get_application</code> will:</p>
+</li>
+<li>
+<p>Validate its arguments.</p>
+</li>
+<li>Build URL: <code>"{rest_url}/application/my-app-id"</code>.</li>
+<li>Require security: <code>[ "auth_bearer", "session_secret" ]</code>.</li>
+<li>Create an <code>ElementsRequest</code> and <code>send()</code> it.</li>
+<li>It returns the <strong>HTTP request id</strong> from <code>http_request</code> (in case you want to track/cancel).</li>
+</ul>
+<h3 id="example-post-with-body">Example: POST with body</h3>
+<pre class="highlight"><code class="language-gml">var _body = new ElementsCreateAppleIapReceipt(_receipt_base64, "SANDBOX");
+
+elements_upload_apple_iap_receipt(_body, function(_code, _data, _request) {
+    if (_code == 200) {
+        // _data is whatever the server returns (likely JSON parsed to a struct/array)
+        show_debug_message("Reward issuances: " + string(_data));
+    } else {
+        show_debug_message("IAP error: " + string(_code));
+    }
+});</code></pre>
+<blockquote>
+<p>[IMPORTANT]
+When a body is a struct generated by these constructors, the wrapper calls <code>.validate()</code> before sending to ensure types are correct.</p>
+</blockquote>
+<hr />
+<h2 id="3-authentication-model">3. Authentication model</h2>
+<h3 id="31-how-tokens-are-stored">3.1. How tokens are stored</h3>
+<p>Auth tokens live in the <code>obj_elements_core</code> singleton, in its <code>auth_tokens</code> map:</p>
+<pre class="highlight"><code class="language-gml">// set
+_elements_request_auth_set_token("auth_bearer", some_token);
+_elements_request_auth_set_token("session_secret", some_other_token);
+
+// get
+var bearer = _elements_request_auth_get_token("auth_bearer");</code></pre>
+<p>The singleton is created lazily:</p>
+<pre class="highlight"><code class="language-gml">function _elements_get_singleton(_where)
+{
+    static instance = instance_create_depth(0, 0, 0, obj_elements_core);
+    with (instance) return self;
+}</code></pre>
+<p>So you don’t manually create it; using any of the helper functions will.</p>
+<h3 id="32-how-tokens-are-injected-into-requests">3.2. How tokens are injected into requests</h3>
+<p>Endpoints declare which auth schemes they need:</p>
+<pre class="highlight"><code class="language-gml">var _security = [ "auth_bearer", "session_secret" ];</code></pre>
+<p>Then <code>ElementsRequest.send()</code> calls <code>_apply_auth</code> for each scheme:</p>
+<pre class="highlight"><code class="language-gml">_self._apply_auth(_header, _params, security[_i], where);</code></pre>
+<p><code>_apply_auth</code> does:</p>
+<pre class="highlight"><code class="language-gml">case "auth_bearer":
+    var _token = _elements_request_auth_get_token("auth_bearer");
+    if (is_undefined(_token)) { /* log missing */ break; }
+    _header[? "Authorization"] = "Bearer " + _token;
+    break;
+
+case "session_secret":
+    var _token = _elements_request_auth_get_token("session_secret");
+    if (is_undefined(_token)) { /* log missing */ break; }
+    _header[? "Elements-SessionSecret"] = _token;
+    break;</code></pre>
+<p>So:</p>
+<ul>
+<li>If you <strong>don’t</strong> set a token, that scheme is simply skipped (no header added).</li>
+<li>If you <strong>do</strong> set it, it will be applied automatically on all endpoints that list that scheme.</li>
+</ul>
+<h3 id="33-what-you-must-do-after-login">3.3. What you must do after login</h3>
+<p>From your example:</p>
+<pre class="highlight"><code class="language-gml">elements_create_username_password_session(_session_request, function(_code, _data, _request) {
+    if (_code == 200) {
+        obj_game.session_data = _data;
+
+        var _session_secret = _data.sessionSecret;
+        _elements_request_auth_set_token("auth_bearer", _session_secret);
+        // (optionally) also:
+        // _elements_request_auth_set_token("session_secret", _session_secret);
+    }
+    show_debug_message("elements_create_username_password_session :: " + string(_data));
+});</code></pre>
+<p>Pattern:</p>
+<ol>
+<li>Call a <strong>login/auth endpoint</strong>.</li>
+<li>
+<p>In its callback:</p>
+</li>
+<li>
+<p>Extract token(s) from <code>_data</code>.</p>
+</li>
+<li>Store them using <code>_elements_request_auth_set_token</code>.</li>
+<li>After that, all other endpoints needing those schemes will automatically send the right headers.</li>
+</ol>
+<p>That’s the main thing a user of this API needs to understand about auth.</p>
+<hr />
+<h2 id="4-the-async-http-flow-callbacks">4. The async HTTP flow (callbacks)</h2>
+<p>Here’s the lifecycle:</p>
+<ol>
+<li>You call an <code>elements_*</code> function.</li>
+<li>It creates an <code>ElementsRequest</code> and calls <code>.send()</code>.</li>
+<li>
+<p><code>send()</code>:</p>
+</li>
+<li>
+<p>Builds headers and URL.</p>
+</li>
+<li>Calls <code>http_request(...)</code>, gets an HTTP id.</li>
+<li>Stores itself in <code>obj_elements_core.requests[? id] = self</code>.</li>
+<li>Later, GameMaker fires an <strong>Async HTTP event</strong> on <code>obj_elements_core</code> with <code>async_load</code>.</li>
+</ol>
+<p>Inside that event (your snippet):</p>
+<pre class="highlight"><code class="language-gml">var _async_id = async_load[? "id"];
+var _request = requests[? _async_id];
+
+if (_request == undefined) exit;           // unknown request
+var _status = async_load[? "status"];
+if (_status == 1) exit;                    // still in progress
+
+var _code = async_load[? "http_status"];
+var _data = async_load[? "result"];</code></pre>
+<h3 id="41-response-hooks-optional">4.1. Response hooks (optional)</h3>
+<p>Before your callback is run, hooks are checked:</p>
+<pre class="highlight"><code class="language-gml">var _hook = response_hooks[? _code];
+
+if (is_callable(_hook) &amp;&amp; _hook(_code, _data, _request) == true) {
+    ds_map_delete(requests, _async_id);
+    return;
+}</code></pre>
+<ul>
+<li>A <strong>hook</strong> is a global handler you can register per HTTP status code.</li>
+<li>If it returns <code>true</code>, it “consumes” the response and the per-request callback is skipped.</li>
+</ul>
+<p>You register a hook like:</p>
+<pre class="highlight"><code class="language-gml">_elements_request_response_set_hook(401, function(_code, _data, _request) {
+    // global unauthorized handler, maybe redirect to login screen
+    // return true to stop further handling
+    return true;
+});</code></pre>
+<h3 id="42-calling-your-callback">4.2. Calling your callback</h3>
+<p>If no hook stops it, your callback is called:</p>
+<pre class="highlight"><code class="language-gml">var _callback = _request.get_callback();
+if (is_callable(_callback)) {
+    try {
+        _data = json_parse(_data);
+    } catch(_ex) { /* if not JSON, leave _data as string */ }
+    _callback(_code, _data, _request);
+}
+ds_map_delete(requests, _async_id);</code></pre>
+<p>So:</p>
+<ul>
+<li><code>_code</code> is the HTTP status (200, 400, 500, …).</li>
+<li>
+<p><code>_data</code> is:</p>
+</li>
+<li>
+<p>Parsed JSON → struct/array when possible.</p>
+</li>
+<li>Raw string if <code>json_parse</code> fails.</li>
+<li><code>_request</code> is the <code>ElementsRequest</code> instance (you can inspect method, URL and even retry the request).</li>
+</ul>
+<p><strong>Your callbacks should always be ready to handle both success and error codes.</strong></p>
+<hr />
+<h2 id="5-content-types-body-conversion">5. Content types &amp; body conversion</h2>
+<h3 id="51-how-content_type-is-used">5.1. How content_type is used</h3>
+<p>Every request passes a <code>_content_type</code> string into <code>ElementsRequest</code>:</p>
+<ul>
+<li>Some endpoints fix it internally:</li>
+</ul>
+<pre class="highlight"><code class="language-gml">static _content_type = "application/json";
+...
+_elements_create_request(_url, _params, "POST", _body, _content_type, ...);</code></pre>
+<ul>
+<li>Some let you override it:</li>
+</ul>
+<pre class="highlight"><code class="language-gml">function elements_update_product_bundle_for_application_configuration(..., _body = undefined, _content_type = "*/*", _callback = undefined)
+{
+    ...
+    return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+}</code></pre>
+<p>Internally, when an <code>ElementsRequest</code> is created:</p>
+<pre class="highlight"><code class="language-gml">if (!is_undefined(_body)) {
+    _body = _process_body(_body, _content_type, _where);
+    if (!is_string(_body)) {
+        __.body_type = 1; // buffer
+        __.body = buffer_base64_encode(_body, 0, -1);
+    } else {
+        __.body = _body;
+    }
+}</code></pre>
+<p>So:</p>
+<ul>
+<li>
+<p><code>_content_type</code> controls:</p>
+</li>
+<li>
+<p>The <code>Content-Type</code> header.</p>
+</li>
+<li>Which <strong>converter function</strong> is used to turn your struct/array into a wire format.</li>
+</ul>
+<h3 id="52-body-converters">5.2. Body converters</h3>
+<p>Converters are registered globally:</p>
+<pre class="highlight"><code class="language-gml">_elements_request_body_set_converter("application/json", function(value) {
+    return json_encode(value);
+});</code></pre>
+<p>At send time, <code>_process_body</code> does:</p>
+<pre class="highlight"><code class="language-gml">var _body_converter = _elements_request_body_get_converter(_content_type);
+if (!is_callable(_body_converter)) {
+    show_error(_where + " :: No converter for '" + _content_type + "'.", true);
+}
+
+_body = _body_converter(_body); // must be string or buffer</code></pre>
+<p>This means:</p>
+<ul>
+<li>
+<p>For <strong>application/json</strong>:</p>
+</li>
+<li>
+<p>You’re expected to have a converter that <code>json_encode</code>s your struct/array.</p>
+</li>
+<li>
+<p>For other content types:</p>
+</li>
+<li>
+<p>You can define your own converters (e.g. multipart, binary, etc.).</p>
+</li>
+<li>
+<p>If you pass a content type that has no converter registered:</p>
+</li>
+<li>
+<p>The request hard-errors (<code>show_error</code>).</p>
+</li>
+</ul>
+<h3 id="53-example-overriding-content_type">5.3. Example: overriding content_type</h3>
+<p>For the product bundle endpoint:</p>
+<pre class="highlight"><code class="language-gml">var bundles = [ /* array of ElementsProductBundle structs */ ];
+
+// Let’s say your converter expects JSON when content_type is "application/json"
+elements_update_product_bundle_for_application_configuration(
+    "my-app",
+    "my-config",
+    bundles,
+    "application/json",
+    function(_code, _data, _request) { ... }
+);</code></pre>
+<p>If you pass <code>"*/*"</code> and no converter is registered for <code>"*/*"</code>, you’ll get an error. So in practice, you nearly always want <code>"application/json"</code> unless you’ve set up something custom.</p>
+<hr />
+<h2 id="6-using-the-schema-structs">6. Using the schema structs</h2>
+<p>The <code>ElementsXXX</code> constructors (<code>ElementsItem</code>, <code>ElementsUser</code>, <code>ElementsRewardIssuance</code>, etc.) are data containers with a built-in <code>validate()</code>.</p>
+<p>Example:</p>
+<pre class="highlight"><code class="language-gml">var _user = new ElementsUser("user-id", "USER", "username");
+var _item = new ElementsItem("sword", "Sword of Testing", "A test sword.", "FUNGIBLE");
+
+var _issuance = new ElementsRewardIssuance(
+    "reward-id",
+    _user,
+    "ISSUED",
+    "my-context",
+    "NON_PERSISTENT",
+    _item,
+    10
+);
+
+// Before sending:
+_issuance.validate(_GMFUNCTION_); // endpoints do this for you</code></pre>
+<p>Key points:</p>
+<ul>
+<li>
+<p>Each struct type has a <code>static __uid</code> (e.g. <code>3284773420</code> for <code>ElementsRewardIssuance</code>).</p>
+</li>
+<li>
+<p>Endpoints check this UID to prevent wrong struct types being passed:</p>
+</li>
+</ul>
+<pre class="highlight"><code class="language-gml">if (!is_struct(_body) || _body[$ "__uid"] != 1514807530) show_error("expected ElementsCreateAppleIapReceipt");</code></pre>
+<ul>
+<li><code>.validate()</code> checks all fields and will <code>show_error</code> if something is wrong (wrong type, missing required fields).</li>
+</ul>
+<p>The user of the API mostly needs to know:</p>
+<ul>
+<li><strong>Always</strong> construct request bodies with the provided <code>ElementsXXX</code> constructors.</li>
+<li>You don’t need to call <code>.validate()</code> yourself – the endpoint does it – but you <em>can</em> call it early to fail fast.</li>
+</ul>
+<hr />
+<h2 id="7-retrying-requests">7. Retrying requests</h2>
+<p><code>ElementsRequest</code> tracks how many times it was sent:</p>
+<pre class="highlight"><code class="language-gml">attempts = 0;
+static retry = function() { return send(); }</code></pre>
+<ul>
+<li>The <code>send()</code> method increments <code>attempts</code> each time it’s called.</li>
+<li>If you keep a reference to <code>_request</code> (e.g. via <code>_request</code> in your callback), you can manually call <code>_request.retry()</code> to resend it.</li>
+<li>This is useful if you want a <strong>per-request</strong> retry after a specific error, rather than a global hook.</li>
+</ul>
+<hr />
+<h2 id="8-putting-it-all-together-typical-usage-flow">8. Putting it all together – typical usage flow</h2>
+<ol>
+<li><strong>Login / acquire tokens</strong></li>
+</ol>
+<pre class="highlight"><code class="language-gml">elements_create_username_password_session(_session_request, function(_code, _data, _request) {
+    if (_code == 200) {
+        var _session_secret = _data.sessionSecret;
+        _elements_request_auth_set_token("auth_bearer", _session_secret);
+        _elements_request_auth_set_token("session_secret", _session_secret);
+    }
+});</code></pre>
+<ol>
+<li><strong>Optionally set global response hooks</strong></li>
+</ol>
+<pre class="highlight"><code class="language-gml">_elements_request_response_set_hook(401, function(_code, _data, _request) {
+    show_debug_message("Unauthorized, redirecting to login...");
+    // change room, clear saved session, whatever
+    return true; // don’t call the per-request callback
+});</code></pre>
+<ol>
+<li><strong>Call other endpoints normally</strong></li>
+</ol>
+<pre class="highlight"><code class="language-gml">elements_get_application_profiles("my-app", 0, 20, "", function(_code, _data, _request) {
+    if (_code == 200) {
+        // use _data (already JSON-parsed)
+    } else {
+        // handle error
+    }
+});</code></pre>
+<ol>
+<li><strong>When sending bodies, use the right struct types + content_type</strong></li>
+</ol>
+<pre class="highlight"><code class="language-gml">var _receipt = new ElementsCreateAppleIapReceipt(receipt_base64, "PRODUCTION");
+elements_upload_apple_iap_receipt(_receipt, function(_code, _data, _request) {
+    // ...
+});</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="home.html" class="btn btn-neutral float-left" title="GMEXT-Elements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="elements_rest_api.html" class="btn btn-neutral float-right" title="Elements REST API">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><p align="center">GameMaker 2025</p></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/YoYoGames/GMEXT-Elements" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="home.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="elements_rest_api.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gml.min.js"></script>
+      <script src="assets/js/gmext_script.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

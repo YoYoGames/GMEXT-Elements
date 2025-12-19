@@ -18,7 +18,7 @@ type_converters[$ "application/json"] = function(_i) {
 	    if (is_struct(_value)) {
             with({}) { // This is the most performant way to change context
 	            struct_foreach(_value, __strip);
-	            return self;		
+	            return self;
             }
 	    }
 	    return _value; // We return the value as normal
@@ -32,6 +32,7 @@ auth_tokens = {};
 
 // Store in-progress requests and also registered response hooks.
 // These serve as lookup tables (ds_map are used due to the nature of the indices)
+
 requests = ds_map_create();
 response_hooks = ds_map_create();
 

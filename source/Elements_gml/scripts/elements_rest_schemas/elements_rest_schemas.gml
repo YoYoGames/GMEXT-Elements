@@ -2379,7 +2379,7 @@ function ElementsTaglibDescriptor(_taglib_uri = undefined, _taglib_location = un
  * @param {Array[String]} _url_patterns
  * @param {String} _el_ignored
  * @param {String} _is_xml
- * @param {String} _error_on_elnot_found
+ * @param {String} _error_on_el_not_found
  * @param {String} _page_encoding
  * @param {String} _scripting_invalid
  * @param {Array[String]} _include_preludes
@@ -2389,13 +2389,13 @@ function ElementsTaglibDescriptor(_taglib_uri = undefined, _taglib_location = un
  * @param {String} _error_on_undeclared_namespace
  * @param {String} _deferred_syntax_allowed_as_literal
  */
-function ElementsJspPropertyGroupDescriptor(_buffer = undefined, _url_patterns = undefined, _el_ignored = undefined, _is_xml = undefined, _error_on_elnot_found = undefined, _page_encoding = undefined, _scripting_invalid = undefined, _include_preludes = undefined, _include_codas = undefined, _default_content_type = undefined, _trim_directive_whitespaces = undefined, _error_on_undeclared_namespace = undefined, _deferred_syntax_allowed_as_literal = undefined) constructor
+function ElementsJspPropertyGroupDescriptor(_buffer = undefined, _url_patterns = undefined, _el_ignored = undefined, _is_xml = undefined, _error_on_el_not_found = undefined, _page_encoding = undefined, _scripting_invalid = undefined, _include_preludes = undefined, _include_codas = undefined, _default_content_type = undefined, _trim_directive_whitespaces = undefined, _error_on_undeclared_namespace = undefined, _deferred_syntax_allowed_as_literal = undefined) constructor
 {
 	buffer = _buffer;
 	urlPatterns = _url_patterns;
 	elIgnored = _el_ignored;
 	isXml = _is_xml;
-	errorOnELNotFound = _error_on_elnot_found;
+	errorOnELNotFound = _error_on_el_not_found;
 	pageEncoding = _page_encoding;
 	scriptingInvalid = _scripting_invalid;
 	includePreludes = _include_preludes;
@@ -4245,7 +4245,7 @@ function ElementsScore(_id, _profile, _creation_timestamp, _leaderboard_epoch, _
  */
 function ElementsRank(_score, _position = undefined) constructor
 {
-	score = _score;
+	self[$ "score"] = _score;
 	position = _position;
 	
 	static __uid = 1348532098;
@@ -4259,8 +4259,8 @@ function ElementsRank(_score, _position = undefined) constructor
 	{
 		_where = $"{_where} :: ElementsRank.validate";
 		
-		if (!is_struct(score) || score[$ "__uid"] != 3673458198) show_error($"{_where} :: score expected ElementsScore", true);
-		score.validate(_where);
+		if (!is_struct(self[$ "score"]) || self[$ "score"][$ "__uid"] != 3673458198) show_error($"{_where} :: self[$ 'score'] expected ElementsScore", true);
+		self[$ "score"].validate(_where);
 		if (!is_undefined(position) && !is_real(position)) show_error($"{_where} :: position expected int64", true);
 	};
 }

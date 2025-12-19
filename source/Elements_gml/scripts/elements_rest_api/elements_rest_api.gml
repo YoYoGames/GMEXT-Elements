@@ -10,7 +10,9 @@
  */
 function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -21,12 +23,12 @@ function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefi
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/ios/receipt";
+	var __url__ = $"{__base_url__}/ios/receipt";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -40,6 +42,8 @@ function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefi
  */
 function elements_get_application_profiles(_application_name_or_id, _offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -48,15 +52,15 @@ function elements_get_application_profiles(_application_name_or_id, _offset = un
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -69,6 +73,8 @@ function elements_get_application_profiles(_application_name_or_id, _offset = un
  */
 function elements_get_applications(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -76,15 +82,15 @@ function elements_get_applications(_offset = undefined, _count = undefined, _sea
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application";
+	var __url__ = $"{__base_url__}/application";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -95,7 +101,9 @@ function elements_get_applications(_offset = undefined, _count = undefined, _sea
  */
 function elements_create_application(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -106,12 +114,12 @@ function elements_create_application(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application";
+	var __url__ = $"{__base_url__}/application";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -122,17 +130,19 @@ function elements_create_application(_body = undefined, _callback = undefined)
  */
 function elements_get_application(_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -144,7 +154,9 @@ function elements_get_application(_name_or_id, _callback = undefined)
  */
 function elements_update_application(_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
@@ -156,12 +168,12 @@ function elements_update_application(_name_or_id, _body = undefined, _callback =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -172,17 +184,19 @@ function elements_update_application(_name_or_id, _body = undefined, _callback =
  */
 function elements_delete_application(_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -194,7 +208,9 @@ function elements_delete_application(_name_or_id, _callback = undefined)
  */
 function elements_create_facebook_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -206,12 +222,12 @@ function elements_create_facebook_application_configuration(_application_name_or
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/facebook";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -223,18 +239,20 @@ function elements_create_facebook_application_configuration(_application_name_or
  */
 function elements_get_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -247,7 +265,9 @@ function elements_get_facebook_application_configuration(_application_name_or_id
  */
 function elements_update_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -260,12 +280,12 @@ function elements_update_facebook_application_configuration(_application_name_or
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -277,18 +297,20 @@ function elements_update_facebook_application_configuration(_application_name_or
  */
 function elements_delete_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -300,7 +322,9 @@ function elements_delete_facebook_application_configuration(_application_name_or
  */
 function elements_create_firebase_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -312,12 +336,12 @@ function elements_create_firebase_application_configuration(_application_name_or
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/firebase";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -329,18 +353,20 @@ function elements_create_firebase_application_configuration(_application_name_or
  */
 function elements_get_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -353,7 +379,9 @@ function elements_get_firebase_application_configuration(_application_name_or_id
  */
 function elements_update_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -366,12 +394,12 @@ function elements_update_firebase_application_configuration(_application_name_or
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -383,18 +411,20 @@ function elements_update_firebase_application_configuration(_application_name_or
  */
 function elements_delete_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -406,7 +436,9 @@ function elements_delete_firebase_application_configuration(_application_name_or
  */
 function elements_create_google_play_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -418,12 +450,12 @@ function elements_create_google_play_application_configuration(_application_name
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/google_play";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -435,18 +467,20 @@ function elements_create_google_play_application_configuration(_application_name
  */
 function elements_get_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -459,7 +493,9 @@ function elements_get_google_play_application_configuration(_application_name_or
  */
 function elements_update_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -472,12 +508,12 @@ function elements_update_google_play_application_configuration(_application_name
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -489,18 +525,20 @@ function elements_update_google_play_application_configuration(_application_name
  */
 function elements_delete_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -514,20 +552,24 @@ function elements_delete_google_play_application_configuration(_application_name
  */
 function elements_update_product_bundle_for_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _content_type = "*/*", _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	__content_type__ = _content_type;
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: _body expected ElementsProductBundle", true);
-	if (!is_undefined(_content_type) && !is_string(_content_type)) show_error($"{_GMFUNCTION_} :: _content_type expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}/product_bundles";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}/product_bundles";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -539,7 +581,9 @@ function elements_update_product_bundle_for_application_configuration(_applicati
  */
 function elements_create_ios_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -551,12 +595,12 @@ function elements_create_ios_application_configuration(_application_name_or_id, 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/ios";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -568,18 +612,20 @@ function elements_create_ios_application_configuration(_application_name_or_id, 
  */
 function elements_get_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -592,7 +638,9 @@ function elements_get_ios_application_configuration(_application_name_or_id, _ap
  */
 function elements_update_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -605,12 +653,12 @@ function elements_update_ios_application_configuration(_application_name_or_id, 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -622,18 +670,20 @@ function elements_update_ios_application_configuration(_application_name_or_id, 
  */
 function elements_delete_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -646,7 +696,9 @@ function elements_delete_ios_application_configuration(_application_name_or_id, 
  */
 function elements_update_product_bundle_for_application_configuration_1(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -655,12 +707,12 @@ function elements_update_product_bundle_for_application_configuration_1(_applica
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}/product_bundles";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}/product_bundles";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -672,7 +724,9 @@ function elements_update_product_bundle_for_application_configuration_1(_applica
  */
 function elements_create_matchmaking_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -684,12 +738,12 @@ function elements_create_matchmaking_application_configuration(_application_name
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/matchmaking";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -701,18 +755,20 @@ function elements_create_matchmaking_application_configuration(_application_name
  */
 function elements_get_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -725,7 +781,9 @@ function elements_get_matchmaking_application_configuration(_application_name_or
  */
 function elements_update_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
@@ -738,12 +796,12 @@ function elements_update_matchmaking_application_configuration(_application_name
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -755,47 +813,51 @@ function elements_update_matchmaking_application_configuration(_application_name
  */
 function elements_delete_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
  * @func elements_create_psn_application_configuration()
  * Creates a new PSN ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
- * @param {Struct.Elementspsn_applicationConfiguration} _body
+ * @param {Struct.ElementsPSNApplicationConfiguration} _body
  * @param {Function} _callback
  */
 function elements_create_psn_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1535140709) show_error($"{_GMFUNCTION_} :: _body expected Elementspsn_applicationConfiguration", true);
+		if (!is_struct(_body) || _body[$ "__uid"] != 1535140709) show_error($"{_GMFUNCTION_} :: _body expected ElementsPSNApplicationConfiguration", true);
 		_body.validate(_GMFUNCTION_);
 	}
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/psn";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -807,18 +869,20 @@ function elements_create_psn_application_configuration(_application_name_or_id, 
  */
 function elements_get_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -826,30 +890,32 @@ function elements_get_psn_application_configuration(_application_name_or_id, _ap
  * Updates an existing PSN Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Struct.Elementspsn_applicationConfiguration} _body
+ * @param {Struct.ElementsPSNApplicationConfiguration} _body
  * @param {Function} _callback
  */
 function elements_update_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1535140709) show_error($"{_GMFUNCTION_} :: _body expected Elementspsn_applicationConfiguration", true);
+		if (!is_struct(_body) || _body[$ "__uid"] != 1535140709) show_error($"{_GMFUNCTION_} :: _body expected ElementsPSNApplicationConfiguration", true);
 		_body.validate(_GMFUNCTION_);
 	}
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -861,18 +927,20 @@ function elements_update_psn_application_configuration(_application_name_or_id, 
  */
 function elements_delete_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
+	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -885,6 +953,8 @@ function elements_delete_psn_application_configuration(_application_name_or_id, 
  */
 function elements_get_auth_schemes(_offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -892,15 +962,15 @@ function elements_get_auth_schemes(_offset = undefined, _count = undefined, _tag
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/custom";
+	var __url__ = $"{__base_url__}/auth_scheme/custom";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -911,7 +981,9 @@ function elements_get_auth_schemes(_offset = undefined, _count = undefined, _tag
  */
 function elements_create_auth_scheme(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -922,12 +994,12 @@ function elements_create_auth_scheme(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/custom";
+	var __url__ = $"{__base_url__}/auth_scheme/custom";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -938,17 +1010,19 @@ function elements_create_auth_scheme(_body = undefined, _callback = undefined)
  */
 function elements_get_auth_scheme(_auth_scheme_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _auth_scheme_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/custom/{_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/custom/{_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -960,7 +1034,9 @@ function elements_get_auth_scheme(_auth_scheme_id, _callback = undefined)
  */
 function elements_update_auth_scheme(_auth_scheme_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _auth_scheme_id expected string", true);
@@ -972,12 +1048,12 @@ function elements_update_auth_scheme(_auth_scheme_id, _body = undefined, _callba
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/custom/{_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/custom/{_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -988,17 +1064,19 @@ function elements_update_auth_scheme(_auth_scheme_id, _body = undefined, _callba
  */
 function elements_delete_auth_scheme(_auth_scheme_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _auth_scheme_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/custom/{_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/custom/{_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1009,7 +1087,9 @@ function elements_delete_auth_scheme(_auth_scheme_id, _callback = undefined)
  */
 function elements_create_oauth2_session(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -1020,12 +1100,12 @@ function elements_create_oauth2_session(_body = undefined, _callback = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth/oauth2";
+	var __url__ = $"{__base_url__}/auth/oauth2";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1038,6 +1118,8 @@ function elements_create_oauth2_session(_body = undefined, _callback = undefined
  */
 function elements_get_auth_schemes_1(_offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -1045,15 +1127,15 @@ function elements_get_auth_schemes_1(_offset = undefined, _count = undefined, _t
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oauth2";
+	var __url__ = $"{__base_url__}/auth_scheme/oauth2";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1064,7 +1146,9 @@ function elements_get_auth_schemes_1(_offset = undefined, _count = undefined, _t
  */
 function elements_create_auth_scheme_1(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -1075,48 +1159,52 @@ function elements_create_auth_scheme_1(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oauth2";
+	var __url__ = $"{__base_url__}/auth_scheme/oauth2";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
  * @func elements_get_auth_scheme_1()
  * Gets a specific Auth Scheme by the oAuth2AuthSchemeId.
- * @param {String} _o_auth2_auth_scheme_id
+ * @param {String} _oauth2_auth_scheme_id
  * @param {Function} _callback
  */
-function elements_get_auth_scheme_1(_o_auth2_auth_scheme_id, _callback = undefined)
+function elements_get_auth_scheme_1(_oauth2_auth_scheme_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
-	if (!is_string(_o_auth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _o_auth2_auth_scheme_id expected string", true);
+	if (!is_string(_oauth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oauth2_auth_scheme_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oauth2/{_o_auth2_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/oauth2/{_oauth2_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
  * @func elements_update_auth_scheme_1()
  * Updates an Auth Scheme with the specified data in the auth scheme request.
- * @param {String} _o_auth2_auth_scheme_id
+ * @param {String} _oauth2_auth_scheme_id
  * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} _body
  * @param {Function} _callback
  */
-function elements_update_auth_scheme_1(_o_auth2_auth_scheme_id, _body = undefined, _callback = undefined)
+function elements_update_auth_scheme_1(_oauth2_auth_scheme_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
-	if (!is_string(_o_auth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _o_auth2_auth_scheme_id expected string", true);
+	if (!is_string(_oauth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oauth2_auth_scheme_id expected string", true);
 	if (!is_undefined(_body))
 	{
 		if (!is_struct(_body) || _body[$ "__uid"] != 4181820335) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateOrUpdateOAuth2AuthSchemeRequest", true);
@@ -1125,33 +1213,35 @@ function elements_update_auth_scheme_1(_o_auth2_auth_scheme_id, _body = undefine
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oauth2/{_o_auth2_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/oauth2/{_oauth2_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
  * @func elements_delete_auth_scheme_1()
  * Deletes an Auth Scheme with the specified id.
- * @param {String} _o_auth2_auth_scheme_id
+ * @param {String} _oauth2_auth_scheme_id
  * @param {Function} _callback
  */
-function elements_delete_auth_scheme_1(_o_auth2_auth_scheme_id, _callback = undefined)
+function elements_delete_auth_scheme_1(_oauth2_auth_scheme_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
-	if (!is_string(_o_auth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _o_auth2_auth_scheme_id expected string", true);
+	if (!is_string(_oauth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oauth2_auth_scheme_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oauth2/{_o_auth2_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/oauth2/{_oauth2_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1162,7 +1252,9 @@ function elements_delete_auth_scheme_1(_o_auth2_auth_scheme_id, _callback = unde
  */
 function elements_create_oidc_session(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -1173,12 +1265,12 @@ function elements_create_oidc_session(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth/oidc";
+	var __url__ = $"{__base_url__}/auth/oidc";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1191,6 +1283,8 @@ function elements_create_oidc_session(_body = undefined, _callback = undefined)
  */
 function elements_get_auth_schemes_2(_offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -1198,15 +1292,15 @@ function elements_get_auth_schemes_2(_offset = undefined, _count = undefined, _t
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oidc";
+	var __url__ = $"{__base_url__}/auth_scheme/oidc";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1217,7 +1311,9 @@ function elements_get_auth_schemes_2(_offset = undefined, _count = undefined, _t
  */
 function elements_create_auth_scheme_2(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -1228,12 +1324,12 @@ function elements_create_auth_scheme_2(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oidc";
+	var __url__ = $"{__base_url__}/auth_scheme/oidc";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1244,17 +1340,19 @@ function elements_create_auth_scheme_2(_body = undefined, _callback = undefined)
  */
 function elements_get_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_oidc_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oidc_auth_scheme_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1266,7 +1364,9 @@ function elements_get_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefined)
  */
 function elements_update_auth_scheme_2(_oidc_auth_scheme_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_oidc_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oidc_auth_scheme_id expected string", true);
@@ -1278,12 +1378,12 @@ function elements_update_auth_scheme_2(_oidc_auth_scheme_id, _body = undefined, 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1294,17 +1394,19 @@ function elements_update_auth_scheme_2(_oidc_auth_scheme_id, _body = undefined, 
  */
 function elements_delete_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_oidc_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oidc_auth_scheme_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
+	var __url__ = $"{__base_url__}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1318,6 +1420,8 @@ function elements_delete_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefin
  */
 function elements_get_smart_contracts(_offset = undefined, _count = undefined, _api = undefined, _network = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -1326,15 +1430,15 @@ function elements_get_smart_contracts(_offset = undefined, _count = undefined, _
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/smart_contract";
+	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, api : _api, network : _network };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1345,7 +1449,9 @@ function elements_get_smart_contracts(_offset = undefined, _count = undefined, _
  */
 function elements_create_smart_contract(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -1356,12 +1462,12 @@ function elements_create_smart_contract(_body = undefined, _callback = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/smart_contract";
+	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1372,17 +1478,19 @@ function elements_create_smart_contract(_body = undefined, _callback = undefined
  */
 function elements_get_smart_contract(_contract_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_contract_id)) show_error($"{_GMFUNCTION_} :: _contract_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/smart_contract/{_contract_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract/{_contract_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1394,7 +1502,9 @@ function elements_get_smart_contract(_contract_id, _callback = undefined)
  */
 function elements_update_smart_contract(_contract_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_contract_id)) show_error($"{_GMFUNCTION_} :: _contract_id expected string", true);
@@ -1406,12 +1516,12 @@ function elements_update_smart_contract(_contract_id, _body = undefined, _callba
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/smart_contract/{_contract_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract/{_contract_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1422,17 +1532,19 @@ function elements_update_smart_contract(_contract_id, _body = undefined, _callba
  */
 function elements_delete_contract(_contract_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_contract_id)) show_error($"{_GMFUNCTION_} :: _contract_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/smart_contract/{_contract_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract/{_contract_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1445,6 +1557,8 @@ function elements_delete_contract(_contract_id, _callback = undefined)
  */
 function elements_get_vaults(_offset = undefined, _count = undefined, _user_id = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -1452,15 +1566,15 @@ function elements_get_vaults(_offset = undefined, _count = undefined, _user_id =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, userId : _user_id };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1471,7 +1585,9 @@ function elements_get_vaults(_offset = undefined, _count = undefined, _user_id =
  */
 function elements_create_vault(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -1482,12 +1598,12 @@ function elements_create_vault(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1498,17 +1614,19 @@ function elements_create_vault(_body = undefined, _callback = undefined)
  */
 function elements_get_vault(_vault_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1520,7 +1638,9 @@ function elements_get_vault(_vault_id, _callback = undefined)
  */
 function elements_update_vault(_vault_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
@@ -1532,12 +1652,12 @@ function elements_update_vault(_vault_id, _body = undefined, _callback = undefin
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1548,17 +1668,19 @@ function elements_update_vault(_vault_id, _body = undefined, _callback = undefin
  */
 function elements_delete_vault(_vault_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1574,6 +1696,8 @@ function elements_delete_vault(_vault_id, _callback = undefined)
  */
 function elements_get_wallets(_vault_id, _offset = undefined, _count = undefined, _user_id = undefined, _api = undefined, _network = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -1584,15 +1708,15 @@ function elements_get_wallets(_vault_id, _offset = undefined, _count = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}/wallet";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, userId : _user_id, api : _api, network : _network };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1604,7 +1728,9 @@ function elements_get_wallets(_vault_id, _offset = undefined, _count = undefined
  */
 function elements_create_wallet(_vault_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
@@ -1616,12 +1742,12 @@ function elements_create_wallet(_vault_id, _body = undefined, _callback = undefi
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}/wallet";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1633,18 +1759,20 @@ function elements_create_wallet(_vault_id, _body = undefined, _callback = undefi
  */
 function elements_get_wallet(_vault_id, _wallet_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1657,7 +1785,9 @@ function elements_get_wallet(_vault_id, _wallet_id, _callback = undefined)
  */
 function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
@@ -1670,12 +1800,12 @@ function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callb
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1687,18 +1817,20 @@ function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callb
  */
 function elements_delete_wallet(_vault_id, _wallet_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1709,17 +1841,19 @@ function elements_delete_wallet(_vault_id, _wallet_id, _callback = undefined)
  */
 function elements_get_wallet_1(_wallet_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/blockchain/omni/wallet/{_wallet_id}";
+	var __url__ = $"{__base_url__}/blockchain/omni/wallet/{_wallet_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1729,17 +1863,19 @@ function elements_get_wallet_1(_wallet_id, _callback = undefined)
  */
 function elements_get_deployments(_application_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/deployment/{_application_id}";
+	var __url__ = $"{__base_url__}/deployment/{_application_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1750,7 +1886,9 @@ function elements_get_deployments(_application_id, _callback = undefined)
  */
 function elements_create_new_deployment(_application_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
@@ -1762,12 +1900,12 @@ function elements_create_new_deployment(_application_id, _body = undefined, _cal
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/deployment/{_application_id}";
+	var __url__ = $"{__base_url__}/deployment/{_application_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1778,18 +1916,20 @@ function elements_create_new_deployment(_application_id, _body = undefined, _cal
  */
 function elements_get_deployment(_application_id, _deployment_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_string(_deployment_id)) show_error($"{_GMFUNCTION_} :: _deployment_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/deployment/{_application_id}/{_deployment_id}";
+	var __url__ = $"{__base_url__}/deployment/{_application_id}/{_deployment_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1800,18 +1940,20 @@ function elements_get_deployment(_application_id, _deployment_id, _callback = un
  */
 function elements_delete_deployment(_application_id, _deployment_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_string(_deployment_id)) show_error($"{_GMFUNCTION_} :: _deployment_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/deployment/{_application_id}/{_deployment_id}";
+	var __url__ = $"{__base_url__}/deployment/{_application_id}/{_deployment_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1821,17 +1963,19 @@ function elements_delete_deployment(_application_id, _deployment_id, _callback =
  */
 function elements_get_current_deployment(_application_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/deployment/{_application_id}/current";
+	var __url__ = $"{__base_url__}/deployment/{_application_id}/current";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1843,7 +1987,9 @@ function elements_get_current_deployment(_application_id, _callback = undefined)
  */
 function elements_update_deployment(_application_id, _version, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
@@ -1856,12 +2002,12 @@ function elements_update_deployment(_application_id, _version, _body = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/deployment/{_application_id}/{_version}";
+	var __url__ = $"{__base_url__}/deployment/{_application_id}/{_version}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1873,22 +2019,26 @@ function elements_update_deployment(_application_id, _version, _body = undefined
  */
 function elements_generate_code(_body = undefined, _content_type = "*/*", _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	__content_type__ = _content_type;
+	
 	// argument validation
 	if (!is_undefined(_body))
 	{
 		if (!is_struct(_body) || _body[$ "__uid"] != 2864578542) show_error($"{_GMFUNCTION_} :: _body expected ElementsCodegenRequest", true);
 		_body.validate(_GMFUNCTION_);
 	}
-	if (!is_undefined(_content_type) && !is_string(_content_type)) show_error($"{_GMFUNCTION_} :: _content_type expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/codegen";
+	var __url__ = $"{__base_url__}/codegen";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1901,6 +2051,8 @@ function elements_generate_code(_body = undefined, _content_type = "*/*", _callb
  */
 function elements_get_followers(_profile_id, _offset = undefined, _count = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -1908,15 +2060,15 @@ function elements_get_followers(_profile_id, _offset = undefined, _count = undef
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/followee/{_profile_id}";
+	var __url__ = $"{__base_url__}/followee/{_profile_id}";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1929,6 +2081,8 @@ function elements_get_followers(_profile_id, _offset = undefined, _count = undef
  */
 function elements_get_followers_1(_profile_id, _offset = undefined, _count = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -1936,15 +2090,15 @@ function elements_get_followers_1(_profile_id, _offset = undefined, _count = und
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/follower/{_profile_id}";
+	var __url__ = $"{__base_url__}/follower/{_profile_id}";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1956,7 +2110,9 @@ function elements_get_followers_1(_profile_id, _offset = undefined, _count = und
  */
 function elements_create_follower(_profile_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
@@ -1968,12 +2124,12 @@ function elements_create_follower(_profile_id, _body = undefined, _callback = un
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/follower/{_profile_id}";
+	var __url__ = $"{__base_url__}/follower/{_profile_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -1984,18 +2140,20 @@ function elements_create_follower(_profile_id, _body = undefined, _callback = un
  */
 function elements_delete_follower(_profile_id, _profile_to_unfollow_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_string(_profile_to_unfollow_id)) show_error($"{_GMFUNCTION_} :: _profile_to_unfollow_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/follower/{_profile_id}/{_profile_to_unfollow_id}";
+	var __url__ = $"{__base_url__}/follower/{_profile_id}/{_profile_to_unfollow_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2006,18 +2164,20 @@ function elements_delete_follower(_profile_id, _profile_to_unfollow_id, _callbac
  */
 function elements_get_follower(_profile_id, _followed_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_string(_followed_id)) show_error($"{_GMFUNCTION_} :: _followed_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/follower/{_profile_id}/{_followed_id}";
+	var __url__ = $"{__base_url__}/follower/{_profile_id}/{_followed_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2028,17 +2188,19 @@ function elements_get_follower(_profile_id, _followed_id, _callback = undefined)
  */
 function elements_get_friend(_friend_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_friend_id)) show_error($"{_GMFUNCTION_} :: _friend_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/friend/{_friend_id}";
+	var __url__ = $"{__base_url__}/friend/{_friend_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2049,17 +2211,19 @@ function elements_get_friend(_friend_id, _callback = undefined)
  */
 function elements_delete_friend_registration(_friend_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_friend_id)) show_error($"{_GMFUNCTION_} :: _friend_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/friend/{_friend_id}";
+	var __url__ = $"{__base_url__}/friend/{_friend_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2072,6 +2236,8 @@ function elements_delete_friend_registration(_friend_id, _callback = undefined)
  */
 function elements_get_friends(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -2079,15 +2245,15 @@ function elements_get_friends(_offset = undefined, _count = undefined, _search =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/friend";
+	var __url__ = $"{__base_url__}/friend";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2102,6 +2268,8 @@ function elements_get_friends(_offset = undefined, _count = undefined, _search =
  */
 function elements_get_items(_offset = undefined, _count = undefined, _tags = undefined, _category = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -2111,15 +2279,15 @@ function elements_get_items(_offset = undefined, _count = undefined, _tags = und
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/item";
+	var __url__ = $"{__base_url__}/item";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags, category : _category, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2130,7 +2298,9 @@ function elements_get_items(_offset = undefined, _count = undefined, _tags = und
  */
 function elements_create_item(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2141,12 +2311,12 @@ function elements_create_item(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/item";
+	var __url__ = $"{__base_url__}/item";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2157,17 +2327,19 @@ function elements_create_item(_body = undefined, _callback = undefined)
  */
 function elements_get_item_by_identifier(_identifier, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_identifier)) show_error($"{_GMFUNCTION_} :: _identifier expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/item/{_identifier}";
+	var __url__ = $"{__base_url__}/item/{_identifier}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2179,7 +2351,9 @@ function elements_get_item_by_identifier(_identifier, _callback = undefined)
  */
 function elements_update_item(_identifier, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_identifier)) show_error($"{_GMFUNCTION_} :: _identifier expected string", true);
@@ -2191,12 +2365,12 @@ function elements_update_item(_identifier, _body = undefined, _callback = undefi
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/item/{_identifier}";
+	var __url__ = $"{__base_url__}/item/{_identifier}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2206,7 +2380,9 @@ function elements_update_item(_identifier, _body = undefined, _callback = undefi
  */
 function elements_upload_google_play_iap_purchase(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2217,12 +2393,12 @@ function elements_upload_google_play_iap_purchase(_body = undefined, _callback =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/google/purchase";
+	var __url__ = $"{__base_url__}/google/purchase";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2232,7 +2408,9 @@ function elements_upload_google_play_iap_purchase(_body = undefined, _callback =
  */
 function elements_build_indexes(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2243,12 +2421,12 @@ function elements_build_indexes(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/index/build";
+	var __url__ = $"{__base_url__}/index/build";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2259,21 +2437,23 @@ function elements_build_indexes(_body = undefined, _callback = undefined)
  */
 function elements_get_plans(_offset = undefined, _count = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/index/plan";
+	var __url__ = $"{__base_url__}/index/plan";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2284,17 +2464,19 @@ function elements_get_plans(_offset = undefined, _count = undefined, _callback =
  */
 function elements_get_advanced_inventory_item(_inventory_item_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/advanced/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2306,7 +2488,9 @@ function elements_get_advanced_inventory_item(_inventory_item_id, _callback = un
  */
 function elements_update_simple_inventory_item(_inventory_item_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
@@ -2318,12 +2502,12 @@ function elements_update_simple_inventory_item(_inventory_item_id, _body = undef
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/advanced/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2334,17 +2518,19 @@ function elements_update_simple_inventory_item(_inventory_item_id, _body = undef
  */
 function elements_delete_advanced_inventory_item(_inventory_item_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/advanced/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2356,7 +2542,9 @@ function elements_delete_advanced_inventory_item(_inventory_item_id, _callback =
  */
 function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
@@ -2368,12 +2556,12 @@ function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _b
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/advanced/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PATCH", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PATCH", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2387,6 +2575,8 @@ function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _b
  */
 function elements_get_advanced_inventory_items(_offset = undefined, _count = undefined, _user_id = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -2395,15 +2585,15 @@ function elements_get_advanced_inventory_items(_offset = undefined, _count = und
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/advanced";
+	var __url__ = $"{__base_url__}/inventory/advanced";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, userId : _user_id, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2414,7 +2604,9 @@ function elements_get_advanced_inventory_items(_offset = undefined, _count = und
  */
 function elements_create_advanced_inventory_item(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2425,12 +2617,12 @@ function elements_create_advanced_inventory_item(_body = undefined, _callback = 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/advanced";
+	var __url__ = $"{__base_url__}/inventory/advanced";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2445,6 +2637,8 @@ function elements_create_advanced_inventory_item(_body = undefined, _callback = 
  */
 function elements_get_distinct_inventory_items(_offset = undefined, _count = undefined, _user_id = undefined, _profile_id = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -2454,15 +2648,15 @@ function elements_get_distinct_inventory_items(_offset = undefined, _count = und
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/distinct";
+	var __url__ = $"{__base_url__}/inventory/distinct";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, userId : _user_id, profileId : _profile_id, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2473,7 +2667,9 @@ function elements_get_distinct_inventory_items(_offset = undefined, _count = und
  */
 function elements_create_distinct_inventory_item(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2484,12 +2680,12 @@ function elements_create_distinct_inventory_item(_body = undefined, _callback = 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/distinct";
+	var __url__ = $"{__base_url__}/inventory/distinct";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2501,7 +2697,9 @@ function elements_create_distinct_inventory_item(_body = undefined, _callback = 
  */
 function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_distinct_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _distinct_inventory_item_id expected string", true);
@@ -2513,12 +2711,12 @@ function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _b
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/distinct/{_distinct_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/distinct/{_distinct_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2529,17 +2727,19 @@ function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _b
  */
 function elements_delete_distinct_inventory_item(_distinct_inventory_item_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_distinct_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _distinct_inventory_item_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/distinct/{_distinct_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/distinct/{_distinct_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2550,17 +2750,19 @@ function elements_delete_distinct_inventory_item(_distinct_inventory_item_id, _c
  */
 function elements_get_distinct_inventory_item(_inventory_item_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/distinct/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/distinct/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2571,17 +2773,19 @@ function elements_get_distinct_inventory_item(_inventory_item_id, _callback = un
  */
 function elements_get_simple_inventory_item(_inventory_item_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/simple/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2593,7 +2797,9 @@ function elements_get_simple_inventory_item(_inventory_item_id, _callback = unde
  */
 function elements_update_simple_inventory_item_1(_inventory_item_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
@@ -2605,12 +2811,12 @@ function elements_update_simple_inventory_item_1(_inventory_item_id, _body = und
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/simple/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2621,17 +2827,19 @@ function elements_update_simple_inventory_item_1(_inventory_item_id, _body = und
  */
 function elements_delete_simple_inventory_item(_inventory_item_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/simple/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2643,7 +2851,9 @@ function elements_delete_simple_inventory_item(_inventory_item_id, _callback = u
  */
 function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
@@ -2655,12 +2865,12 @@ function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _bod
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/simple/{_inventory_item_id}";
+	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PATCH", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PATCH", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2674,6 +2884,8 @@ function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _bod
  */
 function elements_get_simple_inventory_items(_offset = undefined, _count = undefined, _user_id = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -2682,15 +2894,15 @@ function elements_get_simple_inventory_items(_offset = undefined, _count = undef
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/simple";
+	var __url__ = $"{__base_url__}/inventory/simple";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, userId : _user_id, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2701,7 +2913,9 @@ function elements_get_simple_inventory_items(_offset = undefined, _count = undef
  */
 function elements_create_simple_inventory_item(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2712,12 +2926,12 @@ function elements_create_simple_inventory_item(_body = undefined, _callback = un
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/inventory/simple";
+	var __url__ = $"{__base_url__}/inventory/simple";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2730,7 +2944,9 @@ function elements_create_simple_inventory_item(_body = undefined, _callback = un
  */
 function elements_get_matched_user_profiles_with_phone_numbers(_offset = undefined, _count = undefined, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -2743,15 +2959,15 @@ function elements_get_matched_user_profiles_with_phone_numbers(_offset = undefin
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/invite";
+	var __url__ = $"{__base_url__}/invite";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2761,19 +2977,21 @@ function elements_get_matched_user_profiles_with_phone_numbers(_offset = undefin
  */
 function elements_create_large_object(_body = undefined, _callback = undefined)
 {
-	static _content_type = "multipart/form-data";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "multipart/form-data";
 	
 	// argument validation
 	if (!is_undefined(_body) && !is_struct(_body)) show_error($"{_GMFUNCTION_} :: _body expected any", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object_mp";
+	var __url__ = $"{__base_url__}/large_object_mp";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2783,7 +3001,9 @@ function elements_create_large_object(_body = undefined, _callback = undefined)
  */
 function elements_create_large_object_1(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2794,12 +3014,12 @@ function elements_create_large_object_1(_body = undefined, _callback = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object";
+	var __url__ = $"{__base_url__}/large_object";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2809,7 +3029,9 @@ function elements_create_large_object_1(_body = undefined, _callback = undefined
  */
 function elements_create_large_object_from_url(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2820,12 +3042,12 @@ function elements_create_large_object_from_url(_body = undefined, _callback = un
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object/from_url";
+	var __url__ = $"{__base_url__}/large_object/from_url";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2835,17 +3057,19 @@ function elements_create_large_object_from_url(_body = undefined, _callback = un
  */
 function elements_get_large_object(_large_object_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object/{_large_object_id}";
+	var __url__ = $"{__base_url__}/large_object/{_large_object_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2856,7 +3080,9 @@ function elements_get_large_object(_large_object_id, _callback = undefined)
  */
 function elements_update_large_object(_large_object_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
@@ -2868,12 +3094,12 @@ function elements_update_large_object(_large_object_id, _body = undefined, _call
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object/{_large_object_id}";
+	var __url__ = $"{__base_url__}/large_object/{_large_object_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2883,17 +3109,19 @@ function elements_update_large_object(_large_object_id, _body = undefined, _call
  */
 function elements_delete_large_object(_large_object_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object/{_large_object_id}";
+	var __url__ = $"{__base_url__}/large_object/{_large_object_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2905,19 +3133,23 @@ function elements_delete_large_object(_large_object_id, _callback = undefined)
  */
 function elements_update_large_object_contents(_large_object_id, _body = undefined, _content_type = "*/*", _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	__content_type__ = _content_type;
+	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
 	if (!is_undefined(_body) && !is_struct(_body)) show_error($"{_GMFUNCTION_} :: _body expected any", true);
-	if (!is_undefined(_content_type) && !is_string(_content_type)) show_error($"{_GMFUNCTION_} :: _content_type expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/large_object/{_large_object_id}/content";
+	var __url__ = $"{__base_url__}/large_object/{_large_object_id}/content";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2930,6 +3162,8 @@ function elements_update_large_object_contents(_large_object_id, _body = undefin
  */
 function elements_get_leaderboards(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -2937,15 +3171,15 @@ function elements_get_leaderboards(_offset = undefined, _count = undefined, _sea
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/leaderboard";
+	var __url__ = $"{__base_url__}/leaderboard";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2956,7 +3190,9 @@ function elements_get_leaderboards(_offset = undefined, _count = undefined, _sea
  */
 function elements_create_leaderboard(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -2967,12 +3203,12 @@ function elements_create_leaderboard(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/leaderboard";
+	var __url__ = $"{__base_url__}/leaderboard";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -2983,17 +3219,19 @@ function elements_create_leaderboard(_body = undefined, _callback = undefined)
  */
 function elements_get_leaderboard(_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/leaderboard/{_name_or_id}";
+	var __url__ = $"{__base_url__}/leaderboard/{_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3005,7 +3243,9 @@ function elements_get_leaderboard(_name_or_id, _callback = undefined)
  */
 function elements_update_leaderboard(_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
@@ -3017,12 +3257,12 @@ function elements_update_leaderboard(_name_or_id, _body = undefined, _callback =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/leaderboard/{_name_or_id}";
+	var __url__ = $"{__base_url__}/leaderboard/{_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3033,17 +3273,19 @@ function elements_update_leaderboard(_name_or_id, _body = undefined, _callback =
  */
 function elements_delete_leaderboard(_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/leaderboard/{_name_or_id}";
+	var __url__ = $"{__base_url__}/leaderboard/{_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3055,21 +3297,23 @@ function elements_delete_leaderboard(_name_or_id, _callback = undefined)
  */
 function elements_get_global_rank_tabular(_leaderboard_name_or_id, _leaderboard_epoch = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_leaderboard_name_or_id)) show_error($"{_GMFUNCTION_} :: _leaderboard_name_or_id expected string", true);
 	if (!is_undefined(_leaderboard_epoch) && !is_real(_leaderboard_epoch)) show_error($"{_GMFUNCTION_} :: _leaderboard_epoch expected int64", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/rank/global/{_leaderboard_name_or_id}";
+	var __url__ = $"{__base_url__}/rank/global/{_leaderboard_name_or_id}";
 	
 	// create query params struct
 	var _params = { leaderboardEpoch : _leaderboard_epoch };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3084,6 +3328,8 @@ function elements_get_global_rank_tabular(_leaderboard_name_or_id, _leaderboard_
  */
 function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = undefined, _count = undefined, _relative = undefined, _leaderboard_epoch = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_leaderboard_name_or_id)) show_error($"{_GMFUNCTION_} :: _leaderboard_name_or_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -3093,15 +3339,15 @@ function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = unde
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/rank/friends/{_leaderboard_name_or_id}";
+	var __url__ = $"{__base_url__}/rank/friends/{_leaderboard_name_or_id}";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, relative : _relative, leaderboardEpoch : _leaderboard_epoch };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3116,6 +3362,8 @@ function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = unde
  */
 function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offset = undefined, _count = undefined, _relative = undefined, _leaderboard_epoch = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_leaderboard_name_or_id)) show_error($"{_GMFUNCTION_} :: _leaderboard_name_or_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -3125,15 +3373,15 @@ function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offs
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/rank/mutual_followers/{_leaderboard_name_or_id}";
+	var __url__ = $"{__base_url__}/rank/mutual_followers/{_leaderboard_name_or_id}";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, relative : _relative, leaderboardEpoch : _leaderboard_epoch };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3145,7 +3393,9 @@ function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offs
  */
 function elements_create_score(_leaderboard_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_leaderboard_name_or_id)) show_error($"{_GMFUNCTION_} :: _leaderboard_name_or_id expected string", true);
@@ -3157,12 +3407,12 @@ function elements_create_score(_leaderboard_name_or_id, _body = undefined, _call
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/score/{_leaderboard_name_or_id}";
+	var __url__ = $"{__base_url__}/score/{_leaderboard_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3175,6 +3425,8 @@ function elements_create_score(_leaderboard_name_or_id, _body = undefined, _call
  */
 function elements_get_matches(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -3182,15 +3434,15 @@ function elements_get_matches(_offset = undefined, _count = undefined, _search =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/match";
+	var __url__ = $"{__base_url__}/match";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3201,7 +3453,9 @@ function elements_get_matches(_offset = undefined, _count = undefined, _search =
  */
 function elements_create_match(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -3212,12 +3466,12 @@ function elements_create_match(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/match";
+	var __url__ = $"{__base_url__}/match";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3229,18 +3483,20 @@ function elements_create_match(_body = undefined, _callback = undefined)
  */
 function elements_get_match(_match_id, _social_engine_long_poll_timeout = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_match_id)) show_error($"{_GMFUNCTION_} :: _match_id expected string", true);
 	if (!is_undefined(_social_engine_long_poll_timeout) && !is_real(_social_engine_long_poll_timeout)) show_error($"{_GMFUNCTION_} :: _social_engine_long_poll_timeout expected int64", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/match/{_match_id}";
+	var __url__ = $"{__base_url__}/match/{_match_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3251,17 +3507,19 @@ function elements_get_match(_match_id, _social_engine_long_poll_timeout = undefi
  */
 function elements_delete_match(_match_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_match_id)) show_error($"{_GMFUNCTION_} :: _match_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/match/{_match_id}";
+	var __url__ = $"{__base_url__}/match/{_match_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3274,6 +3532,8 @@ function elements_delete_match(_match_id, _callback = undefined)
  */
 function elements_get_metadata_objects(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -3281,15 +3541,15 @@ function elements_get_metadata_objects(_offset = undefined, _count = undefined, 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata";
+	var __url__ = $"{__base_url__}/metadata";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3301,22 +3561,26 @@ function elements_get_metadata_objects(_offset = undefined, _count = undefined, 
  */
 function elements_create_metadata(_body = undefined, _content_type = "*/*", _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	__content_type__ = _content_type;
+	
 	// argument validation
 	if (!is_undefined(_body))
 	{
 		if (!is_struct(_body) || _body[$ "__uid"] != 2487058506) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateMetadataRequest", true);
 		_body.validate(_GMFUNCTION_);
 	}
-	if (!is_undefined(_content_type) && !is_string(_content_type)) show_error($"{_GMFUNCTION_} :: _content_type expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata";
+	var __url__ = $"{__base_url__}/metadata";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3327,17 +3591,19 @@ function elements_create_metadata(_body = undefined, _content_type = "*/*", _cal
  */
 function elements_get_metadata_object(_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata/{_id}";
+	var __url__ = $"{__base_url__}/metadata/{_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3350,6 +3616,10 @@ function elements_get_metadata_object(_id, _callback = undefined)
  */
 function elements_update_metadata(_id, _body = undefined, _content_type = "*/*", _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	__content_type__ = _content_type;
+	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
 	if (!is_undefined(_body))
@@ -3357,16 +3627,16 @@ function elements_update_metadata(_id, _body = undefined, _content_type = "*/*",
 		if (!is_struct(_body) || _body[$ "__uid"] != 2761795881) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateMetadataRequest", true);
 		_body.validate(_GMFUNCTION_);
 	}
-	if (!is_undefined(_content_type) && !is_string(_content_type)) show_error($"{_GMFUNCTION_} :: _content_type expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata/{_id}";
+	var __url__ = $"{__base_url__}/metadata/{_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3377,17 +3647,19 @@ function elements_update_metadata(_id, _body = undefined, _content_type = "*/*",
  */
 function elements_delete_metadata(_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata/{_id}";
+	var __url__ = $"{__base_url__}/metadata/{_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3401,6 +3673,8 @@ function elements_delete_metadata(_id, _callback = undefined)
  */
 function elements_get_missions(_offset = undefined, _count = undefined, _tags = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -3409,15 +3683,15 @@ function elements_get_missions(_offset = undefined, _count = undefined, _tags = 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/mission";
+	var __url__ = $"{__base_url__}/mission";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3428,7 +3702,9 @@ function elements_get_missions(_offset = undefined, _count = undefined, _tags = 
  */
 function elements_create_mission(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -3439,12 +3715,12 @@ function elements_create_mission(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/mission";
+	var __url__ = $"{__base_url__}/mission";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3455,17 +3731,19 @@ function elements_create_mission(_body = undefined, _callback = undefined)
  */
 function elements_get_mission_by_name_or_id(_mission_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_mission_name_or_id)) show_error($"{_GMFUNCTION_} :: _mission_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/mission/{_mission_name_or_id}";
+	var __url__ = $"{__base_url__}/mission/{_mission_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3477,7 +3755,9 @@ function elements_get_mission_by_name_or_id(_mission_name_or_id, _callback = und
  */
 function elements_update_mission(_mission_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_mission_name_or_id)) show_error($"{_GMFUNCTION_} :: _mission_name_or_id expected string", true);
@@ -3489,12 +3769,12 @@ function elements_update_mission(_mission_name_or_id, _body = undefined, _callba
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/mission/{_mission_name_or_id}";
+	var __url__ = $"{__base_url__}/mission/{_mission_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3505,17 +3785,19 @@ function elements_update_mission(_mission_name_or_id, _body = undefined, _callba
  */
 function elements_delete_mission(_mission_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_mission_name_or_id)) show_error($"{_GMFUNCTION_} :: _mission_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/mission/{_mission_name_or_id}";
+	var __url__ = $"{__base_url__}/mission/{_mission_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3525,16 +3807,18 @@ function elements_delete_mission(_mission_name_or_id, _callback = undefined)
  */
 function elements_get_progress_tabular(_callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/progress";
+	var __url__ = $"{__base_url__}/progress";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3545,7 +3829,9 @@ function elements_get_progress_tabular(_callback = undefined)
  */
 function elements_create_progress(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -3556,12 +3842,12 @@ function elements_create_progress(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/progress";
+	var __url__ = $"{__base_url__}/progress";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3572,17 +3858,19 @@ function elements_create_progress(_body = undefined, _callback = undefined)
  */
 function elements_delete_progress(_progress_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_progress_id)) show_error($"{_GMFUNCTION_} :: _progress_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/progress/progress/{_progress_id}";
+	var __url__ = $"{__base_url__}/progress/progress/{_progress_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3593,17 +3881,19 @@ function elements_delete_progress(_progress_id, _callback = undefined)
  */
 function elements_get_progress_by_name_or_id(_progress_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_progress_id)) show_error($"{_GMFUNCTION_} :: _progress_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/progress/{_progress_id}";
+	var __url__ = $"{__base_url__}/progress/{_progress_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3615,7 +3905,9 @@ function elements_get_progress_by_name_or_id(_progress_id, _callback = undefined
  */
 function elements_update_progress(_progress_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_progress_id)) show_error($"{_GMFUNCTION_} :: _progress_id expected string", true);
@@ -3627,12 +3919,12 @@ function elements_update_progress(_progress_id, _body = undefined, _callback = u
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/progress/{_progress_id}";
+	var __url__ = $"{__base_url__}/progress/{_progress_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3642,17 +3934,19 @@ function elements_update_progress(_progress_id, _body = undefined, _callback = u
  */
 function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_reward_issuance_id)) show_error($"{_GMFUNCTION_} :: _reward_issuance_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/reward_issuance/{_reward_issuance_id}";
+	var __url__ = $"{__base_url__}/reward_issuance/{_reward_issuance_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3665,6 +3959,8 @@ function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined
  */
 function elements_get_reward_issuances(_offset = undefined, _count = undefined, _states = undefined, _tags = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -3673,15 +3969,15 @@ function elements_get_reward_issuances(_offset = undefined, _count = undefined, 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/reward_issuance";
+	var __url__ = $"{__base_url__}/reward_issuance";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, states : _states, tags : _tags };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3691,17 +3987,19 @@ function elements_get_reward_issuances(_offset = undefined, _count = undefined, 
  */
 function elements_redeem_reward_issuance(_reward_issuance_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_reward_issuance_id)) show_error($"{_GMFUNCTION_} :: _reward_issuance_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/reward_issuance/{_reward_issuance_id}/redeem";
+	var __url__ = $"{__base_url__}/reward_issuance/{_reward_issuance_id}/redeem";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3712,18 +4010,22 @@ function elements_redeem_reward_issuance(_reward_issuance_id, _callback = undefi
  */
 function elements_redeem_reward_issuances(_body = undefined, _content_type = "*/*", _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	__content_type__ = _content_type;
+	
 	// argument validation
 	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: _body expected string", true);
-	if (!is_undefined(_content_type) && !is_string(_content_type)) show_error($"{_GMFUNCTION_} :: _content_type expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/reward_issuance/redeem";
+	var __url__ = $"{__base_url__}/reward_issuance/redeem";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3738,6 +4040,8 @@ function elements_redeem_reward_issuances(_body = undefined, _content_type = "*/
  */
 function elements_get_schedule_events(_schedule_name_or_id, _offset = undefined, _count = undefined, _tags = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -3747,15 +4051,15 @@ function elements_get_schedule_events(_schedule_name_or_id, _offset = undefined,
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}/event";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3767,7 +4071,9 @@ function elements_get_schedule_events(_schedule_name_or_id, _offset = undefined,
  */
 function elements_create_schedule_event(_schedule_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
@@ -3779,12 +4085,12 @@ function elements_create_schedule_event(_schedule_name_or_id, _body = undefined,
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}/event";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3796,18 +4102,20 @@ function elements_create_schedule_event(_schedule_name_or_id, _body = undefined,
  */
 function elements_get_schedule_event_by_name_or_id(_schedule_name_or_id, _schedule_event_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_string(_schedule_event_id)) show_error($"{_GMFUNCTION_} :: _schedule_event_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3820,7 +4128,9 @@ function elements_get_schedule_event_by_name_or_id(_schedule_name_or_id, _schedu
  */
 function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
@@ -3833,12 +4143,12 @@ function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3850,18 +4160,20 @@ function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id
  */
 function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_string(_schedule_event_id)) show_error($"{_GMFUNCTION_} :: _schedule_event_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3875,6 +4187,8 @@ function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id
  */
 function elements_get_schedule_progresses(_schedule_name_or_id, _offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
@@ -3883,15 +4197,15 @@ function elements_get_schedule_progresses(_schedule_name_or_id, _offset = undefi
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}/progress";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/progress";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3905,6 +4219,8 @@ function elements_get_schedule_progresses(_schedule_name_or_id, _offset = undefi
  */
 function elements_get_schedules(_offset = undefined, _count = undefined, _tags = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -3913,15 +4229,15 @@ function elements_get_schedules(_offset = undefined, _count = undefined, _tags =
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule";
+	var __url__ = $"{__base_url__}/schedule";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, tags : _tags, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3932,7 +4248,9 @@ function elements_get_schedules(_offset = undefined, _count = undefined, _tags =
  */
 function elements_create_schedule(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -3943,12 +4261,12 @@ function elements_create_schedule(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule";
+	var __url__ = $"{__base_url__}/schedule";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3959,17 +4277,19 @@ function elements_create_schedule(_body = undefined, _callback = undefined)
  */
 function elements_get_schedule_by_name_or_id(_schedule_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -3981,7 +4301,9 @@ function elements_get_schedule_by_name_or_id(_schedule_name_or_id, _callback = u
  */
 function elements_update_schedule(_schedule_name_or_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
@@ -3993,12 +4315,12 @@ function elements_update_schedule(_schedule_name_or_id, _body = undefined, _call
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4009,28 +4331,32 @@ function elements_update_schedule(_schedule_name_or_id, _body = undefined, _call
  */
 function elements_delete_schedule(_schedule_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/schedule/{_schedule_name_or_id}";
+	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
- * @func elements_create_fcmregistration()
+ * @func elements_create_fcm_registration()
  * Supplying FCM registration token, this will create a new token based on the information supplied to the endpoint.  The response will contain the token as it was written to the database.  Clients may subsequently update the token string with new values as they are issued by Firebase.
  * @param {Struct.ElementsFCMRegistration} _body
  * @param {Function} _callback
  */
-function elements_create_fcmregistration(_body = undefined, _callback = undefined)
+function elements_create_fcm_registration(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4041,12 +4367,12 @@ function elements_create_fcmregistration(_body = undefined, _callback = undefine
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/notification/fcm";
+	var __url__ = $"{__base_url__}/notification/fcm";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4058,7 +4384,9 @@ function elements_create_fcmregistration(_body = undefined, _callback = undefine
  */
 function elements_update_registration(_fcm_registration_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_fcm_registration_id)) show_error($"{_GMFUNCTION_} :: _fcm_registration_id expected string", true);
@@ -4070,32 +4398,34 @@ function elements_update_registration(_fcm_registration_id, _body = undefined, _
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/notification/fcm/{_fcm_registration_id}";
+	var __url__ = $"{__base_url__}/notification/fcm/{_fcm_registration_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
- * @func elements_delete_fcmregistration()
+ * @func elements_delete_fcm_registration()
  * @param {String} _fcm_registration_id
  * @param {Function} _callback
  */
-function elements_delete_fcmregistration(_fcm_registration_id, _callback = undefined)
+function elements_delete_fcm_registration(_fcm_registration_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_fcm_registration_id)) show_error($"{_GMFUNCTION_} :: _fcm_registration_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/notification/fcm/{_fcm_registration_id}";
+	var __url__ = $"{__base_url__}/notification/fcm/{_fcm_registration_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4112,6 +4442,8 @@ function elements_delete_fcmregistration(_fcm_registration_id, _callback = undef
  */
 function elements_get_profiles(_offset = undefined, _count = undefined, _before = undefined, _after = undefined, _application = undefined, _user = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -4123,15 +4455,15 @@ function elements_get_profiles(_offset = undefined, _count = undefined, _before 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile";
+	var __url__ = $"{__base_url__}/profile";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, before : _before, after : _after, application : _application, user : _user, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4142,7 +4474,9 @@ function elements_get_profiles(_offset = undefined, _count = undefined, _before 
  */
 function elements_create_profile(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4153,12 +4487,12 @@ function elements_create_profile(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile";
+	var __url__ = $"{__base_url__}/profile";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4170,7 +4504,9 @@ function elements_create_profile(_body = undefined, _callback = undefined)
  */
 function elements_update_profile(_profile_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
@@ -4182,12 +4518,12 @@ function elements_update_profile(_profile_id, _body = undefined, _callback = und
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile/{_profile_id}";
+	var __url__ = $"{__base_url__}/profile/{_profile_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4198,17 +4534,19 @@ function elements_update_profile(_profile_id, _body = undefined, _callback = und
  */
 function elements_deactivate_profile(_profile_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile/{_profile_id}";
+	var __url__ = $"{__base_url__}/profile/{_profile_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4218,16 +4556,18 @@ function elements_deactivate_profile(_profile_id, _callback = undefined)
  */
 function elements_get_current_profile(_callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile/current";
+	var __url__ = $"{__base_url__}/profile/current";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4238,17 +4578,19 @@ function elements_get_current_profile(_callback = undefined)
  */
 function elements_get_profile(_name, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name)) show_error($"{_GMFUNCTION_} :: _name expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile/{_name}";
+	var __url__ = $"{__base_url__}/profile/{_name}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4259,7 +4601,9 @@ function elements_get_profile(_name, _callback = undefined)
  */
 function elements_update_profile_image(_profile_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
@@ -4271,12 +4615,12 @@ function elements_update_profile_image(_profile_id, _body = undefined, _callback
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/profile/{_profile_id}/image";
+	var __url__ = $"{__base_url__}/profile/{_profile_id}/image";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4291,6 +4635,8 @@ function elements_update_profile_image(_profile_id, _body = undefined, _callback
  */
 function elements_get_save_data_documents(_offset = undefined, _count = undefined, _user_id = undefined, _profile_id = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -4300,15 +4646,15 @@ function elements_get_save_data_documents(_offset = undefined, _count = undefine
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data";
+	var __url__ = $"{__base_url__}/save_data";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, userId : _user_id, profileId : _profile_id, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4319,7 +4665,9 @@ function elements_get_save_data_documents(_offset = undefined, _count = undefine
  */
 function elements_create_save_document(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4330,12 +4678,12 @@ function elements_create_save_document(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data";
+	var __url__ = $"{__base_url__}/save_data";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4347,7 +4695,9 @@ function elements_create_save_document(_body = undefined, _callback = undefined)
  */
 function elements_update_save_document(_save_data_document_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_save_data_document_id)) show_error($"{_GMFUNCTION_} :: _save_data_document_id expected string", true);
@@ -4359,12 +4709,12 @@ function elements_update_save_document(_save_data_document_id, _body = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data/{_save_data_document_id}";
+	var __url__ = $"{__base_url__}/save_data/{_save_data_document_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4374,17 +4724,19 @@ function elements_update_save_document(_save_data_document_id, _body = undefined
  */
 function elements_delete_save_document(_save_data_document_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_save_data_document_id)) show_error($"{_GMFUNCTION_} :: _save_data_document_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data/{_save_data_document_id}";
+	var __url__ = $"{__base_url__}/save_data/{_save_data_document_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4396,18 +4748,20 @@ function elements_delete_save_document(_save_data_document_id, _callback = undef
  */
 function elements_get_profile_save_data_document_by_slot(_profile_id, _slot, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_real(_slot)) show_error($"{_GMFUNCTION_} :: _slot expected int32", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data/profile/{_profile_id}/{_slot}";
+	var __url__ = $"{__base_url__}/save_data/profile/{_profile_id}/{_slot}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4418,17 +4772,19 @@ function elements_get_profile_save_data_document_by_slot(_profile_id, _slot, _ca
  */
 function elements_get_save_data_document(_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data/{_id}";
+	var __url__ = $"{__base_url__}/save_data/{_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4440,18 +4796,20 @@ function elements_get_save_data_document(_id, _callback = undefined)
  */
 function elements_get_user_save_data_document_by_slot(_user_id, _slot, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_real(_slot)) show_error($"{_GMFUNCTION_} :: _slot expected int32", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/save_data/user/{_user_id}/{_slot}";
+	var __url__ = $"{__base_url__}/save_data/user/{_user_id}/{_slot}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4463,21 +4821,23 @@ function elements_get_user_save_data_document_by_slot(_user_id, _slot, _callback
  */
 function elements_get_metadata_specs(_offset = undefined, _count = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec";
+	var __url__ = $"{__base_url__}/metadata_spec";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4488,7 +4848,9 @@ function elements_get_metadata_specs(_offset = undefined, _count = undefined, _c
  */
 function elements_create_metadata_spec(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4499,12 +4861,12 @@ function elements_create_metadata_spec(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec";
+	var __url__ = $"{__base_url__}/metadata_spec";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4516,7 +4878,9 @@ function elements_create_metadata_spec(_body = undefined, _callback = undefined)
  */
 function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_metadata_spec_id)) show_error($"{_GMFUNCTION_} :: _metadata_spec_id expected string", true);
@@ -4528,12 +4892,12 @@ function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _ca
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec/{_metadata_spec_id}";
+	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4544,17 +4908,19 @@ function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _ca
  */
 function elements_delete_metadata_spec(_metadata_spec_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_metadata_spec_id)) show_error($"{_GMFUNCTION_} :: _metadata_spec_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec/{_metadata_spec_id}";
+	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4565,17 +4931,19 @@ function elements_delete_metadata_spec(_metadata_spec_id, _callback = undefined)
  */
 function elements_get_editor_schema(_metadata_spec_name, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_metadata_spec_name)) show_error($"{_GMFUNCTION_} :: _metadata_spec_name expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec/{_metadata_spec_name}/editor.json";
+	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_name}/editor.json";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4586,17 +4954,19 @@ function elements_get_editor_schema(_metadata_spec_name, _callback = undefined)
  */
 function elements_get_json_schema(_metadata_spec_name, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_metadata_spec_name)) show_error($"{_GMFUNCTION_} :: _metadata_spec_name expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec/{_metadata_spec_name}/schema.json";
+	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_name}/schema.json";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4607,17 +4977,19 @@ function elements_get_json_schema(_metadata_spec_name, _callback = undefined)
  */
 function elements_get_metadata_spec(_metadata_spec_name_or_id, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_metadata_spec_name_or_id)) show_error($"{_GMFUNCTION_} :: _metadata_spec_name_or_id expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/metadata_spec/{_metadata_spec_name_or_id}";
+	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_name_or_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4628,7 +5000,9 @@ function elements_get_metadata_spec(_metadata_spec_name_or_id, _callback = undef
  */
 function elements_create_mock_session(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4639,12 +5013,12 @@ function elements_create_mock_session(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/mock_session";
+	var __url__ = $"{__base_url__}/mock_session";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4654,17 +5028,19 @@ function elements_create_mock_session(_body = undefined, _callback = undefined)
  */
 function elements_blacklist_session(_session_secret, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_session_secret)) show_error($"{_GMFUNCTION_} :: _session_secret expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/session/{_session_secret}";
+	var __url__ = $"{__base_url__}/session/{_session_secret}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4675,7 +5051,9 @@ function elements_blacklist_session(_session_secret, _callback = undefined)
  */
 function elements_create_username_password_session(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4686,12 +5064,12 @@ function elements_create_username_password_session(_body = undefined, _callback 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/session";
+	var __url__ = $"{__base_url__}/session";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4701,16 +5079,18 @@ function elements_create_username_password_session(_body = undefined, _callback 
  */
 function elements_get_server_health(_callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/health";
+	var __url__ = $"{__base_url__}/health";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4720,16 +5100,18 @@ function elements_get_server_health(_callback = undefined)
  */
 function elements_get_version(_callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/version";
+	var __url__ = $"{__base_url__}/version";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4740,7 +5122,9 @@ function elements_get_version(_callback = undefined)
  */
 function elements_sign_up_user(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4751,12 +5135,12 @@ function elements_sign_up_user(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/signup";
+	var __url__ = $"{__base_url__}/signup";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4769,6 +5153,8 @@ function elements_sign_up_user(_body = undefined, _callback = undefined)
  */
 function elements_get_users(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
@@ -4776,15 +5162,15 @@ function elements_get_users(_offset = undefined, _count = undefined, _search = u
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user";
+	var __url__ = $"{__base_url__}/user";
 	
 	// create query params struct
 	var _params = { offset : _offset, count : _count, search : _search };
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, _params, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, _params, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4795,7 +5181,9 @@ function elements_get_users(_offset = undefined, _count = undefined, _search = u
  */
 function elements_create_user(_body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_undefined(_body))
@@ -4806,12 +5194,12 @@ function elements_create_user(_body = undefined, _callback = undefined)
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user";
+	var __url__ = $"{__base_url__}/user";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "POST", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "POST", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4822,17 +5210,19 @@ function elements_create_user(_body = undefined, _callback = undefined)
  */
 function elements_get_user(_name, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name)) show_error($"{_GMFUNCTION_} :: _name expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user/{_name}";
+	var __url__ = $"{__base_url__}/user/{_name}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4843,17 +5233,19 @@ function elements_get_user(_name, _callback = undefined)
  */
 function elements_deactivate_user(_name, _callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_string(_name)) show_error($"{_GMFUNCTION_} :: _name expected string", true);
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user/{_name}";
+	var __url__ = $"{__base_url__}/user/{_name}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "DELETE", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "DELETE", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4863,16 +5255,18 @@ function elements_deactivate_user(_name, _callback = undefined)
  */
 function elements_get_current_user(_callback = undefined)
 {
+	static __base_url__ = _elements_options_get_rest_url();
+	
 	// argument validation
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user/me";
+	var __url__ = $"{__base_url__}/user/me";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "GET", undefined, undefined, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "GET", undefined, undefined, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4884,7 +5278,9 @@ function elements_get_current_user(_callback = undefined)
  */
 function elements_update_user(_user_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
@@ -4896,12 +5292,12 @@ function elements_update_user(_user_id, _body = undefined, _callback = undefined
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user/{_user_id}";
+	var __url__ = $"{__base_url__}/user/{_user_id}";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 
 /**
@@ -4913,7 +5309,9 @@ function elements_update_user(_user_id, _body = undefined, _callback = undefined
  */
 function elements_update_user_password(_user_id, _body = undefined, _callback = undefined)
 {
-	static _content_type = "application/json";
+	static __base_url__ = _elements_options_get_rest_url();
+	
+	static __content_type__ = "application/json";
 	
 	// argument validation
 	if (!is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
@@ -4925,11 +5323,11 @@ function elements_update_user_password(_user_id, _body = undefined, _callback = 
 	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
 	
 	// build url path
-	var _url = $"{_elements_options_get_rest_url()}/user/{_user_id}/password";
+	var __url__ = $"{__base_url__}/user/{_user_id}/password";
 	
 	// create required security array
-	var _security = [ "auth_bearer", "session_secret" ];
+	var __security__ = [ "auth_bearer", "session_secret" ];
 	
-	return _elements_create_request(_url, undefined, "PUT", _body, _content_type, _security, _callback, _GMFUNCTION_);
+	return _elements_create_request(__url__, undefined, "PUT", _body, __content_type__, __security__, _callback, _GMFUNCTION_);
 }
 

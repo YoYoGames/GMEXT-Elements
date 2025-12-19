@@ -1,0 +1,21 @@
+{
+    "gitHubUrl": "https://github.com/YoYoGames/GMEXT-Elements",
+    "projectFile": "source/Elements_gml/Elements.yyp",
+    "projectVersion": "LTS22",
+    "releaseTemplate": "templates/release_body.md",
+    "extensionMetaData": [
+        {
+            "extensionFile": "source/Elements_gml/extensions/Elements/Elements.yy",
+            "packageId": "com.yoyogames.elementsext",
+            "packageName": "Elements Ext",
+            "packageVersion": "0.0.1",
+            "packageFormat": "LTS22",
+            "includeFolders": null,
+            "includeResources": null,
+            "excludeFolders": null,
+            "excludeResources": null,
+            "postRemovals": []
+        }
+    ],
+    "documentationFolder": null
+}

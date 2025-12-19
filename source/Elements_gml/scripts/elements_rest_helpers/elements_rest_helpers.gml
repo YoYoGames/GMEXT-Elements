@@ -2,6 +2,19 @@
 // # Internal Definitions (auto-generated, DO NOT EDIT)
 // #####################################################################
 
+/// @returns {String}
+function _elements_options_get_rest_url() {
+	static _url = extension_get_option_value("Elements", "server_rest_url");
+	return _url;
+}
+
+/// @returns {Bool}
+function _elements_options_is_debug() {
+	static _enabled = bool(extension_get_option_value("Elements", "debug_logging"));
+	return _enabled;
+}
+
+
 /**
  * @func _elements_get_singleton
  * Returns the Elements core singleton (the single instance of 'obj_elements_core').
@@ -307,7 +320,7 @@ function ElementsRequest(_url, _params, _method, _body, _content_type, _security
 					missing("auth_bearer", _where);
 					break;
 				}
-				_header[? "Authorization"] = $"Bearer {_auth_bearer_token}";
+				_header[? "Authorization"] = _auth_bearer_token;
 				break;
 			case "session_secret":
 				var _session_secret_token = _elements_request_auth_get_token("session_secret");
@@ -317,6 +330,8 @@ function ElementsRequest(_url, _params, _method, _body, _content_type, _security
 					break;
 				}
 				_header[? "Elements-SessionSecret"] = _session_secret_token;
+				break;
+			case undefined:
 				break;
 			default:
 				show_debug_message($"{_where} :: No auth rule for '{_scheme}'.");
