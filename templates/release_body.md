@@ -24,5 +24,6 @@ https://github.com/YoYoGames/GMEXT-Elements/compare/${releaseOldVersion}...${rel
 
 ## DOCUMENTATION
 
-The full documentation of the API is included in the extension asset.
+The full documentation of the API is included in the extension asset
+.
 
