@@ -1,5 +1,30 @@
 
 /**
+ * @module elements_rest_api
+ * @title Elements REST API
+ * @desc This module holds the documentation for the entire REST API.
+ * 
+ * @section_func
+ * @ref elements_*
+ * @section_end
+ * 
+ * @module_end
+ */
+
+
+/**
+ * @module elements_rest_schemas
+ * @title Schemas
+ * @desc This module contains the structs used by the Elements extension.
+ * 
+ * @section_struct
+ * @ref Elements*
+ * @section_end
+ * @module_end
+ */
+
+
+/**
  * @module home 
  * @title Elements
  * @desc This GameMaker extension brings the full power of the **Namazu Elements Core API** directly into your GameMaker projects—turning what’s normally a heavy backend integration into a clean set of GML-friendly functions. Instead of spending weeks building authentication, player profiles, cloud saves, inventory, leaderboards, matchmaking, missions, and live notifications from scratch, you can plug in a proven backend and start shipping features immediately. It’s ideal for studios that want modern online functionality (and the ability to scale it) without becoming a backend engineering team—while still keeping control of gameplay logic inside GameMaker and letting Elements handle the infrastructure. 

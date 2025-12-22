@@ -1732,13 +1732,3 @@
  * @struct_end
  */
 
-/**
- * @module elements_rest_schemas
- * @title Schemas
- * @desc This module contains the structs used by the Elements extension.
- * 
- * @section_struct
- * @ref Elements*
- * @section_end
- * @module_end
- */

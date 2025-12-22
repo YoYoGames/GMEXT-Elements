@@ -17,10 +17,10 @@ function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefi
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1514807530) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateAppleIapReceipt", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateAppleIapReceipt", true);
+		ElementsCreateAppleIapReceipt_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/ios/receipt";
@@ -49,7 +49,7 @@ function elements_get_application_profiles(_application_name_or_id, _offset = un
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration";
@@ -79,7 +79,7 @@ function elements_get_applications(_offset = undefined, _count = undefined, _sea
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application";
@@ -108,10 +108,10 @@ function elements_create_application(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1130871979) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateApplicationRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateApplicationRequest", true);
+		ElementsCreateApplicationRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application";
@@ -134,7 +134,7 @@ function elements_get_application(_name_or_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_name_or_id}";
@@ -162,10 +162,10 @@ function elements_update_application(_name_or_id, _body = undefined, _callback =
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1097006730) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateApplicationRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateApplicationRequest", true);
+		ElementsUpdateApplicationRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_name_or_id}";
@@ -188,7 +188,7 @@ function elements_delete_application(_name_or_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_name_or_id}";
@@ -216,10 +216,10 @@ function elements_create_facebook_application_configuration(_application_name_or
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 634460580) show_error($"{_GMFUNCTION_} :: _body expected ElementsFacebookApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsFacebookApplicationConfiguration", true);
+		ElementsFacebookApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook";
@@ -244,7 +244,7 @@ function elements_get_facebook_application_configuration(_application_name_or_id
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
@@ -274,10 +274,10 @@ function elements_update_facebook_application_configuration(_application_name_or
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 634460580) show_error($"{_GMFUNCTION_} :: _body expected ElementsFacebookApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsFacebookApplicationConfiguration", true);
+		ElementsFacebookApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
@@ -302,7 +302,7 @@ function elements_delete_facebook_application_configuration(_application_name_or
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/facebook/{_application_configuration_name_or_id}";
@@ -330,10 +330,10 @@ function elements_create_firebase_application_configuration(_application_name_or
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1131823289) show_error($"{_GMFUNCTION_} :: _body expected ElementsFirebaseApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsFirebaseApplicationConfiguration", true);
+		ElementsFirebaseApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase";
@@ -358,7 +358,7 @@ function elements_get_firebase_application_configuration(_application_name_or_id
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
@@ -388,10 +388,10 @@ function elements_update_firebase_application_configuration(_application_name_or
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1131823289) show_error($"{_GMFUNCTION_} :: _body expected ElementsFirebaseApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsFirebaseApplicationConfiguration", true);
+		ElementsFirebaseApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
@@ -416,7 +416,7 @@ function elements_delete_firebase_application_configuration(_application_name_or
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/firebase/{_application_configuration_name_or_id}";
@@ -444,10 +444,10 @@ function elements_create_google_play_application_configuration(_application_name
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 193983205) show_error($"{_GMFUNCTION_} :: _body expected ElementsGooglePlayApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsGooglePlayApplicationConfiguration", true);
+		ElementsGooglePlayApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play";
@@ -472,7 +472,7 @@ function elements_get_google_play_application_configuration(_application_name_or
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
@@ -502,10 +502,10 @@ function elements_update_google_play_application_configuration(_application_name
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 193983205) show_error($"{_GMFUNCTION_} :: _body expected ElementsGooglePlayApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsGooglePlayApplicationConfiguration", true);
+		ElementsGooglePlayApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
@@ -530,7 +530,7 @@ function elements_delete_google_play_application_configuration(_application_name
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}";
@@ -559,9 +559,9 @@ function elements_update_product_bundle_for_application_configuration(_applicati
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: _body expected ElementsProductBundle", true);
-	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsProductBundle", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: '_content_type' expected string", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/google_play/{_application_configuration_name_or_id}/product_bundles";
@@ -589,10 +589,10 @@ function elements_create_ios_application_configuration(_application_name_or_id, 
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2241575037) show_error($"{_GMFUNCTION_} :: _body expected ElementsIosApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsIosApplicationConfiguration", true);
+		ElementsIosApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios";
@@ -617,7 +617,7 @@ function elements_get_ios_application_configuration(_application_name_or_id, _ap
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
@@ -647,10 +647,10 @@ function elements_update_ios_application_configuration(_application_name_or_id, 
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2241575037) show_error($"{_GMFUNCTION_} :: _body expected ElementsIosApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsIosApplicationConfiguration", true);
+		ElementsIosApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
@@ -675,7 +675,7 @@ function elements_delete_ios_application_configuration(_application_name_or_id, 
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}";
@@ -703,8 +703,8 @@ function elements_update_product_bundle_for_application_configuration_1(_applica
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: _body expected ElementsProductBundle", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsProductBundle", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/ios/{_application_configuration_name_or_id}/product_bundles";
@@ -732,10 +732,10 @@ function elements_create_matchmaking_application_configuration(_application_name
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 82183132) show_error($"{_GMFUNCTION_} :: _body expected ElementsMatchmakingApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsMatchmakingApplicationConfiguration", true);
+		ElementsMatchmakingApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking";
@@ -760,7 +760,7 @@ function elements_get_matchmaking_application_configuration(_application_name_or
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
@@ -790,10 +790,10 @@ function elements_update_matchmaking_application_configuration(_application_name
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 82183132) show_error($"{_GMFUNCTION_} :: _body expected ElementsMatchmakingApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsMatchmakingApplicationConfiguration", true);
+		ElementsMatchmakingApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
@@ -818,7 +818,7 @@ function elements_delete_matchmaking_application_configuration(_application_name
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/matchmaking/{_application_configuration_name_or_id}";
@@ -846,10 +846,10 @@ function elements_create_psn_application_configuration(_application_name_or_id, 
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1535140709) show_error($"{_GMFUNCTION_} :: _body expected ElementsPSNApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsPSNApplicationConfiguration", true);
+		ElementsPSNApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn";
@@ -874,7 +874,7 @@ function elements_get_psn_application_configuration(_application_name_or_id, _ap
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
@@ -904,10 +904,10 @@ function elements_update_psn_application_configuration(_application_name_or_id, 
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1535140709) show_error($"{_GMFUNCTION_} :: _body expected ElementsPSNApplicationConfiguration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsPSNApplicationConfiguration", true);
+		ElementsPSNApplicationConfiguration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
@@ -932,7 +932,7 @@ function elements_delete_psn_application_configuration(_application_name_or_id, 
 	// argument validation
 	if (!is_string(_application_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_name_or_id expected string", true);
 	if (!is_string(_application_configuration_name_or_id)) show_error($"{_GMFUNCTION_} :: _application_configuration_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/application/{_application_name_or_id}/configuration/psn/{_application_configuration_name_or_id}";
@@ -959,7 +959,7 @@ function elements_get_auth_schemes(_offset = undefined, _count = undefined, _tag
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/custom";
@@ -988,10 +988,10 @@ function elements_create_auth_scheme(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 166078714) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateAuthSchemeRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateAuthSchemeRequest", true);
+		ElementsCreateAuthSchemeRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/custom";
@@ -1014,7 +1014,7 @@ function elements_get_auth_scheme(_auth_scheme_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _auth_scheme_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/custom/{_auth_scheme_id}";
@@ -1042,10 +1042,10 @@ function elements_update_auth_scheme(_auth_scheme_id, _body = undefined, _callba
 	if (!is_string(_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _auth_scheme_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1359283309) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateAuthSchemeRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateAuthSchemeRequest", true);
+		ElementsUpdateAuthSchemeRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/custom/{_auth_scheme_id}";
@@ -1068,7 +1068,7 @@ function elements_delete_auth_scheme(_auth_scheme_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _auth_scheme_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/custom/{_auth_scheme_id}";
@@ -1094,10 +1094,10 @@ function elements_create_oauth2_session(_body = undefined, _callback = undefined
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3056783034) show_error($"{_GMFUNCTION_} :: _body expected ElementsOAuth2SessionRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsOAuth2SessionRequest", true);
+		ElementsOAuth2SessionRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth/oauth2";
@@ -1124,7 +1124,7 @@ function elements_get_auth_schemes_1(_offset = undefined, _count = undefined, _t
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oauth2";
@@ -1153,10 +1153,10 @@ function elements_create_auth_scheme_1(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 4181820335) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateOrUpdateOAuth2AuthSchemeRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateOrUpdateOAuth2AuthSchemeRequest", true);
+		ElementsCreateOrUpdateOAuth2AuthSchemeRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oauth2";
@@ -1179,7 +1179,7 @@ function elements_get_auth_scheme_1(_oauth2_auth_scheme_id, _callback = undefine
 	
 	// argument validation
 	if (!is_string(_oauth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oauth2_auth_scheme_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oauth2/{_oauth2_auth_scheme_id}";
@@ -1207,10 +1207,10 @@ function elements_update_auth_scheme_1(_oauth2_auth_scheme_id, _body = undefined
 	if (!is_string(_oauth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oauth2_auth_scheme_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 4181820335) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateOrUpdateOAuth2AuthSchemeRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateOrUpdateOAuth2AuthSchemeRequest", true);
+		ElementsCreateOrUpdateOAuth2AuthSchemeRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oauth2/{_oauth2_auth_scheme_id}";
@@ -1233,7 +1233,7 @@ function elements_delete_auth_scheme_1(_oauth2_auth_scheme_id, _callback = undef
 	
 	// argument validation
 	if (!is_string(_oauth2_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oauth2_auth_scheme_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oauth2/{_oauth2_auth_scheme_id}";
@@ -1259,10 +1259,10 @@ function elements_create_oidc_session(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 4082929088) show_error($"{_GMFUNCTION_} :: _body expected ElementsOidcSessionRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsOidcSessionRequest", true);
+		ElementsOidcSessionRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth/oidc";
@@ -1289,7 +1289,7 @@ function elements_get_auth_schemes_2(_offset = undefined, _count = undefined, _t
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oidc";
@@ -1318,10 +1318,10 @@ function elements_create_auth_scheme_2(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3649915157) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateOrUpdateOidcAuthSchemeRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateOrUpdateOidcAuthSchemeRequest", true);
+		ElementsCreateOrUpdateOidcAuthSchemeRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oidc";
@@ -1344,7 +1344,7 @@ function elements_get_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_oidc_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oidc_auth_scheme_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
@@ -1372,10 +1372,10 @@ function elements_update_auth_scheme_2(_oidc_auth_scheme_id, _body = undefined, 
 	if (!is_string(_oidc_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oidc_auth_scheme_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3649915157) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateOrUpdateOidcAuthSchemeRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateOrUpdateOidcAuthSchemeRequest", true);
+		ElementsCreateOrUpdateOidcAuthSchemeRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
@@ -1398,7 +1398,7 @@ function elements_delete_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefin
 	
 	// argument validation
 	if (!is_string(_oidc_auth_scheme_id)) show_error($"{_GMFUNCTION_} :: _oidc_auth_scheme_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/auth_scheme/oidc/{_oidc_auth_scheme_id}";
@@ -1427,7 +1427,7 @@ function elements_get_smart_contracts(_offset = undefined, _count = undefined, _
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_api) && !is_string(_api)) show_error($"{_GMFUNCTION_} :: _api expected string", true);
 	if (!is_undefined(_network) && !is_array(_network)) show_error($"{_GMFUNCTION_} :: _network expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract";
@@ -1456,10 +1456,10 @@ function elements_create_smart_contract(_body = undefined, _callback = undefined
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 147112120) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateSmartContractRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateSmartContractRequest", true);
+		ElementsCreateSmartContractRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract";
@@ -1482,7 +1482,7 @@ function elements_get_smart_contract(_contract_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_contract_id)) show_error($"{_GMFUNCTION_} :: _contract_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract/{_contract_id}";
@@ -1510,10 +1510,10 @@ function elements_update_smart_contract(_contract_id, _body = undefined, _callba
 	if (!is_string(_contract_id)) show_error($"{_GMFUNCTION_} :: _contract_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2326764889) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateSmartContractRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateSmartContractRequest", true);
+		ElementsUpdateSmartContractRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract/{_contract_id}";
@@ -1536,7 +1536,7 @@ function elements_delete_contract(_contract_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_contract_id)) show_error($"{_GMFUNCTION_} :: _contract_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/smart_contract/{_contract_id}";
@@ -1563,7 +1563,7 @@ function elements_get_vaults(_offset = undefined, _count = undefined, _user_id =
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_user_id) && !is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault";
@@ -1592,10 +1592,10 @@ function elements_create_vault(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3788719493) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateVaultRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateVaultRequest", true);
+		ElementsCreateVaultRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault";
@@ -1618,7 +1618,7 @@ function elements_get_vault(_vault_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}";
@@ -1646,10 +1646,10 @@ function elements_update_vault(_vault_id, _body = undefined, _callback = undefin
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1895978920) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateVaultRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateVaultRequest", true);
+		ElementsUpdateVaultRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}";
@@ -1672,7 +1672,7 @@ function elements_delete_vault(_vault_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}";
@@ -1705,7 +1705,7 @@ function elements_get_wallets(_vault_id, _offset = undefined, _count = undefined
 	if (!is_undefined(_user_id) && !is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_api) && !is_string(_api)) show_error($"{_GMFUNCTION_} :: _api expected string", true);
 	if (!is_undefined(_network) && !is_array(_network)) show_error($"{_GMFUNCTION_} :: _network expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet";
@@ -1736,10 +1736,10 @@ function elements_create_wallet(_vault_id, _body = undefined, _callback = undefi
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2593876170) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateWalletRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateWalletRequest", true);
+		ElementsCreateWalletRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet";
@@ -1764,7 +1764,7 @@ function elements_get_wallet(_vault_id, _wallet_id, _callback = undefined)
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
@@ -1794,10 +1794,10 @@ function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callb
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3954591533) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateWalletRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateWalletRequest", true);
+		ElementsUpdateWalletRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
@@ -1822,7 +1822,7 @@ function elements_delete_wallet(_vault_id, _wallet_id, _callback = undefined)
 	// argument validation
 	if (!is_string(_vault_id)) show_error($"{_GMFUNCTION_} :: _vault_id expected string", true);
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/vault/{_vault_id}/wallet/{_wallet_id}";
@@ -1845,7 +1845,7 @@ function elements_get_wallet_1(_wallet_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_wallet_id)) show_error($"{_GMFUNCTION_} :: _wallet_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/blockchain/omni/wallet/{_wallet_id}";
@@ -1867,7 +1867,7 @@ function elements_get_deployments(_application_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/deployment/{_application_id}";
@@ -1894,10 +1894,10 @@ function elements_create_new_deployment(_application_id, _body = undefined, _cal
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 4233991120) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateDeploymentRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateDeploymentRequest", true);
+		ElementsCreateDeploymentRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/deployment/{_application_id}";
@@ -1921,7 +1921,7 @@ function elements_get_deployment(_application_id, _deployment_id, _callback = un
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_string(_deployment_id)) show_error($"{_GMFUNCTION_} :: _deployment_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/deployment/{_application_id}/{_deployment_id}";
@@ -1945,7 +1945,7 @@ function elements_delete_deployment(_application_id, _deployment_id, _callback =
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
 	if (!is_string(_deployment_id)) show_error($"{_GMFUNCTION_} :: _deployment_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/deployment/{_application_id}/{_deployment_id}";
@@ -1967,7 +1967,7 @@ function elements_get_current_deployment(_application_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_application_id)) show_error($"{_GMFUNCTION_} :: _application_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/deployment/{_application_id}/current";
@@ -1996,10 +1996,10 @@ function elements_update_deployment(_application_id, _version, _body = undefined
 	if (!is_string(_version)) show_error($"{_GMFUNCTION_} :: _version expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 549743099) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateDeploymentRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateDeploymentRequest", true);
+		ElementsUpdateDeploymentRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/deployment/{_application_id}/{_version}";
@@ -2026,11 +2026,11 @@ function elements_generate_code(_body = undefined, _content_type = "*/*", _callb
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2864578542) show_error($"{_GMFUNCTION_} :: _body expected ElementsCodegenRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCodegenRequest", true);
+		ElementsCodegenRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: '_content_type' expected string", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/codegen";
@@ -2057,7 +2057,7 @@ function elements_get_followers(_profile_id, _offset = undefined, _count = undef
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/followee/{_profile_id}";
@@ -2087,7 +2087,7 @@ function elements_get_followers_1(_profile_id, _offset = undefined, _count = und
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/follower/{_profile_id}";
@@ -2118,10 +2118,10 @@ function elements_create_follower(_profile_id, _body = undefined, _callback = un
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3688830827) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateFollowerRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateFollowerRequest", true);
+		ElementsCreateFollowerRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/follower/{_profile_id}";
@@ -2145,7 +2145,7 @@ function elements_delete_follower(_profile_id, _profile_to_unfollow_id, _callbac
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_string(_profile_to_unfollow_id)) show_error($"{_GMFUNCTION_} :: _profile_to_unfollow_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/follower/{_profile_id}/{_profile_to_unfollow_id}";
@@ -2169,7 +2169,7 @@ function elements_get_follower(_profile_id, _followed_id, _callback = undefined)
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_string(_followed_id)) show_error($"{_GMFUNCTION_} :: _followed_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/follower/{_profile_id}/{_followed_id}";
@@ -2192,7 +2192,7 @@ function elements_get_friend(_friend_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_friend_id)) show_error($"{_GMFUNCTION_} :: _friend_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/friend/{_friend_id}";
@@ -2215,7 +2215,7 @@ function elements_delete_friend_registration(_friend_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_friend_id)) show_error($"{_GMFUNCTION_} :: _friend_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/friend/{_friend_id}";
@@ -2242,7 +2242,7 @@ function elements_get_friends(_offset = undefined, _count = undefined, _search =
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/friend";
@@ -2276,7 +2276,7 @@ function elements_get_items(_offset = undefined, _count = undefined, _tags = und
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
 	if (!is_undefined(_category) && !is_string(_category)) show_error($"{_GMFUNCTION_} :: _category expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/item";
@@ -2305,10 +2305,10 @@ function elements_create_item(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 237024536) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateItemRequest", true);
+		ElementsCreateItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/item";
@@ -2331,7 +2331,7 @@ function elements_get_item_by_identifier(_identifier, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_identifier)) show_error($"{_GMFUNCTION_} :: _identifier expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/item/{_identifier}";
@@ -2359,10 +2359,10 @@ function elements_update_item(_identifier, _body = undefined, _callback = undefi
 	if (!is_string(_identifier)) show_error($"{_GMFUNCTION_} :: _identifier expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1869501411) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateItemRequest", true);
+		ElementsUpdateItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/item/{_identifier}";
@@ -2387,10 +2387,10 @@ function elements_upload_google_play_iap_purchase(_body = undefined, _callback =
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3895146603) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateGooglePlayIapReceipt", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateGooglePlayIapReceipt", true);
+		ElementsCreateGooglePlayIapReceipt_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/google/purchase";
@@ -2415,10 +2415,10 @@ function elements_build_indexes(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3607862009) show_error($"{_GMFUNCTION_} :: _body expected ElementsBuildIndexRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsBuildIndexRequest", true);
+		ElementsBuildIndexRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/index/build";
@@ -2442,7 +2442,7 @@ function elements_get_plans(_offset = undefined, _count = undefined, _callback =
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/index/plan";
@@ -2468,7 +2468,7 @@ function elements_get_advanced_inventory_item(_inventory_item_id, _callback = un
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
@@ -2496,10 +2496,10 @@ function elements_update_simple_inventory_item(_inventory_item_id, _body = undef
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3290562721) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateInventoryItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateInventoryItemRequest", true);
+		ElementsUpdateInventoryItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
@@ -2522,7 +2522,7 @@ function elements_delete_advanced_inventory_item(_inventory_item_id, _callback =
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
@@ -2550,10 +2550,10 @@ function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _b
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1883903687) show_error($"{_GMFUNCTION_} :: _body expected ElementsAdvancedInventoryItemQuantityAdjustment", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsAdvancedInventoryItemQuantityAdjustment", true);
+		ElementsAdvancedInventoryItemQuantityAdjustment_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/advanced/{_inventory_item_id}";
@@ -2582,7 +2582,7 @@ function elements_get_advanced_inventory_items(_offset = undefined, _count = und
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_user_id) && !is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/advanced";
@@ -2611,10 +2611,10 @@ function elements_create_advanced_inventory_item(_body = undefined, _callback = 
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 47663290) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateAdvancedInventoryItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateAdvancedInventoryItemRequest", true);
+		ElementsCreateAdvancedInventoryItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/advanced";
@@ -2645,7 +2645,7 @@ function elements_get_distinct_inventory_items(_offset = undefined, _count = und
 	if (!is_undefined(_user_id) && !is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_profile_id) && !is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/distinct";
@@ -2674,10 +2674,10 @@ function elements_create_distinct_inventory_item(_body = undefined, _callback = 
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3579304364) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateDistinctInventoryItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateDistinctInventoryItemRequest", true);
+		ElementsCreateDistinctInventoryItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/distinct";
@@ -2705,10 +2705,10 @@ function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _b
 	if (!is_string(_distinct_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _distinct_inventory_item_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3687348073) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateDistinctInventoryItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateDistinctInventoryItemRequest", true);
+		ElementsUpdateDistinctInventoryItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/distinct/{_distinct_inventory_item_id}";
@@ -2731,7 +2731,7 @@ function elements_delete_distinct_inventory_item(_distinct_inventory_item_id, _c
 	
 	// argument validation
 	if (!is_string(_distinct_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _distinct_inventory_item_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/distinct/{_distinct_inventory_item_id}";
@@ -2754,7 +2754,7 @@ function elements_get_distinct_inventory_item(_inventory_item_id, _callback = un
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/distinct/{_inventory_item_id}";
@@ -2777,7 +2777,7 @@ function elements_get_simple_inventory_item(_inventory_item_id, _callback = unde
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
@@ -2805,10 +2805,10 @@ function elements_update_simple_inventory_item_1(_inventory_item_id, _body = und
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3290562721) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateInventoryItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateInventoryItemRequest", true);
+		ElementsUpdateInventoryItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
@@ -2831,7 +2831,7 @@ function elements_delete_simple_inventory_item(_inventory_item_id, _callback = u
 	
 	// argument validation
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
@@ -2859,10 +2859,10 @@ function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _bod
 	if (!is_string(_inventory_item_id)) show_error($"{_GMFUNCTION_} :: _inventory_item_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2663745631) show_error($"{_GMFUNCTION_} :: _body expected ElementsSimpleInventoryItemQuantityAdjustment", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsSimpleInventoryItemQuantityAdjustment", true);
+		ElementsSimpleInventoryItemQuantityAdjustment_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/simple/{_inventory_item_id}";
@@ -2891,7 +2891,7 @@ function elements_get_simple_inventory_items(_offset = undefined, _count = undef
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_user_id) && !is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/simple";
@@ -2920,10 +2920,10 @@ function elements_create_simple_inventory_item(_body = undefined, _callback = un
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2410874866) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateSimpleInventoryItemRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateSimpleInventoryItemRequest", true);
+		ElementsCreateSimpleInventoryItemRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/inventory/simple";
@@ -2953,10 +2953,10 @@ function elements_get_matched_user_profiles_with_phone_numbers(_offset = undefin
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1104981419) show_error($"{_GMFUNCTION_} :: _body expected ElementsInviteViaPhonesRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsInviteViaPhonesRequest", true);
+		ElementsInviteViaPhonesRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/invite";
@@ -2982,8 +2982,8 @@ function elements_create_large_object(_body = undefined, _callback = undefined)
 	static __content_type__ = "multipart/form-data";
 	
 	// argument validation
-	if (!is_undefined(_body) && !is_struct(_body)) show_error($"{_GMFUNCTION_} :: _body expected any", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_body) && !is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected any", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object_mp";
@@ -3008,10 +3008,10 @@ function elements_create_large_object_1(_body = undefined, _callback = undefined
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1592293949) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateLargeObjectRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateLargeObjectRequest", true);
+		ElementsCreateLargeObjectRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object";
@@ -3036,10 +3036,10 @@ function elements_create_large_object_from_url(_body = undefined, _callback = un
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 117731378) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateLargeObjectFromUrlRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateLargeObjectFromUrlRequest", true);
+		ElementsCreateLargeObjectFromUrlRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object/from_url";
@@ -3061,7 +3061,7 @@ function elements_get_large_object(_large_object_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object/{_large_object_id}";
@@ -3088,10 +3088,10 @@ function elements_update_large_object(_large_object_id, _body = undefined, _call
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1646762996) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateLargeObjectRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateLargeObjectRequest", true);
+		ElementsUpdateLargeObjectRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object/{_large_object_id}";
@@ -3113,7 +3113,7 @@ function elements_delete_large_object(_large_object_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object/{_large_object_id}";
@@ -3139,9 +3139,9 @@ function elements_update_large_object_contents(_large_object_id, _body = undefin
 	
 	// argument validation
 	if (!is_string(_large_object_id)) show_error($"{_GMFUNCTION_} :: _large_object_id expected string", true);
-	if (!is_undefined(_body) && !is_struct(_body)) show_error($"{_GMFUNCTION_} :: _body expected any", true);
-	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_body) && !is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected any", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: '_content_type' expected string", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/large_object/{_large_object_id}/content";
@@ -3168,7 +3168,7 @@ function elements_get_leaderboards(_offset = undefined, _count = undefined, _sea
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/leaderboard";
@@ -3197,10 +3197,10 @@ function elements_create_leaderboard(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2694437395) show_error($"{_GMFUNCTION_} :: _body expected ElementsLeaderboard", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsLeaderboard", true);
+		ElementsLeaderboard_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/leaderboard";
@@ -3223,7 +3223,7 @@ function elements_get_leaderboard(_name_or_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/leaderboard/{_name_or_id}";
@@ -3251,10 +3251,10 @@ function elements_update_leaderboard(_name_or_id, _body = undefined, _callback =
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2694437395) show_error($"{_GMFUNCTION_} :: _body expected ElementsLeaderboard", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsLeaderboard", true);
+		ElementsLeaderboard_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/leaderboard/{_name_or_id}";
@@ -3277,7 +3277,7 @@ function elements_delete_leaderboard(_name_or_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name_or_id)) show_error($"{_GMFUNCTION_} :: _name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/leaderboard/{_name_or_id}";
@@ -3302,7 +3302,7 @@ function elements_get_global_rank_tabular(_leaderboard_name_or_id, _leaderboard_
 	// argument validation
 	if (!is_string(_leaderboard_name_or_id)) show_error($"{_GMFUNCTION_} :: _leaderboard_name_or_id expected string", true);
 	if (!is_undefined(_leaderboard_epoch) && !is_real(_leaderboard_epoch)) show_error($"{_GMFUNCTION_} :: _leaderboard_epoch expected int64", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/rank/global/{_leaderboard_name_or_id}";
@@ -3336,7 +3336,7 @@ function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = unde
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_relative) && !is_real(_relative)) show_error($"{_GMFUNCTION_} :: _relative expected bool", true);
 	if (!is_undefined(_leaderboard_epoch) && !is_real(_leaderboard_epoch)) show_error($"{_GMFUNCTION_} :: _leaderboard_epoch expected int64", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/rank/friends/{_leaderboard_name_or_id}";
@@ -3370,7 +3370,7 @@ function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offs
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_relative) && !is_real(_relative)) show_error($"{_GMFUNCTION_} :: _relative expected bool", true);
 	if (!is_undefined(_leaderboard_epoch) && !is_real(_leaderboard_epoch)) show_error($"{_GMFUNCTION_} :: _leaderboard_epoch expected int64", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/rank/mutual_followers/{_leaderboard_name_or_id}";
@@ -3401,10 +3401,10 @@ function elements_create_score(_leaderboard_name_or_id, _body = undefined, _call
 	if (!is_string(_leaderboard_name_or_id)) show_error($"{_GMFUNCTION_} :: _leaderboard_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3673458198) show_error($"{_GMFUNCTION_} :: _body expected ElementsScore", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsScore", true);
+		ElementsScore_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/score/{_leaderboard_name_or_id}";
@@ -3431,7 +3431,7 @@ function elements_get_matches(_offset = undefined, _count = undefined, _search =
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/match";
@@ -3460,10 +3460,10 @@ function elements_create_match(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2972025397) show_error($"{_GMFUNCTION_} :: _body expected ElementsMatch", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsMatch", true);
+		ElementsMatch_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/match";
@@ -3488,7 +3488,7 @@ function elements_get_match(_match_id, _social_engine_long_poll_timeout = undefi
 	// argument validation
 	if (!is_string(_match_id)) show_error($"{_GMFUNCTION_} :: _match_id expected string", true);
 	if (!is_undefined(_social_engine_long_poll_timeout) && !is_real(_social_engine_long_poll_timeout)) show_error($"{_GMFUNCTION_} :: _social_engine_long_poll_timeout expected int64", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/match/{_match_id}";
@@ -3511,7 +3511,7 @@ function elements_delete_match(_match_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_match_id)) show_error($"{_GMFUNCTION_} :: _match_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/match/{_match_id}";
@@ -3538,7 +3538,7 @@ function elements_get_metadata_objects(_offset = undefined, _count = undefined, 
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata";
@@ -3568,11 +3568,11 @@ function elements_create_metadata(_body = undefined, _content_type = "*/*", _cal
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2487058506) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateMetadataRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateMetadataRequest", true);
+		ElementsCreateMetadataRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: '_content_type' expected string", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata";
@@ -3595,7 +3595,7 @@ function elements_get_metadata_object(_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata/{_id}";
@@ -3624,11 +3624,11 @@ function elements_update_metadata(_id, _body = undefined, _content_type = "*/*",
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2761795881) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateMetadataRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateMetadataRequest", true);
+		ElementsUpdateMetadataRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: '_content_type' expected string", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata/{_id}";
@@ -3651,7 +3651,7 @@ function elements_delete_metadata(_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata/{_id}";
@@ -3680,7 +3680,7 @@ function elements_get_missions(_offset = undefined, _count = undefined, _tags = 
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/mission";
@@ -3709,10 +3709,10 @@ function elements_create_mission(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 163403146) show_error($"{_GMFUNCTION_} :: _body expected ElementsMission", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsMission", true);
+		ElementsMission_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/mission";
@@ -3735,7 +3735,7 @@ function elements_get_mission_by_name_or_id(_mission_name_or_id, _callback = und
 	
 	// argument validation
 	if (!is_string(_mission_name_or_id)) show_error($"{_GMFUNCTION_} :: _mission_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/mission/{_mission_name_or_id}";
@@ -3763,10 +3763,10 @@ function elements_update_mission(_mission_name_or_id, _body = undefined, _callba
 	if (!is_string(_mission_name_or_id)) show_error($"{_GMFUNCTION_} :: _mission_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 163403146) show_error($"{_GMFUNCTION_} :: _body expected ElementsMission", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsMission", true);
+		ElementsMission_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/mission/{_mission_name_or_id}";
@@ -3789,7 +3789,7 @@ function elements_delete_mission(_mission_name_or_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_mission_name_or_id)) show_error($"{_GMFUNCTION_} :: _mission_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/mission/{_mission_name_or_id}";
@@ -3810,7 +3810,7 @@ function elements_get_progress_tabular(_callback = undefined)
 	static __base_url__ = _elements_options_get_rest_url();
 	
 	// argument validation
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/progress";
@@ -3836,10 +3836,10 @@ function elements_create_progress(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 250421607) show_error($"{_GMFUNCTION_} :: _body expected ElementsProgress", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsProgress", true);
+		ElementsProgress_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/progress";
@@ -3862,7 +3862,7 @@ function elements_delete_progress(_progress_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_progress_id)) show_error($"{_GMFUNCTION_} :: _progress_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/progress/progress/{_progress_id}";
@@ -3885,7 +3885,7 @@ function elements_get_progress_by_name_or_id(_progress_id, _callback = undefined
 	
 	// argument validation
 	if (!is_string(_progress_id)) show_error($"{_GMFUNCTION_} :: _progress_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/progress/{_progress_id}";
@@ -3913,10 +3913,10 @@ function elements_update_progress(_progress_id, _body = undefined, _callback = u
 	if (!is_string(_progress_id)) show_error($"{_GMFUNCTION_} :: _progress_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 250421607) show_error($"{_GMFUNCTION_} :: _body expected ElementsProgress", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsProgress", true);
+		ElementsProgress_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/progress/{_progress_id}";
@@ -3938,7 +3938,7 @@ function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined
 	
 	// argument validation
 	if (!is_string(_reward_issuance_id)) show_error($"{_GMFUNCTION_} :: _reward_issuance_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/reward_issuance/{_reward_issuance_id}";
@@ -3966,7 +3966,7 @@ function elements_get_reward_issuances(_offset = undefined, _count = undefined, 
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_states) && !is_array(_states)) show_error($"{_GMFUNCTION_} :: _states expected string", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/reward_issuance";
@@ -3991,7 +3991,7 @@ function elements_redeem_reward_issuance(_reward_issuance_id, _callback = undefi
 	
 	// argument validation
 	if (!is_string(_reward_issuance_id)) show_error($"{_GMFUNCTION_} :: _reward_issuance_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/reward_issuance/{_reward_issuance_id}/redeem";
@@ -4015,9 +4015,9 @@ function elements_redeem_reward_issuances(_body = undefined, _content_type = "*/
 	__content_type__ = _content_type;
 	
 	// argument validation
-	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: _body expected string", true);
-	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: __content_type__ expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_body) && !is_array(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected string", true);
+	if (!is_undefined(__content_type__) && !is_string(__content_type__)) show_error($"{_GMFUNCTION_} :: '_content_type' expected string", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/reward_issuance/redeem";
@@ -4048,7 +4048,7 @@ function elements_get_schedule_events(_schedule_name_or_id, _offset = undefined,
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event";
@@ -4079,10 +4079,10 @@ function elements_create_schedule_event(_schedule_name_or_id, _body = undefined,
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3808981408) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateScheduleEventRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateScheduleEventRequest", true);
+		ElementsCreateScheduleEventRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event";
@@ -4107,7 +4107,7 @@ function elements_get_schedule_event_by_name_or_id(_schedule_name_or_id, _schedu
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_string(_schedule_event_id)) show_error($"{_GMFUNCTION_} :: _schedule_event_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
@@ -4137,10 +4137,10 @@ function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id
 	if (!is_string(_schedule_event_id)) show_error($"{_GMFUNCTION_} :: _schedule_event_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3327297397) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateScheduleEventRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateScheduleEventRequest", true);
+		ElementsUpdateScheduleEventRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
@@ -4165,7 +4165,7 @@ function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_string(_schedule_event_id)) show_error($"{_GMFUNCTION_} :: _schedule_event_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/event/{_schedule_event_id}";
@@ -4194,7 +4194,7 @@ function elements_get_schedule_progresses(_schedule_name_or_id, _offset = undefi
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}/progress";
@@ -4226,7 +4226,7 @@ function elements_get_schedules(_offset = undefined, _count = undefined, _tags =
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_tags) && !is_array(_tags)) show_error($"{_GMFUNCTION_} :: _tags expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule";
@@ -4255,10 +4255,10 @@ function elements_create_schedule(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2403450450) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateScheduleRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateScheduleRequest", true);
+		ElementsCreateScheduleRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule";
@@ -4281,7 +4281,7 @@ function elements_get_schedule_by_name_or_id(_schedule_name_or_id, _callback = u
 	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}";
@@ -4309,10 +4309,10 @@ function elements_update_schedule(_schedule_name_or_id, _body = undefined, _call
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3597890317) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateScheduleRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateScheduleRequest", true);
+		ElementsUpdateScheduleRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}";
@@ -4335,7 +4335,7 @@ function elements_delete_schedule(_schedule_name_or_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_schedule_name_or_id)) show_error($"{_GMFUNCTION_} :: _schedule_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/schedule/{_schedule_name_or_id}";
@@ -4361,10 +4361,10 @@ function elements_create_fcm_registration(_body = undefined, _callback = undefin
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1607130311) show_error($"{_GMFUNCTION_} :: _body expected ElementsFCMRegistration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsFCMRegistration", true);
+		ElementsFCMRegistration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/notification/fcm";
@@ -4392,10 +4392,10 @@ function elements_update_registration(_fcm_registration_id, _body = undefined, _
 	if (!is_string(_fcm_registration_id)) show_error($"{_GMFUNCTION_} :: _fcm_registration_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1607130311) show_error($"{_GMFUNCTION_} :: _body expected ElementsFCMRegistration", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsFCMRegistration", true);
+		ElementsFCMRegistration_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/notification/fcm/{_fcm_registration_id}";
@@ -4417,7 +4417,7 @@ function elements_delete_fcm_registration(_fcm_registration_id, _callback = unde
 	
 	// argument validation
 	if (!is_string(_fcm_registration_id)) show_error($"{_GMFUNCTION_} :: _fcm_registration_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/notification/fcm/{_fcm_registration_id}";
@@ -4452,7 +4452,7 @@ function elements_get_profiles(_offset = undefined, _count = undefined, _before 
 	if (!is_undefined(_application) && !is_string(_application)) show_error($"{_GMFUNCTION_} :: _application expected string", true);
 	if (!is_undefined(_user) && !is_string(_user)) show_error($"{_GMFUNCTION_} :: _user expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile";
@@ -4481,10 +4481,10 @@ function elements_create_profile(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 16877594) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateProfileRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateProfileRequest", true);
+		ElementsCreateProfileRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile";
@@ -4512,10 +4512,10 @@ function elements_update_profile(_profile_id, _body = undefined, _callback = und
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 382495963) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateProfileRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateProfileRequest", true);
+		ElementsUpdateProfileRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile/{_profile_id}";
@@ -4538,7 +4538,7 @@ function elements_deactivate_profile(_profile_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile/{_profile_id}";
@@ -4559,7 +4559,7 @@ function elements_get_current_profile(_callback = undefined)
 	static __base_url__ = _elements_options_get_rest_url();
 	
 	// argument validation
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile/current";
@@ -4582,7 +4582,7 @@ function elements_get_profile(_name, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name)) show_error($"{_GMFUNCTION_} :: _name expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile/{_name}";
@@ -4609,10 +4609,10 @@ function elements_update_profile_image(_profile_id, _body = undefined, _callback
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1429530948) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateProfileImageRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateProfileImageRequest", true);
+		ElementsUpdateProfileImageRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/profile/{_profile_id}/image";
@@ -4643,7 +4643,7 @@ function elements_get_save_data_documents(_offset = undefined, _count = undefine
 	if (!is_undefined(_user_id) && !is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_profile_id) && !is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data";
@@ -4672,10 +4672,10 @@ function elements_create_save_document(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 2901008509) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateSaveDataDocumentRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateSaveDataDocumentRequest", true);
+		ElementsCreateSaveDataDocumentRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data";
@@ -4703,10 +4703,10 @@ function elements_update_save_document(_save_data_document_id, _body = undefined
 	if (!is_string(_save_data_document_id)) show_error($"{_GMFUNCTION_} :: _save_data_document_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3806683334) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateSaveDataDocumentRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateSaveDataDocumentRequest", true);
+		ElementsUpdateSaveDataDocumentRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data/{_save_data_document_id}";
@@ -4728,7 +4728,7 @@ function elements_delete_save_document(_save_data_document_id, _callback = undef
 	
 	// argument validation
 	if (!is_string(_save_data_document_id)) show_error($"{_GMFUNCTION_} :: _save_data_document_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data/{_save_data_document_id}";
@@ -4753,7 +4753,7 @@ function elements_get_profile_save_data_document_by_slot(_profile_id, _slot, _ca
 	// argument validation
 	if (!is_string(_profile_id)) show_error($"{_GMFUNCTION_} :: _profile_id expected string", true);
 	if (!is_real(_slot)) show_error($"{_GMFUNCTION_} :: _slot expected int32", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data/profile/{_profile_id}/{_slot}";
@@ -4776,7 +4776,7 @@ function elements_get_save_data_document(_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_id)) show_error($"{_GMFUNCTION_} :: _id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data/{_id}";
@@ -4801,7 +4801,7 @@ function elements_get_user_save_data_document_by_slot(_user_id, _slot, _callback
 	// argument validation
 	if (!is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_real(_slot)) show_error($"{_GMFUNCTION_} :: _slot expected int32", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/save_data/user/{_user_id}/{_slot}";
@@ -4826,7 +4826,7 @@ function elements_get_metadata_specs(_offset = undefined, _count = undefined, _c
 	// argument validation
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec";
@@ -4855,10 +4855,10 @@ function elements_create_metadata_spec(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3295076267) show_error($"{_GMFUNCTION_} :: _body expected ElementsCreateMetadataSpecRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsCreateMetadataSpecRequest", true);
+		ElementsCreateMetadataSpecRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec";
@@ -4886,10 +4886,10 @@ function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _ca
 	if (!is_string(_metadata_spec_id)) show_error($"{_GMFUNCTION_} :: _metadata_spec_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1920219244) show_error($"{_GMFUNCTION_} :: _body expected ElementsUpdateMetadataSpecRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUpdateMetadataSpecRequest", true);
+		ElementsUpdateMetadataSpecRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_id}";
@@ -4912,7 +4912,7 @@ function elements_delete_metadata_spec(_metadata_spec_id, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_metadata_spec_id)) show_error($"{_GMFUNCTION_} :: _metadata_spec_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_id}";
@@ -4935,7 +4935,7 @@ function elements_get_editor_schema(_metadata_spec_name, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_metadata_spec_name)) show_error($"{_GMFUNCTION_} :: _metadata_spec_name expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_name}/editor.json";
@@ -4958,7 +4958,7 @@ function elements_get_json_schema(_metadata_spec_name, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_metadata_spec_name)) show_error($"{_GMFUNCTION_} :: _metadata_spec_name expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_name}/schema.json";
@@ -4981,7 +4981,7 @@ function elements_get_metadata_spec(_metadata_spec_name_or_id, _callback = undef
 	
 	// argument validation
 	if (!is_string(_metadata_spec_name_or_id)) show_error($"{_GMFUNCTION_} :: _metadata_spec_name_or_id expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/metadata_spec/{_metadata_spec_name_or_id}";
@@ -5007,10 +5007,10 @@ function elements_create_mock_session(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3773080403) show_error($"{_GMFUNCTION_} :: _body expected ElementsMockSessionRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsMockSessionRequest", true);
+		ElementsMockSessionRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/mock_session";
@@ -5032,7 +5032,7 @@ function elements_blacklist_session(_session_secret, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_session_secret)) show_error($"{_GMFUNCTION_} :: _session_secret expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/session/{_session_secret}";
@@ -5058,10 +5058,10 @@ function elements_create_username_password_session(_body = undefined, _callback 
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 3751727376) show_error($"{_GMFUNCTION_} :: _body expected ElementsUsernamePasswordSessionRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUsernamePasswordSessionRequest", true);
+		ElementsUsernamePasswordSessionRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/session";
@@ -5082,7 +5082,7 @@ function elements_get_server_health(_callback = undefined)
 	static __base_url__ = _elements_options_get_rest_url();
 	
 	// argument validation
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/health";
@@ -5103,7 +5103,7 @@ function elements_get_version(_callback = undefined)
 	static __base_url__ = _elements_options_get_rest_url();
 	
 	// argument validation
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/version";
@@ -5129,10 +5129,10 @@ function elements_sign_up_user(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 899782120) show_error($"{_GMFUNCTION_} :: _body expected ElementsUserCreateRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUserCreateRequest", true);
+		ElementsUserCreateRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/signup";
@@ -5159,7 +5159,7 @@ function elements_get_users(_offset = undefined, _count = undefined, _search = u
 	if (!is_undefined(_offset) && !is_real(_offset)) show_error($"{_GMFUNCTION_} :: _offset expected int32", true);
 	if (!is_undefined(_count) && !is_real(_count)) show_error($"{_GMFUNCTION_} :: _count expected int32", true);
 	if (!is_undefined(_search) && !is_string(_search)) show_error($"{_GMFUNCTION_} :: _search expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user";
@@ -5188,10 +5188,10 @@ function elements_create_user(_body = undefined, _callback = undefined)
 	// argument validation
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 899782120) show_error($"{_GMFUNCTION_} :: _body expected ElementsUserCreateRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUserCreateRequest", true);
+		ElementsUserCreateRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user";
@@ -5214,7 +5214,7 @@ function elements_get_user(_name, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name)) show_error($"{_GMFUNCTION_} :: _name expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user/{_name}";
@@ -5237,7 +5237,7 @@ function elements_deactivate_user(_name, _callback = undefined)
 	
 	// argument validation
 	if (!is_string(_name)) show_error($"{_GMFUNCTION_} :: _name expected string", true);
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user/{_name}";
@@ -5258,7 +5258,7 @@ function elements_get_current_user(_callback = undefined)
 	static __base_url__ = _elements_options_get_rest_url();
 	
 	// argument validation
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user/me";
@@ -5286,10 +5286,10 @@ function elements_update_user(_user_id, _body = undefined, _callback = undefined
 	if (!is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 45946483) show_error($"{_GMFUNCTION_} :: _body expected ElementsUserUpdateRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUserUpdateRequest", true);
+		ElementsUserUpdateRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user/{_user_id}";
@@ -5317,10 +5317,10 @@ function elements_update_user_password(_user_id, _body = undefined, _callback = 
 	if (!is_string(_user_id)) show_error($"{_GMFUNCTION_} :: _user_id expected string", true);
 	if (!is_undefined(_body))
 	{
-		if (!is_struct(_body) || _body[$ "__uid"] != 1441785724) show_error($"{_GMFUNCTION_} :: _body expected ElementsUserUpdatePasswordRequest", true);
-		_body.validate(_GMFUNCTION_);
+		if (!is_struct(_body)) show_error($"{_GMFUNCTION_} :: '_body' expected ElementsUserUpdatePasswordRequest", true);
+		ElementsUserUpdatePasswordRequest_validate(_body, _GMFUNCTION_);
 	}
-	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: _callback expected function", true);
+	if (!is_undefined(_callback) && !is_callable(_callback)) show_error($"{_GMFUNCTION_} :: '_callback' expected function", true);
 	
 	// build url path
 	var __url__ = $"{__base_url__}/user/{_user_id}/password";

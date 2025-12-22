@@ -21,26 +21,6 @@ function ElementsMetadataSpecProperty(_name, _display_name, _type, _required = u
 	placeholder = _placeholder;
 	defaultValue = _default_value;
 	properties = _properties;
-	
-	static __uid = 2406883295;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMetadataSpecProperty.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(required) && !is_real(required)) show_error($"{_where} :: required expected bool", true);
-		if (!is_undefined(placeholder) && !is_string(placeholder)) show_error($"{_where} :: placeholder expected string", true);
-		if (!is_undefined(defaultValue) && !is_struct(defaultValue)) show_error($"{_where} :: defaultValue expected any", true);
-		if (!is_undefined(properties) && !is_array(properties)) show_error($"{_where} :: properties expected ElementsMetadataSpecProperty", true);
-	};
 }
 
 /**
@@ -56,23 +36,6 @@ function ElementsMetadataSpec(_id, _name, _type, _properties) constructor
 	name = _name;
 	type = _type;
 	properties = _properties;
-	
-	static __uid = 2450729354;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMetadataSpec.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_array(properties)) show_error($"{_where} :: properties expected ElementsMetadataSpecProperty", true);
-	};
 }
 
 /**
@@ -98,32 +61,6 @@ function ElementsItem(_name, _display_name, _description, _category, _id = undef
 	metadataSpec = _metadata_spec;
 	metadata = _metadata;
 	publicVisible = _public_visible;
-	
-	static __uid = 4093207011;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsItem.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_string(category)) show_error($"{_where} :: category expected string", true);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(tags) && !is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_undefined(metadataSpec))
-		{
-			if (!is_struct(metadataSpec) || metadataSpec[$ "__uid"] != 2450729354) show_error($"{_where} :: metadataSpec expected ElementsMetadataSpec", true);
-			metadataSpec.validate(_where);
-		}
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(publicVisible) && !is_real(publicVisible)) show_error($"{_where} :: publicVisible expected bool", true);
-	};
 }
 
 /**
@@ -147,27 +84,6 @@ function ElementsUser(_id, _level, _name = undefined, _first_name = undefined, _
 	email = _email;
 	primaryPhoneNb = _primary_phone_nb;
 	linkedAccounts = _linked_accounts;
-	
-	static __uid = 3659328047;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUser.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(level)) show_error($"{_where} :: level expected string", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(firstName) && !is_string(firstName)) show_error($"{_where} :: firstName expected string", true);
-		if (!is_undefined(lastName) && !is_string(lastName)) show_error($"{_where} :: lastName expected string", true);
-		if (!is_undefined(email) && !is_string(email)) show_error($"{_where} :: email expected string", true);
-		if (!is_undefined(primaryPhoneNb) && !is_string(primaryPhoneNb)) show_error($"{_where} :: primaryPhoneNb expected string", true);
-		if (!is_undefined(linkedAccounts) && !is_array(linkedAccounts)) show_error($"{_where} :: linkedAccounts expected string", true);
-	};
 }
 
 /**
@@ -199,36 +115,6 @@ function ElementsRewardIssuance(_id, _user, _state, _context, _type, _item = und
 	tags = _tags;
 	expirationTimestamp = _expiration_timestamp;
 	uuid = _uuid;
-	
-	static __uid = 3284773420;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsRewardIssuance.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_string(state)) show_error($"{_where} :: state expected string", true);
-		if (!is_string(context)) show_error($"{_where} :: context expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(item))
-		{
-			if (!is_struct(item) || item[$ "__uid"] != 4093207011) show_error($"{_where} :: item expected ElementsItem", true);
-			item.validate(_where);
-		}
-		if (!is_undefined(itemQuantity) && !is_real(itemQuantity)) show_error($"{_where} :: itemQuantity expected int32", true);
-		if (!is_undefined(source) && !is_string(source)) show_error($"{_where} :: source expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(tags) && !is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_undefined(expirationTimestamp) && !is_real(expirationTimestamp)) show_error($"{_where} :: expirationTimestamp expected int64", true);
-		if (!is_undefined(uuid) && !is_string(uuid)) show_error($"{_where} :: uuid expected string", true);
-	};
 }
 
 /**
@@ -240,21 +126,6 @@ function ElementsCreateAppleIapReceipt(_receipt_data, _create_apple_iap_receipt_
 {
 	receiptData = _receipt_data;
 	createAppleIapReceiptEnvironment = _create_apple_iap_receipt_environment;
-	
-	static __uid = 1514807530;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateAppleIapReceipt.validate";
-		
-		if (!is_string(receiptData)) show_error($"{_where} :: receiptData expected string", true);
-		if (!is_undefined(createAppleIapReceiptEnvironment) && !is_string(createAppleIapReceiptEnvironment)) show_error($"{_where} :: createAppleIapReceiptEnvironment expected string", true);
-	};
 }
 
 /**
@@ -272,25 +143,6 @@ function ElementsApplicationConfiguration(_id, _name, _type, _description, _pare
 	type = _type;
 	description = _description;
 	parent = _parent;
-	
-	static __uid = 3986946320;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-	};
 }
 
 /**
@@ -318,33 +170,6 @@ function ElementsApplication(_name, _id = undefined, _description = undefined, _
 	httpTunnelEndpointUrl = _http_tunnel_endpoint_url;
 	attributes = _attributes;
 	applicationConfiguration = _application_configuration;
-	
-	static __uid = 1239862290;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsApplication.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(gitBranch) && !is_string(gitBranch)) show_error($"{_where} :: gitBranch expected string", true);
-		if (!is_undefined(scriptRepoUrl) && !is_string(scriptRepoUrl)) show_error($"{_where} :: scriptRepoUrl expected string", true);
-		if (!is_undefined(httpDocumentationUrl) && !is_string(httpDocumentationUrl)) show_error($"{_where} :: httpDocumentationUrl expected string", true);
-		if (!is_undefined(httpDocumentationUiUrl) && !is_string(httpDocumentationUiUrl)) show_error($"{_where} :: httpDocumentationUiUrl expected string", true);
-		if (!is_undefined(httpTunnelEndpointUrl) && !is_string(httpTunnelEndpointUrl)) show_error($"{_where} :: httpTunnelEndpointUrl expected string", true);
-		if (!is_undefined(attributes) && !is_struct(attributes)) show_error($"{_where} :: attributes expected any", true);
-		if (!is_undefined(applicationConfiguration))
-		{
-			if (!is_struct(applicationConfiguration) || applicationConfiguration[$ "__uid"] != 3986946320) show_error($"{_where} :: applicationConfiguration expected ElementsApplicationConfiguration", true);
-			applicationConfiguration.validate(_where);
-		}
-	};
 }
 
 /**
@@ -360,23 +185,6 @@ function ElementsPaginationApplicationConfiguration(_offset = undefined, _total 
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 543650528;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationApplicationConfiguration.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsApplicationConfiguration", true);
-	};
 }
 
 /**
@@ -390,22 +198,6 @@ function ElementsCreateApplicationRequest(_name, _description = undefined, _attr
 	name = _name;
 	description = _description;
 	attributes = _attributes;
-	
-	static __uid = 1130871979;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateApplicationRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(attributes) && !is_struct(attributes)) show_error($"{_where} :: attributes expected any", true);
-	};
 }
 
 /**
@@ -421,23 +213,6 @@ function ElementsPaginationApplication(_offset = undefined, _total = undefined, 
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3594980706;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationApplication.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsApplication", true);
-	};
 }
 
 /**
@@ -451,22 +226,6 @@ function ElementsUpdateApplicationRequest(_name, _description = undefined, _attr
 	name = _name;
 	description = _description;
 	attributes = _attributes;
-	
-	static __uid = 1097006730;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateApplicationRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(attributes) && !is_struct(attributes)) show_error($"{_where} :: attributes expected any", true);
-	};
 }
 
 /**
@@ -490,28 +249,6 @@ function ElementsFacebookApplicationConfiguration(_id, _name, _type, _descriptio
 	applicationId = _application_id;
 	applicationSecret = _application_secret;
 	builtinApplicationPermissions = _builtin_application_permissions;
-	
-	static __uid = 634460580;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFacebookApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-		if (!is_string(applicationId)) show_error($"{_where} :: applicationId expected string", true);
-		if (!is_string(applicationSecret)) show_error($"{_where} :: applicationSecret expected string", true);
-		if (!is_undefined(builtinApplicationPermissions) && !is_array(builtinApplicationPermissions)) show_error($"{_where} :: builtinApplicationPermissions expected string", true);
-	};
 }
 
 /**
@@ -533,27 +270,6 @@ function ElementsFirebaseApplicationConfiguration(_id, _name, _type, _descriptio
 	parent = _parent;
 	projectId = _project_id;
 	serviceAccountCredentials = _service_account_credentials;
-	
-	static __uid = 1131823289;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFirebaseApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-		if (!is_string(projectId)) show_error($"{_where} :: projectId expected string", true);
-		if (!is_string(serviceAccountCredentials)) show_error($"{_where} :: serviceAccountCredentials expected string", true);
-	};
 }
 
 /**
@@ -565,21 +281,6 @@ function ElementsProductBundleReward(_item_id, _quantity) constructor
 {
 	itemId = _item_id;
 	quantity = _quantity;
-	
-	static __uid = 35224884;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsProductBundleReward.validate";
-		
-		if (!is_string(itemId)) show_error($"{_where} :: itemId expected string", true);
-		if (!is_real(quantity)) show_error($"{_where} :: quantity expected int32", true);
-	};
 }
 
 /**
@@ -599,25 +300,6 @@ function ElementsProductBundle(_product_id, _product_bundle_rewards, _display, _
 	displayName = _display_name;
 	description = _description;
 	metadata = _metadata;
-	
-	static __uid = 798936131;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsProductBundle.validate";
-		
-		if (!is_string(productId)) show_error($"{_where} :: productId expected string", true);
-		if (!is_array(productBundleRewards)) show_error($"{_where} :: productBundleRewards expected ElementsProductBundleReward", true);
-		if (!is_real(display)) show_error($"{_where} :: display expected bool", true);
-		if (!is_undefined(displayName) && !is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -641,28 +323,6 @@ function ElementsGooglePlayApplicationConfiguration(_id, _name, _type, _descript
 	applicationId = _application_id;
 	jsonKey = _json_key;
 	productBundles = _product_bundles;
-	
-	static __uid = 193983205;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsGooglePlayApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-		if (!is_undefined(applicationId) && !is_string(applicationId)) show_error($"{_where} :: applicationId expected string", true);
-		if (!is_undefined(jsonKey) && !is_struct(jsonKey)) show_error($"{_where} :: jsonKey expected any", true);
-		if (!is_undefined(productBundles) && !is_array(productBundles)) show_error($"{_where} :: productBundles expected ElementsProductBundle", true);
-	};
 }
 
 /**
@@ -684,27 +344,6 @@ function ElementsIosApplicationConfiguration(_id, _name, _type, _description, _p
 	parent = _parent;
 	applicationId = _application_id;
 	productBundles = _product_bundles;
-	
-	static __uid = 2241575037;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsIosApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-		if (!is_string(applicationId)) show_error($"{_where} :: applicationId expected string", true);
-		if (!is_undefined(productBundles) && !is_array(productBundles)) show_error($"{_where} :: productBundles expected ElementsProductBundle", true);
-	};
 }
 
 /**
@@ -718,22 +357,6 @@ function ElementsElementServiceReference(_element_name, _service_type = undefine
 	elementName = _element_name;
 	serviceType = _service_type;
 	serviceName = _service_name;
-	
-	static __uid = 3543018996;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsElementServiceReference.validate";
-		
-		if (!is_string(elementName)) show_error($"{_where} :: elementName expected string", true);
-		if (!is_undefined(serviceType) && !is_string(serviceType)) show_error($"{_where} :: serviceType expected string", true);
-		if (!is_undefined(serviceName) && !is_string(serviceName)) show_error($"{_where} :: serviceName expected string", true);
-	};
 }
 
 /**
@@ -745,22 +368,6 @@ function ElementsCallbackDefinition(_method, _service) constructor
 {
 	self[$ "method"] = _method;
 	service = _service;
-	
-	static __uid = 4216241210;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCallbackDefinition.validate";
-		
-		if (!is_string(self[$ "method"])) show_error($"{_where} :: self[$ 'method'] expected string", true);
-		if (!is_struct(service) || service[$ "__uid"] != 3543018996) show_error($"{_where} :: service expected ElementsElementServiceReference", true);
-		service.validate(_where);
-	};
 }
 
 /**
@@ -788,42 +395,6 @@ function ElementsMatchmakingApplicationConfiguration(_id, _name, _type, _descrip
 	maxProfiles = _max_profiles;
 	metadata = _metadata;
 	metadataSpec = _metadata_spec;
-	
-	static __uid = 82183132;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMatchmakingApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-		if (!is_undefined(success))
-		{
-			if (!is_struct(success) || success[$ "__uid"] != 4216241210) show_error($"{_where} :: success expected ElementsCallbackDefinition", true);
-			success.validate(_where);
-		}
-		if (!is_undefined(matchmaker))
-		{
-			if (!is_struct(matchmaker) || matchmaker[$ "__uid"] != 3543018996) show_error($"{_where} :: matchmaker expected ElementsElementServiceReference", true);
-			matchmaker.validate(_where);
-		}
-		if (!is_undefined(maxProfiles) && !is_real(maxProfiles)) show_error($"{_where} :: maxProfiles expected int32", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(metadataSpec))
-		{
-			if (!is_struct(metadataSpec) || metadataSpec[$ "__uid"] != 2450729354) show_error($"{_where} :: metadataSpec expected ElementsMetadataSpec", true);
-			metadataSpec.validate(_where);
-		}
-	};
 }
 
 /**
@@ -845,27 +416,6 @@ function ElementsPSNApplicationConfiguration(_id, _name, _type, _description, _p
 	parent = _parent;
 	npIdentifier = _np_identifier;
 	clientSecret = _client_secret;
-	
-	static __uid = 1535140709;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPSNApplicationConfiguration.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_struct(parent) || parent[$ "__uid"] != 1239862290) show_error($"{_where} :: parent expected ElementsApplication", true);
-		parent.validate(_where);
-		if (!is_string(npIdentifier)) show_error($"{_where} :: npIdentifier expected string", true);
-		if (!is_string(clientSecret)) show_error($"{_where} :: clientSecret expected string", true);
-	};
 }
 
 /**
@@ -887,26 +437,6 @@ function ElementsAuthScheme(_id, _audience, _public_key, _algorithm, _user_level
 	userLevel = _user_level;
 	tags = _tags;
 	allowedIssuers = _allowed_issuers;
-	
-	static __uid = 4189832153;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsAuthScheme.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(audience)) show_error($"{_where} :: audience expected string", true);
-		if (!is_string(publicKey)) show_error($"{_where} :: publicKey expected string", true);
-		if (!is_string(algorithm)) show_error($"{_where} :: algorithm expected string", true);
-		if (!is_string(userLevel)) show_error($"{_where} :: userLevel expected string", true);
-		if (!is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_array(allowedIssuers)) show_error($"{_where} :: allowedIssuers expected string", true);
-	};
 }
 
 /**
@@ -920,23 +450,6 @@ function ElementsCreateAuthSchemeResponse(_scheme, _public_key, _private_key = u
 	scheme = _scheme;
 	publicKey = _public_key;
 	privateKey = _private_key;
-	
-	static __uid = 3050382998;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateAuthSchemeResponse.validate";
-		
-		if (!is_struct(scheme) || scheme[$ "__uid"] != 4189832153) show_error($"{_where} :: scheme expected ElementsAuthScheme", true);
-		scheme.validate(_where);
-		if (!is_string(publicKey)) show_error($"{_where} :: publicKey expected string", true);
-		if (!is_undefined(privateKey) && !is_string(privateKey)) show_error($"{_where} :: privateKey expected string", true);
-	};
 }
 
 /**
@@ -956,25 +469,6 @@ function ElementsCreateAuthSchemeRequest(_audience, _algorithm, _user_level, _ta
 	tags = _tags;
 	allowedIssuers = _allowed_issuers;
 	publicKey = _public_key;
-	
-	static __uid = 166078714;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateAuthSchemeRequest.validate";
-		
-		if (!is_string(audience)) show_error($"{_where} :: audience expected string", true);
-		if (!is_string(algorithm)) show_error($"{_where} :: algorithm expected string", true);
-		if (!is_string(userLevel)) show_error($"{_where} :: userLevel expected string", true);
-		if (!is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_array(allowedIssuers)) show_error($"{_where} :: allowedIssuers expected string", true);
-		if (!is_undefined(publicKey) && !is_string(publicKey)) show_error($"{_where} :: publicKey expected string", true);
-	};
 }
 
 /**
@@ -990,23 +484,6 @@ function ElementsPaginationAuthScheme(_offset = undefined, _total = undefined, _
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3952659785;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationAuthScheme.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsAuthScheme", true);
-	};
 }
 
 /**
@@ -1020,26 +497,6 @@ function ElementsUpdateAuthSchemeResponse(_public_key, _scheme = undefined, _pri
 	publicKey = _public_key;
 	scheme = _scheme;
 	privateKey = _private_key;
-	
-	static __uid = 3417798483;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateAuthSchemeResponse.validate";
-		
-		if (!is_string(publicKey)) show_error($"{_where} :: publicKey expected string", true);
-		if (!is_undefined(scheme))
-		{
-			if (!is_struct(scheme) || scheme[$ "__uid"] != 4189832153) show_error($"{_where} :: scheme expected ElementsAuthScheme", true);
-			scheme.validate(_where);
-		}
-		if (!is_undefined(privateKey) && !is_string(privateKey)) show_error($"{_where} :: privateKey expected string", true);
-	};
 }
 
 /**
@@ -1061,26 +518,6 @@ function ElementsUpdateAuthSchemeRequest(_audience, _algorithm, _user_level, _ta
 	allowedIssuers = _allowed_issuers;
 	regenerate = _regenerate;
 	publicKey = _public_key;
-	
-	static __uid = 1359283309;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateAuthSchemeRequest.validate";
-		
-		if (!is_string(audience)) show_error($"{_where} :: audience expected string", true);
-		if (!is_string(algorithm)) show_error($"{_where} :: algorithm expected string", true);
-		if (!is_string(userLevel)) show_error($"{_where} :: userLevel expected string", true);
-		if (!is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_array(allowedIssuers)) show_error($"{_where} :: allowedIssuers expected string", true);
-		if (!is_undefined(regenerate) && !is_real(regenerate)) show_error($"{_where} :: regenerate expected bool", true);
-		if (!is_undefined(publicKey) && !is_string(publicKey)) show_error($"{_where} :: publicKey expected string", true);
-	};
 }
 
 /**
@@ -1098,24 +535,6 @@ function ElementsLargeObjectReference(_id = undefined, _url = undefined, _mime_t
 	mimeType = _mime_type;
 	state = _state;
 	lastModified = _last_modified;
-	
-	static __uid = 2283563853;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsLargeObjectReference.validate";
-		
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(url) && !is_string(url)) show_error($"{_where} :: url expected string", true);
-		if (!is_undefined(mimeType) && !is_string(mimeType)) show_error($"{_where} :: mimeType expected string", true);
-		if (!is_undefined(state) && !is_string(state)) show_error($"{_where} :: state expected string", true);
-		if (!is_undefined(lastModified) && !is_string(lastModified)) show_error($"{_where} :: lastModified expected string", true);
-	};
 }
 
 /**
@@ -1139,33 +558,6 @@ function ElementsProfile(_id, _user, _application, _display_name, _image_url = u
 	imageObject = _image_object;
 	metadata = _metadata;
 	lastLogin = _last_login;
-	
-	static __uid = 2781117785;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsProfile.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_struct(application) || application[$ "__uid"] != 1239862290) show_error($"{_where} :: application expected ElementsApplication", true);
-		application.validate(_where);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(imageUrl) && !is_string(imageUrl)) show_error($"{_where} :: imageUrl expected string", true);
-		if (!is_undefined(imageObject))
-		{
-			if (!is_struct(imageObject) || imageObject[$ "__uid"] != 2283563853) show_error($"{_where} :: imageObject expected ElementsLargeObjectReference", true);
-			imageObject.validate(_where);
-		}
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(lastLogin) && !is_real(lastLogin)) show_error($"{_where} :: lastLogin expected int64", true);
-	};
 }
 
 /**
@@ -1181,32 +573,6 @@ function ElementsSession(_user, _profile = undefined, _application = undefined, 
 	profile = _profile;
 	application = _application;
 	expiry = _expiry;
-	
-	static __uid = 3048891336;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSession.validate";
-		
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_undefined(profile))
-		{
-			if (!is_struct(profile) || profile[$ "__uid"] != 2781117785) show_error($"{_where} :: profile expected ElementsProfile", true);
-			profile.validate(_where);
-		}
-		if (!is_undefined(application))
-		{
-			if (!is_struct(application) || application[$ "__uid"] != 1239862290) show_error($"{_where} :: application expected ElementsApplication", true);
-			application.validate(_where);
-		}
-		if (!is_undefined(expiry) && !is_real(expiry)) show_error($"{_where} :: expiry expected int64", true);
-	};
 }
 
 /**
@@ -1218,25 +584,6 @@ function ElementsSessionCreation(_session_secret = undefined, _session = undefin
 {
 	sessionSecret = _session_secret;
 	session = _session;
-	
-	static __uid = 4150057953;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSessionCreation.validate";
-		
-		if (!is_undefined(sessionSecret) && !is_string(sessionSecret)) show_error($"{_where} :: sessionSecret expected string", true);
-		if (!is_undefined(session))
-		{
-			if (!is_struct(session) || session[$ "__uid"] != 3048891336) show_error($"{_where} :: session expected ElementsSession", true);
-			session.validate(_where);
-		}
-	};
 }
 
 /**
@@ -1254,24 +601,6 @@ function ElementsOAuth2SessionRequest(_scheme_id, _request_parameters = undefine
 	requestHeaders = _request_headers;
 	profileId = _profile_id;
 	profileSelector = _profile_selector;
-	
-	static __uid = 3056783034;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsOAuth2SessionRequest.validate";
-		
-		if (!is_string(schemeId)) show_error($"{_where} :: schemeId expected string", true);
-		if (!is_undefined(requestParameters) && !is_struct(requestParameters)) show_error($"{_where} :: requestParameters expected any", true);
-		if (!is_undefined(requestHeaders) && !is_struct(requestHeaders)) show_error($"{_where} :: requestHeaders expected any", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_undefined(profileSelector) && !is_string(profileSelector)) show_error($"{_where} :: profileSelector expected string", true);
-	};
 }
 
 /**
@@ -1285,22 +614,6 @@ function ElementsOAuth2RequestKeyValue(_key = undefined, _value = undefined, _fr
 	key = _key;
 	value = _value;
 	fromClient = _from_client;
-	
-	static __uid = 487146424;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsOAuth2RequestKeyValue.validate";
-		
-		if (!is_undefined(key) && !is_string(key)) show_error($"{_where} :: key expected string", true);
-		if (!is_undefined(value) && !is_string(value)) show_error($"{_where} :: value expected string", true);
-		if (!is_undefined(fromClient) && !is_real(fromClient)) show_error($"{_where} :: fromClient expected bool", true);
-	};
 }
 
 /**
@@ -1320,25 +633,6 @@ function ElementsOAuth2AuthScheme(_id, _name, _validation_url, _headers = undefi
 	headers = _headers;
 	params = _params;
 	responseIdMapping = _response_id_mapping;
-	
-	static __uid = 784160074;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsOAuth2AuthScheme.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(validationUrl)) show_error($"{_where} :: validationUrl expected string", true);
-		if (!is_undefined(headers) && !is_array(headers)) show_error($"{_where} :: headers expected ElementsOAuth2RequestKeyValue", true);
-		if (!is_undefined(params) && !is_array(params)) show_error($"{_where} :: params expected ElementsOAuth2RequestKeyValue", true);
-		if (!is_undefined(responseIdMapping) && !is_string(responseIdMapping)) show_error($"{_where} :: responseIdMapping expected string", true);
-	};
 }
 
 /**
@@ -1348,24 +642,6 @@ function ElementsOAuth2AuthScheme(_id, _name, _validation_url, _headers = undefi
 function ElementsCreateOrUpdateOAuth2AuthSchemeResponse(_scheme = undefined) constructor
 {
 	scheme = _scheme;
-	
-	static __uid = 1583436917;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateOrUpdateOAuth2AuthSchemeResponse.validate";
-		
-		if (!is_undefined(scheme))
-		{
-			if (!is_struct(scheme) || scheme[$ "__uid"] != 784160074) show_error($"{_where} :: scheme expected ElementsOAuth2AuthScheme", true);
-			scheme.validate(_where);
-		}
-	};
 }
 
 /**
@@ -1385,25 +661,6 @@ function ElementsCreateOrUpdateOAuth2AuthSchemeRequest(_id, _name, _validation_u
 	headers = _headers;
 	params = _params;
 	responseIdMapping = _response_id_mapping;
-	
-	static __uid = 4181820335;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateOrUpdateOAuth2AuthSchemeRequest.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(validationUrl)) show_error($"{_where} :: validationUrl expected string", true);
-		if (!is_undefined(headers) && !is_array(headers)) show_error($"{_where} :: headers expected ElementsOAuth2RequestKeyValue", true);
-		if (!is_undefined(params) && !is_array(params)) show_error($"{_where} :: params expected ElementsOAuth2RequestKeyValue", true);
-		if (!is_undefined(responseIdMapping) && !is_string(responseIdMapping)) show_error($"{_where} :: responseIdMapping expected string", true);
-	};
 }
 
 /**
@@ -1419,23 +676,6 @@ function ElementsPaginationOAuth2AuthScheme(_offset = undefined, _total = undefi
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3695575514;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationOAuth2AuthScheme.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsOAuth2AuthScheme", true);
-	};
 }
 
 /**
@@ -1449,22 +689,6 @@ function ElementsOidcSessionRequest(_jwt, _profile_id = undefined, _profile_sele
 	jwt = _jwt;
 	profileId = _profile_id;
 	profileSelector = _profile_selector;
-	
-	static __uid = 4082929088;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsOidcSessionRequest.validate";
-		
-		if (!is_string(jwt)) show_error($"{_where} :: jwt expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_undefined(profileSelector) && !is_string(profileSelector)) show_error($"{_where} :: profileSelector expected string", true);
-	};
 }
 
 /**
@@ -1484,25 +708,6 @@ function ElementsJWK(_alg = undefined, _kid = undefined, _kty = undefined, _use 
 	use = _use;
 	e = _e;
 	n = _n;
-	
-	static __uid = 4116423420;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsJWK.validate";
-		
-		if (!is_undefined(alg) && !is_string(alg)) show_error($"{_where} :: alg expected string", true);
-		if (!is_undefined(kid) && !is_string(kid)) show_error($"{_where} :: kid expected string", true);
-		if (!is_undefined(kty) && !is_string(kty)) show_error($"{_where} :: kty expected string", true);
-		if (!is_undefined(use) && !is_string(use)) show_error($"{_where} :: use expected string", true);
-		if (!is_undefined(e) && !is_string(e)) show_error($"{_where} :: e expected string", true);
-		if (!is_undefined(n) && !is_string(n)) show_error($"{_where} :: n expected string", true);
-	};
 }
 
 /**
@@ -1522,25 +727,6 @@ function ElementsOidcAuthScheme(_id, _issuer, _keys, _name = undefined, _keys_ur
 	name = _name;
 	keysUrl = _keys_url;
 	mediaType = _media_type;
-	
-	static __uid = 2553531508;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsOidcAuthScheme.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(issuer)) show_error($"{_where} :: issuer expected string", true);
-		if (!is_array(keys)) show_error($"{_where} :: keys expected ElementsJWK", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(keysUrl) && !is_string(keysUrl)) show_error($"{_where} :: keysUrl expected string", true);
-		if (!is_undefined(mediaType) && !is_string(mediaType)) show_error($"{_where} :: mediaType expected string", true);
-	};
 }
 
 /**
@@ -1550,24 +736,6 @@ function ElementsOidcAuthScheme(_id, _issuer, _keys, _name = undefined, _keys_ur
 function ElementsCreateOrUpdateOidcAuthSchemeResponse(_scheme = undefined) constructor
 {
 	scheme = _scheme;
-	
-	static __uid = 1780564715;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateOrUpdateOidcAuthSchemeResponse.validate";
-		
-		if (!is_undefined(scheme))
-		{
-			if (!is_struct(scheme) || scheme[$ "__uid"] != 2553531508) show_error($"{_where} :: scheme expected ElementsOidcAuthScheme", true);
-			scheme.validate(_where);
-		}
-	};
 }
 
 /**
@@ -1585,24 +753,6 @@ function ElementsCreateOrUpdateOidcAuthSchemeRequest(_id, _issuer, _keys, _keys_
 	keys = _keys;
 	keysUrl = _keys_url;
 	mediaType = _media_type;
-	
-	static __uid = 3649915157;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateOrUpdateOidcAuthSchemeRequest.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(issuer)) show_error($"{_where} :: issuer expected string", true);
-		if (!is_array(keys)) show_error($"{_where} :: keys expected ElementsJWK", true);
-		if (!is_undefined(keysUrl) && !is_string(keysUrl)) show_error($"{_where} :: keysUrl expected string", true);
-		if (!is_undefined(mediaType) && !is_string(mediaType)) show_error($"{_where} :: mediaType expected string", true);
-	};
 }
 
 /**
@@ -1618,23 +768,6 @@ function ElementsPaginationOidcAuthScheme(_offset = undefined, _total = undefine
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2770677284;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationOidcAuthScheme.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsOidcAuthScheme", true);
-	};
 }
 
 /**
@@ -1652,24 +785,6 @@ function ElementsVaultKey(_algorithm, _public_key, _private_key, _encrypted = un
 	privateKey = _private_key;
 	encrypted = _encrypted;
 	encryption = _encryption;
-	
-	static __uid = 2996726087;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsVaultKey.validate";
-		
-		if (!is_string(algorithm)) show_error($"{_where} :: algorithm expected string", true);
-		if (!is_string(publicKey)) show_error($"{_where} :: publicKey expected string", true);
-		if (!is_string(privateKey)) show_error($"{_where} :: privateKey expected string", true);
-		if (!is_undefined(encrypted) && !is_real(encrypted)) show_error($"{_where} :: encrypted expected bool", true);
-		if (!is_undefined(encryption) && !is_struct(encryption)) show_error($"{_where} :: encryption expected any", true);
-	};
 }
 
 /**
@@ -1685,25 +800,6 @@ function ElementsVault(_id, _user, _display_name, _key) constructor
 	user = _user;
 	displayName = _display_name;
 	key = _key;
-	
-	static __uid = 2353654968;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsVault.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_struct(key) || key[$ "__uid"] != 2996726087) show_error($"{_where} :: key expected ElementsVaultKey", true);
-		key.validate(_where);
-	};
 }
 
 /**
@@ -1723,26 +819,6 @@ function ElementsSmartContract(_id, _name, _display_name, _addresses, _vault, _m
 	addresses = _addresses;
 	vault = _vault;
 	metadata = _metadata;
-	
-	static __uid = 2601021251;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSmartContract.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_struct(addresses)) show_error($"{_where} :: addresses expected any", true);
-		if (!is_struct(vault) || vault[$ "__uid"] != 2353654968) show_error($"{_where} :: vault expected ElementsVault", true);
-		vault.validate(_where);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -1752,20 +828,6 @@ function ElementsSmartContract(_id, _name, _display_name, _addresses, _vault, _m
 function ElementsSmartContractAddress(_address = undefined) constructor
 {
 	address = _address;
-	
-	static __uid = 1454848529;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSmartContractAddress.validate";
-		
-		if (!is_undefined(address) && !is_string(address)) show_error($"{_where} :: address expected string", true);
-	};
 }
 
 /**
@@ -1783,24 +845,6 @@ function ElementsCreateSmartContractRequest(_name, _display_name, _addresses, _v
 	addresses = _addresses;
 	vaultId = _vault_id;
 	metadata = _metadata;
-	
-	static __uid = 147112120;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateSmartContractRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_struct(addresses)) show_error($"{_where} :: addresses expected any", true);
-		if (!is_string(vaultId)) show_error($"{_where} :: vaultId expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -1816,23 +860,6 @@ function ElementsPaginationSmartContract(_offset = undefined, _total = undefined
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 415107507;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationSmartContract.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsSmartContract", true);
-	};
 }
 
 /**
@@ -1850,24 +877,6 @@ function ElementsUpdateSmartContractRequest(_name, _display_name, _addresses, _v
 	addresses = _addresses;
 	vaultId = _vault_id;
 	metadata = _metadata;
-	
-	static __uid = 2326764889;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateSmartContractRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_struct(addresses)) show_error($"{_where} :: addresses expected any", true);
-		if (!is_string(vaultId)) show_error($"{_where} :: vaultId expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -1883,23 +892,6 @@ function ElementsCreateVaultRequest(_user_id, _display_name, _passphrase = undef
 	displayName = _display_name;
 	passphrase = _passphrase;
 	algorithm = _algorithm;
-	
-	static __uid = 3788719493;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateVaultRequest.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(passphrase) && !is_string(passphrase)) show_error($"{_where} :: passphrase expected string", true);
-		if (!is_undefined(algorithm) && !is_string(algorithm)) show_error($"{_where} :: algorithm expected string", true);
-	};
 }
 
 /**
@@ -1915,23 +907,6 @@ function ElementsPaginationVault(_offset = undefined, _total = undefined, _appro
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3079140168;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationVault.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsVault", true);
-	};
 }
 
 /**
@@ -1947,23 +922,6 @@ function ElementsUpdateVaultRequest(_display_name, _user_id, _passphrase = undef
 	userId = _user_id;
 	passphrase = _passphrase;
 	newPassphrase = _new_passphrase;
-	
-	static __uid = 1895978920;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateVaultRequest.validate";
-		
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_undefined(passphrase) && !is_string(passphrase)) show_error($"{_where} :: passphrase expected string", true);
-		if (!is_undefined(newPassphrase) && !is_string(newPassphrase)) show_error($"{_where} :: newPassphrase expected string", true);
-	};
 }
 
 /**
@@ -1977,22 +935,6 @@ function ElementsWalletAccount(_address, _private_key = undefined, _encrypted = 
 	address = _address;
 	privateKey = _private_key;
 	encrypted = _encrypted;
-	
-	static __uid = 2943132664;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsWalletAccount.validate";
-		
-		if (!is_string(address)) show_error($"{_where} :: address expected string", true);
-		if (!is_undefined(privateKey) && !is_string(privateKey)) show_error($"{_where} :: privateKey expected string", true);
-		if (!is_undefined(encrypted) && !is_real(encrypted)) show_error($"{_where} :: encrypted expected bool", true);
-	};
 }
 
 /**
@@ -2016,29 +958,6 @@ function ElementsWallet(_id, _user, _vault, _display_name, _api, _networks, _acc
 	networks = _networks;
 	accounts = _accounts;
 	preferredAccount = _preferred_account;
-	
-	static __uid = 2773285737;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsWallet.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_struct(vault) || vault[$ "__uid"] != 2353654968) show_error($"{_where} :: vault expected ElementsVault", true);
-		vault.validate(_where);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(api)) show_error($"{_where} :: api expected string", true);
-		if (!is_array(networks)) show_error($"{_where} :: networks expected string", true);
-		if (!is_array(accounts)) show_error($"{_where} :: accounts expected ElementsWalletAccount", true);
-		if (!is_undefined(preferredAccount) && !is_real(preferredAccount)) show_error($"{_where} :: preferredAccount expected int32", true);
-	};
 }
 
 /**
@@ -2052,22 +971,6 @@ function ElementsCreateWalletRequestAccount(_address, _generate = undefined, _pr
 	address = _address;
 	generate = _generate;
 	privateKey = _private_key;
-	
-	static __uid = 2097567685;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateWalletRequestAccount.validate";
-		
-		if (!is_string(address)) show_error($"{_where} :: address expected string", true);
-		if (!is_undefined(generate) && !is_real(generate)) show_error($"{_where} :: generate expected bool", true);
-		if (!is_undefined(privateKey) && !is_string(privateKey)) show_error($"{_where} :: privateKey expected string", true);
-	};
 }
 
 /**
@@ -2085,24 +988,6 @@ function ElementsCreateWalletRequest(_display_name, _api, _networks, _accounts, 
 	networks = _networks;
 	accounts = _accounts;
 	preferredAccount = _preferred_account;
-	
-	static __uid = 2593876170;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateWalletRequest.validate";
-		
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(api)) show_error($"{_where} :: api expected string", true);
-		if (!is_array(networks)) show_error($"{_where} :: networks expected string", true);
-		if (!is_array(accounts)) show_error($"{_where} :: accounts expected ElementsCreateWalletRequestAccount", true);
-		if (!is_undefined(preferredAccount) && !is_real(preferredAccount)) show_error($"{_where} :: preferredAccount expected int32", true);
-	};
 }
 
 /**
@@ -2118,23 +1003,6 @@ function ElementsPaginationWallet(_offset = undefined, _total = undefined, _appr
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3480065145;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationWallet.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsWallet", true);
-	};
 }
 
 /**
@@ -2148,22 +1016,6 @@ function ElementsUpdateWalletRequest(_networks, _display_name = undefined, _pref
 	networks = _networks;
 	displayName = _display_name;
 	preferredAccount = _preferred_account;
-	
-	static __uid = 3954591533;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateWalletRequest.validate";
-		
-		if (!is_array(networks)) show_error($"{_where} :: networks expected string", true);
-		if (!is_undefined(displayName) && !is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(preferredAccount) && !is_real(preferredAccount)) show_error($"{_where} :: preferredAccount expected int32", true);
-	};
 }
 
 /**
@@ -2179,24 +1031,6 @@ function ElementsDeployment(_id, _version, _revision, _application) constructor
 	version = _version;
 	revision = _revision;
 	application = _application;
-	
-	static __uid = 171929091;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsDeployment.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(version)) show_error($"{_where} :: version expected string", true);
-		if (!is_string(revision)) show_error($"{_where} :: revision expected string", true);
-		if (!is_struct(application) || application[$ "__uid"] != 1239862290) show_error($"{_where} :: application expected ElementsApplication", true);
-		application.validate(_where);
-	};
 }
 
 /**
@@ -2208,21 +1042,6 @@ function ElementsCreateDeploymentRequest(_version, _revision) constructor
 {
 	version = _version;
 	revision = _revision;
-	
-	static __uid = 4233991120;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateDeploymentRequest.validate";
-		
-		if (!is_string(version)) show_error($"{_where} :: version expected string", true);
-		if (!is_string(revision)) show_error($"{_where} :: revision expected string", true);
-	};
 }
 
 /**
@@ -2238,23 +1057,6 @@ function ElementsPaginationDeployment(_offset = undefined, _total = undefined, _
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3048218675;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationDeployment.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsDeployment", true);
-	};
 }
 
 /**
@@ -2264,20 +1066,6 @@ function ElementsPaginationDeployment(_offset = undefined, _total = undefined, _
 function ElementsUpdateDeploymentRequest(_revision) constructor
 {
 	revision = _revision;
-	
-	static __uid = 549743099;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateDeploymentRequest.validate";
-		
-		if (!is_string(revision)) show_error($"{_where} :: revision expected string", true);
-	};
 }
 
 /**
@@ -2293,23 +1081,6 @@ function ElementsCodegenRequest(_element_spec_url = undefined, _language = undef
 	language = _language;
 	packageName = _package_name;
 	options = _options;
-	
-	static __uid = 2864578542;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCodegenRequest.validate";
-		
-		if (!is_undefined(elementSpecUrl) && !is_string(elementSpecUrl)) show_error($"{_where} :: elementSpecUrl expected string", true);
-		if (!is_undefined(language) && !is_string(language)) show_error($"{_where} :: language expected string", true);
-		if (!is_undefined(packageName) && !is_string(packageName)) show_error($"{_where} :: packageName expected string", true);
-		if (!is_undefined(options) && !is_string(options)) show_error($"{_where} :: options expected string", true);
-	};
 }
 
 /**
@@ -2327,24 +1098,6 @@ function ElementsFilterRegistration(_servlet_name_mappings = undefined, _url_pat
 	name = _name;
 	className = _class_name;
 	initParameters = _init_parameters;
-	
-	static __uid = 2450995831;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFilterRegistration.validate";
-		
-		if (!is_undefined(servletNameMappings) && !is_array(servletNameMappings)) show_error($"{_where} :: servletNameMappings expected string", true);
-		if (!is_undefined(urlPatternMappings) && !is_array(urlPatternMappings)) show_error($"{_where} :: urlPatternMappings expected string", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(className) && !is_string(className)) show_error($"{_where} :: className expected string", true);
-		if (!is_undefined(initParameters) && !is_struct(initParameters)) show_error($"{_where} :: initParameters expected any", true);
-	};
 }
 
 /**
@@ -2356,21 +1109,6 @@ function ElementsTaglibDescriptor(_taglib_uri = undefined, _taglib_location = un
 {
 	taglibURI = _taglib_uri;
 	taglibLocation = _taglib_location;
-	
-	static __uid = 2850202834;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsTaglibDescriptor.validate";
-		
-		if (!is_undefined(taglibURI) && !is_string(taglibURI)) show_error($"{_where} :: taglibURI expected string", true);
-		if (!is_undefined(taglibLocation) && !is_string(taglibLocation)) show_error($"{_where} :: taglibLocation expected string", true);
-	};
 }
 
 /**
@@ -2404,32 +1142,6 @@ function ElementsJspPropertyGroupDescriptor(_buffer = undefined, _url_patterns =
 	trimDirectiveWhitespaces = _trim_directive_whitespaces;
 	errorOnUndeclaredNamespace = _error_on_undeclared_namespace;
 	deferredSyntaxAllowedAsLiteral = _deferred_syntax_allowed_as_literal;
-	
-	static __uid = 1517789430;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsJspPropertyGroupDescriptor.validate";
-		
-		if (!is_undefined(buffer) && !is_string(buffer)) show_error($"{_where} :: buffer expected string", true);
-		if (!is_undefined(urlPatterns) && !is_array(urlPatterns)) show_error($"{_where} :: urlPatterns expected string", true);
-		if (!is_undefined(elIgnored) && !is_string(elIgnored)) show_error($"{_where} :: elIgnored expected string", true);
-		if (!is_undefined(isXml) && !is_string(isXml)) show_error($"{_where} :: isXml expected string", true);
-		if (!is_undefined(errorOnELNotFound) && !is_string(errorOnELNotFound)) show_error($"{_where} :: errorOnELNotFound expected string", true);
-		if (!is_undefined(pageEncoding) && !is_string(pageEncoding)) show_error($"{_where} :: pageEncoding expected string", true);
-		if (!is_undefined(scriptingInvalid) && !is_string(scriptingInvalid)) show_error($"{_where} :: scriptingInvalid expected string", true);
-		if (!is_undefined(includePreludes) && !is_array(includePreludes)) show_error($"{_where} :: includePreludes expected string", true);
-		if (!is_undefined(includeCodas) && !is_array(includeCodas)) show_error($"{_where} :: includeCodas expected string", true);
-		if (!is_undefined(defaultContentType) && !is_string(defaultContentType)) show_error($"{_where} :: defaultContentType expected string", true);
-		if (!is_undefined(trimDirectiveWhitespaces) && !is_string(trimDirectiveWhitespaces)) show_error($"{_where} :: trimDirectiveWhitespaces expected string", true);
-		if (!is_undefined(errorOnUndeclaredNamespace) && !is_string(errorOnUndeclaredNamespace)) show_error($"{_where} :: errorOnUndeclaredNamespace expected string", true);
-		if (!is_undefined(deferredSyntaxAllowedAsLiteral) && !is_string(deferredSyntaxAllowedAsLiteral)) show_error($"{_where} :: deferredSyntaxAllowedAsLiteral expected string", true);
-	};
 }
 
 /**
@@ -2441,21 +1153,6 @@ function ElementsJspConfigDescriptor(_taglibs = undefined, _jsp_property_groups 
 {
 	taglibs = _taglibs;
 	jspPropertyGroups = _jsp_property_groups;
-	
-	static __uid = 2786006730;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsJspConfigDescriptor.validate";
-		
-		if (!is_undefined(taglibs) && !is_array(taglibs)) show_error($"{_where} :: taglibs expected ElementsTaglibDescriptor", true);
-		if (!is_undefined(jspPropertyGroups) && !is_array(jspPropertyGroups)) show_error($"{_where} :: jspPropertyGroups expected ElementsJspPropertyGroupDescriptor", true);
-	};
 }
 
 /**
@@ -2479,27 +1176,6 @@ function ElementsSessionCookieConfig(_path = undefined, _domain = undefined, _na
 	httpOnly = _http_only;
 	secure = _secure;
 	maxAge = _max_age;
-	
-	static __uid = 3917227000;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSessionCookieConfig.validate";
-		
-		if (!is_undefined(path) && !is_string(path)) show_error($"{_where} :: path expected string", true);
-		if (!is_undefined(domain) && !is_string(domain)) show_error($"{_where} :: domain expected string", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(attributes) && !is_struct(attributes)) show_error($"{_where} :: attributes expected any", true);
-		if (!is_undefined(comment) && !is_string(comment)) show_error($"{_where} :: comment expected string", true);
-		if (!is_undefined(httpOnly) && !is_real(httpOnly)) show_error($"{_where} :: httpOnly expected bool", true);
-		if (!is_undefined(secure) && !is_real(secure)) show_error($"{_where} :: secure expected bool", true);
-		if (!is_undefined(maxAge) && !is_real(maxAge)) show_error($"{_where} :: maxAge expected int32", true);
-	};
 }
 
 /**
@@ -2549,48 +1225,6 @@ function ElementsServletContext(_class_loader = undefined, _major_version = unde
 	requestCharacterEncoding = _request_character_encoding;
 	responseCharacterEncoding = _response_character_encoding;
 	effectiveSessionTrackingModes = _effective_session_tracking_modes;
-	
-	static __uid = 1237754708;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsServletContext.validate";
-		
-		if (!is_undefined(classLoader) && !is_struct(classLoader)) show_error($"{_where} :: classLoader expected any", true);
-		if (!is_undefined(majorVersion) && !is_real(majorVersion)) show_error($"{_where} :: majorVersion expected int32", true);
-		if (!is_undefined(minorVersion) && !is_real(minorVersion)) show_error($"{_where} :: minorVersion expected int32", true);
-		if (!is_undefined(contextPath) && !is_string(contextPath)) show_error($"{_where} :: contextPath expected string", true);
-		if (!is_undefined(serverInfo) && !is_string(serverInfo)) show_error($"{_where} :: serverInfo expected string", true);
-		if (!is_undefined(attributeNames) && !is_struct(attributeNames)) show_error($"{_where} :: attributeNames expected any", true);
-		if (!is_undefined(servletContextName) && !is_string(servletContextName)) show_error($"{_where} :: servletContextName expected string", true);
-		if (!is_undefined(filterRegistrations) && !is_struct(filterRegistrations)) show_error($"{_where} :: filterRegistrations expected any", true);
-		if (!is_undefined(sessionCookieConfig))
-		{
-			if (!is_struct(sessionCookieConfig) || sessionCookieConfig[$ "__uid"] != 3917227000) show_error($"{_where} :: sessionCookieConfig expected ElementsSessionCookieConfig", true);
-			sessionCookieConfig.validate(_where);
-		}
-		if (!is_undefined(jspConfigDescriptor))
-		{
-			if (!is_struct(jspConfigDescriptor) || jspConfigDescriptor[$ "__uid"] != 2786006730) show_error($"{_where} :: jspConfigDescriptor expected ElementsJspConfigDescriptor", true);
-			jspConfigDescriptor.validate(_where);
-		}
-		if (!is_undefined(virtualServerName) && !is_string(virtualServerName)) show_error($"{_where} :: virtualServerName expected string", true);
-		if (!is_undefined(sessionTimeout) && !is_real(sessionTimeout)) show_error($"{_where} :: sessionTimeout expected int32", true);
-		if (!is_undefined(initParameterNames) && !is_struct(initParameterNames)) show_error($"{_where} :: initParameterNames expected any", true);
-		if (!is_undefined(effectiveMajorVersion) && !is_real(effectiveMajorVersion)) show_error($"{_where} :: effectiveMajorVersion expected int32", true);
-		if (!is_undefined(effectiveMinorVersion) && !is_real(effectiveMinorVersion)) show_error($"{_where} :: effectiveMinorVersion expected int32", true);
-		if (!is_undefined(servletRegistrations) && !is_struct(servletRegistrations)) show_error($"{_where} :: servletRegistrations expected any", true);
-		if (!is_undefined(sessionTrackingModes) && !is_array(sessionTrackingModes)) show_error($"{_where} :: sessionTrackingModes expected string", true);
-		if (!is_undefined(defaultSessionTrackingModes) && !is_array(defaultSessionTrackingModes)) show_error($"{_where} :: defaultSessionTrackingModes expected string", true);
-		if (!is_undefined(requestCharacterEncoding) && !is_string(requestCharacterEncoding)) show_error($"{_where} :: requestCharacterEncoding expected string", true);
-		if (!is_undefined(responseCharacterEncoding) && !is_string(responseCharacterEncoding)) show_error($"{_where} :: responseCharacterEncoding expected string", true);
-		if (!is_undefined(effectiveSessionTrackingModes) && !is_array(effectiveSessionTrackingModes)) show_error($"{_where} :: effectiveSessionTrackingModes expected string", true);
-	};
 }
 
 /**
@@ -2604,26 +1238,6 @@ function ElementsServletConfig(_servlet_name = undefined, _servlet_context = und
 	servletName = _servlet_name;
 	servletContext = _servlet_context;
 	initParameterNames = _init_parameter_names;
-	
-	static __uid = 1567316943;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsServletConfig.validate";
-		
-		if (!is_undefined(servletName) && !is_string(servletName)) show_error($"{_where} :: servletName expected string", true);
-		if (!is_undefined(servletContext))
-		{
-			if (!is_struct(servletContext) || servletContext[$ "__uid"] != 1237754708) show_error($"{_where} :: servletContext expected ElementsServletContext", true);
-			servletContext.validate(_where);
-		}
-		if (!is_undefined(initParameterNames) && !is_struct(initParameterNames)) show_error($"{_where} :: initParameterNames expected any", true);
-	};
 }
 
 /**
@@ -2641,24 +1255,6 @@ function ElementsServletRegistration(_mappings = undefined, _run_as_role = undef
 	name = _name;
 	className = _class_name;
 	initParameters = _init_parameters;
-	
-	static __uid = 2131251856;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsServletRegistration.validate";
-		
-		if (!is_undefined(mappings) && !is_array(mappings)) show_error($"{_where} :: mappings expected string", true);
-		if (!is_undefined(runAsRole) && !is_string(runAsRole)) show_error($"{_where} :: runAsRole expected string", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(className) && !is_string(className)) show_error($"{_where} :: className expected string", true);
-		if (!is_undefined(initParameters) && !is_struct(initParameters)) show_error($"{_where} :: initParameters expected any", true);
-	};
 }
 
 /**
@@ -2674,23 +1270,6 @@ function ElementsPaginationProfile(_offset = undefined, _total = undefined, _app
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2837551305;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationProfile.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsProfile", true);
-	};
 }
 
 /**
@@ -2700,20 +1279,6 @@ function ElementsPaginationProfile(_offset = undefined, _total = undefined, _app
 function ElementsCreateFollowerRequest(_followed_id) constructor
 {
 	followedId = _followed_id;
-	
-	static __uid = 3688830827;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateFollowerRequest.validate";
-		
-		if (!is_string(followedId)) show_error($"{_where} :: followedId expected string", true);
-	};
 }
 
 /**
@@ -2729,27 +1294,6 @@ function ElementsFriend(_id = undefined, _user = undefined, _friendship = undefi
 	user = _user;
 	friendship = _friendship;
 	profiles = _profiles;
-	
-	static __uid = 3456908228;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFriend.validate";
-		
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(user))
-		{
-			if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-			user.validate(_where);
-		}
-		if (!is_undefined(friendship) && !is_string(friendship)) show_error($"{_where} :: friendship expected string", true);
-		if (!is_undefined(profiles) && !is_array(profiles)) show_error($"{_where} :: profiles expected ElementsProfile", true);
-	};
 }
 
 /**
@@ -2765,23 +1309,6 @@ function ElementsPaginationFriend(_offset = undefined, _total = undefined, _appr
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 1063556852;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationFriend.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsFriend", true);
-	};
 }
 
 /**
@@ -2807,28 +1334,6 @@ function ElementsCreateItemRequest(_name, _display_name, _description, _category
 	metadata = _metadata;
 	publicVisible = _public_visible;
 	metadataSpec = _metadata_spec;
-	
-	static __uid = 237024536;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateItemRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_string(category)) show_error($"{_where} :: category expected string", true);
-		if (!is_undefined(tags) && !is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_undefined(metadataSpecId) && !is_string(metadataSpecId)) show_error($"{_where} :: metadataSpecId expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(publicVisible) && !is_real(publicVisible)) show_error($"{_where} :: publicVisible expected bool", true);
-		if (!is_undefined(metadataSpec) && !is_string(metadataSpec)) show_error($"{_where} :: metadataSpec expected string", true);
-	};
 }
 
 /**
@@ -2844,23 +1349,6 @@ function ElementsPaginationItem(_offset = undefined, _total = undefined, _approx
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 1268370515;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationItem.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsItem", true);
-	};
 }
 
 /**
@@ -2882,30 +1370,6 @@ function ElementsUpdateItemRequest(_name, _display_name, _description, _tags = u
 	metadataSpec = _metadata_spec;
 	metadata = _metadata;
 	publicVisible = _public_visible;
-	
-	static __uid = 1869501411;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateItemRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(tags) && !is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_undefined(metadataSpec))
-		{
-			if (!is_struct(metadataSpec) || metadataSpec[$ "__uid"] != 2450729354) show_error($"{_where} :: metadataSpec expected ElementsMetadataSpec", true);
-			metadataSpec.validate(_where);
-		}
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(publicVisible) && !is_real(publicVisible)) show_error($"{_where} :: publicVisible expected bool", true);
-	};
 }
 
 /**
@@ -2919,22 +1383,6 @@ function ElementsCreateGooglePlayIapReceipt(_package_name, _product_id, _purchas
 	packageName = _package_name;
 	productId = _product_id;
 	purchaseToken = _purchase_token;
-	
-	static __uid = 3895146603;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateGooglePlayIapReceipt.validate";
-		
-		if (!is_string(packageName)) show_error($"{_where} :: packageName expected string", true);
-		if (!is_string(productId)) show_error($"{_where} :: productId expected string", true);
-		if (!is_string(purchaseToken)) show_error($"{_where} :: purchaseToken expected string", true);
-	};
 }
 
 /**
@@ -2946,21 +1394,6 @@ function ElementsBuildIndexRequest(_plan = undefined, _to_index = undefined) con
 {
 	plan = _plan;
 	toIndex = _to_index;
-	
-	static __uid = 3607862009;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsBuildIndexRequest.validate";
-		
-		if (!is_undefined(plan) && !is_real(plan)) show_error($"{_where} :: plan expected bool", true);
-		if (!is_undefined(toIndex) && !is_array(toIndex)) show_error($"{_where} :: toIndex expected string", true);
-	};
 }
 
 /**
@@ -2970,20 +1403,6 @@ function ElementsBuildIndexRequest(_plan = undefined, _to_index = undefined) con
 function ElementsIndexMetadataObject(_identifier = undefined) constructor
 {
 	identifier = _identifier;
-	
-	static __uid = 1917740402;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsIndexMetadataObject.validate";
-		
-		if (!is_undefined(identifier) && !is_struct(identifier)) show_error($"{_where} :: identifier expected any", true);
-	};
 }
 
 /**
@@ -2997,26 +1416,6 @@ function ElementsIndexPlanStepObject(_description = undefined, _operation = unde
 	description = _description;
 	operation = _operation;
 	indexMetadata = _index_metadata;
-	
-	static __uid = 1790446614;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsIndexPlanStepObject.validate";
-		
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(operation) && !is_string(operation)) show_error($"{_where} :: operation expected string", true);
-		if (!is_undefined(indexMetadata))
-		{
-			if (!is_struct(indexMetadata) || indexMetadata[$ "__uid"] != 1917740402) show_error($"{_where} :: indexMetadata expected ElementsIndexMetadataObject", true);
-			indexMetadata.validate(_where);
-		}
-	};
 }
 
 /**
@@ -3030,26 +1429,6 @@ function ElementsIndexPlanObject(_id = undefined, _state = undefined, _steps = u
 	id = _id;
 	state = _state;
 	steps = _steps;
-	
-	static __uid = 3114788464;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsIndexPlanObject.validate";
-		
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(state) && !is_string(state)) show_error($"{_where} :: state expected string", true);
-		if (!is_undefined(steps))
-		{
-			if (!is_struct(steps) || steps[$ "__uid"] != 1790446614) show_error($"{_where} :: steps expected ElementsIndexPlanStepObject", true);
-			steps.validate(_where);
-		}
-	};
 }
 
 /**
@@ -3065,23 +1444,6 @@ function ElementsPaginationIndexPlanObject(_offset = undefined, _total = undefin
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 979694720;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationIndexPlanObject.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsIndexPlanObject", true);
-	};
 }
 
 /**
@@ -3099,26 +1461,6 @@ function ElementsInventoryItem(_id, _user, _item, _quantity, _priority) construc
 	item = _item;
 	quantity = _quantity;
 	priority = _priority;
-	
-	static __uid = 3734850823;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsInventoryItem.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_struct(item) || item[$ "__uid"] != 4093207011) show_error($"{_where} :: item expected ElementsItem", true);
-		item.validate(_where);
-		if (!is_real(quantity)) show_error($"{_where} :: quantity expected int32", true);
-		if (!is_real(priority)) show_error($"{_where} :: priority expected int32", true);
-	};
 }
 
 /**
@@ -3132,22 +1474,6 @@ function ElementsAdvancedInventoryItemQuantityAdjustment(_user_id, _quantity_del
 	userId = _user_id;
 	quantityDelta = _quantity_delta;
 	priority = _priority;
-	
-	static __uid = 1883903687;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsAdvancedInventoryItemQuantityAdjustment.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_real(quantityDelta)) show_error($"{_where} :: quantityDelta expected int32", true);
-		if (!is_undefined(priority) && !is_real(priority)) show_error($"{_where} :: priority expected int32", true);
-	};
 }
 
 /**
@@ -3163,23 +1489,6 @@ function ElementsCreateAdvancedInventoryItemRequest(_user_id, _item_id, _quantit
 	itemId = _item_id;
 	quantity = _quantity;
 	priority = _priority;
-	
-	static __uid = 47663290;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateAdvancedInventoryItemRequest.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_string(itemId)) show_error($"{_where} :: itemId expected string", true);
-		if (!is_undefined(quantity) && !is_real(quantity)) show_error($"{_where} :: quantity expected int32", true);
-		if (!is_undefined(priority) && !is_real(priority)) show_error($"{_where} :: priority expected int32", true);
-	};
 }
 
 /**
@@ -3195,23 +1504,6 @@ function ElementsPaginationInventoryItem(_offset = undefined, _total = undefined
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2229832663;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationInventoryItem.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsInventoryItem", true);
-	};
 }
 
 /**
@@ -3221,20 +1513,6 @@ function ElementsPaginationInventoryItem(_offset = undefined, _total = undefined
 function ElementsUpdateInventoryItemRequest(_quantity = undefined) constructor
 {
 	quantity = _quantity;
-	
-	static __uid = 3290562721;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateInventoryItemRequest.validate";
-		
-		if (!is_undefined(quantity) && !is_real(quantity)) show_error($"{_where} :: quantity expected int32", true);
-	};
 }
 
 /**
@@ -3252,30 +1530,6 @@ function ElementsDistinctInventoryItem(_id, _item, _user, _profile = undefined, 
 	user = _user;
 	profile = _profile;
 	metadata = _metadata;
-	
-	static __uid = 1569052279;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsDistinctInventoryItem.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(item) || item[$ "__uid"] != 4093207011) show_error($"{_where} :: item expected ElementsItem", true);
-		item.validate(_where);
-		if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-		user.validate(_where);
-		if (!is_undefined(profile))
-		{
-			if (!is_struct(profile) || profile[$ "__uid"] != 2781117785) show_error($"{_where} :: profile expected ElementsProfile", true);
-			profile.validate(_where);
-		}
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -3291,23 +1545,6 @@ function ElementsCreateDistinctInventoryItemRequest(_item_id, _user_id = undefin
 	userId = _user_id;
 	profileId = _profile_id;
 	metadata = _metadata;
-	
-	static __uid = 3579304364;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateDistinctInventoryItemRequest.validate";
-		
-		if (!is_string(itemId)) show_error($"{_where} :: itemId expected string", true);
-		if (!is_undefined(userId) && !is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -3323,23 +1560,6 @@ function ElementsPaginationDistinctInventoryItem(_offset = undefined, _total = u
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 4046435111;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationDistinctInventoryItem.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsDistinctInventoryItem", true);
-	};
 }
 
 /**
@@ -3353,22 +1573,6 @@ function ElementsUpdateDistinctInventoryItemRequest(_user_id = undefined, _profi
 	userId = _user_id;
 	profileId = _profile_id;
 	metadata = _metadata;
-	
-	static __uid = 3687348073;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateDistinctInventoryItemRequest.validate";
-		
-		if (!is_undefined(userId) && !is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -3380,21 +1584,6 @@ function ElementsSimpleInventoryItemQuantityAdjustment(_user_id, _quantity_delta
 {
 	userId = _user_id;
 	quantityDelta = _quantity_delta;
-	
-	static __uid = 2663745631;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSimpleInventoryItemQuantityAdjustment.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_real(quantityDelta)) show_error($"{_where} :: quantityDelta expected int32", true);
-	};
 }
 
 /**
@@ -3408,22 +1597,6 @@ function ElementsCreateSimpleInventoryItemRequest(_user_id, _item_id, _quantity 
 	userId = _user_id;
 	itemId = _item_id;
 	quantity = _quantity;
-	
-	static __uid = 2410874866;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateSimpleInventoryItemRequest.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_string(itemId)) show_error($"{_where} :: itemId expected string", true);
-		if (!is_undefined(quantity) && !is_real(quantity)) show_error($"{_where} :: quantity expected int32", true);
-	};
 }
 
 /**
@@ -3435,21 +1608,6 @@ function ElementsPhoneMatchedInvitation(_phone_number = undefined, _profile_ids 
 {
 	phoneNumber = _phone_number;
 	profileIds = _profile_ids;
-	
-	static __uid = 2134716855;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPhoneMatchedInvitation.validate";
-		
-		if (!is_undefined(phoneNumber) && !is_string(phoneNumber)) show_error($"{_where} :: phoneNumber expected string", true);
-		if (!is_undefined(profileIds) && !is_array(profileIds)) show_error($"{_where} :: profileIds expected string", true);
-	};
 }
 
 /**
@@ -3459,20 +1617,6 @@ function ElementsPhoneMatchedInvitation(_phone_number = undefined, _profile_ids 
 function ElementsInviteViaPhonesResponse(_matched = undefined) constructor
 {
 	matched = _matched;
-	
-	static __uid = 327620137;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsInviteViaPhonesResponse.validate";
-		
-		if (!is_undefined(matched) && !is_array(matched)) show_error($"{_where} :: matched expected ElementsPhoneMatchedInvitation", true);
-	};
 }
 
 /**
@@ -3482,20 +1626,6 @@ function ElementsInviteViaPhonesResponse(_matched = undefined) constructor
 function ElementsInviteViaPhonesRequest(_phone_numbers = undefined) constructor
 {
 	phoneNumbers = _phone_numbers;
-	
-	static __uid = 1104981419;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsInviteViaPhonesRequest.validate";
-		
-		if (!is_undefined(phoneNumbers) && !is_array(phoneNumbers)) show_error($"{_where} :: phoneNumbers expected string", true);
-	};
 }
 
 /**
@@ -3509,22 +1639,6 @@ function ElementsSubjects(_users, _profiles, _wildcard = undefined) constructor
 	users = _users;
 	profiles = _profiles;
 	wildcard = _wildcard;
-	
-	static __uid = 2496068805;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSubjects.validate";
-		
-		if (!is_array(users)) show_error($"{_where} :: users expected ElementsUser", true);
-		if (!is_array(profiles)) show_error($"{_where} :: profiles expected ElementsProfile", true);
-		if (!is_undefined(wildcard) && !is_real(wildcard)) show_error($"{_where} :: wildcard expected bool", true);
-	};
 }
 
 /**
@@ -3538,25 +1652,6 @@ function ElementsAccessPermissions(_read, _write, _delete) constructor
 	read = _read;
 	write = _write;
 	self[$ "delete"] = _delete;
-	
-	static __uid = 2973285710;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsAccessPermissions.validate";
-		
-		if (!is_struct(read) || read[$ "__uid"] != 2496068805) show_error($"{_where} :: read expected ElementsSubjects", true);
-		read.validate(_where);
-		if (!is_struct(write) || write[$ "__uid"] != 2496068805) show_error($"{_where} :: write expected ElementsSubjects", true);
-		write.validate(_where);
-		if (!is_struct(self[$ "delete"]) || self[$ "delete"][$ "__uid"] != 2496068805) show_error($"{_where} :: self[$ 'delete'] expected ElementsSubjects", true);
-		self[$ "delete"].validate(_where);
-	};
 }
 
 /**
@@ -3578,27 +1673,6 @@ function ElementsLargeObject(_id, _path, _access_permissions, _url = undefined, 
 	mimeType = _mime_type;
 	state = _state;
 	lastModified = _last_modified;
-	
-	static __uid = 1507148560;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsLargeObject.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(path)) show_error($"{_where} :: path expected string", true);
-		if (!is_struct(accessPermissions) || accessPermissions[$ "__uid"] != 2973285710) show_error($"{_where} :: accessPermissions expected ElementsAccessPermissions", true);
-		accessPermissions.validate(_where);
-		if (!is_undefined(url) && !is_string(url)) show_error($"{_where} :: url expected string", true);
-		if (!is_undefined(mimeType) && !is_string(mimeType)) show_error($"{_where} :: mimeType expected string", true);
-		if (!is_undefined(state) && !is_string(state)) show_error($"{_where} :: state expected string", true);
-		if (!is_undefined(lastModified) && !is_string(lastModified)) show_error($"{_where} :: lastModified expected string", true);
-	};
 }
 
 /**
@@ -3620,26 +1694,6 @@ function ElementsContentDisposition(_type = undefined, _parameters = undefined, 
 	modificationDate = _modification_date;
 	readDate = _read_date;
 	size = _size;
-	
-	static __uid = 3348494808;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsContentDisposition.validate";
-		
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(parameters) && !is_struct(parameters)) show_error($"{_where} :: parameters expected any", true);
-		if (!is_undefined(fileName) && !is_string(fileName)) show_error($"{_where} :: fileName expected string", true);
-		if (!is_undefined(creationDate) && !is_string(creationDate)) show_error($"{_where} :: creationDate expected string", true);
-		if (!is_undefined(modificationDate) && !is_string(modificationDate)) show_error($"{_where} :: modificationDate expected string", true);
-		if (!is_undefined(readDate) && !is_string(readDate)) show_error($"{_where} :: readDate expected string", true);
-		if (!is_undefined(size) && !is_real(size)) show_error($"{_where} :: size expected int64", true);
-	};
 }
 
 /**
@@ -3657,24 +1711,6 @@ function ElementsMediaType(_type = undefined, _subtype = undefined, _parameters 
 	parameters = _parameters;
 	wildcardType = _wildcard_type;
 	wildcardSubtype = _wildcard_subtype;
-	
-	static __uid = 2965425192;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMediaType.validate";
-		
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(subtype) && !is_string(subtype)) show_error($"{_where} :: subtype expected string", true);
-		if (!is_undefined(parameters) && !is_struct(parameters)) show_error($"{_where} :: parameters expected any", true);
-		if (!is_undefined(wildcardType) && !is_real(wildcardType)) show_error($"{_where} :: wildcardType expected bool", true);
-		if (!is_undefined(wildcardSubtype) && !is_real(wildcardSubtype)) show_error($"{_where} :: wildcardSubtype expected bool", true);
-	};
 }
 
 /**
@@ -3700,40 +1736,6 @@ function ElementsMultiPart(_content_disposition = undefined, _entity = undefined
 	providers = _providers;
 	bodyParts = _body_parts;
 	parameterizedHeaders = _parameterized_headers;
-	
-	static __uid = 2058815728;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMultiPart.validate";
-		
-		if (!is_undefined(contentDisposition))
-		{
-			if (!is_struct(contentDisposition) || contentDisposition[$ "__uid"] != 3348494808) show_error($"{_where} :: contentDisposition expected ElementsContentDisposition", true);
-			contentDisposition.validate(_where);
-		}
-		if (!is_undefined(entity) && !is_struct(entity)) show_error($"{_where} :: entity expected any", true);
-		if (!is_undefined(headers) && !is_struct(headers)) show_error($"{_where} :: headers expected any", true);
-		if (!is_undefined(mediaType))
-		{
-			if (!is_struct(mediaType) || mediaType[$ "__uid"] != 2965425192) show_error($"{_where} :: mediaType expected ElementsMediaType", true);
-			mediaType.validate(_where);
-		}
-		if (!is_undefined(messageBodyWorkers) && !is_struct(messageBodyWorkers)) show_error($"{_where} :: messageBodyWorkers expected any", true);
-		if (!is_undefined(parent))
-		{
-			if (!is_struct(parent) || parent[$ "__uid"] != 2058815728) show_error($"{_where} :: parent expected ElementsMultiPart", true);
-			parent.validate(_where);
-		}
-		if (!is_undefined(providers) && !is_struct(providers)) show_error($"{_where} :: providers expected any", true);
-		if (!is_undefined(bodyParts) && !is_array(bodyParts)) show_error($"{_where} :: bodyParts expected ElementsBodyPart", true);
-		if (!is_undefined(parameterizedHeaders) && !is_struct(parameterizedHeaders)) show_error($"{_where} :: parameterizedHeaders expected any", true);
-	};
 }
 
 /**
@@ -3757,39 +1759,6 @@ function ElementsBodyPart(_content_disposition = undefined, _entity = undefined,
 	parent = _parent;
 	providers = _providers;
 	parameterizedHeaders = _parameterized_headers;
-	
-	static __uid = 447283613;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsBodyPart.validate";
-		
-		if (!is_undefined(contentDisposition))
-		{
-			if (!is_struct(contentDisposition) || contentDisposition[$ "__uid"] != 3348494808) show_error($"{_where} :: contentDisposition expected ElementsContentDisposition", true);
-			contentDisposition.validate(_where);
-		}
-		if (!is_undefined(entity) && !is_struct(entity)) show_error($"{_where} :: entity expected any", true);
-		if (!is_undefined(headers) && !is_struct(headers)) show_error($"{_where} :: headers expected any", true);
-		if (!is_undefined(mediaType))
-		{
-			if (!is_struct(mediaType) || mediaType[$ "__uid"] != 2965425192) show_error($"{_where} :: mediaType expected ElementsMediaType", true);
-			mediaType.validate(_where);
-		}
-		if (!is_undefined(messageBodyWorkers) && !is_struct(messageBodyWorkers)) show_error($"{_where} :: messageBodyWorkers expected any", true);
-		if (!is_undefined(parent))
-		{
-			if (!is_struct(parent) || parent[$ "__uid"] != 2058815728) show_error($"{_where} :: parent expected ElementsMultiPart", true);
-			parent.validate(_where);
-		}
-		if (!is_undefined(providers) && !is_struct(providers)) show_error($"{_where} :: providers expected any", true);
-		if (!is_undefined(parameterizedHeaders) && !is_struct(parameterizedHeaders)) show_error($"{_where} :: parameterizedHeaders expected any", true);
-	};
 }
 
 /**
@@ -3813,27 +1782,6 @@ function ElementsFormDataContentDisposition(_type = undefined, _parameters = und
 	readDate = _read_date;
 	size = _size;
 	name = _name;
-	
-	static __uid = 3002688906;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFormDataContentDisposition.validate";
-		
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(parameters) && !is_struct(parameters)) show_error($"{_where} :: parameters expected any", true);
-		if (!is_undefined(fileName) && !is_string(fileName)) show_error($"{_where} :: fileName expected string", true);
-		if (!is_undefined(creationDate) && !is_string(creationDate)) show_error($"{_where} :: creationDate expected string", true);
-		if (!is_undefined(modificationDate) && !is_string(modificationDate)) show_error($"{_where} :: modificationDate expected string", true);
-		if (!is_undefined(readDate) && !is_string(readDate)) show_error($"{_where} :: readDate expected string", true);
-		if (!is_undefined(size) && !is_real(size)) show_error($"{_where} :: size expected int64", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-	};
 }
 
 /**
@@ -3869,49 +1817,6 @@ function ElementsFormDataBodyPart(_content_disposition = undefined, _entity = un
 	simple = _simple;
 	formDataContentDisposition = _form_data_content_disposition;
 	parameterizedHeaders = _parameterized_headers;
-	
-	static __uid = 3006869975;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFormDataBodyPart.validate";
-		
-		if (!is_undefined(contentDisposition))
-		{
-			if (!is_struct(contentDisposition) || contentDisposition[$ "__uid"] != 3348494808) show_error($"{_where} :: contentDisposition expected ElementsContentDisposition", true);
-			contentDisposition.validate(_where);
-		}
-		if (!is_undefined(entity) && !is_struct(entity)) show_error($"{_where} :: entity expected any", true);
-		if (!is_undefined(headers) && !is_struct(headers)) show_error($"{_where} :: headers expected any", true);
-		if (!is_undefined(mediaType))
-		{
-			if (!is_struct(mediaType) || mediaType[$ "__uid"] != 2965425192) show_error($"{_where} :: mediaType expected ElementsMediaType", true);
-			mediaType.validate(_where);
-		}
-		if (!is_undefined(messageBodyWorkers) && !is_struct(messageBodyWorkers)) show_error($"{_where} :: messageBodyWorkers expected any", true);
-		if (!is_undefined(parent))
-		{
-			if (!is_struct(parent) || parent[$ "__uid"] != 2058815728) show_error($"{_where} :: parent expected ElementsMultiPart", true);
-			parent.validate(_where);
-		}
-		if (!is_undefined(providers) && !is_struct(providers)) show_error($"{_where} :: providers expected any", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(value) && !is_string(value)) show_error($"{_where} :: value expected string", true);
-		if (!is_undefined(content) && !is_struct(content)) show_error($"{_where} :: content expected any", true);
-		if (!is_undefined(fileName) && !is_string(fileName)) show_error($"{_where} :: fileName expected string", true);
-		if (!is_undefined(simple) && !is_real(simple)) show_error($"{_where} :: simple expected bool", true);
-		if (!is_undefined(formDataContentDisposition))
-		{
-			if (!is_struct(formDataContentDisposition) || formDataContentDisposition[$ "__uid"] != 3002688906) show_error($"{_where} :: formDataContentDisposition expected ElementsFormDataContentDisposition", true);
-			formDataContentDisposition.validate(_where);
-		}
-		if (!is_undefined(parameterizedHeaders) && !is_struct(parameterizedHeaders)) show_error($"{_where} :: parameterizedHeaders expected any", true);
-	};
 }
 
 /**
@@ -3921,20 +1826,6 @@ function ElementsFormDataBodyPart(_content_disposition = undefined, _entity = un
 function ElementsMultivaluedMapStringParameterizedHeader(_empty = undefined) constructor
 {
 	empty = _empty;
-	
-	static __uid = 152531087;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMultivaluedMapStringParameterizedHeader.validate";
-		
-		if (!is_undefined(empty) && !is_real(empty)) show_error($"{_where} :: empty expected bool", true);
-	};
 }
 
 /**
@@ -3944,20 +1835,6 @@ function ElementsMultivaluedMapStringParameterizedHeader(_empty = undefined) con
 function ElementsMultivaluedMapStringString(_empty = undefined) constructor
 {
 	empty = _empty;
-	
-	static __uid = 688317732;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMultivaluedMapStringString.validate";
-		
-		if (!is_undefined(empty) && !is_real(empty)) show_error($"{_where} :: empty expected bool", true);
-	};
 }
 
 /**
@@ -3969,21 +1846,6 @@ function ElementsParameterizedHeader(_value = undefined, _parameters = undefined
 {
 	value = _value;
 	parameters = _parameters;
-	
-	static __uid = 323724984;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsParameterizedHeader.validate";
-		
-		if (!is_undefined(value) && !is_string(value)) show_error($"{_where} :: value expected string", true);
-		if (!is_undefined(parameters) && !is_struct(parameters)) show_error($"{_where} :: parameters expected any", true);
-	};
 }
 
 /**
@@ -3997,22 +1859,6 @@ function ElementsSubjectRequest(_user_ids, _profile_ids, _wildcard = undefined) 
 	userIds = _user_ids;
 	profileIds = _profile_ids;
 	wildcard = _wildcard;
-	
-	static __uid = 2207841901;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSubjectRequest.validate";
-		
-		if (!is_array(userIds)) show_error($"{_where} :: userIds expected string", true);
-		if (!is_array(profileIds)) show_error($"{_where} :: profileIds expected string", true);
-		if (!is_undefined(wildcard) && !is_real(wildcard)) show_error($"{_where} :: wildcard expected bool", true);
-	};
 }
 
 /**
@@ -4028,26 +1874,6 @@ function ElementsCreateLargeObjectRequest(_mime_type, _read, _write, _delete) co
 	read = _read;
 	write = _write;
 	self[$ "delete"] = _delete;
-	
-	static __uid = 1592293949;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateLargeObjectRequest.validate";
-		
-		if (!is_string(mimeType)) show_error($"{_where} :: mimeType expected string", true);
-		if (!is_struct(read) || read[$ "__uid"] != 2207841901) show_error($"{_where} :: read expected ElementsSubjectRequest", true);
-		read.validate(_where);
-		if (!is_struct(write) || write[$ "__uid"] != 2207841901) show_error($"{_where} :: write expected ElementsSubjectRequest", true);
-		write.validate(_where);
-		if (!is_struct(self[$ "delete"]) || self[$ "delete"][$ "__uid"] != 2207841901) show_error($"{_where} :: self[$ 'delete'] expected ElementsSubjectRequest", true);
-		self[$ "delete"].validate(_where);
-	};
 }
 
 /**
@@ -4065,27 +1891,6 @@ function ElementsCreateLargeObjectFromUrlRequest(_mime_type, _read, _write, _del
 	write = _write;
 	self[$ "delete"] = _delete;
 	fileUrl = _file_url;
-	
-	static __uid = 117731378;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateLargeObjectFromUrlRequest.validate";
-		
-		if (!is_string(mimeType)) show_error($"{_where} :: mimeType expected string", true);
-		if (!is_struct(read) || read[$ "__uid"] != 2207841901) show_error($"{_where} :: read expected ElementsSubjectRequest", true);
-		read.validate(_where);
-		if (!is_struct(write) || write[$ "__uid"] != 2207841901) show_error($"{_where} :: write expected ElementsSubjectRequest", true);
-		write.validate(_where);
-		if (!is_struct(self[$ "delete"]) || self[$ "delete"][$ "__uid"] != 2207841901) show_error($"{_where} :: self[$ 'delete'] expected ElementsSubjectRequest", true);
-		self[$ "delete"].validate(_where);
-		if (!is_string(fileUrl)) show_error($"{_where} :: fileUrl expected string", true);
-	};
 }
 
 /**
@@ -4101,26 +1906,6 @@ function ElementsUpdateLargeObjectRequest(_mime_type, _read, _write, _delete) co
 	read = _read;
 	write = _write;
 	self[$ "delete"] = _delete;
-	
-	static __uid = 1646762996;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateLargeObjectRequest.validate";
-		
-		if (!is_string(mimeType)) show_error($"{_where} :: mimeType expected string", true);
-		if (!is_struct(read) || read[$ "__uid"] != 2207841901) show_error($"{_where} :: read expected ElementsSubjectRequest", true);
-		read.validate(_where);
-		if (!is_struct(write) || write[$ "__uid"] != 2207841901) show_error($"{_where} :: write expected ElementsSubjectRequest", true);
-		write.validate(_where);
-		if (!is_struct(self[$ "delete"]) || self[$ "delete"][$ "__uid"] != 2207841901) show_error($"{_where} :: self[$ 'delete'] expected ElementsSubjectRequest", true);
-		self[$ "delete"].validate(_where);
-	};
 }
 
 /**
@@ -4144,27 +1929,6 @@ function ElementsLeaderboard(_name, _time_strategy_type, _score_strategy_type, _
 	id = _id;
 	firstEpochTimestamp = _first_epoch_timestamp;
 	epochInterval = _epoch_interval;
-	
-	static __uid = 2694437395;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsLeaderboard.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(timeStrategyType)) show_error($"{_where} :: timeStrategyType expected string", true);
-		if (!is_string(scoreStrategyType)) show_error($"{_where} :: scoreStrategyType expected string", true);
-		if (!is_string(title)) show_error($"{_where} :: title expected string", true);
-		if (!is_string(scoreUnits)) show_error($"{_where} :: scoreUnits expected string", true);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(firstEpochTimestamp) && !is_real(firstEpochTimestamp)) show_error($"{_where} :: firstEpochTimestamp expected int64", true);
-		if (!is_undefined(epochInterval) && !is_real(epochInterval)) show_error($"{_where} :: epochInterval expected int64", true);
-	};
 }
 
 /**
@@ -4180,23 +1944,6 @@ function ElementsPaginationLeaderboard(_offset = undefined, _total = undefined, 
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2975129155;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationLeaderboard.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsLeaderboard", true);
-	};
 }
 
 /**
@@ -4216,26 +1963,6 @@ function ElementsScore(_id, _profile, _creation_timestamp, _leaderboard_epoch, _
 	leaderboardEpoch = _leaderboard_epoch;
 	pointValue = _point_value;
 	scoreUnits = _score_units;
-	
-	static __uid = 3673458198;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsScore.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(profile) || profile[$ "__uid"] != 2781117785) show_error($"{_where} :: profile expected ElementsProfile", true);
-		profile.validate(_where);
-		if (!is_real(creationTimestamp)) show_error($"{_where} :: creationTimestamp expected int64", true);
-		if (!is_real(leaderboardEpoch)) show_error($"{_where} :: leaderboardEpoch expected int64", true);
-		if (!is_undefined(pointValue) && !is_real(pointValue)) show_error($"{_where} :: pointValue expected double", true);
-		if (!is_undefined(scoreUnits) && !is_string(scoreUnits)) show_error($"{_where} :: scoreUnits expected string", true);
-	};
 }
 
 /**
@@ -4247,22 +1974,6 @@ function ElementsRank(_score, _position = undefined) constructor
 {
 	self[$ "score"] = _score;
 	position = _position;
-	
-	static __uid = 1348532098;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsRank.validate";
-		
-		if (!is_struct(self[$ "score"]) || self[$ "score"][$ "__uid"] != 3673458198) show_error($"{_where} :: self[$ 'score'] expected ElementsScore", true);
-		self[$ "score"].validate(_where);
-		if (!is_undefined(position) && !is_real(position)) show_error($"{_where} :: position expected int64", true);
-	};
 }
 
 /**
@@ -4278,23 +1989,6 @@ function ElementsPaginationRank(_offset = undefined, _total = undefined, _approx
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2379354738;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationRank.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsRank", true);
-	};
 }
 
 /**
@@ -4322,29 +2016,6 @@ function ElementsRankRow(_profile_id, _profile_display_name, _profile_image_url,
 	scoreUnits = _score_units;
 	creationTimestamp = _creation_timestamp;
 	leaderboardEpoch = _leaderboard_epoch;
-	
-	static __uid = 1153839310;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsRankRow.validate";
-		
-		if (!is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_string(profileDisplayName)) show_error($"{_where} :: profileDisplayName expected string", true);
-		if (!is_string(profileImageUrl)) show_error($"{_where} :: profileImageUrl expected string", true);
-		if (!is_real(lastLogin)) show_error($"{_where} :: lastLogin expected int64", true);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(position) && !is_real(position)) show_error($"{_where} :: position expected int64", true);
-		if (!is_undefined(pointValue) && !is_real(pointValue)) show_error($"{_where} :: pointValue expected double", true);
-		if (!is_undefined(scoreUnits) && !is_string(scoreUnits)) show_error($"{_where} :: scoreUnits expected string", true);
-		if (!is_undefined(creationTimestamp) && !is_real(creationTimestamp)) show_error($"{_where} :: creationTimestamp expected int64", true);
-		if (!is_undefined(leaderboardEpoch) && !is_real(leaderboardEpoch)) show_error($"{_where} :: leaderboardEpoch expected int64", true);
-	};
 }
 
 /**
@@ -4354,20 +2025,6 @@ function ElementsRankRow(_profile_id, _profile_display_name, _profile_image_url,
 function ElementsTabulationRankRow(_rows) constructor
 {
 	rows = _rows;
-	
-	static __uid = 987292919;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsTabulationRankRow.validate";
-		
-		if (!is_array(rows)) show_error($"{_where} :: rows expected ElementsRankRow", true);
-	};
 }
 
 /**
@@ -4391,32 +2048,6 @@ function ElementsMatch(_scheme, _player, _id = undefined, _scope = undefined, _o
 	lastUpdatedTimestamp = _last_updated_timestamp;
 	gameId = _game_id;
 	metadata = _metadata;
-	
-	static __uid = 2972025397;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMatch.validate";
-		
-		if (!is_string(scheme)) show_error($"{_where} :: scheme expected string", true);
-		if (!is_struct(player) || player[$ "__uid"] != 2781117785) show_error($"{_where} :: player expected ElementsProfile", true);
-		player.validate(_where);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(scope) && !is_string(scope)) show_error($"{_where} :: scope expected string", true);
-		if (!is_undefined(opponent))
-		{
-			if (!is_struct(opponent) || opponent[$ "__uid"] != 2781117785) show_error($"{_where} :: opponent expected ElementsProfile", true);
-			opponent.validate(_where);
-		}
-		if (!is_undefined(lastUpdatedTimestamp) && !is_real(lastUpdatedTimestamp)) show_error($"{_where} :: lastUpdatedTimestamp expected int64", true);
-		if (!is_undefined(gameId) && !is_string(gameId)) show_error($"{_where} :: gameId expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -4432,23 +2063,6 @@ function ElementsPaginationMatch(_offset = undefined, _total = undefined, _appro
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 396456901;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationMatch.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsMatch", true);
-	};
 }
 
 /**
@@ -4466,28 +2080,6 @@ function ElementsMetadata(_id, _name, _metadata, _access_level, _metadata_spec =
 	metadata = _metadata;
 	accessLevel = _access_level;
 	metadataSpec = _metadata_spec;
-	
-	static __uid = 1887270633;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMetadata.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_string(accessLevel)) show_error($"{_where} :: accessLevel expected string", true);
-		if (!is_undefined(metadataSpec))
-		{
-			if (!is_struct(metadataSpec) || metadataSpec[$ "__uid"] != 2450729354) show_error($"{_where} :: metadataSpec expected ElementsMetadataSpec", true);
-			metadataSpec.validate(_where);
-		}
-	};
 }
 
 /**
@@ -4503,27 +2095,6 @@ function ElementsCreateMetadataRequest(_name, _metadata = undefined, _metadata_s
 	metadata = _metadata;
 	metadataSpec = _metadata_spec;
 	accessLevel = _access_level;
-	
-	static __uid = 2487058506;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateMetadataRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(metadataSpec))
-		{
-			if (!is_struct(metadataSpec) || metadataSpec[$ "__uid"] != 2450729354) show_error($"{_where} :: metadataSpec expected ElementsMetadataSpec", true);
-			metadataSpec.validate(_where);
-		}
-		if (!is_undefined(accessLevel) && !is_string(accessLevel)) show_error($"{_where} :: accessLevel expected string", true);
-	};
 }
 
 /**
@@ -4539,23 +2110,6 @@ function ElementsPaginationMetadata(_offset = undefined, _total = undefined, _ap
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 1198154681;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationMetadata.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsMetadata", true);
-	};
 }
 
 /**
@@ -4569,26 +2123,6 @@ function ElementsUpdateMetadataRequest(_metadata = undefined, _metadata_spec = u
 	metadata = _metadata;
 	metadataSpec = _metadata_spec;
 	accessLevel = _access_level;
-	
-	static __uid = 2761795881;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateMetadataRequest.validate";
-		
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-		if (!is_undefined(metadataSpec))
-		{
-			if (!is_struct(metadataSpec) || metadataSpec[$ "__uid"] != 2450729354) show_error($"{_where} :: metadataSpec expected ElementsMetadataSpec", true);
-			metadataSpec.validate(_where);
-		}
-		if (!is_undefined(accessLevel) && !is_string(accessLevel)) show_error($"{_where} :: accessLevel expected string", true);
-	};
 }
 
 /**
@@ -4602,23 +2136,6 @@ function ElementsReward(_item, _quantity, _metadata = undefined) constructor
 	item = _item;
 	quantity = _quantity;
 	metadata = _metadata;
-	
-	static __uid = 2741172507;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsReward.validate";
-		
-		if (!is_struct(item) || item[$ "__uid"] != 4093207011) show_error($"{_where} :: item expected ElementsItem", true);
-		item.validate(_where);
-		if (!is_real(quantity)) show_error($"{_where} :: quantity expected int32", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -4636,24 +2153,6 @@ function ElementsStep(_display_name, _description, _count, _rewards, _metadata =
 	count = _count;
 	rewards = _rewards;
 	metadata = _metadata;
-	
-	static __uid = 1884119454;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsStep.validate";
-		
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_real(count)) show_error($"{_where} :: count expected int32", true);
-		if (!is_array(rewards)) show_error($"{_where} :: rewards expected ElementsReward", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -4677,31 +2176,6 @@ function ElementsMission(_id, _name, _display_name, _description, _tags = undefi
 	steps = _steps;
 	finalRepeatStep = _final_repeat_step;
 	metadata = _metadata;
-	
-	static __uid = 163403146;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMission.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(tags) && !is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_undefined(steps) && !is_array(steps)) show_error($"{_where} :: steps expected ElementsStep", true);
-		if (!is_undefined(finalRepeatStep))
-		{
-			if (!is_struct(finalRepeatStep) || finalRepeatStep[$ "__uid"] != 1884119454) show_error($"{_where} :: finalRepeatStep expected ElementsStep", true);
-			finalRepeatStep.validate(_where);
-		}
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -4717,23 +2191,6 @@ function ElementsPaginationMission(_offset = undefined, _total = undefined, _app
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2801763322;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationMission.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsMission", true);
-	};
 }
 
 /**
@@ -4757,31 +2214,6 @@ function ElementsProgressMissionInfo(_id, _name, _display_name, _description, _s
 	finalRepeatStep = _final_repeat_step;
 	tags = _tags;
 	metadata = _metadata;
-	
-	static __uid = 4042939011;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsProgressMissionInfo.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(steps) && !is_array(steps)) show_error($"{_where} :: steps expected ElementsStep", true);
-		if (!is_undefined(finalRepeatStep))
-		{
-			if (!is_struct(finalRepeatStep) || finalRepeatStep[$ "__uid"] != 1884119454) show_error($"{_where} :: finalRepeatStep expected ElementsStep", true);
-			finalRepeatStep.validate(_where);
-		}
-		if (!is_undefined(tags) && !is_array(tags)) show_error($"{_where} :: tags expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -4797,23 +2229,6 @@ function ElementsSchedule(_id, _name, _display_name, _description) constructor
 	name = _name;
 	displayName = _display_name;
 	description = _description;
-	
-	static __uid = 3368858065;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSchedule.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-	};
 }
 
 /**
@@ -4831,25 +2246,6 @@ function ElementsScheduleEvent(_id, _schedule, _missions, _begin = undefined, _e
 	missions = _missions;
 	self[$ "begin"] = _begin;
 	self[$ "end"] = _end;
-	
-	static __uid = 1425553323;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsScheduleEvent.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(schedule) || schedule[$ "__uid"] != 3368858065) show_error($"{_where} :: schedule expected ElementsSchedule", true);
-		schedule.validate(_where);
-		if (!is_array(missions)) show_error($"{_where} :: missions expected ElementsMission", true);
-		if (!is_undefined(self[$ "begin"]) && !is_real(self[$ "begin"])) show_error($"{_where} :: self[$ 'begin'] expected int64", true);
-		if (!is_undefined(self[$ "end"]) && !is_real(self[$ "end"])) show_error($"{_where} :: self[$ 'end'] expected int64", true);
-	};
 }
 
 /**
@@ -4877,35 +2273,6 @@ function ElementsProgress(_id, _profile, _mission, _current_step = undefined, _r
 	managedBySchedule = _managed_by_schedule;
 	schedules = _schedules;
 	scheduleEvents = _schedule_events;
-	
-	static __uid = 250421607;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsProgress.validate";
-		
-		if (!is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_struct(profile) || profile[$ "__uid"] != 2781117785) show_error($"{_where} :: profile expected ElementsProfile", true);
-		profile.validate(_where);
-		if (!is_struct(mission) || mission[$ "__uid"] != 4042939011) show_error($"{_where} :: mission expected ElementsProgressMissionInfo", true);
-		mission.validate(_where);
-		if (!is_undefined(currentStep))
-		{
-			if (!is_struct(currentStep) || currentStep[$ "__uid"] != 1884119454) show_error($"{_where} :: currentStep expected ElementsStep", true);
-			currentStep.validate(_where);
-		}
-		if (!is_undefined(remaining) && !is_real(remaining)) show_error($"{_where} :: remaining expected int32", true);
-		if (!is_undefined(rewardIssuances) && !is_array(rewardIssuances)) show_error($"{_where} :: rewardIssuances expected ElementsRewardIssuance", true);
-		if (!is_undefined(sequence) && !is_real(sequence)) show_error($"{_where} :: sequence expected int32", true);
-		if (!is_undefined(managedBySchedule) && !is_real(managedBySchedule)) show_error($"{_where} :: managedBySchedule expected bool", true);
-		if (!is_undefined(schedules) && !is_array(schedules)) show_error($"{_where} :: schedules expected ElementsSchedule", true);
-		if (!is_undefined(scheduleEvents) && !is_array(scheduleEvents)) show_error($"{_where} :: scheduleEvents expected ElementsScheduleEvent", true);
-	};
 }
 
 /**
@@ -4921,23 +2288,6 @@ function ElementsPaginationProgress(_offset = undefined, _total = undefined, _ap
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 831725399;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationProgress.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsProgress", true);
-	};
 }
 
 /**
@@ -4961,27 +2311,6 @@ function ElementsProgressRow(_id = undefined, _profile_id = undefined, _profile_
 	stepDescription = _step_description;
 	remaining = _remaining;
 	stepCount = _step_count;
-	
-	static __uid = 3577508181;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsProgressRow.validate";
-		
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_undefined(profileImageUrl) && !is_string(profileImageUrl)) show_error($"{_where} :: profileImageUrl expected string", true);
-		if (!is_undefined(profileDisplayName) && !is_string(profileDisplayName)) show_error($"{_where} :: profileDisplayName expected string", true);
-		if (!is_undefined(stepDisplayName) && !is_string(stepDisplayName)) show_error($"{_where} :: stepDisplayName expected string", true);
-		if (!is_undefined(stepDescription) && !is_string(stepDescription)) show_error($"{_where} :: stepDescription expected string", true);
-		if (!is_undefined(remaining) && !is_real(remaining)) show_error($"{_where} :: remaining expected int32", true);
-		if (!is_undefined(stepCount) && !is_real(stepCount)) show_error($"{_where} :: stepCount expected int32", true);
-	};
 }
 
 /**
@@ -4991,20 +2320,6 @@ function ElementsProgressRow(_id = undefined, _profile_id = undefined, _profile_
 function ElementsTabulationProgressRow(_rows) constructor
 {
 	rows = _rows;
-	
-	static __uid = 4219842888;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsTabulationProgressRow.validate";
-		
-		if (!is_array(rows)) show_error($"{_where} :: rows expected ElementsProgressRow", true);
-	};
 }
 
 /**
@@ -5020,23 +2335,6 @@ function ElementsPaginationRewardIssuance(_offset = undefined, _total = undefine
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 4291211260;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationRewardIssuance.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsRewardIssuance", true);
-	};
 }
 
 /**
@@ -5052,31 +2350,6 @@ function ElementsRewardIssuanceRedemptionResult(_reward_issuance_id = undefined,
 	rewardIssuance = _reward_issuance;
 	inventoryItem = _inventory_item;
 	errorDetails = _error_details;
-	
-	static __uid = 88268656;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsRewardIssuanceRedemptionResult.validate";
-		
-		if (!is_undefined(rewardIssuanceId) && !is_string(rewardIssuanceId)) show_error($"{_where} :: rewardIssuanceId expected string", true);
-		if (!is_undefined(rewardIssuance))
-		{
-			if (!is_struct(rewardIssuance) || rewardIssuance[$ "__uid"] != 3284773420) show_error($"{_where} :: rewardIssuance expected ElementsRewardIssuance", true);
-			rewardIssuance.validate(_where);
-		}
-		if (!is_undefined(inventoryItem))
-		{
-			if (!is_struct(inventoryItem) || inventoryItem[$ "__uid"] != 3734850823) show_error($"{_where} :: inventoryItem expected ElementsInventoryItem", true);
-			inventoryItem.validate(_where);
-		}
-		if (!is_undefined(errorDetails) && !is_string(errorDetails)) show_error($"{_where} :: errorDetails expected string", true);
-	};
 }
 
 /**
@@ -5090,22 +2363,6 @@ function ElementsCreateScheduleEventRequest(_mission_names_or_ids, _begin = unde
 	missionNamesOrIds = _mission_names_or_ids;
 	self[$ "begin"] = _begin;
 	self[$ "end"] = _end;
-	
-	static __uid = 3808981408;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateScheduleEventRequest.validate";
-		
-		if (!is_array(missionNamesOrIds)) show_error($"{_where} :: missionNamesOrIds expected string", true);
-		if (!is_undefined(self[$ "begin"]) && !is_real(self[$ "begin"])) show_error($"{_where} :: self[$ 'begin'] expected int64", true);
-		if (!is_undefined(self[$ "end"]) && !is_real(self[$ "end"])) show_error($"{_where} :: self[$ 'end'] expected int64", true);
-	};
 }
 
 /**
@@ -5121,23 +2378,6 @@ function ElementsPaginationScheduleEvent(_offset = undefined, _total = undefined
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 2638837083;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationScheduleEvent.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsScheduleEvent", true);
-	};
 }
 
 /**
@@ -5151,22 +2391,6 @@ function ElementsUpdateScheduleEventRequest(_mission_names_or_ids, _begin = unde
 	missionNamesOrIds = _mission_names_or_ids;
 	self[$ "begin"] = _begin;
 	self[$ "end"] = _end;
-	
-	static __uid = 3327297397;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateScheduleEventRequest.validate";
-		
-		if (!is_array(missionNamesOrIds)) show_error($"{_where} :: missionNamesOrIds expected string", true);
-		if (!is_undefined(self[$ "begin"]) && !is_real(self[$ "begin"])) show_error($"{_where} :: self[$ 'begin'] expected int64", true);
-		if (!is_undefined(self[$ "end"]) && !is_real(self[$ "end"])) show_error($"{_where} :: self[$ 'end'] expected int64", true);
-	};
 }
 
 /**
@@ -5180,22 +2404,6 @@ function ElementsCreateScheduleRequest(_name, _display_name, _description) const
 	name = _name;
 	displayName = _display_name;
 	description = _description;
-	
-	static __uid = 2403450450;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateScheduleRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-	};
 }
 
 /**
@@ -5211,23 +2419,6 @@ function ElementsPaginationSchedule(_offset = undefined, _total = undefined, _ap
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 107348449;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationSchedule.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsSchedule", true);
-	};
 }
 
 /**
@@ -5241,22 +2432,6 @@ function ElementsUpdateScheduleRequest(_name, _display_name, _description) const
 	name = _name;
 	displayName = _display_name;
 	description = _description;
-	
-	static __uid = 3597890317;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateScheduleRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_string(description)) show_error($"{_where} :: description expected string", true);
-	};
 }
 
 /**
@@ -5270,26 +2445,6 @@ function ElementsFCMRegistration(_registration_token, _id = undefined, _profile 
 	registrationToken = _registration_token;
 	id = _id;
 	profile = _profile;
-	
-	static __uid = 1607130311;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsFCMRegistration.validate";
-		
-		if (!is_string(registrationToken)) show_error($"{_where} :: registrationToken expected string", true);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(profile))
-		{
-			if (!is_struct(profile) || profile[$ "__uid"] != 2781117785) show_error($"{_where} :: profile expected ElementsProfile", true);
-			profile.validate(_where);
-		}
-	};
 }
 
 /**
@@ -5307,24 +2462,6 @@ function ElementsCreateProfileRequest(_user_id, _application_id, _image_url = un
 	imageUrl = _image_url;
 	displayName = _display_name;
 	metadata = _metadata;
-	
-	static __uid = 16877594;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateProfileRequest.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_string(applicationId)) show_error($"{_where} :: applicationId expected string", true);
-		if (!is_undefined(imageUrl) && !is_string(imageUrl)) show_error($"{_where} :: imageUrl expected string", true);
-		if (!is_undefined(displayName) && !is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -5338,22 +2475,6 @@ function ElementsUpdateProfileRequest(_image_url = undefined, _display_name = un
 	imageUrl = _image_url;
 	displayName = _display_name;
 	metadata = _metadata;
-	
-	static __uid = 382495963;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateProfileRequest.validate";
-		
-		if (!is_undefined(imageUrl) && !is_string(imageUrl)) show_error($"{_where} :: imageUrl expected string", true);
-		if (!is_undefined(displayName) && !is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(metadata) && !is_struct(metadata)) show_error($"{_where} :: metadata expected any", true);
-	};
 }
 
 /**
@@ -5363,20 +2484,6 @@ function ElementsUpdateProfileRequest(_image_url = undefined, _display_name = un
 function ElementsUpdateProfileImageRequest(_mime_type) constructor
 {
 	mimeType = _mime_type;
-	
-	static __uid = 1429530948;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateProfileImageRequest.validate";
-		
-		if (!is_string(mimeType)) show_error($"{_where} :: mimeType expected string", true);
-	};
 }
 
 /**
@@ -5398,34 +2505,6 @@ function ElementsSaveDataDocument(_version, _contents, _id = undefined, _slot = 
 	user = _user;
 	profile = _profile;
 	timestamp = _timestamp;
-	
-	static __uid = 3196415584;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsSaveDataDocument.validate";
-		
-		if (!is_string(version)) show_error($"{_where} :: version expected string", true);
-		if (!is_string(contents)) show_error($"{_where} :: contents expected string", true);
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(slot) && !is_real(slot)) show_error($"{_where} :: slot expected int32", true);
-		if (!is_undefined(user))
-		{
-			if (!is_struct(user) || user[$ "__uid"] != 3659328047) show_error($"{_where} :: user expected ElementsUser", true);
-			user.validate(_where);
-		}
-		if (!is_undefined(profile))
-		{
-			if (!is_struct(profile) || profile[$ "__uid"] != 2781117785) show_error($"{_where} :: profile expected ElementsProfile", true);
-			profile.validate(_where);
-		}
-		if (!is_undefined(timestamp) && !is_real(timestamp)) show_error($"{_where} :: timestamp expected int64", true);
-	};
 }
 
 /**
@@ -5441,23 +2520,6 @@ function ElementsCreateSaveDataDocumentRequest(_slot, _contents, _user_id = unde
 	contents = _contents;
 	userId = _user_id;
 	profileId = _profile_id;
-	
-	static __uid = 2901008509;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateSaveDataDocumentRequest.validate";
-		
-		if (!is_real(slot)) show_error($"{_where} :: slot expected int32", true);
-		if (!is_string(contents)) show_error($"{_where} :: contents expected string", true);
-		if (!is_undefined(userId) && !is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-	};
 }
 
 /**
@@ -5473,23 +2535,6 @@ function ElementsPaginationSaveDataDocument(_offset = undefined, _total = undefi
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 1007019088;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationSaveDataDocument.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsSaveDataDocument", true);
-	};
 }
 
 /**
@@ -5503,22 +2548,6 @@ function ElementsUpdateSaveDataDocumentRequest(_contents, _force = undefined, _v
 	contents = _contents;
 	force = _force;
 	version = _version;
-	
-	static __uid = 3806683334;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateSaveDataDocumentRequest.validate";
-		
-		if (!is_string(contents)) show_error($"{_where} :: contents expected string", true);
-		if (!is_undefined(force) && !is_real(force)) show_error($"{_where} :: force expected bool", true);
-		if (!is_undefined(version) && !is_string(version)) show_error($"{_where} :: version expected string", true);
-	};
 }
 
 /**
@@ -5532,22 +2561,6 @@ function ElementsCreateMetadataSpecRequest(_properties, _name = undefined, _type
 	properties = _properties;
 	name = _name;
 	type = _type;
-	
-	static __uid = 3295076267;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateMetadataSpecRequest.validate";
-		
-		if (!is_array(properties)) show_error($"{_where} :: properties expected ElementsMetadataSpecProperty", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-	};
 }
 
 /**
@@ -5561,22 +2574,6 @@ function ElementsEditorLayout(_key = undefined, _title = undefined, _placeholder
 	key = _key;
 	title = _title;
 	placeholder = _placeholder;
-	
-	static __uid = 3143491391;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsEditorLayout.validate";
-		
-		if (!is_undefined(key) && !is_string(key)) show_error($"{_where} :: key expected string", true);
-		if (!is_undefined(title) && !is_string(title)) show_error($"{_where} :: title expected string", true);
-		if (!is_undefined(placeholder) && !is_string(placeholder)) show_error($"{_where} :: placeholder expected string", true);
-	};
 }
 
 /**
@@ -5598,26 +2595,6 @@ function ElementsJsonSchema(_get_id = undefined, _get_schema = undefined, _title
 	type = _type;
 	properties = _properties;
 	required = _required;
-	
-	static __uid = 2979227497;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsJsonSchema.validate";
-		
-		if (!is_undefined(self[$ "get$id"]) && !is_string(self[$ "get$id"])) show_error($"{_where} :: self[$ 'get$id'] expected string", true);
-		if (!is_undefined(self[$ "get$schema"]) && !is_string(self[$ "get$schema"])) show_error($"{_where} :: self[$ 'get$schema'] expected string", true);
-		if (!is_undefined(title) && !is_string(title)) show_error($"{_where} :: title expected string", true);
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(properties) && !is_struct(properties)) show_error($"{_where} :: properties expected any", true);
-		if (!is_undefined(required) && !is_array(required)) show_error($"{_where} :: required expected string", true);
-	};
 }
 
 /**
@@ -5631,26 +2608,6 @@ function ElementsEditorSchema(_data = undefined, _schema = undefined, _layout = 
 	data = _data;
 	schema = _schema;
 	layout = _layout;
-	
-	static __uid = 383510390;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsEditorSchema.validate";
-		
-		if (!is_undefined(data) && !is_struct(data)) show_error($"{_where} :: data expected any", true);
-		if (!is_undefined(schema))
-		{
-			if (!is_struct(schema) || schema[$ "__uid"] != 2979227497) show_error($"{_where} :: schema expected ElementsJsonSchema", true);
-			schema.validate(_where);
-		}
-		if (!is_undefined(layout) && !is_array(layout)) show_error($"{_where} :: layout expected ElementsEditorLayout", true);
-	};
 }
 
 /**
@@ -5666,23 +2623,6 @@ function ElementsJsonSchemaProperty(_type = undefined, _title = undefined, _desc
 	title = _title;
 	description = _description;
 	required = _required;
-	
-	static __uid = 917668580;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsJsonSchemaProperty.validate";
-		
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(title) && !is_string(title)) show_error($"{_where} :: title expected string", true);
-		if (!is_undefined(description) && !is_string(description)) show_error($"{_where} :: description expected string", true);
-		if (!is_undefined(required) && !is_array(required)) show_error($"{_where} :: required expected string", true);
-	};
 }
 
 /**
@@ -5698,23 +2638,6 @@ function ElementsPaginationMetadataSpec(_offset = undefined, _total = undefined,
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 1270656986;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationMetadataSpec.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsMetadataSpec", true);
-	};
 }
 
 /**
@@ -5728,22 +2651,6 @@ function ElementsUpdateMetadataSpecRequest(_name = undefined, _type = undefined,
 	name = _name;
 	type = _type;
 	properties = _properties;
-	
-	static __uid = 1920219244;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUpdateMetadataSpecRequest.validate";
-		
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(type) && !is_string(type)) show_error($"{_where} :: type expected string", true);
-		if (!is_undefined(properties) && !is_array(properties)) show_error($"{_where} :: properties expected ElementsMetadataSpecProperty", true);
-	};
 }
 
 /**
@@ -5759,27 +2666,6 @@ function ElementsMockSessionCreation(_session_secret = undefined, _session = und
 	session = _session;
 	userExpiresAt = _user_expires_at;
 	password = _password;
-	
-	static __uid = 2673195471;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMockSessionCreation.validate";
-		
-		if (!is_undefined(sessionSecret) && !is_string(sessionSecret)) show_error($"{_where} :: sessionSecret expected string", true);
-		if (!is_undefined(session))
-		{
-			if (!is_struct(session) || session[$ "__uid"] != 3048891336) show_error($"{_where} :: session expected ElementsSession", true);
-			session.validate(_where);
-		}
-		if (!is_undefined(userExpiresAt) && !is_real(userExpiresAt)) show_error($"{_where} :: userExpiresAt expected int64", true);
-		if (!is_undefined(password) && !is_string(password)) show_error($"{_where} :: password expected string", true);
-	};
 }
 
 /**
@@ -5791,25 +2677,6 @@ function ElementsMockSessionRequest(_lifetime_in_seconds = undefined, _applicati
 {
 	lifetimeInSeconds = _lifetime_in_seconds;
 	application = _application;
-	
-	static __uid = 3773080403;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsMockSessionRequest.validate";
-		
-		if (!is_undefined(lifetimeInSeconds) && !is_real(lifetimeInSeconds)) show_error($"{_where} :: lifetimeInSeconds expected int32", true);
-		if (!is_undefined(application))
-		{
-			if (!is_struct(application) || application[$ "__uid"] != 1239862290) show_error($"{_where} :: application expected ElementsApplication", true);
-			application.validate(_where);
-		}
-	};
 }
 
 /**
@@ -5825,23 +2692,6 @@ function ElementsUsernamePasswordSessionRequest(_user_id, _password, _profile_id
 	password = _password;
 	profileId = _profile_id;
 	profileSelector = _profile_selector;
-	
-	static __uid = 3751727376;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUsernamePasswordSessionRequest.validate";
-		
-		if (!is_string(userId)) show_error($"{_where} :: userId expected string", true);
-		if (!is_string(password)) show_error($"{_where} :: password expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-		if (!is_undefined(profileSelector) && !is_string(profileSelector)) show_error($"{_where} :: profileSelector expected string", true);
-	};
 }
 
 /**
@@ -5853,21 +2703,6 @@ function ElementsDatabaseHealthStatus(_name = undefined, _metadata = undefined) 
 {
 	name = _name;
 	metadata = _metadata;
-	
-	static __uid = 431199845;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsDatabaseHealthStatus.validate";
-		
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(metadata) && !is_string(metadata)) show_error($"{_where} :: metadata expected string", true);
-	};
 }
 
 /**
@@ -5879,21 +2714,6 @@ function ElementsDiscoveryHealthStatus(_records = undefined, _known_hosts = unde
 {
 	records = _records;
 	knownHosts = _known_hosts;
-	
-	static __uid = 184824318;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsDiscoveryHealthStatus.validate";
-		
-		if (!is_undefined(records) && !is_array(records)) show_error($"{_where} :: records expected string", true);
-		if (!is_undefined(knownHosts) && !is_array(knownHosts)) show_error($"{_where} :: knownHosts expected string", true);
-	};
 }
 
 /**
@@ -5905,21 +2725,6 @@ function ElementsInstanceHealthStatus(_instance_id = undefined, _node_ids = unde
 {
 	instanceId = _instance_id;
 	nodeIds = _node_ids;
-	
-	static __uid = 290765635;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsInstanceHealthStatus.validate";
-		
-		if (!is_undefined(instanceId) && !is_string(instanceId)) show_error($"{_where} :: instanceId expected string", true);
-		if (!is_undefined(nodeIds) && !is_array(nodeIds)) show_error($"{_where} :: nodeIds expected string", true);
-	};
 }
 
 /**
@@ -5935,23 +2740,6 @@ function ElementsRoutingHealthStatus(_instance_id = undefined, _routing_table = 
 	routingTable = _routing_table;
 	masterNodeRoutingTable = _master_node_routing_table;
 	applicationNodeRoutingTable = _application_node_routing_table;
-	
-	static __uid = 677490602;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsRoutingHealthStatus.validate";
-		
-		if (!is_undefined(instanceId) && !is_string(instanceId)) show_error($"{_where} :: instanceId expected string", true);
-		if (!is_undefined(routingTable) && !is_array(routingTable)) show_error($"{_where} :: routingTable expected string", true);
-		if (!is_undefined(masterNodeRoutingTable) && !is_array(masterNodeRoutingTable)) show_error($"{_where} :: masterNodeRoutingTable expected string", true);
-		if (!is_undefined(applicationNodeRoutingTable) && !is_array(applicationNodeRoutingTable)) show_error($"{_where} :: applicationNodeRoutingTable expected string", true);
-	};
 }
 
 /**
@@ -5963,21 +2751,6 @@ function ElementsInvokerHealthStatus(_priorities = undefined, _connected_peers =
 {
 	priorities = _priorities;
 	connectedPeers = _connected_peers;
-	
-	static __uid = 2984279586;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsInvokerHealthStatus.validate";
-		
-		if (!is_undefined(priorities) && !is_array(priorities)) show_error($"{_where} :: priorities expected string", true);
-		if (!is_undefined(connectedPeers) && !is_array(connectedPeers)) show_error($"{_where} :: connectedPeers expected string", true);
-	};
 }
 
 /**
@@ -6003,44 +2776,6 @@ function ElementsHealthStatus(_checks_failed = undefined, _checks_performed = un
 	discoveryHealthStatus = _discovery_health_status;
 	routingHealthStatus = _routing_health_status;
 	invokerHealthStatus = _invoker_health_status;
-	
-	static __uid = 2394037588;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsHealthStatus.validate";
-		
-		if (!is_undefined(checksFailed) && !is_real(checksFailed)) show_error($"{_where} :: checksFailed expected int32", true);
-		if (!is_undefined(checksPerformed) && !is_real(checksPerformed)) show_error($"{_where} :: checksPerformed expected int32", true);
-		if (!is_undefined(overallHealth) && !is_real(overallHealth)) show_error($"{_where} :: overallHealth expected double", true);
-		if (!is_undefined(problems) && !is_array(problems)) show_error($"{_where} :: problems expected string", true);
-		if (!is_undefined(instanceStatus))
-		{
-			if (!is_struct(instanceStatus) || instanceStatus[$ "__uid"] != 290765635) show_error($"{_where} :: instanceStatus expected ElementsInstanceHealthStatus", true);
-			instanceStatus.validate(_where);
-		}
-		if (!is_undefined(databaseStatus) && !is_array(databaseStatus)) show_error($"{_where} :: databaseStatus expected ElementsDatabaseHealthStatus", true);
-		if (!is_undefined(discoveryHealthStatus))
-		{
-			if (!is_struct(discoveryHealthStatus) || discoveryHealthStatus[$ "__uid"] != 184824318) show_error($"{_where} :: discoveryHealthStatus expected ElementsDiscoveryHealthStatus", true);
-			discoveryHealthStatus.validate(_where);
-		}
-		if (!is_undefined(routingHealthStatus))
-		{
-			if (!is_struct(routingHealthStatus) || routingHealthStatus[$ "__uid"] != 677490602) show_error($"{_where} :: routingHealthStatus expected ElementsRoutingHealthStatus", true);
-			routingHealthStatus.validate(_where);
-		}
-		if (!is_undefined(invokerHealthStatus))
-		{
-			if (!is_struct(invokerHealthStatus) || invokerHealthStatus[$ "__uid"] != 2984279586) show_error($"{_where} :: invokerHealthStatus expected ElementsInvokerHealthStatus", true);
-			invokerHealthStatus.validate(_where);
-		}
-	};
 }
 
 /**
@@ -6054,22 +2789,6 @@ function ElementsVersion(_version = undefined, _revision = undefined, _timestamp
 	version = _version;
 	revision = _revision;
 	timestamp = _timestamp;
-	
-	static __uid = 864212096;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsVersion.validate";
-		
-		if (!is_undefined(version) && !is_string(version)) show_error($"{_where} :: version expected string", true);
-		if (!is_undefined(revision) && !is_string(revision)) show_error($"{_where} :: revision expected string", true);
-		if (!is_undefined(timestamp) && !is_string(timestamp)) show_error($"{_where} :: timestamp expected string", true);
-	};
 }
 
 /**
@@ -6105,33 +2824,6 @@ function ElementsUserCreateResponse(_id = undefined, _name = undefined, _email =
 	profiles = _profiles;
 	password = _password;
 	linkedAccounts = _linked_accounts;
-	
-	static __uid = 2246290180;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUserCreateResponse.validate";
-		
-		if (!is_undefined(id) && !is_string(id)) show_error($"{_where} :: id expected string", true);
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(email) && !is_string(email)) show_error($"{_where} :: email expected string", true);
-		if (!is_undefined(firstName) && !is_string(firstName)) show_error($"{_where} :: firstName expected string", true);
-		if (!is_undefined(lastName) && !is_string(lastName)) show_error($"{_where} :: lastName expected string", true);
-		if (!is_undefined(level) && !is_string(level)) show_error($"{_where} :: level expected string", true);
-		if (!is_undefined(active) && !is_real(active)) show_error($"{_where} :: active expected bool", true);
-		if (!is_undefined(facebookId) && !is_string(facebookId)) show_error($"{_where} :: facebookId expected string", true);
-		if (!is_undefined(firebaseId) && !is_string(firebaseId)) show_error($"{_where} :: firebaseId expected string", true);
-		if (!is_undefined(appleSignInId) && !is_string(appleSignInId)) show_error($"{_where} :: appleSignInId expected string", true);
-		if (!is_undefined(primaryPhoneNb) && !is_string(primaryPhoneNb)) show_error($"{_where} :: primaryPhoneNb expected string", true);
-		if (!is_undefined(profiles) && !is_array(profiles)) show_error($"{_where} :: profiles expected ElementsProfile", true);
-		if (!is_undefined(password) && !is_string(password)) show_error($"{_where} :: password expected string", true);
-		if (!is_undefined(linkedAccounts) && !is_array(linkedAccounts)) show_error($"{_where} :: linkedAccounts expected string", true);
-	};
 }
 
 /**
@@ -6145,22 +2837,6 @@ function ElementsCreateProfileSignupRequest(_application_id, _display_name = und
 	applicationId = _application_id;
 	displayName = _display_name;
 	imageUrl = _image_url;
-	
-	static __uid = 2836149590;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsCreateProfileSignupRequest.validate";
-		
-		if (!is_string(applicationId)) show_error($"{_where} :: applicationId expected string", true);
-		if (!is_undefined(displayName) && !is_string(displayName)) show_error($"{_where} :: displayName expected string", true);
-		if (!is_undefined(imageUrl) && !is_string(imageUrl)) show_error($"{_where} :: imageUrl expected string", true);
-	};
 }
 
 /**
@@ -6184,27 +2860,6 @@ function ElementsUserCreateRequest(_name = undefined, _email = undefined, _prima
 	password = _password;
 	level = _level;
 	profiles = _profiles;
-	
-	static __uid = 899782120;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUserCreateRequest.validate";
-		
-		if (!is_undefined(name) && !is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_undefined(email) && !is_string(email)) show_error($"{_where} :: email expected string", true);
-		if (!is_undefined(primaryPhoneNb) && !is_string(primaryPhoneNb)) show_error($"{_where} :: primaryPhoneNb expected string", true);
-		if (!is_undefined(firstName) && !is_string(firstName)) show_error($"{_where} :: firstName expected string", true);
-		if (!is_undefined(lastName) && !is_string(lastName)) show_error($"{_where} :: lastName expected string", true);
-		if (!is_undefined(password) && !is_string(password)) show_error($"{_where} :: password expected string", true);
-		if (!is_undefined(level) && !is_string(level)) show_error($"{_where} :: level expected string", true);
-		if (!is_undefined(profiles) && !is_array(profiles)) show_error($"{_where} :: profiles expected ElementsCreateProfileSignupRequest", true);
-	};
 }
 
 /**
@@ -6220,23 +2875,6 @@ function ElementsPaginationUser(_offset = undefined, _total = undefined, _approx
 	total = _total;
 	approximation = _approximation;
 	objects = _objects;
-	
-	static __uid = 3563338783;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsPaginationUser.validate";
-		
-		if (!is_undefined(offset) && !is_real(offset)) show_error($"{_where} :: offset expected int32", true);
-		if (!is_undefined(total) && !is_real(total)) show_error($"{_where} :: total expected int32", true);
-		if (!is_undefined(approximation) && !is_real(approximation)) show_error($"{_where} :: approximation expected bool", true);
-		if (!is_undefined(objects) && !is_array(objects)) show_error($"{_where} :: objects expected ElementsUser", true);
-	};
 }
 
 /**
@@ -6258,26 +2896,6 @@ function ElementsUserUpdateRequest(_name, _email, _level, _primary_phone_nb = un
 	firstName = _first_name;
 	lastName = _last_name;
 	password = _password;
-	
-	static __uid = 45946483;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUserUpdateRequest.validate";
-		
-		if (!is_string(name)) show_error($"{_where} :: name expected string", true);
-		if (!is_string(email)) show_error($"{_where} :: email expected string", true);
-		if (!is_string(level)) show_error($"{_where} :: level expected string", true);
-		if (!is_undefined(primaryPhoneNb) && !is_string(primaryPhoneNb)) show_error($"{_where} :: primaryPhoneNb expected string", true);
-		if (!is_undefined(firstName) && !is_string(firstName)) show_error($"{_where} :: firstName expected string", true);
-		if (!is_undefined(lastName) && !is_string(lastName)) show_error($"{_where} :: lastName expected string", true);
-		if (!is_undefined(password) && !is_string(password)) show_error($"{_where} :: password expected string", true);
-	};
 }
 
 /**
@@ -6291,22 +2909,6 @@ function ElementsUserUpdatePasswordRequest(_old_password, _new_password, _profil
 	oldPassword = _old_password;
 	newPassword = _new_password;
 	profileId = _profile_id;
-	
-	static __uid = 1441785724;
-	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
-	{
-		_where = $"{_where} :: ElementsUserUpdatePasswordRequest.validate";
-		
-		if (!is_string(oldPassword)) show_error($"{_where} :: oldPassword expected string", true);
-		if (!is_string(newPassword)) show_error($"{_where} :: newPassword expected string", true);
-		if (!is_undefined(profileId) && !is_string(profileId)) show_error($"{_where} :: profileId expected string", true);
-	};
 }
 
 /**
@@ -6318,20 +2920,3238 @@ function ElementsErrorResponse(_code = undefined, _message = undefined) construc
 {
 	code = _code;
 	message = _message;
+}
+
+/**
+ * @func ElementsMetadataSpecProperty_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMetadataSpecProperty_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMetadataSpecProperty_validate";
 	
-	static __uid = 1264847277;
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "required"]) && !is_real(_inst[$ "required"])) show_error($"{_where} :: 'required' expected bool", true);
+	if (!is_undefined(_inst[$ "placeholder"]) && !is_string(_inst[$ "placeholder"])) show_error($"{_where} :: 'placeholder' expected string", true);
+	if (!is_undefined(_inst[$ "defaultValue"]) && !is_struct(_inst[$ "defaultValue"])) show_error($"{_where} :: 'defaultValue' expected any", true);
+	if (!is_undefined(_inst[$ "properties"]) && !is_array(_inst[$ "properties"])) show_error($"{_where} :: 'properties' expected ElementsMetadataSpecProperty", true);
+}
+
+/**
+ * @func ElementsMetadataSpec_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMetadataSpec_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMetadataSpec_validate";
 	
-	/**
-	 * @func validate()
-	 * @param {String} _where What is the callee of this function (used for debug).
-	 * @ignore 
-	 */
-	static validate = function(_where = _GMFUNCTION_)
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_array(_inst[$ "properties"])) show_error($"{_where} :: 'properties' expected ElementsMetadataSpecProperty", true);
+}
+
+/**
+ * @func ElementsItem_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsItem_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsItem_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_string(_inst[$ "category"])) show_error($"{_where} :: 'category' expected string", true);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "tags"]) && !is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]))
 	{
-		_where = $"{_where} :: ElementsErrorResponse.validate";
-		
-		if (!is_undefined(code) && !is_string(code)) show_error($"{_where} :: code expected string", true);
-		if (!is_undefined(message) && !is_string(message)) show_error($"{_where} :: message expected string", true);
-	};
+		if (!is_struct(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected ElementsMetadataSpec", true);
+		ElementsMetadataSpec_validate(_inst[$ "metadataSpec"], _where);
+	}
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "publicVisible"]) && !is_real(_inst[$ "publicVisible"])) show_error($"{_where} :: 'publicVisible' expected bool", true);
+}
+
+/**
+ * @func ElementsUser_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUser_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUser_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "level"])) show_error($"{_where} :: 'level' expected string", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "firstName"]) && !is_string(_inst[$ "firstName"])) show_error($"{_where} :: 'firstName' expected string", true);
+	if (!is_undefined(_inst[$ "lastName"]) && !is_string(_inst[$ "lastName"])) show_error($"{_where} :: 'lastName' expected string", true);
+	if (!is_undefined(_inst[$ "email"]) && !is_string(_inst[$ "email"])) show_error($"{_where} :: 'email' expected string", true);
+	if (!is_undefined(_inst[$ "primaryPhoneNb"]) && !is_string(_inst[$ "primaryPhoneNb"])) show_error($"{_where} :: 'primaryPhoneNb' expected string", true);
+	if (!is_undefined(_inst[$ "linkedAccounts"]) && !is_array(_inst[$ "linkedAccounts"])) show_error($"{_where} :: 'linkedAccounts' expected string", true);
+}
+
+/**
+ * @func ElementsRewardIssuance_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsRewardIssuance_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsRewardIssuance_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_string(_inst[$ "state"])) show_error($"{_where} :: 'state' expected string", true);
+	if (!is_string(_inst[$ "context"])) show_error($"{_where} :: 'context' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "item"]))
+	{
+		if (!is_struct(_inst[$ "item"])) show_error($"{_where} :: 'item' expected ElementsItem", true);
+		ElementsItem_validate(_inst[$ "item"], _where);
+	}
+	if (!is_undefined(_inst[$ "itemQuantity"]) && !is_real(_inst[$ "itemQuantity"])) show_error($"{_where} :: 'itemQuantity' expected int32", true);
+	if (!is_undefined(_inst[$ "source"]) && !is_string(_inst[$ "source"])) show_error($"{_where} :: 'source' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "tags"]) && !is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_undefined(_inst[$ "expirationTimestamp"]) && !is_real(_inst[$ "expirationTimestamp"])) show_error($"{_where} :: 'expirationTimestamp' expected int64", true);
+	if (!is_undefined(_inst[$ "uuid"]) && !is_string(_inst[$ "uuid"])) show_error($"{_where} :: 'uuid' expected string", true);
+}
+
+/**
+ * @func ElementsCreateAppleIapReceipt_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateAppleIapReceipt_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateAppleIapReceipt_validate";
+	
+	if (!is_string(_inst[$ "receiptData"])) show_error($"{_where} :: 'receiptData' expected string", true);
+	if (!is_undefined(_inst[$ "createAppleIapReceiptEnvironment"]) && !is_string(_inst[$ "createAppleIapReceiptEnvironment"])) show_error($"{_where} :: 'createAppleIapReceiptEnvironment' expected string", true);
+}
+
+/**
+ * @func ElementsApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+}
+
+/**
+ * @func ElementsApplication_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsApplication_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsApplication_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "gitBranch"]) && !is_string(_inst[$ "gitBranch"])) show_error($"{_where} :: 'gitBranch' expected string", true);
+	if (!is_undefined(_inst[$ "scriptRepoUrl"]) && !is_string(_inst[$ "scriptRepoUrl"])) show_error($"{_where} :: 'scriptRepoUrl' expected string", true);
+	if (!is_undefined(_inst[$ "httpDocumentationUrl"]) && !is_string(_inst[$ "httpDocumentationUrl"])) show_error($"{_where} :: 'httpDocumentationUrl' expected string", true);
+	if (!is_undefined(_inst[$ "httpDocumentationUiUrl"]) && !is_string(_inst[$ "httpDocumentationUiUrl"])) show_error($"{_where} :: 'httpDocumentationUiUrl' expected string", true);
+	if (!is_undefined(_inst[$ "httpTunnelEndpointUrl"]) && !is_string(_inst[$ "httpTunnelEndpointUrl"])) show_error($"{_where} :: 'httpTunnelEndpointUrl' expected string", true);
+	if (!is_undefined(_inst[$ "attributes"]) && !is_struct(_inst[$ "attributes"])) show_error($"{_where} :: 'attributes' expected any", true);
+	if (!is_undefined(_inst[$ "applicationConfiguration"]))
+	{
+		if (!is_struct(_inst[$ "applicationConfiguration"])) show_error($"{_where} :: 'applicationConfiguration' expected ElementsApplicationConfiguration", true);
+		ElementsApplicationConfiguration_validate(_inst[$ "applicationConfiguration"], _where);
+	}
+}
+
+/**
+ * @func ElementsPaginationApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationApplicationConfiguration_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsApplicationConfiguration", true);
+}
+
+/**
+ * @func ElementsCreateApplicationRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateApplicationRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateApplicationRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "attributes"]) && !is_struct(_inst[$ "attributes"])) show_error($"{_where} :: 'attributes' expected any", true);
+}
+
+/**
+ * @func ElementsPaginationApplication_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationApplication_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationApplication_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsApplication", true);
+}
+
+/**
+ * @func ElementsUpdateApplicationRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateApplicationRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateApplicationRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "attributes"]) && !is_struct(_inst[$ "attributes"])) show_error($"{_where} :: 'attributes' expected any", true);
+}
+
+/**
+ * @func ElementsFacebookApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFacebookApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFacebookApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+	if (!is_string(_inst[$ "applicationId"])) show_error($"{_where} :: 'applicationId' expected string", true);
+	if (!is_string(_inst[$ "applicationSecret"])) show_error($"{_where} :: 'applicationSecret' expected string", true);
+	if (!is_undefined(_inst[$ "builtinApplicationPermissions"]) && !is_array(_inst[$ "builtinApplicationPermissions"])) show_error($"{_where} :: 'builtinApplicationPermissions' expected string", true);
+}
+
+/**
+ * @func ElementsFirebaseApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFirebaseApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFirebaseApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+	if (!is_string(_inst[$ "projectId"])) show_error($"{_where} :: 'projectId' expected string", true);
+	if (!is_string(_inst[$ "serviceAccountCredentials"])) show_error($"{_where} :: 'serviceAccountCredentials' expected string", true);
+}
+
+/**
+ * @func ElementsProductBundleReward_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsProductBundleReward_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsProductBundleReward_validate";
+	
+	if (!is_string(_inst[$ "itemId"])) show_error($"{_where} :: 'itemId' expected string", true);
+	if (!is_real(_inst[$ "quantity"])) show_error($"{_where} :: 'quantity' expected int32", true);
+}
+
+/**
+ * @func ElementsProductBundle_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsProductBundle_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsProductBundle_validate";
+	
+	if (!is_string(_inst[$ "productId"])) show_error($"{_where} :: 'productId' expected string", true);
+	if (!is_array(_inst[$ "productBundleRewards"])) show_error($"{_where} :: 'productBundleRewards' expected ElementsProductBundleReward", true);
+	if (!is_real(_inst[$ "display"])) show_error($"{_where} :: 'display' expected bool", true);
+	if (!is_undefined(_inst[$ "displayName"]) && !is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsGooglePlayApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsGooglePlayApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsGooglePlayApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+	if (!is_undefined(_inst[$ "applicationId"]) && !is_string(_inst[$ "applicationId"])) show_error($"{_where} :: 'applicationId' expected string", true);
+	if (!is_undefined(_inst[$ "jsonKey"]) && !is_struct(_inst[$ "jsonKey"])) show_error($"{_where} :: 'jsonKey' expected any", true);
+	if (!is_undefined(_inst[$ "productBundles"]) && !is_array(_inst[$ "productBundles"])) show_error($"{_where} :: 'productBundles' expected ElementsProductBundle", true);
+}
+
+/**
+ * @func ElementsIosApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsIosApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsIosApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+	if (!is_string(_inst[$ "applicationId"])) show_error($"{_where} :: 'applicationId' expected string", true);
+	if (!is_undefined(_inst[$ "productBundles"]) && !is_array(_inst[$ "productBundles"])) show_error($"{_where} :: 'productBundles' expected ElementsProductBundle", true);
+}
+
+/**
+ * @func ElementsElementServiceReference_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsElementServiceReference_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsElementServiceReference_validate";
+	
+	if (!is_string(_inst[$ "elementName"])) show_error($"{_where} :: 'elementName' expected string", true);
+	if (!is_undefined(_inst[$ "serviceType"]) && !is_string(_inst[$ "serviceType"])) show_error($"{_where} :: 'serviceType' expected string", true);
+	if (!is_undefined(_inst[$ "serviceName"]) && !is_string(_inst[$ "serviceName"])) show_error($"{_where} :: 'serviceName' expected string", true);
+}
+
+/**
+ * @func ElementsCallbackDefinition_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCallbackDefinition_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCallbackDefinition_validate";
+	
+	if (!is_string(_inst[$ "method"])) show_error($"{_where} :: 'method' expected string", true);
+	if (!is_struct(_inst[$ "service"])) show_error($"{_where} :: 'service' expected ElementsElementServiceReference", true);
+	_inst[$ "service"].validate(_where);
+}
+
+/**
+ * @func ElementsMatchmakingApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMatchmakingApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMatchmakingApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+	if (!is_undefined(_inst[$ "success"]))
+	{
+		if (!is_struct(_inst[$ "success"])) show_error($"{_where} :: 'success' expected ElementsCallbackDefinition", true);
+		ElementsCallbackDefinition_validate(_inst[$ "success"], _where);
+	}
+	if (!is_undefined(_inst[$ "matchmaker"]))
+	{
+		if (!is_struct(_inst[$ "matchmaker"])) show_error($"{_where} :: 'matchmaker' expected ElementsElementServiceReference", true);
+		ElementsElementServiceReference_validate(_inst[$ "matchmaker"], _where);
+	}
+	if (!is_undefined(_inst[$ "maxProfiles"]) && !is_real(_inst[$ "maxProfiles"])) show_error($"{_where} :: 'maxProfiles' expected int32", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]))
+	{
+		if (!is_struct(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected ElementsMetadataSpec", true);
+		ElementsMetadataSpec_validate(_inst[$ "metadataSpec"], _where);
+	}
+}
+
+/**
+ * @func ElementsPSNApplicationConfiguration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPSNApplicationConfiguration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPSNApplicationConfiguration_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsApplication", true);
+	_inst[$ "parent"].validate(_where);
+	if (!is_string(_inst[$ "npIdentifier"])) show_error($"{_where} :: 'npIdentifier' expected string", true);
+	if (!is_string(_inst[$ "clientSecret"])) show_error($"{_where} :: 'clientSecret' expected string", true);
+}
+
+/**
+ * @func ElementsAuthScheme_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsAuthScheme_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsAuthScheme_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "audience"])) show_error($"{_where} :: 'audience' expected string", true);
+	if (!is_string(_inst[$ "publicKey"])) show_error($"{_where} :: 'publicKey' expected string", true);
+	if (!is_string(_inst[$ "algorithm"])) show_error($"{_where} :: 'algorithm' expected string", true);
+	if (!is_string(_inst[$ "userLevel"])) show_error($"{_where} :: 'userLevel' expected string", true);
+	if (!is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_array(_inst[$ "allowedIssuers"])) show_error($"{_where} :: 'allowedIssuers' expected string", true);
+}
+
+/**
+ * @func ElementsCreateAuthSchemeResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateAuthSchemeResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateAuthSchemeResponse_validate";
+	
+	if (!is_struct(_inst[$ "scheme"])) show_error($"{_where} :: 'scheme' expected ElementsAuthScheme", true);
+	_inst[$ "scheme"].validate(_where);
+	if (!is_string(_inst[$ "publicKey"])) show_error($"{_where} :: 'publicKey' expected string", true);
+	if (!is_undefined(_inst[$ "privateKey"]) && !is_string(_inst[$ "privateKey"])) show_error($"{_where} :: 'privateKey' expected string", true);
+}
+
+/**
+ * @func ElementsCreateAuthSchemeRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateAuthSchemeRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateAuthSchemeRequest_validate";
+	
+	if (!is_string(_inst[$ "audience"])) show_error($"{_where} :: 'audience' expected string", true);
+	if (!is_string(_inst[$ "algorithm"])) show_error($"{_where} :: 'algorithm' expected string", true);
+	if (!is_string(_inst[$ "userLevel"])) show_error($"{_where} :: 'userLevel' expected string", true);
+	if (!is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_array(_inst[$ "allowedIssuers"])) show_error($"{_where} :: 'allowedIssuers' expected string", true);
+	if (!is_undefined(_inst[$ "publicKey"]) && !is_string(_inst[$ "publicKey"])) show_error($"{_where} :: 'publicKey' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationAuthScheme_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationAuthScheme_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationAuthScheme_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsAuthScheme", true);
+}
+
+/**
+ * @func ElementsUpdateAuthSchemeResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateAuthSchemeResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateAuthSchemeResponse_validate";
+	
+	if (!is_string(_inst[$ "publicKey"])) show_error($"{_where} :: 'publicKey' expected string", true);
+	if (!is_undefined(_inst[$ "scheme"]))
+	{
+		if (!is_struct(_inst[$ "scheme"])) show_error($"{_where} :: 'scheme' expected ElementsAuthScheme", true);
+		ElementsAuthScheme_validate(_inst[$ "scheme"], _where);
+	}
+	if (!is_undefined(_inst[$ "privateKey"]) && !is_string(_inst[$ "privateKey"])) show_error($"{_where} :: 'privateKey' expected string", true);
+}
+
+/**
+ * @func ElementsUpdateAuthSchemeRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateAuthSchemeRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateAuthSchemeRequest_validate";
+	
+	if (!is_string(_inst[$ "audience"])) show_error($"{_where} :: 'audience' expected string", true);
+	if (!is_string(_inst[$ "algorithm"])) show_error($"{_where} :: 'algorithm' expected string", true);
+	if (!is_string(_inst[$ "userLevel"])) show_error($"{_where} :: 'userLevel' expected string", true);
+	if (!is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_array(_inst[$ "allowedIssuers"])) show_error($"{_where} :: 'allowedIssuers' expected string", true);
+	if (!is_undefined(_inst[$ "regenerate"]) && !is_real(_inst[$ "regenerate"])) show_error($"{_where} :: 'regenerate' expected bool", true);
+	if (!is_undefined(_inst[$ "publicKey"]) && !is_string(_inst[$ "publicKey"])) show_error($"{_where} :: 'publicKey' expected string", true);
+}
+
+/**
+ * @func ElementsLargeObjectReference_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsLargeObjectReference_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsLargeObjectReference_validate";
+	
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "url"]) && !is_string(_inst[$ "url"])) show_error($"{_where} :: 'url' expected string", true);
+	if (!is_undefined(_inst[$ "mimeType"]) && !is_string(_inst[$ "mimeType"])) show_error($"{_where} :: 'mimeType' expected string", true);
+	if (!is_undefined(_inst[$ "state"]) && !is_string(_inst[$ "state"])) show_error($"{_where} :: 'state' expected string", true);
+	if (!is_undefined(_inst[$ "lastModified"]) && !is_string(_inst[$ "lastModified"])) show_error($"{_where} :: 'lastModified' expected string", true);
+}
+
+/**
+ * @func ElementsProfile_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsProfile_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsProfile_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_struct(_inst[$ "application"])) show_error($"{_where} :: 'application' expected ElementsApplication", true);
+	_inst[$ "application"].validate(_where);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "imageUrl"]) && !is_string(_inst[$ "imageUrl"])) show_error($"{_where} :: 'imageUrl' expected string", true);
+	if (!is_undefined(_inst[$ "imageObject"]))
+	{
+		if (!is_struct(_inst[$ "imageObject"])) show_error($"{_where} :: 'imageObject' expected ElementsLargeObjectReference", true);
+		ElementsLargeObjectReference_validate(_inst[$ "imageObject"], _where);
+	}
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "lastLogin"]) && !is_real(_inst[$ "lastLogin"])) show_error($"{_where} :: 'lastLogin' expected int64", true);
+}
+
+/**
+ * @func ElementsSession_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSession_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSession_validate";
+	
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_undefined(_inst[$ "profile"]))
+	{
+		if (!is_struct(_inst[$ "profile"])) show_error($"{_where} :: 'profile' expected ElementsProfile", true);
+		ElementsProfile_validate(_inst[$ "profile"], _where);
+	}
+	if (!is_undefined(_inst[$ "application"]))
+	{
+		if (!is_struct(_inst[$ "application"])) show_error($"{_where} :: 'application' expected ElementsApplication", true);
+		ElementsApplication_validate(_inst[$ "application"], _where);
+	}
+	if (!is_undefined(_inst[$ "expiry"]) && !is_real(_inst[$ "expiry"])) show_error($"{_where} :: 'expiry' expected int64", true);
+}
+
+/**
+ * @func ElementsSessionCreation_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSessionCreation_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSessionCreation_validate";
+	
+	if (!is_undefined(_inst[$ "sessionSecret"]) && !is_string(_inst[$ "sessionSecret"])) show_error($"{_where} :: 'sessionSecret' expected string", true);
+	if (!is_undefined(_inst[$ "session"]))
+	{
+		if (!is_struct(_inst[$ "session"])) show_error($"{_where} :: 'session' expected ElementsSession", true);
+		ElementsSession_validate(_inst[$ "session"], _where);
+	}
+}
+
+/**
+ * @func ElementsOAuth2SessionRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsOAuth2SessionRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsOAuth2SessionRequest_validate";
+	
+	if (!is_string(_inst[$ "schemeId"])) show_error($"{_where} :: 'schemeId' expected string", true);
+	if (!is_undefined(_inst[$ "requestParameters"]) && !is_struct(_inst[$ "requestParameters"])) show_error($"{_where} :: 'requestParameters' expected any", true);
+	if (!is_undefined(_inst[$ "requestHeaders"]) && !is_struct(_inst[$ "requestHeaders"])) show_error($"{_where} :: 'requestHeaders' expected any", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_undefined(_inst[$ "profileSelector"]) && !is_string(_inst[$ "profileSelector"])) show_error($"{_where} :: 'profileSelector' expected string", true);
+}
+
+/**
+ * @func ElementsOAuth2RequestKeyValue_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsOAuth2RequestKeyValue_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsOAuth2RequestKeyValue_validate";
+	
+	if (!is_undefined(_inst[$ "key"]) && !is_string(_inst[$ "key"])) show_error($"{_where} :: 'key' expected string", true);
+	if (!is_undefined(_inst[$ "value"]) && !is_string(_inst[$ "value"])) show_error($"{_where} :: 'value' expected string", true);
+	if (!is_undefined(_inst[$ "fromClient"]) && !is_real(_inst[$ "fromClient"])) show_error($"{_where} :: 'fromClient' expected bool", true);
+}
+
+/**
+ * @func ElementsOAuth2AuthScheme_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsOAuth2AuthScheme_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsOAuth2AuthScheme_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "validationUrl"])) show_error($"{_where} :: 'validationUrl' expected string", true);
+	if (!is_undefined(_inst[$ "headers"]) && !is_array(_inst[$ "headers"])) show_error($"{_where} :: 'headers' expected ElementsOAuth2RequestKeyValue", true);
+	if (!is_undefined(_inst[$ "params"]) && !is_array(_inst[$ "params"])) show_error($"{_where} :: 'params' expected ElementsOAuth2RequestKeyValue", true);
+	if (!is_undefined(_inst[$ "responseIdMapping"]) && !is_string(_inst[$ "responseIdMapping"])) show_error($"{_where} :: 'responseIdMapping' expected string", true);
+}
+
+/**
+ * @func ElementsCreateOrUpdateOAuth2AuthSchemeResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateOrUpdateOAuth2AuthSchemeResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateOrUpdateOAuth2AuthSchemeResponse_validate";
+	
+	if (!is_undefined(_inst[$ "scheme"]))
+	{
+		if (!is_struct(_inst[$ "scheme"])) show_error($"{_where} :: 'scheme' expected ElementsOAuth2AuthScheme", true);
+		ElementsOAuth2AuthScheme_validate(_inst[$ "scheme"], _where);
+	}
+}
+
+/**
+ * @func ElementsCreateOrUpdateOAuth2AuthSchemeRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateOrUpdateOAuth2AuthSchemeRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateOrUpdateOAuth2AuthSchemeRequest_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "validationUrl"])) show_error($"{_where} :: 'validationUrl' expected string", true);
+	if (!is_undefined(_inst[$ "headers"]) && !is_array(_inst[$ "headers"])) show_error($"{_where} :: 'headers' expected ElementsOAuth2RequestKeyValue", true);
+	if (!is_undefined(_inst[$ "params"]) && !is_array(_inst[$ "params"])) show_error($"{_where} :: 'params' expected ElementsOAuth2RequestKeyValue", true);
+	if (!is_undefined(_inst[$ "responseIdMapping"]) && !is_string(_inst[$ "responseIdMapping"])) show_error($"{_where} :: 'responseIdMapping' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationOAuth2AuthScheme_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationOAuth2AuthScheme_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationOAuth2AuthScheme_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsOAuth2AuthScheme", true);
+}
+
+/**
+ * @func ElementsOidcSessionRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsOidcSessionRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsOidcSessionRequest_validate";
+	
+	if (!is_string(_inst[$ "jwt"])) show_error($"{_where} :: 'jwt' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_undefined(_inst[$ "profileSelector"]) && !is_string(_inst[$ "profileSelector"])) show_error($"{_where} :: 'profileSelector' expected string", true);
+}
+
+/**
+ * @func ElementsJWK_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsJWK_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsJWK_validate";
+	
+	if (!is_undefined(_inst[$ "alg"]) && !is_string(_inst[$ "alg"])) show_error($"{_where} :: 'alg' expected string", true);
+	if (!is_undefined(_inst[$ "kid"]) && !is_string(_inst[$ "kid"])) show_error($"{_where} :: 'kid' expected string", true);
+	if (!is_undefined(_inst[$ "kty"]) && !is_string(_inst[$ "kty"])) show_error($"{_where} :: 'kty' expected string", true);
+	if (!is_undefined(_inst[$ "use"]) && !is_string(_inst[$ "use"])) show_error($"{_where} :: 'use' expected string", true);
+	if (!is_undefined(_inst[$ "e"]) && !is_string(_inst[$ "e"])) show_error($"{_where} :: 'e' expected string", true);
+	if (!is_undefined(_inst[$ "n"]) && !is_string(_inst[$ "n"])) show_error($"{_where} :: 'n' expected string", true);
+}
+
+/**
+ * @func ElementsOidcAuthScheme_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsOidcAuthScheme_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsOidcAuthScheme_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "issuer"])) show_error($"{_where} :: 'issuer' expected string", true);
+	if (!is_array(_inst[$ "keys"])) show_error($"{_where} :: 'keys' expected ElementsJWK", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "keysUrl"]) && !is_string(_inst[$ "keysUrl"])) show_error($"{_where} :: 'keysUrl' expected string", true);
+	if (!is_undefined(_inst[$ "mediaType"]) && !is_string(_inst[$ "mediaType"])) show_error($"{_where} :: 'mediaType' expected string", true);
+}
+
+/**
+ * @func ElementsCreateOrUpdateOidcAuthSchemeResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateOrUpdateOidcAuthSchemeResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateOrUpdateOidcAuthSchemeResponse_validate";
+	
+	if (!is_undefined(_inst[$ "scheme"]))
+	{
+		if (!is_struct(_inst[$ "scheme"])) show_error($"{_where} :: 'scheme' expected ElementsOidcAuthScheme", true);
+		ElementsOidcAuthScheme_validate(_inst[$ "scheme"], _where);
+	}
+}
+
+/**
+ * @func ElementsCreateOrUpdateOidcAuthSchemeRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateOrUpdateOidcAuthSchemeRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateOrUpdateOidcAuthSchemeRequest_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "issuer"])) show_error($"{_where} :: 'issuer' expected string", true);
+	if (!is_array(_inst[$ "keys"])) show_error($"{_where} :: 'keys' expected ElementsJWK", true);
+	if (!is_undefined(_inst[$ "keysUrl"]) && !is_string(_inst[$ "keysUrl"])) show_error($"{_where} :: 'keysUrl' expected string", true);
+	if (!is_undefined(_inst[$ "mediaType"]) && !is_string(_inst[$ "mediaType"])) show_error($"{_where} :: 'mediaType' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationOidcAuthScheme_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationOidcAuthScheme_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationOidcAuthScheme_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsOidcAuthScheme", true);
+}
+
+/**
+ * @func ElementsVaultKey_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsVaultKey_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsVaultKey_validate";
+	
+	if (!is_string(_inst[$ "algorithm"])) show_error($"{_where} :: 'algorithm' expected string", true);
+	if (!is_string(_inst[$ "publicKey"])) show_error($"{_where} :: 'publicKey' expected string", true);
+	if (!is_string(_inst[$ "privateKey"])) show_error($"{_where} :: 'privateKey' expected string", true);
+	if (!is_undefined(_inst[$ "encrypted"]) && !is_real(_inst[$ "encrypted"])) show_error($"{_where} :: 'encrypted' expected bool", true);
+	if (!is_undefined(_inst[$ "encryption"]) && !is_struct(_inst[$ "encryption"])) show_error($"{_where} :: 'encryption' expected any", true);
+}
+
+/**
+ * @func ElementsVault_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsVault_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsVault_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_struct(_inst[$ "key"])) show_error($"{_where} :: 'key' expected ElementsVaultKey", true);
+	_inst[$ "key"].validate(_where);
+}
+
+/**
+ * @func ElementsSmartContract_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSmartContract_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSmartContract_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_struct(_inst[$ "addresses"])) show_error($"{_where} :: 'addresses' expected any", true);
+	if (!is_struct(_inst[$ "vault"])) show_error($"{_where} :: 'vault' expected ElementsVault", true);
+	_inst[$ "vault"].validate(_where);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsSmartContractAddress_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSmartContractAddress_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSmartContractAddress_validate";
+	
+	if (!is_undefined(_inst[$ "address"]) && !is_string(_inst[$ "address"])) show_error($"{_where} :: 'address' expected string", true);
+}
+
+/**
+ * @func ElementsCreateSmartContractRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateSmartContractRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateSmartContractRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_struct(_inst[$ "addresses"])) show_error($"{_where} :: 'addresses' expected any", true);
+	if (!is_string(_inst[$ "vaultId"])) show_error($"{_where} :: 'vaultId' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsPaginationSmartContract_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationSmartContract_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationSmartContract_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsSmartContract", true);
+}
+
+/**
+ * @func ElementsUpdateSmartContractRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateSmartContractRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateSmartContractRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_struct(_inst[$ "addresses"])) show_error($"{_where} :: 'addresses' expected any", true);
+	if (!is_string(_inst[$ "vaultId"])) show_error($"{_where} :: 'vaultId' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsCreateVaultRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateVaultRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateVaultRequest_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "passphrase"]) && !is_string(_inst[$ "passphrase"])) show_error($"{_where} :: 'passphrase' expected string", true);
+	if (!is_undefined(_inst[$ "algorithm"]) && !is_string(_inst[$ "algorithm"])) show_error($"{_where} :: 'algorithm' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationVault_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationVault_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationVault_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsVault", true);
+}
+
+/**
+ * @func ElementsUpdateVaultRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateVaultRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateVaultRequest_validate";
+	
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_undefined(_inst[$ "passphrase"]) && !is_string(_inst[$ "passphrase"])) show_error($"{_where} :: 'passphrase' expected string", true);
+	if (!is_undefined(_inst[$ "newPassphrase"]) && !is_string(_inst[$ "newPassphrase"])) show_error($"{_where} :: 'newPassphrase' expected string", true);
+}
+
+/**
+ * @func ElementsWalletAccount_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsWalletAccount_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsWalletAccount_validate";
+	
+	if (!is_string(_inst[$ "address"])) show_error($"{_where} :: 'address' expected string", true);
+	if (!is_undefined(_inst[$ "privateKey"]) && !is_string(_inst[$ "privateKey"])) show_error($"{_where} :: 'privateKey' expected string", true);
+	if (!is_undefined(_inst[$ "encrypted"]) && !is_real(_inst[$ "encrypted"])) show_error($"{_where} :: 'encrypted' expected bool", true);
+}
+
+/**
+ * @func ElementsWallet_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsWallet_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsWallet_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_struct(_inst[$ "vault"])) show_error($"{_where} :: 'vault' expected ElementsVault", true);
+	_inst[$ "vault"].validate(_where);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "api"])) show_error($"{_where} :: 'api' expected string", true);
+	if (!is_array(_inst[$ "networks"])) show_error($"{_where} :: 'networks' expected string", true);
+	if (!is_array(_inst[$ "accounts"])) show_error($"{_where} :: 'accounts' expected ElementsWalletAccount", true);
+	if (!is_undefined(_inst[$ "preferredAccount"]) && !is_real(_inst[$ "preferredAccount"])) show_error($"{_where} :: 'preferredAccount' expected int32", true);
+}
+
+/**
+ * @func ElementsCreateWalletRequestAccount_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateWalletRequestAccount_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateWalletRequestAccount_validate";
+	
+	if (!is_string(_inst[$ "address"])) show_error($"{_where} :: 'address' expected string", true);
+	if (!is_undefined(_inst[$ "generate"]) && !is_real(_inst[$ "generate"])) show_error($"{_where} :: 'generate' expected bool", true);
+	if (!is_undefined(_inst[$ "privateKey"]) && !is_string(_inst[$ "privateKey"])) show_error($"{_where} :: 'privateKey' expected string", true);
+}
+
+/**
+ * @func ElementsCreateWalletRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateWalletRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateWalletRequest_validate";
+	
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "api"])) show_error($"{_where} :: 'api' expected string", true);
+	if (!is_array(_inst[$ "networks"])) show_error($"{_where} :: 'networks' expected string", true);
+	if (!is_array(_inst[$ "accounts"])) show_error($"{_where} :: 'accounts' expected ElementsCreateWalletRequestAccount", true);
+	if (!is_undefined(_inst[$ "preferredAccount"]) && !is_real(_inst[$ "preferredAccount"])) show_error($"{_where} :: 'preferredAccount' expected int32", true);
+}
+
+/**
+ * @func ElementsPaginationWallet_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationWallet_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationWallet_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsWallet", true);
+}
+
+/**
+ * @func ElementsUpdateWalletRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateWalletRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateWalletRequest_validate";
+	
+	if (!is_array(_inst[$ "networks"])) show_error($"{_where} :: 'networks' expected string", true);
+	if (!is_undefined(_inst[$ "displayName"]) && !is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "preferredAccount"]) && !is_real(_inst[$ "preferredAccount"])) show_error($"{_where} :: 'preferredAccount' expected int32", true);
+}
+
+/**
+ * @func ElementsDeployment_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsDeployment_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsDeployment_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "version"])) show_error($"{_where} :: 'version' expected string", true);
+	if (!is_string(_inst[$ "revision"])) show_error($"{_where} :: 'revision' expected string", true);
+	if (!is_struct(_inst[$ "application"])) show_error($"{_where} :: 'application' expected ElementsApplication", true);
+	_inst[$ "application"].validate(_where);
+}
+
+/**
+ * @func ElementsCreateDeploymentRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateDeploymentRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateDeploymentRequest_validate";
+	
+	if (!is_string(_inst[$ "version"])) show_error($"{_where} :: 'version' expected string", true);
+	if (!is_string(_inst[$ "revision"])) show_error($"{_where} :: 'revision' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationDeployment_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationDeployment_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationDeployment_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsDeployment", true);
+}
+
+/**
+ * @func ElementsUpdateDeploymentRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateDeploymentRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateDeploymentRequest_validate";
+	
+	if (!is_string(_inst[$ "revision"])) show_error($"{_where} :: 'revision' expected string", true);
+}
+
+/**
+ * @func ElementsCodegenRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCodegenRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCodegenRequest_validate";
+	
+	if (!is_undefined(_inst[$ "elementSpecUrl"]) && !is_string(_inst[$ "elementSpecUrl"])) show_error($"{_where} :: 'elementSpecUrl' expected string", true);
+	if (!is_undefined(_inst[$ "language"]) && !is_string(_inst[$ "language"])) show_error($"{_where} :: 'language' expected string", true);
+	if (!is_undefined(_inst[$ "packageName"]) && !is_string(_inst[$ "packageName"])) show_error($"{_where} :: 'packageName' expected string", true);
+	if (!is_undefined(_inst[$ "options"]) && !is_string(_inst[$ "options"])) show_error($"{_where} :: 'options' expected string", true);
+}
+
+/**
+ * @func ElementsFilterRegistration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFilterRegistration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFilterRegistration_validate";
+	
+	if (!is_undefined(_inst[$ "servletNameMappings"]) && !is_array(_inst[$ "servletNameMappings"])) show_error($"{_where} :: 'servletNameMappings' expected string", true);
+	if (!is_undefined(_inst[$ "urlPatternMappings"]) && !is_array(_inst[$ "urlPatternMappings"])) show_error($"{_where} :: 'urlPatternMappings' expected string", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "className"]) && !is_string(_inst[$ "className"])) show_error($"{_where} :: 'className' expected string", true);
+	if (!is_undefined(_inst[$ "initParameters"]) && !is_struct(_inst[$ "initParameters"])) show_error($"{_where} :: 'initParameters' expected any", true);
+}
+
+/**
+ * @func ElementsTaglibDescriptor_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsTaglibDescriptor_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsTaglibDescriptor_validate";
+	
+	if (!is_undefined(_inst[$ "taglibURI"]) && !is_string(_inst[$ "taglibURI"])) show_error($"{_where} :: 'taglibURI' expected string", true);
+	if (!is_undefined(_inst[$ "taglibLocation"]) && !is_string(_inst[$ "taglibLocation"])) show_error($"{_where} :: 'taglibLocation' expected string", true);
+}
+
+/**
+ * @func ElementsJspPropertyGroupDescriptor_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsJspPropertyGroupDescriptor_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsJspPropertyGroupDescriptor_validate";
+	
+	if (!is_undefined(_inst[$ "buffer"]) && !is_string(_inst[$ "buffer"])) show_error($"{_where} :: 'buffer' expected string", true);
+	if (!is_undefined(_inst[$ "urlPatterns"]) && !is_array(_inst[$ "urlPatterns"])) show_error($"{_where} :: 'urlPatterns' expected string", true);
+	if (!is_undefined(_inst[$ "elIgnored"]) && !is_string(_inst[$ "elIgnored"])) show_error($"{_where} :: 'elIgnored' expected string", true);
+	if (!is_undefined(_inst[$ "isXml"]) && !is_string(_inst[$ "isXml"])) show_error($"{_where} :: 'isXml' expected string", true);
+	if (!is_undefined(_inst[$ "errorOnELNotFound"]) && !is_string(_inst[$ "errorOnELNotFound"])) show_error($"{_where} :: 'errorOnELNotFound' expected string", true);
+	if (!is_undefined(_inst[$ "pageEncoding"]) && !is_string(_inst[$ "pageEncoding"])) show_error($"{_where} :: 'pageEncoding' expected string", true);
+	if (!is_undefined(_inst[$ "scriptingInvalid"]) && !is_string(_inst[$ "scriptingInvalid"])) show_error($"{_where} :: 'scriptingInvalid' expected string", true);
+	if (!is_undefined(_inst[$ "includePreludes"]) && !is_array(_inst[$ "includePreludes"])) show_error($"{_where} :: 'includePreludes' expected string", true);
+	if (!is_undefined(_inst[$ "includeCodas"]) && !is_array(_inst[$ "includeCodas"])) show_error($"{_where} :: 'includeCodas' expected string", true);
+	if (!is_undefined(_inst[$ "defaultContentType"]) && !is_string(_inst[$ "defaultContentType"])) show_error($"{_where} :: 'defaultContentType' expected string", true);
+	if (!is_undefined(_inst[$ "trimDirectiveWhitespaces"]) && !is_string(_inst[$ "trimDirectiveWhitespaces"])) show_error($"{_where} :: 'trimDirectiveWhitespaces' expected string", true);
+	if (!is_undefined(_inst[$ "errorOnUndeclaredNamespace"]) && !is_string(_inst[$ "errorOnUndeclaredNamespace"])) show_error($"{_where} :: 'errorOnUndeclaredNamespace' expected string", true);
+	if (!is_undefined(_inst[$ "deferredSyntaxAllowedAsLiteral"]) && !is_string(_inst[$ "deferredSyntaxAllowedAsLiteral"])) show_error($"{_where} :: 'deferredSyntaxAllowedAsLiteral' expected string", true);
+}
+
+/**
+ * @func ElementsJspConfigDescriptor_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsJspConfigDescriptor_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsJspConfigDescriptor_validate";
+	
+	if (!is_undefined(_inst[$ "taglibs"]) && !is_array(_inst[$ "taglibs"])) show_error($"{_where} :: 'taglibs' expected ElementsTaglibDescriptor", true);
+	if (!is_undefined(_inst[$ "jspPropertyGroups"]) && !is_array(_inst[$ "jspPropertyGroups"])) show_error($"{_where} :: 'jspPropertyGroups' expected ElementsJspPropertyGroupDescriptor", true);
+}
+
+/**
+ * @func ElementsSessionCookieConfig_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSessionCookieConfig_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSessionCookieConfig_validate";
+	
+	if (!is_undefined(_inst[$ "path"]) && !is_string(_inst[$ "path"])) show_error($"{_where} :: 'path' expected string", true);
+	if (!is_undefined(_inst[$ "domain"]) && !is_string(_inst[$ "domain"])) show_error($"{_where} :: 'domain' expected string", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "attributes"]) && !is_struct(_inst[$ "attributes"])) show_error($"{_where} :: 'attributes' expected any", true);
+	if (!is_undefined(_inst[$ "comment"]) && !is_string(_inst[$ "comment"])) show_error($"{_where} :: 'comment' expected string", true);
+	if (!is_undefined(_inst[$ "httpOnly"]) && !is_real(_inst[$ "httpOnly"])) show_error($"{_where} :: 'httpOnly' expected bool", true);
+	if (!is_undefined(_inst[$ "secure"]) && !is_real(_inst[$ "secure"])) show_error($"{_where} :: 'secure' expected bool", true);
+	if (!is_undefined(_inst[$ "maxAge"]) && !is_real(_inst[$ "maxAge"])) show_error($"{_where} :: 'maxAge' expected int32", true);
+}
+
+/**
+ * @func ElementsServletContext_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsServletContext_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsServletContext_validate";
+	
+	if (!is_undefined(_inst[$ "classLoader"]) && !is_struct(_inst[$ "classLoader"])) show_error($"{_where} :: 'classLoader' expected any", true);
+	if (!is_undefined(_inst[$ "majorVersion"]) && !is_real(_inst[$ "majorVersion"])) show_error($"{_where} :: 'majorVersion' expected int32", true);
+	if (!is_undefined(_inst[$ "minorVersion"]) && !is_real(_inst[$ "minorVersion"])) show_error($"{_where} :: 'minorVersion' expected int32", true);
+	if (!is_undefined(_inst[$ "contextPath"]) && !is_string(_inst[$ "contextPath"])) show_error($"{_where} :: 'contextPath' expected string", true);
+	if (!is_undefined(_inst[$ "serverInfo"]) && !is_string(_inst[$ "serverInfo"])) show_error($"{_where} :: 'serverInfo' expected string", true);
+	if (!is_undefined(_inst[$ "attributeNames"]) && !is_struct(_inst[$ "attributeNames"])) show_error($"{_where} :: 'attributeNames' expected any", true);
+	if (!is_undefined(_inst[$ "servletContextName"]) && !is_string(_inst[$ "servletContextName"])) show_error($"{_where} :: 'servletContextName' expected string", true);
+	if (!is_undefined(_inst[$ "filterRegistrations"]) && !is_struct(_inst[$ "filterRegistrations"])) show_error($"{_where} :: 'filterRegistrations' expected any", true);
+	if (!is_undefined(_inst[$ "sessionCookieConfig"]))
+	{
+		if (!is_struct(_inst[$ "sessionCookieConfig"])) show_error($"{_where} :: 'sessionCookieConfig' expected ElementsSessionCookieConfig", true);
+		ElementsSessionCookieConfig_validate(_inst[$ "sessionCookieConfig"], _where);
+	}
+	if (!is_undefined(_inst[$ "jspConfigDescriptor"]))
+	{
+		if (!is_struct(_inst[$ "jspConfigDescriptor"])) show_error($"{_where} :: 'jspConfigDescriptor' expected ElementsJspConfigDescriptor", true);
+		ElementsJspConfigDescriptor_validate(_inst[$ "jspConfigDescriptor"], _where);
+	}
+	if (!is_undefined(_inst[$ "virtualServerName"]) && !is_string(_inst[$ "virtualServerName"])) show_error($"{_where} :: 'virtualServerName' expected string", true);
+	if (!is_undefined(_inst[$ "sessionTimeout"]) && !is_real(_inst[$ "sessionTimeout"])) show_error($"{_where} :: 'sessionTimeout' expected int32", true);
+	if (!is_undefined(_inst[$ "initParameterNames"]) && !is_struct(_inst[$ "initParameterNames"])) show_error($"{_where} :: 'initParameterNames' expected any", true);
+	if (!is_undefined(_inst[$ "effectiveMajorVersion"]) && !is_real(_inst[$ "effectiveMajorVersion"])) show_error($"{_where} :: 'effectiveMajorVersion' expected int32", true);
+	if (!is_undefined(_inst[$ "effectiveMinorVersion"]) && !is_real(_inst[$ "effectiveMinorVersion"])) show_error($"{_where} :: 'effectiveMinorVersion' expected int32", true);
+	if (!is_undefined(_inst[$ "servletRegistrations"]) && !is_struct(_inst[$ "servletRegistrations"])) show_error($"{_where} :: 'servletRegistrations' expected any", true);
+	if (!is_undefined(_inst[$ "sessionTrackingModes"]) && !is_array(_inst[$ "sessionTrackingModes"])) show_error($"{_where} :: 'sessionTrackingModes' expected string", true);
+	if (!is_undefined(_inst[$ "defaultSessionTrackingModes"]) && !is_array(_inst[$ "defaultSessionTrackingModes"])) show_error($"{_where} :: 'defaultSessionTrackingModes' expected string", true);
+	if (!is_undefined(_inst[$ "requestCharacterEncoding"]) && !is_string(_inst[$ "requestCharacterEncoding"])) show_error($"{_where} :: 'requestCharacterEncoding' expected string", true);
+	if (!is_undefined(_inst[$ "responseCharacterEncoding"]) && !is_string(_inst[$ "responseCharacterEncoding"])) show_error($"{_where} :: 'responseCharacterEncoding' expected string", true);
+	if (!is_undefined(_inst[$ "effectiveSessionTrackingModes"]) && !is_array(_inst[$ "effectiveSessionTrackingModes"])) show_error($"{_where} :: 'effectiveSessionTrackingModes' expected string", true);
+}
+
+/**
+ * @func ElementsServletConfig_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsServletConfig_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsServletConfig_validate";
+	
+	if (!is_undefined(_inst[$ "servletName"]) && !is_string(_inst[$ "servletName"])) show_error($"{_where} :: 'servletName' expected string", true);
+	if (!is_undefined(_inst[$ "servletContext"]))
+	{
+		if (!is_struct(_inst[$ "servletContext"])) show_error($"{_where} :: 'servletContext' expected ElementsServletContext", true);
+		ElementsServletContext_validate(_inst[$ "servletContext"], _where);
+	}
+	if (!is_undefined(_inst[$ "initParameterNames"]) && !is_struct(_inst[$ "initParameterNames"])) show_error($"{_where} :: 'initParameterNames' expected any", true);
+}
+
+/**
+ * @func ElementsServletRegistration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsServletRegistration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsServletRegistration_validate";
+	
+	if (!is_undefined(_inst[$ "mappings"]) && !is_array(_inst[$ "mappings"])) show_error($"{_where} :: 'mappings' expected string", true);
+	if (!is_undefined(_inst[$ "runAsRole"]) && !is_string(_inst[$ "runAsRole"])) show_error($"{_where} :: 'runAsRole' expected string", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "className"]) && !is_string(_inst[$ "className"])) show_error($"{_where} :: 'className' expected string", true);
+	if (!is_undefined(_inst[$ "initParameters"]) && !is_struct(_inst[$ "initParameters"])) show_error($"{_where} :: 'initParameters' expected any", true);
+}
+
+/**
+ * @func ElementsPaginationProfile_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationProfile_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationProfile_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsProfile", true);
+}
+
+/**
+ * @func ElementsCreateFollowerRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateFollowerRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateFollowerRequest_validate";
+	
+	if (!is_string(_inst[$ "followedId"])) show_error($"{_where} :: 'followedId' expected string", true);
+}
+
+/**
+ * @func ElementsFriend_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFriend_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFriend_validate";
+	
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "user"]))
+	{
+		if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+		ElementsUser_validate(_inst[$ "user"], _where);
+	}
+	if (!is_undefined(_inst[$ "friendship"]) && !is_string(_inst[$ "friendship"])) show_error($"{_where} :: 'friendship' expected string", true);
+	if (!is_undefined(_inst[$ "profiles"]) && !is_array(_inst[$ "profiles"])) show_error($"{_where} :: 'profiles' expected ElementsProfile", true);
+}
+
+/**
+ * @func ElementsPaginationFriend_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationFriend_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationFriend_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsFriend", true);
+}
+
+/**
+ * @func ElementsCreateItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateItemRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_string(_inst[$ "category"])) show_error($"{_where} :: 'category' expected string", true);
+	if (!is_undefined(_inst[$ "tags"]) && !is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_undefined(_inst[$ "metadataSpecId"]) && !is_string(_inst[$ "metadataSpecId"])) show_error($"{_where} :: 'metadataSpecId' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "publicVisible"]) && !is_real(_inst[$ "publicVisible"])) show_error($"{_where} :: 'publicVisible' expected bool", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]) && !is_string(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationItem_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationItem_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationItem_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsItem", true);
+}
+
+/**
+ * @func ElementsUpdateItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateItemRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "tags"]) && !is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]))
+	{
+		if (!is_struct(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected ElementsMetadataSpec", true);
+		ElementsMetadataSpec_validate(_inst[$ "metadataSpec"], _where);
+	}
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "publicVisible"]) && !is_real(_inst[$ "publicVisible"])) show_error($"{_where} :: 'publicVisible' expected bool", true);
+}
+
+/**
+ * @func ElementsCreateGooglePlayIapReceipt_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateGooglePlayIapReceipt_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateGooglePlayIapReceipt_validate";
+	
+	if (!is_string(_inst[$ "packageName"])) show_error($"{_where} :: 'packageName' expected string", true);
+	if (!is_string(_inst[$ "productId"])) show_error($"{_where} :: 'productId' expected string", true);
+	if (!is_string(_inst[$ "purchaseToken"])) show_error($"{_where} :: 'purchaseToken' expected string", true);
+}
+
+/**
+ * @func ElementsBuildIndexRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsBuildIndexRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsBuildIndexRequest_validate";
+	
+	if (!is_undefined(_inst[$ "plan"]) && !is_real(_inst[$ "plan"])) show_error($"{_where} :: 'plan' expected bool", true);
+	if (!is_undefined(_inst[$ "toIndex"]) && !is_array(_inst[$ "toIndex"])) show_error($"{_where} :: 'toIndex' expected string", true);
+}
+
+/**
+ * @func ElementsIndexMetadataObject_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsIndexMetadataObject_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsIndexMetadataObject_validate";
+	
+	if (!is_undefined(_inst[$ "identifier"]) && !is_struct(_inst[$ "identifier"])) show_error($"{_where} :: 'identifier' expected any", true);
+}
+
+/**
+ * @func ElementsIndexPlanStepObject_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsIndexPlanStepObject_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsIndexPlanStepObject_validate";
+	
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "operation"]) && !is_string(_inst[$ "operation"])) show_error($"{_where} :: 'operation' expected string", true);
+	if (!is_undefined(_inst[$ "indexMetadata"]))
+	{
+		if (!is_struct(_inst[$ "indexMetadata"])) show_error($"{_where} :: 'indexMetadata' expected ElementsIndexMetadataObject", true);
+		ElementsIndexMetadataObject_validate(_inst[$ "indexMetadata"], _where);
+	}
+}
+
+/**
+ * @func ElementsIndexPlanObject_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsIndexPlanObject_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsIndexPlanObject_validate";
+	
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "state"]) && !is_string(_inst[$ "state"])) show_error($"{_where} :: 'state' expected string", true);
+	if (!is_undefined(_inst[$ "steps"]))
+	{
+		if (!is_struct(_inst[$ "steps"])) show_error($"{_where} :: 'steps' expected ElementsIndexPlanStepObject", true);
+		ElementsIndexPlanStepObject_validate(_inst[$ "steps"], _where);
+	}
+}
+
+/**
+ * @func ElementsPaginationIndexPlanObject_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationIndexPlanObject_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationIndexPlanObject_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsIndexPlanObject", true);
+}
+
+/**
+ * @func ElementsInventoryItem_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsInventoryItem_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsInventoryItem_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_struct(_inst[$ "item"])) show_error($"{_where} :: 'item' expected ElementsItem", true);
+	_inst[$ "item"].validate(_where);
+	if (!is_real(_inst[$ "quantity"])) show_error($"{_where} :: 'quantity' expected int32", true);
+	if (!is_real(_inst[$ "priority"])) show_error($"{_where} :: 'priority' expected int32", true);
+}
+
+/**
+ * @func ElementsAdvancedInventoryItemQuantityAdjustment_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsAdvancedInventoryItemQuantityAdjustment_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsAdvancedInventoryItemQuantityAdjustment_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_real(_inst[$ "quantityDelta"])) show_error($"{_where} :: 'quantityDelta' expected int32", true);
+	if (!is_undefined(_inst[$ "priority"]) && !is_real(_inst[$ "priority"])) show_error($"{_where} :: 'priority' expected int32", true);
+}
+
+/**
+ * @func ElementsCreateAdvancedInventoryItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateAdvancedInventoryItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateAdvancedInventoryItemRequest_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_string(_inst[$ "itemId"])) show_error($"{_where} :: 'itemId' expected string", true);
+	if (!is_undefined(_inst[$ "quantity"]) && !is_real(_inst[$ "quantity"])) show_error($"{_where} :: 'quantity' expected int32", true);
+	if (!is_undefined(_inst[$ "priority"]) && !is_real(_inst[$ "priority"])) show_error($"{_where} :: 'priority' expected int32", true);
+}
+
+/**
+ * @func ElementsPaginationInventoryItem_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationInventoryItem_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationInventoryItem_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsInventoryItem", true);
+}
+
+/**
+ * @func ElementsUpdateInventoryItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateInventoryItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateInventoryItemRequest_validate";
+	
+	if (!is_undefined(_inst[$ "quantity"]) && !is_real(_inst[$ "quantity"])) show_error($"{_where} :: 'quantity' expected int32", true);
+}
+
+/**
+ * @func ElementsDistinctInventoryItem_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsDistinctInventoryItem_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsDistinctInventoryItem_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "item"])) show_error($"{_where} :: 'item' expected ElementsItem", true);
+	_inst[$ "item"].validate(_where);
+	if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+	_inst[$ "user"].validate(_where);
+	if (!is_undefined(_inst[$ "profile"]))
+	{
+		if (!is_struct(_inst[$ "profile"])) show_error($"{_where} :: 'profile' expected ElementsProfile", true);
+		ElementsProfile_validate(_inst[$ "profile"], _where);
+	}
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsCreateDistinctInventoryItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateDistinctInventoryItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateDistinctInventoryItemRequest_validate";
+	
+	if (!is_string(_inst[$ "itemId"])) show_error($"{_where} :: 'itemId' expected string", true);
+	if (!is_undefined(_inst[$ "userId"]) && !is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsPaginationDistinctInventoryItem_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationDistinctInventoryItem_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationDistinctInventoryItem_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsDistinctInventoryItem", true);
+}
+
+/**
+ * @func ElementsUpdateDistinctInventoryItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateDistinctInventoryItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateDistinctInventoryItemRequest_validate";
+	
+	if (!is_undefined(_inst[$ "userId"]) && !is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsSimpleInventoryItemQuantityAdjustment_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSimpleInventoryItemQuantityAdjustment_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSimpleInventoryItemQuantityAdjustment_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_real(_inst[$ "quantityDelta"])) show_error($"{_where} :: 'quantityDelta' expected int32", true);
+}
+
+/**
+ * @func ElementsCreateSimpleInventoryItemRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateSimpleInventoryItemRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateSimpleInventoryItemRequest_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_string(_inst[$ "itemId"])) show_error($"{_where} :: 'itemId' expected string", true);
+	if (!is_undefined(_inst[$ "quantity"]) && !is_real(_inst[$ "quantity"])) show_error($"{_where} :: 'quantity' expected int32", true);
+}
+
+/**
+ * @func ElementsPhoneMatchedInvitation_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPhoneMatchedInvitation_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPhoneMatchedInvitation_validate";
+	
+	if (!is_undefined(_inst[$ "phoneNumber"]) && !is_string(_inst[$ "phoneNumber"])) show_error($"{_where} :: 'phoneNumber' expected string", true);
+	if (!is_undefined(_inst[$ "profileIds"]) && !is_array(_inst[$ "profileIds"])) show_error($"{_where} :: 'profileIds' expected string", true);
+}
+
+/**
+ * @func ElementsInviteViaPhonesResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsInviteViaPhonesResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsInviteViaPhonesResponse_validate";
+	
+	if (!is_undefined(_inst[$ "matched"]) && !is_array(_inst[$ "matched"])) show_error($"{_where} :: 'matched' expected ElementsPhoneMatchedInvitation", true);
+}
+
+/**
+ * @func ElementsInviteViaPhonesRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsInviteViaPhonesRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsInviteViaPhonesRequest_validate";
+	
+	if (!is_undefined(_inst[$ "phoneNumbers"]) && !is_array(_inst[$ "phoneNumbers"])) show_error($"{_where} :: 'phoneNumbers' expected string", true);
+}
+
+/**
+ * @func ElementsSubjects_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSubjects_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSubjects_validate";
+	
+	if (!is_array(_inst[$ "users"])) show_error($"{_where} :: 'users' expected ElementsUser", true);
+	if (!is_array(_inst[$ "profiles"])) show_error($"{_where} :: 'profiles' expected ElementsProfile", true);
+	if (!is_undefined(_inst[$ "wildcard"]) && !is_real(_inst[$ "wildcard"])) show_error($"{_where} :: 'wildcard' expected bool", true);
+}
+
+/**
+ * @func ElementsAccessPermissions_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsAccessPermissions_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsAccessPermissions_validate";
+	
+	if (!is_struct(_inst[$ "read"])) show_error($"{_where} :: 'read' expected ElementsSubjects", true);
+	_inst[$ "read"].validate(_where);
+	if (!is_struct(_inst[$ "write"])) show_error($"{_where} :: 'write' expected ElementsSubjects", true);
+	_inst[$ "write"].validate(_where);
+	if (!is_struct(_inst[$ "delete"])) show_error($"{_where} :: 'delete' expected ElementsSubjects", true);
+	_inst[$ "delete"].validate(_where);
+}
+
+/**
+ * @func ElementsLargeObject_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsLargeObject_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsLargeObject_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "path"])) show_error($"{_where} :: 'path' expected string", true);
+	if (!is_struct(_inst[$ "accessPermissions"])) show_error($"{_where} :: 'accessPermissions' expected ElementsAccessPermissions", true);
+	_inst[$ "accessPermissions"].validate(_where);
+	if (!is_undefined(_inst[$ "url"]) && !is_string(_inst[$ "url"])) show_error($"{_where} :: 'url' expected string", true);
+	if (!is_undefined(_inst[$ "mimeType"]) && !is_string(_inst[$ "mimeType"])) show_error($"{_where} :: 'mimeType' expected string", true);
+	if (!is_undefined(_inst[$ "state"]) && !is_string(_inst[$ "state"])) show_error($"{_where} :: 'state' expected string", true);
+	if (!is_undefined(_inst[$ "lastModified"]) && !is_string(_inst[$ "lastModified"])) show_error($"{_where} :: 'lastModified' expected string", true);
+}
+
+/**
+ * @func ElementsContentDisposition_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsContentDisposition_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsContentDisposition_validate";
+	
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "parameters"]) && !is_struct(_inst[$ "parameters"])) show_error($"{_where} :: 'parameters' expected any", true);
+	if (!is_undefined(_inst[$ "fileName"]) && !is_string(_inst[$ "fileName"])) show_error($"{_where} :: 'fileName' expected string", true);
+	if (!is_undefined(_inst[$ "creationDate"]) && !is_string(_inst[$ "creationDate"])) show_error($"{_where} :: 'creationDate' expected string", true);
+	if (!is_undefined(_inst[$ "modificationDate"]) && !is_string(_inst[$ "modificationDate"])) show_error($"{_where} :: 'modificationDate' expected string", true);
+	if (!is_undefined(_inst[$ "readDate"]) && !is_string(_inst[$ "readDate"])) show_error($"{_where} :: 'readDate' expected string", true);
+	if (!is_undefined(_inst[$ "size"]) && !is_real(_inst[$ "size"])) show_error($"{_where} :: 'size' expected int64", true);
+}
+
+/**
+ * @func ElementsMediaType_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMediaType_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMediaType_validate";
+	
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "subtype"]) && !is_string(_inst[$ "subtype"])) show_error($"{_where} :: 'subtype' expected string", true);
+	if (!is_undefined(_inst[$ "parameters"]) && !is_struct(_inst[$ "parameters"])) show_error($"{_where} :: 'parameters' expected any", true);
+	if (!is_undefined(_inst[$ "wildcardType"]) && !is_real(_inst[$ "wildcardType"])) show_error($"{_where} :: 'wildcardType' expected bool", true);
+	if (!is_undefined(_inst[$ "wildcardSubtype"]) && !is_real(_inst[$ "wildcardSubtype"])) show_error($"{_where} :: 'wildcardSubtype' expected bool", true);
+}
+
+/**
+ * @func ElementsMultiPart_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMultiPart_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMultiPart_validate";
+	
+	if (!is_undefined(_inst[$ "contentDisposition"]))
+	{
+		if (!is_struct(_inst[$ "contentDisposition"])) show_error($"{_where} :: 'contentDisposition' expected ElementsContentDisposition", true);
+		ElementsContentDisposition_validate(_inst[$ "contentDisposition"], _where);
+	}
+	if (!is_undefined(_inst[$ "entity"]) && !is_struct(_inst[$ "entity"])) show_error($"{_where} :: 'entity' expected any", true);
+	if (!is_undefined(_inst[$ "headers"]) && !is_struct(_inst[$ "headers"])) show_error($"{_where} :: 'headers' expected any", true);
+	if (!is_undefined(_inst[$ "mediaType"]))
+	{
+		if (!is_struct(_inst[$ "mediaType"])) show_error($"{_where} :: 'mediaType' expected ElementsMediaType", true);
+		ElementsMediaType_validate(_inst[$ "mediaType"], _where);
+	}
+	if (!is_undefined(_inst[$ "messageBodyWorkers"]) && !is_struct(_inst[$ "messageBodyWorkers"])) show_error($"{_where} :: 'messageBodyWorkers' expected any", true);
+	if (!is_undefined(_inst[$ "parent"]))
+	{
+		if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsMultiPart", true);
+		ElementsMultiPart_validate(_inst[$ "parent"], _where);
+	}
+	if (!is_undefined(_inst[$ "providers"]) && !is_struct(_inst[$ "providers"])) show_error($"{_where} :: 'providers' expected any", true);
+	if (!is_undefined(_inst[$ "bodyParts"]) && !is_array(_inst[$ "bodyParts"])) show_error($"{_where} :: 'bodyParts' expected ElementsBodyPart", true);
+	if (!is_undefined(_inst[$ "parameterizedHeaders"]) && !is_struct(_inst[$ "parameterizedHeaders"])) show_error($"{_where} :: 'parameterizedHeaders' expected any", true);
+}
+
+/**
+ * @func ElementsBodyPart_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsBodyPart_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsBodyPart_validate";
+	
+	if (!is_undefined(_inst[$ "contentDisposition"]))
+	{
+		if (!is_struct(_inst[$ "contentDisposition"])) show_error($"{_where} :: 'contentDisposition' expected ElementsContentDisposition", true);
+		ElementsContentDisposition_validate(_inst[$ "contentDisposition"], _where);
+	}
+	if (!is_undefined(_inst[$ "entity"]) && !is_struct(_inst[$ "entity"])) show_error($"{_where} :: 'entity' expected any", true);
+	if (!is_undefined(_inst[$ "headers"]) && !is_struct(_inst[$ "headers"])) show_error($"{_where} :: 'headers' expected any", true);
+	if (!is_undefined(_inst[$ "mediaType"]))
+	{
+		if (!is_struct(_inst[$ "mediaType"])) show_error($"{_where} :: 'mediaType' expected ElementsMediaType", true);
+		ElementsMediaType_validate(_inst[$ "mediaType"], _where);
+	}
+	if (!is_undefined(_inst[$ "messageBodyWorkers"]) && !is_struct(_inst[$ "messageBodyWorkers"])) show_error($"{_where} :: 'messageBodyWorkers' expected any", true);
+	if (!is_undefined(_inst[$ "parent"]))
+	{
+		if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsMultiPart", true);
+		ElementsMultiPart_validate(_inst[$ "parent"], _where);
+	}
+	if (!is_undefined(_inst[$ "providers"]) && !is_struct(_inst[$ "providers"])) show_error($"{_where} :: 'providers' expected any", true);
+	if (!is_undefined(_inst[$ "parameterizedHeaders"]) && !is_struct(_inst[$ "parameterizedHeaders"])) show_error($"{_where} :: 'parameterizedHeaders' expected any", true);
+}
+
+/**
+ * @func ElementsFormDataContentDisposition_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFormDataContentDisposition_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFormDataContentDisposition_validate";
+	
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "parameters"]) && !is_struct(_inst[$ "parameters"])) show_error($"{_where} :: 'parameters' expected any", true);
+	if (!is_undefined(_inst[$ "fileName"]) && !is_string(_inst[$ "fileName"])) show_error($"{_where} :: 'fileName' expected string", true);
+	if (!is_undefined(_inst[$ "creationDate"]) && !is_string(_inst[$ "creationDate"])) show_error($"{_where} :: 'creationDate' expected string", true);
+	if (!is_undefined(_inst[$ "modificationDate"]) && !is_string(_inst[$ "modificationDate"])) show_error($"{_where} :: 'modificationDate' expected string", true);
+	if (!is_undefined(_inst[$ "readDate"]) && !is_string(_inst[$ "readDate"])) show_error($"{_where} :: 'readDate' expected string", true);
+	if (!is_undefined(_inst[$ "size"]) && !is_real(_inst[$ "size"])) show_error($"{_where} :: 'size' expected int64", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+}
+
+/**
+ * @func ElementsFormDataBodyPart_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFormDataBodyPart_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFormDataBodyPart_validate";
+	
+	if (!is_undefined(_inst[$ "contentDisposition"]))
+	{
+		if (!is_struct(_inst[$ "contentDisposition"])) show_error($"{_where} :: 'contentDisposition' expected ElementsContentDisposition", true);
+		ElementsContentDisposition_validate(_inst[$ "contentDisposition"], _where);
+	}
+	if (!is_undefined(_inst[$ "entity"]) && !is_struct(_inst[$ "entity"])) show_error($"{_where} :: 'entity' expected any", true);
+	if (!is_undefined(_inst[$ "headers"]) && !is_struct(_inst[$ "headers"])) show_error($"{_where} :: 'headers' expected any", true);
+	if (!is_undefined(_inst[$ "mediaType"]))
+	{
+		if (!is_struct(_inst[$ "mediaType"])) show_error($"{_where} :: 'mediaType' expected ElementsMediaType", true);
+		ElementsMediaType_validate(_inst[$ "mediaType"], _where);
+	}
+	if (!is_undefined(_inst[$ "messageBodyWorkers"]) && !is_struct(_inst[$ "messageBodyWorkers"])) show_error($"{_where} :: 'messageBodyWorkers' expected any", true);
+	if (!is_undefined(_inst[$ "parent"]))
+	{
+		if (!is_struct(_inst[$ "parent"])) show_error($"{_where} :: 'parent' expected ElementsMultiPart", true);
+		ElementsMultiPart_validate(_inst[$ "parent"], _where);
+	}
+	if (!is_undefined(_inst[$ "providers"]) && !is_struct(_inst[$ "providers"])) show_error($"{_where} :: 'providers' expected any", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "value"]) && !is_string(_inst[$ "value"])) show_error($"{_where} :: 'value' expected string", true);
+	if (!is_undefined(_inst[$ "content"]) && !is_struct(_inst[$ "content"])) show_error($"{_where} :: 'content' expected any", true);
+	if (!is_undefined(_inst[$ "fileName"]) && !is_string(_inst[$ "fileName"])) show_error($"{_where} :: 'fileName' expected string", true);
+	if (!is_undefined(_inst[$ "simple"]) && !is_real(_inst[$ "simple"])) show_error($"{_where} :: 'simple' expected bool", true);
+	if (!is_undefined(_inst[$ "formDataContentDisposition"]))
+	{
+		if (!is_struct(_inst[$ "formDataContentDisposition"])) show_error($"{_where} :: 'formDataContentDisposition' expected ElementsFormDataContentDisposition", true);
+		ElementsFormDataContentDisposition_validate(_inst[$ "formDataContentDisposition"], _where);
+	}
+	if (!is_undefined(_inst[$ "parameterizedHeaders"]) && !is_struct(_inst[$ "parameterizedHeaders"])) show_error($"{_where} :: 'parameterizedHeaders' expected any", true);
+}
+
+/**
+ * @func ElementsMultivaluedMapStringParameterizedHeader_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMultivaluedMapStringParameterizedHeader_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMultivaluedMapStringParameterizedHeader_validate";
+	
+	if (!is_undefined(_inst[$ "empty"]) && !is_real(_inst[$ "empty"])) show_error($"{_where} :: 'empty' expected bool", true);
+}
+
+/**
+ * @func ElementsMultivaluedMapStringString_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMultivaluedMapStringString_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMultivaluedMapStringString_validate";
+	
+	if (!is_undefined(_inst[$ "empty"]) && !is_real(_inst[$ "empty"])) show_error($"{_where} :: 'empty' expected bool", true);
+}
+
+/**
+ * @func ElementsParameterizedHeader_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsParameterizedHeader_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsParameterizedHeader_validate";
+	
+	if (!is_undefined(_inst[$ "value"]) && !is_string(_inst[$ "value"])) show_error($"{_where} :: 'value' expected string", true);
+	if (!is_undefined(_inst[$ "parameters"]) && !is_struct(_inst[$ "parameters"])) show_error($"{_where} :: 'parameters' expected any", true);
+}
+
+/**
+ * @func ElementsSubjectRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSubjectRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSubjectRequest_validate";
+	
+	if (!is_array(_inst[$ "userIds"])) show_error($"{_where} :: 'userIds' expected string", true);
+	if (!is_array(_inst[$ "profileIds"])) show_error($"{_where} :: 'profileIds' expected string", true);
+	if (!is_undefined(_inst[$ "wildcard"]) && !is_real(_inst[$ "wildcard"])) show_error($"{_where} :: 'wildcard' expected bool", true);
+}
+
+/**
+ * @func ElementsCreateLargeObjectRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateLargeObjectRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateLargeObjectRequest_validate";
+	
+	if (!is_string(_inst[$ "mimeType"])) show_error($"{_where} :: 'mimeType' expected string", true);
+	if (!is_struct(_inst[$ "read"])) show_error($"{_where} :: 'read' expected ElementsSubjectRequest", true);
+	_inst[$ "read"].validate(_where);
+	if (!is_struct(_inst[$ "write"])) show_error($"{_where} :: 'write' expected ElementsSubjectRequest", true);
+	_inst[$ "write"].validate(_where);
+	if (!is_struct(_inst[$ "delete"])) show_error($"{_where} :: 'delete' expected ElementsSubjectRequest", true);
+	_inst[$ "delete"].validate(_where);
+}
+
+/**
+ * @func ElementsCreateLargeObjectFromUrlRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateLargeObjectFromUrlRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateLargeObjectFromUrlRequest_validate";
+	
+	if (!is_string(_inst[$ "mimeType"])) show_error($"{_where} :: 'mimeType' expected string", true);
+	if (!is_struct(_inst[$ "read"])) show_error($"{_where} :: 'read' expected ElementsSubjectRequest", true);
+	_inst[$ "read"].validate(_where);
+	if (!is_struct(_inst[$ "write"])) show_error($"{_where} :: 'write' expected ElementsSubjectRequest", true);
+	_inst[$ "write"].validate(_where);
+	if (!is_struct(_inst[$ "delete"])) show_error($"{_where} :: 'delete' expected ElementsSubjectRequest", true);
+	_inst[$ "delete"].validate(_where);
+	if (!is_string(_inst[$ "fileUrl"])) show_error($"{_where} :: 'fileUrl' expected string", true);
+}
+
+/**
+ * @func ElementsUpdateLargeObjectRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateLargeObjectRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateLargeObjectRequest_validate";
+	
+	if (!is_string(_inst[$ "mimeType"])) show_error($"{_where} :: 'mimeType' expected string", true);
+	if (!is_struct(_inst[$ "read"])) show_error($"{_where} :: 'read' expected ElementsSubjectRequest", true);
+	_inst[$ "read"].validate(_where);
+	if (!is_struct(_inst[$ "write"])) show_error($"{_where} :: 'write' expected ElementsSubjectRequest", true);
+	_inst[$ "write"].validate(_where);
+	if (!is_struct(_inst[$ "delete"])) show_error($"{_where} :: 'delete' expected ElementsSubjectRequest", true);
+	_inst[$ "delete"].validate(_where);
+}
+
+/**
+ * @func ElementsLeaderboard_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsLeaderboard_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsLeaderboard_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "timeStrategyType"])) show_error($"{_where} :: 'timeStrategyType' expected string", true);
+	if (!is_string(_inst[$ "scoreStrategyType"])) show_error($"{_where} :: 'scoreStrategyType' expected string", true);
+	if (!is_string(_inst[$ "title"])) show_error($"{_where} :: 'title' expected string", true);
+	if (!is_string(_inst[$ "scoreUnits"])) show_error($"{_where} :: 'scoreUnits' expected string", true);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "firstEpochTimestamp"]) && !is_real(_inst[$ "firstEpochTimestamp"])) show_error($"{_where} :: 'firstEpochTimestamp' expected int64", true);
+	if (!is_undefined(_inst[$ "epochInterval"]) && !is_real(_inst[$ "epochInterval"])) show_error($"{_where} :: 'epochInterval' expected int64", true);
+}
+
+/**
+ * @func ElementsPaginationLeaderboard_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationLeaderboard_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationLeaderboard_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsLeaderboard", true);
+}
+
+/**
+ * @func ElementsScore_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsScore_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsScore_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "profile"])) show_error($"{_where} :: 'profile' expected ElementsProfile", true);
+	_inst[$ "profile"].validate(_where);
+	if (!is_real(_inst[$ "creationTimestamp"])) show_error($"{_where} :: 'creationTimestamp' expected int64", true);
+	if (!is_real(_inst[$ "leaderboardEpoch"])) show_error($"{_where} :: 'leaderboardEpoch' expected int64", true);
+	if (!is_undefined(_inst[$ "pointValue"]) && !is_real(_inst[$ "pointValue"])) show_error($"{_where} :: 'pointValue' expected double", true);
+	if (!is_undefined(_inst[$ "scoreUnits"]) && !is_string(_inst[$ "scoreUnits"])) show_error($"{_where} :: 'scoreUnits' expected string", true);
+}
+
+/**
+ * @func ElementsRank_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsRank_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsRank_validate";
+	
+	if (!is_struct(_inst[$ "score"])) show_error($"{_where} :: 'score' expected ElementsScore", true);
+	_inst[$ "score"].validate(_where);
+	if (!is_undefined(_inst[$ "position"]) && !is_real(_inst[$ "position"])) show_error($"{_where} :: 'position' expected int64", true);
+}
+
+/**
+ * @func ElementsPaginationRank_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationRank_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationRank_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsRank", true);
+}
+
+/**
+ * @func ElementsRankRow_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsRankRow_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsRankRow_validate";
+	
+	if (!is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_string(_inst[$ "profileDisplayName"])) show_error($"{_where} :: 'profileDisplayName' expected string", true);
+	if (!is_string(_inst[$ "profileImageUrl"])) show_error($"{_where} :: 'profileImageUrl' expected string", true);
+	if (!is_real(_inst[$ "lastLogin"])) show_error($"{_where} :: 'lastLogin' expected int64", true);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "position"]) && !is_real(_inst[$ "position"])) show_error($"{_where} :: 'position' expected int64", true);
+	if (!is_undefined(_inst[$ "pointValue"]) && !is_real(_inst[$ "pointValue"])) show_error($"{_where} :: 'pointValue' expected double", true);
+	if (!is_undefined(_inst[$ "scoreUnits"]) && !is_string(_inst[$ "scoreUnits"])) show_error($"{_where} :: 'scoreUnits' expected string", true);
+	if (!is_undefined(_inst[$ "creationTimestamp"]) && !is_real(_inst[$ "creationTimestamp"])) show_error($"{_where} :: 'creationTimestamp' expected int64", true);
+	if (!is_undefined(_inst[$ "leaderboardEpoch"]) && !is_real(_inst[$ "leaderboardEpoch"])) show_error($"{_where} :: 'leaderboardEpoch' expected int64", true);
+}
+
+/**
+ * @func ElementsTabulationRankRow_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsTabulationRankRow_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsTabulationRankRow_validate";
+	
+	if (!is_array(_inst[$ "rows"])) show_error($"{_where} :: 'rows' expected ElementsRankRow", true);
+}
+
+/**
+ * @func ElementsMatch_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMatch_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMatch_validate";
+	
+	if (!is_string(_inst[$ "scheme"])) show_error($"{_where} :: 'scheme' expected string", true);
+	if (!is_struct(_inst[$ "player"])) show_error($"{_where} :: 'player' expected ElementsProfile", true);
+	_inst[$ "player"].validate(_where);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "scope"]) && !is_string(_inst[$ "scope"])) show_error($"{_where} :: 'scope' expected string", true);
+	if (!is_undefined(_inst[$ "opponent"]))
+	{
+		if (!is_struct(_inst[$ "opponent"])) show_error($"{_where} :: 'opponent' expected ElementsProfile", true);
+		ElementsProfile_validate(_inst[$ "opponent"], _where);
+	}
+	if (!is_undefined(_inst[$ "lastUpdatedTimestamp"]) && !is_real(_inst[$ "lastUpdatedTimestamp"])) show_error($"{_where} :: 'lastUpdatedTimestamp' expected int64", true);
+	if (!is_undefined(_inst[$ "gameId"]) && !is_string(_inst[$ "gameId"])) show_error($"{_where} :: 'gameId' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsPaginationMatch_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationMatch_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationMatch_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsMatch", true);
+}
+
+/**
+ * @func ElementsMetadata_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMetadata_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMetadata_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_string(_inst[$ "accessLevel"])) show_error($"{_where} :: 'accessLevel' expected string", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]))
+	{
+		if (!is_struct(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected ElementsMetadataSpec", true);
+		ElementsMetadataSpec_validate(_inst[$ "metadataSpec"], _where);
+	}
+}
+
+/**
+ * @func ElementsCreateMetadataRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateMetadataRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateMetadataRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]))
+	{
+		if (!is_struct(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected ElementsMetadataSpec", true);
+		ElementsMetadataSpec_validate(_inst[$ "metadataSpec"], _where);
+	}
+	if (!is_undefined(_inst[$ "accessLevel"]) && !is_string(_inst[$ "accessLevel"])) show_error($"{_where} :: 'accessLevel' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationMetadata_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationMetadata_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationMetadata_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsMetadata", true);
+}
+
+/**
+ * @func ElementsUpdateMetadataRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateMetadataRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateMetadataRequest_validate";
+	
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+	if (!is_undefined(_inst[$ "metadataSpec"]))
+	{
+		if (!is_struct(_inst[$ "metadataSpec"])) show_error($"{_where} :: 'metadataSpec' expected ElementsMetadataSpec", true);
+		ElementsMetadataSpec_validate(_inst[$ "metadataSpec"], _where);
+	}
+	if (!is_undefined(_inst[$ "accessLevel"]) && !is_string(_inst[$ "accessLevel"])) show_error($"{_where} :: 'accessLevel' expected string", true);
+}
+
+/**
+ * @func ElementsReward_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsReward_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsReward_validate";
+	
+	if (!is_struct(_inst[$ "item"])) show_error($"{_where} :: 'item' expected ElementsItem", true);
+	_inst[$ "item"].validate(_where);
+	if (!is_real(_inst[$ "quantity"])) show_error($"{_where} :: 'quantity' expected int32", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsStep_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsStep_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsStep_validate";
+	
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_real(_inst[$ "count"])) show_error($"{_where} :: 'count' expected int32", true);
+	if (!is_array(_inst[$ "rewards"])) show_error($"{_where} :: 'rewards' expected ElementsReward", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsMission_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMission_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMission_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "tags"]) && !is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_undefined(_inst[$ "steps"]) && !is_array(_inst[$ "steps"])) show_error($"{_where} :: 'steps' expected ElementsStep", true);
+	if (!is_undefined(_inst[$ "finalRepeatStep"]))
+	{
+		if (!is_struct(_inst[$ "finalRepeatStep"])) show_error($"{_where} :: 'finalRepeatStep' expected ElementsStep", true);
+		ElementsStep_validate(_inst[$ "finalRepeatStep"], _where);
+	}
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsPaginationMission_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationMission_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationMission_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsMission", true);
+}
+
+/**
+ * @func ElementsProgressMissionInfo_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsProgressMissionInfo_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsProgressMissionInfo_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "steps"]) && !is_array(_inst[$ "steps"])) show_error($"{_where} :: 'steps' expected ElementsStep", true);
+	if (!is_undefined(_inst[$ "finalRepeatStep"]))
+	{
+		if (!is_struct(_inst[$ "finalRepeatStep"])) show_error($"{_where} :: 'finalRepeatStep' expected ElementsStep", true);
+		ElementsStep_validate(_inst[$ "finalRepeatStep"], _where);
+	}
+	if (!is_undefined(_inst[$ "tags"]) && !is_array(_inst[$ "tags"])) show_error($"{_where} :: 'tags' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsSchedule_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSchedule_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSchedule_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+}
+
+/**
+ * @func ElementsScheduleEvent_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsScheduleEvent_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsScheduleEvent_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "schedule"])) show_error($"{_where} :: 'schedule' expected ElementsSchedule", true);
+	_inst[$ "schedule"].validate(_where);
+	if (!is_array(_inst[$ "missions"])) show_error($"{_where} :: 'missions' expected ElementsMission", true);
+	if (!is_undefined(_inst[$ "begin"]) && !is_real(_inst[$ "begin"])) show_error($"{_where} :: 'begin' expected int64", true);
+	if (!is_undefined(_inst[$ "end"]) && !is_real(_inst[$ "end"])) show_error($"{_where} :: 'end' expected int64", true);
+}
+
+/**
+ * @func ElementsProgress_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsProgress_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsProgress_validate";
+	
+	if (!is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_struct(_inst[$ "profile"])) show_error($"{_where} :: 'profile' expected ElementsProfile", true);
+	_inst[$ "profile"].validate(_where);
+	if (!is_struct(_inst[$ "mission"])) show_error($"{_where} :: 'mission' expected ElementsProgressMissionInfo", true);
+	_inst[$ "mission"].validate(_where);
+	if (!is_undefined(_inst[$ "currentStep"]))
+	{
+		if (!is_struct(_inst[$ "currentStep"])) show_error($"{_where} :: 'currentStep' expected ElementsStep", true);
+		ElementsStep_validate(_inst[$ "currentStep"], _where);
+	}
+	if (!is_undefined(_inst[$ "remaining"]) && !is_real(_inst[$ "remaining"])) show_error($"{_where} :: 'remaining' expected int32", true);
+	if (!is_undefined(_inst[$ "rewardIssuances"]) && !is_array(_inst[$ "rewardIssuances"])) show_error($"{_where} :: 'rewardIssuances' expected ElementsRewardIssuance", true);
+	if (!is_undefined(_inst[$ "sequence"]) && !is_real(_inst[$ "sequence"])) show_error($"{_where} :: 'sequence' expected int32", true);
+	if (!is_undefined(_inst[$ "managedBySchedule"]) && !is_real(_inst[$ "managedBySchedule"])) show_error($"{_where} :: 'managedBySchedule' expected bool", true);
+	if (!is_undefined(_inst[$ "schedules"]) && !is_array(_inst[$ "schedules"])) show_error($"{_where} :: 'schedules' expected ElementsSchedule", true);
+	if (!is_undefined(_inst[$ "scheduleEvents"]) && !is_array(_inst[$ "scheduleEvents"])) show_error($"{_where} :: 'scheduleEvents' expected ElementsScheduleEvent", true);
+}
+
+/**
+ * @func ElementsPaginationProgress_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationProgress_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationProgress_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsProgress", true);
+}
+
+/**
+ * @func ElementsProgressRow_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsProgressRow_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsProgressRow_validate";
+	
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_undefined(_inst[$ "profileImageUrl"]) && !is_string(_inst[$ "profileImageUrl"])) show_error($"{_where} :: 'profileImageUrl' expected string", true);
+	if (!is_undefined(_inst[$ "profileDisplayName"]) && !is_string(_inst[$ "profileDisplayName"])) show_error($"{_where} :: 'profileDisplayName' expected string", true);
+	if (!is_undefined(_inst[$ "stepDisplayName"]) && !is_string(_inst[$ "stepDisplayName"])) show_error($"{_where} :: 'stepDisplayName' expected string", true);
+	if (!is_undefined(_inst[$ "stepDescription"]) && !is_string(_inst[$ "stepDescription"])) show_error($"{_where} :: 'stepDescription' expected string", true);
+	if (!is_undefined(_inst[$ "remaining"]) && !is_real(_inst[$ "remaining"])) show_error($"{_where} :: 'remaining' expected int32", true);
+	if (!is_undefined(_inst[$ "stepCount"]) && !is_real(_inst[$ "stepCount"])) show_error($"{_where} :: 'stepCount' expected int32", true);
+}
+
+/**
+ * @func ElementsTabulationProgressRow_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsTabulationProgressRow_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsTabulationProgressRow_validate";
+	
+	if (!is_array(_inst[$ "rows"])) show_error($"{_where} :: 'rows' expected ElementsProgressRow", true);
+}
+
+/**
+ * @func ElementsPaginationRewardIssuance_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationRewardIssuance_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationRewardIssuance_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsRewardIssuance", true);
+}
+
+/**
+ * @func ElementsRewardIssuanceRedemptionResult_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsRewardIssuanceRedemptionResult_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsRewardIssuanceRedemptionResult_validate";
+	
+	if (!is_undefined(_inst[$ "rewardIssuanceId"]) && !is_string(_inst[$ "rewardIssuanceId"])) show_error($"{_where} :: 'rewardIssuanceId' expected string", true);
+	if (!is_undefined(_inst[$ "rewardIssuance"]))
+	{
+		if (!is_struct(_inst[$ "rewardIssuance"])) show_error($"{_where} :: 'rewardIssuance' expected ElementsRewardIssuance", true);
+		ElementsRewardIssuance_validate(_inst[$ "rewardIssuance"], _where);
+	}
+	if (!is_undefined(_inst[$ "inventoryItem"]))
+	{
+		if (!is_struct(_inst[$ "inventoryItem"])) show_error($"{_where} :: 'inventoryItem' expected ElementsInventoryItem", true);
+		ElementsInventoryItem_validate(_inst[$ "inventoryItem"], _where);
+	}
+	if (!is_undefined(_inst[$ "errorDetails"]) && !is_string(_inst[$ "errorDetails"])) show_error($"{_where} :: 'errorDetails' expected string", true);
+}
+
+/**
+ * @func ElementsCreateScheduleEventRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateScheduleEventRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateScheduleEventRequest_validate";
+	
+	if (!is_array(_inst[$ "missionNamesOrIds"])) show_error($"{_where} :: 'missionNamesOrIds' expected string", true);
+	if (!is_undefined(_inst[$ "begin"]) && !is_real(_inst[$ "begin"])) show_error($"{_where} :: 'begin' expected int64", true);
+	if (!is_undefined(_inst[$ "end"]) && !is_real(_inst[$ "end"])) show_error($"{_where} :: 'end' expected int64", true);
+}
+
+/**
+ * @func ElementsPaginationScheduleEvent_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationScheduleEvent_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationScheduleEvent_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsScheduleEvent", true);
+}
+
+/**
+ * @func ElementsUpdateScheduleEventRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateScheduleEventRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateScheduleEventRequest_validate";
+	
+	if (!is_array(_inst[$ "missionNamesOrIds"])) show_error($"{_where} :: 'missionNamesOrIds' expected string", true);
+	if (!is_undefined(_inst[$ "begin"]) && !is_real(_inst[$ "begin"])) show_error($"{_where} :: 'begin' expected int64", true);
+	if (!is_undefined(_inst[$ "end"]) && !is_real(_inst[$ "end"])) show_error($"{_where} :: 'end' expected int64", true);
+}
+
+/**
+ * @func ElementsCreateScheduleRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateScheduleRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateScheduleRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationSchedule_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationSchedule_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationSchedule_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsSchedule", true);
+}
+
+/**
+ * @func ElementsUpdateScheduleRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateScheduleRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateScheduleRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+}
+
+/**
+ * @func ElementsFCMRegistration_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsFCMRegistration_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsFCMRegistration_validate";
+	
+	if (!is_string(_inst[$ "registrationToken"])) show_error($"{_where} :: 'registrationToken' expected string", true);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "profile"]))
+	{
+		if (!is_struct(_inst[$ "profile"])) show_error($"{_where} :: 'profile' expected ElementsProfile", true);
+		ElementsProfile_validate(_inst[$ "profile"], _where);
+	}
+}
+
+/**
+ * @func ElementsCreateProfileRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateProfileRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateProfileRequest_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_string(_inst[$ "applicationId"])) show_error($"{_where} :: 'applicationId' expected string", true);
+	if (!is_undefined(_inst[$ "imageUrl"]) && !is_string(_inst[$ "imageUrl"])) show_error($"{_where} :: 'imageUrl' expected string", true);
+	if (!is_undefined(_inst[$ "displayName"]) && !is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsUpdateProfileRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateProfileRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateProfileRequest_validate";
+	
+	if (!is_undefined(_inst[$ "imageUrl"]) && !is_string(_inst[$ "imageUrl"])) show_error($"{_where} :: 'imageUrl' expected string", true);
+	if (!is_undefined(_inst[$ "displayName"]) && !is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_struct(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected any", true);
+}
+
+/**
+ * @func ElementsUpdateProfileImageRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateProfileImageRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateProfileImageRequest_validate";
+	
+	if (!is_string(_inst[$ "mimeType"])) show_error($"{_where} :: 'mimeType' expected string", true);
+}
+
+/**
+ * @func ElementsSaveDataDocument_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsSaveDataDocument_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsSaveDataDocument_validate";
+	
+	if (!is_string(_inst[$ "version"])) show_error($"{_where} :: 'version' expected string", true);
+	if (!is_string(_inst[$ "contents"])) show_error($"{_where} :: 'contents' expected string", true);
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "slot"]) && !is_real(_inst[$ "slot"])) show_error($"{_where} :: 'slot' expected int32", true);
+	if (!is_undefined(_inst[$ "user"]))
+	{
+		if (!is_struct(_inst[$ "user"])) show_error($"{_where} :: 'user' expected ElementsUser", true);
+		ElementsUser_validate(_inst[$ "user"], _where);
+	}
+	if (!is_undefined(_inst[$ "profile"]))
+	{
+		if (!is_struct(_inst[$ "profile"])) show_error($"{_where} :: 'profile' expected ElementsProfile", true);
+		ElementsProfile_validate(_inst[$ "profile"], _where);
+	}
+	if (!is_undefined(_inst[$ "timestamp"]) && !is_real(_inst[$ "timestamp"])) show_error($"{_where} :: 'timestamp' expected int64", true);
+}
+
+/**
+ * @func ElementsCreateSaveDataDocumentRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateSaveDataDocumentRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateSaveDataDocumentRequest_validate";
+	
+	if (!is_real(_inst[$ "slot"])) show_error($"{_where} :: 'slot' expected int32", true);
+	if (!is_string(_inst[$ "contents"])) show_error($"{_where} :: 'contents' expected string", true);
+	if (!is_undefined(_inst[$ "userId"]) && !is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationSaveDataDocument_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationSaveDataDocument_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationSaveDataDocument_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsSaveDataDocument", true);
+}
+
+/**
+ * @func ElementsUpdateSaveDataDocumentRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateSaveDataDocumentRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateSaveDataDocumentRequest_validate";
+	
+	if (!is_string(_inst[$ "contents"])) show_error($"{_where} :: 'contents' expected string", true);
+	if (!is_undefined(_inst[$ "force"]) && !is_real(_inst[$ "force"])) show_error($"{_where} :: 'force' expected bool", true);
+	if (!is_undefined(_inst[$ "version"]) && !is_string(_inst[$ "version"])) show_error($"{_where} :: 'version' expected string", true);
+}
+
+/**
+ * @func ElementsCreateMetadataSpecRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateMetadataSpecRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateMetadataSpecRequest_validate";
+	
+	if (!is_array(_inst[$ "properties"])) show_error($"{_where} :: 'properties' expected ElementsMetadataSpecProperty", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+}
+
+/**
+ * @func ElementsEditorLayout_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsEditorLayout_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsEditorLayout_validate";
+	
+	if (!is_undefined(_inst[$ "key"]) && !is_string(_inst[$ "key"])) show_error($"{_where} :: 'key' expected string", true);
+	if (!is_undefined(_inst[$ "title"]) && !is_string(_inst[$ "title"])) show_error($"{_where} :: 'title' expected string", true);
+	if (!is_undefined(_inst[$ "placeholder"]) && !is_string(_inst[$ "placeholder"])) show_error($"{_where} :: 'placeholder' expected string", true);
+}
+
+/**
+ * @func ElementsJsonSchema_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsJsonSchema_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsJsonSchema_validate";
+	
+	if (!is_undefined(_inst[$ "get$id"]) && !is_string(_inst[$ "get$id"])) show_error($"{_where} :: 'get$id' expected string", true);
+	if (!is_undefined(_inst[$ "get$schema"]) && !is_string(_inst[$ "get$schema"])) show_error($"{_where} :: 'get$schema' expected string", true);
+	if (!is_undefined(_inst[$ "title"]) && !is_string(_inst[$ "title"])) show_error($"{_where} :: 'title' expected string", true);
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "properties"]) && !is_struct(_inst[$ "properties"])) show_error($"{_where} :: 'properties' expected any", true);
+	if (!is_undefined(_inst[$ "required"]) && !is_array(_inst[$ "required"])) show_error($"{_where} :: 'required' expected string", true);
+}
+
+/**
+ * @func ElementsEditorSchema_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsEditorSchema_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsEditorSchema_validate";
+	
+	if (!is_undefined(_inst[$ "data"]) && !is_struct(_inst[$ "data"])) show_error($"{_where} :: 'data' expected any", true);
+	if (!is_undefined(_inst[$ "schema"]))
+	{
+		if (!is_struct(_inst[$ "schema"])) show_error($"{_where} :: 'schema' expected ElementsJsonSchema", true);
+		ElementsJsonSchema_validate(_inst[$ "schema"], _where);
+	}
+	if (!is_undefined(_inst[$ "layout"]) && !is_array(_inst[$ "layout"])) show_error($"{_where} :: 'layout' expected ElementsEditorLayout", true);
+}
+
+/**
+ * @func ElementsJsonSchemaProperty_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsJsonSchemaProperty_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsJsonSchemaProperty_validate";
+	
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "title"]) && !is_string(_inst[$ "title"])) show_error($"{_where} :: 'title' expected string", true);
+	if (!is_undefined(_inst[$ "description"]) && !is_string(_inst[$ "description"])) show_error($"{_where} :: 'description' expected string", true);
+	if (!is_undefined(_inst[$ "required"]) && !is_array(_inst[$ "required"])) show_error($"{_where} :: 'required' expected string", true);
+}
+
+/**
+ * @func ElementsPaginationMetadataSpec_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationMetadataSpec_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationMetadataSpec_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsMetadataSpec", true);
+}
+
+/**
+ * @func ElementsUpdateMetadataSpecRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUpdateMetadataSpecRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUpdateMetadataSpecRequest_validate";
+	
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "type"]) && !is_string(_inst[$ "type"])) show_error($"{_where} :: 'type' expected string", true);
+	if (!is_undefined(_inst[$ "properties"]) && !is_array(_inst[$ "properties"])) show_error($"{_where} :: 'properties' expected ElementsMetadataSpecProperty", true);
+}
+
+/**
+ * @func ElementsMockSessionCreation_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMockSessionCreation_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMockSessionCreation_validate";
+	
+	if (!is_undefined(_inst[$ "sessionSecret"]) && !is_string(_inst[$ "sessionSecret"])) show_error($"{_where} :: 'sessionSecret' expected string", true);
+	if (!is_undefined(_inst[$ "session"]))
+	{
+		if (!is_struct(_inst[$ "session"])) show_error($"{_where} :: 'session' expected ElementsSession", true);
+		ElementsSession_validate(_inst[$ "session"], _where);
+	}
+	if (!is_undefined(_inst[$ "userExpiresAt"]) && !is_real(_inst[$ "userExpiresAt"])) show_error($"{_where} :: 'userExpiresAt' expected int64", true);
+	if (!is_undefined(_inst[$ "password"]) && !is_string(_inst[$ "password"])) show_error($"{_where} :: 'password' expected string", true);
+}
+
+/**
+ * @func ElementsMockSessionRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsMockSessionRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsMockSessionRequest_validate";
+	
+	if (!is_undefined(_inst[$ "lifetimeInSeconds"]) && !is_real(_inst[$ "lifetimeInSeconds"])) show_error($"{_where} :: 'lifetimeInSeconds' expected int32", true);
+	if (!is_undefined(_inst[$ "application"]))
+	{
+		if (!is_struct(_inst[$ "application"])) show_error($"{_where} :: 'application' expected ElementsApplication", true);
+		ElementsApplication_validate(_inst[$ "application"], _where);
+	}
+}
+
+/**
+ * @func ElementsUsernamePasswordSessionRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUsernamePasswordSessionRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUsernamePasswordSessionRequest_validate";
+	
+	if (!is_string(_inst[$ "userId"])) show_error($"{_where} :: 'userId' expected string", true);
+	if (!is_string(_inst[$ "password"])) show_error($"{_where} :: 'password' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+	if (!is_undefined(_inst[$ "profileSelector"]) && !is_string(_inst[$ "profileSelector"])) show_error($"{_where} :: 'profileSelector' expected string", true);
+}
+
+/**
+ * @func ElementsDatabaseHealthStatus_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsDatabaseHealthStatus_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsDatabaseHealthStatus_validate";
+	
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "metadata"]) && !is_string(_inst[$ "metadata"])) show_error($"{_where} :: 'metadata' expected string", true);
+}
+
+/**
+ * @func ElementsDiscoveryHealthStatus_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsDiscoveryHealthStatus_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsDiscoveryHealthStatus_validate";
+	
+	if (!is_undefined(_inst[$ "records"]) && !is_array(_inst[$ "records"])) show_error($"{_where} :: 'records' expected string", true);
+	if (!is_undefined(_inst[$ "knownHosts"]) && !is_array(_inst[$ "knownHosts"])) show_error($"{_where} :: 'knownHosts' expected string", true);
+}
+
+/**
+ * @func ElementsInstanceHealthStatus_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsInstanceHealthStatus_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsInstanceHealthStatus_validate";
+	
+	if (!is_undefined(_inst[$ "instanceId"]) && !is_string(_inst[$ "instanceId"])) show_error($"{_where} :: 'instanceId' expected string", true);
+	if (!is_undefined(_inst[$ "nodeIds"]) && !is_array(_inst[$ "nodeIds"])) show_error($"{_where} :: 'nodeIds' expected string", true);
+}
+
+/**
+ * @func ElementsRoutingHealthStatus_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsRoutingHealthStatus_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsRoutingHealthStatus_validate";
+	
+	if (!is_undefined(_inst[$ "instanceId"]) && !is_string(_inst[$ "instanceId"])) show_error($"{_where} :: 'instanceId' expected string", true);
+	if (!is_undefined(_inst[$ "routingTable"]) && !is_array(_inst[$ "routingTable"])) show_error($"{_where} :: 'routingTable' expected string", true);
+	if (!is_undefined(_inst[$ "masterNodeRoutingTable"]) && !is_array(_inst[$ "masterNodeRoutingTable"])) show_error($"{_where} :: 'masterNodeRoutingTable' expected string", true);
+	if (!is_undefined(_inst[$ "applicationNodeRoutingTable"]) && !is_array(_inst[$ "applicationNodeRoutingTable"])) show_error($"{_where} :: 'applicationNodeRoutingTable' expected string", true);
+}
+
+/**
+ * @func ElementsInvokerHealthStatus_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsInvokerHealthStatus_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsInvokerHealthStatus_validate";
+	
+	if (!is_undefined(_inst[$ "priorities"]) && !is_array(_inst[$ "priorities"])) show_error($"{_where} :: 'priorities' expected string", true);
+	if (!is_undefined(_inst[$ "connectedPeers"]) && !is_array(_inst[$ "connectedPeers"])) show_error($"{_where} :: 'connectedPeers' expected string", true);
+}
+
+/**
+ * @func ElementsHealthStatus_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsHealthStatus_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsHealthStatus_validate";
+	
+	if (!is_undefined(_inst[$ "checksFailed"]) && !is_real(_inst[$ "checksFailed"])) show_error($"{_where} :: 'checksFailed' expected int32", true);
+	if (!is_undefined(_inst[$ "checksPerformed"]) && !is_real(_inst[$ "checksPerformed"])) show_error($"{_where} :: 'checksPerformed' expected int32", true);
+	if (!is_undefined(_inst[$ "overallHealth"]) && !is_real(_inst[$ "overallHealth"])) show_error($"{_where} :: 'overallHealth' expected double", true);
+	if (!is_undefined(_inst[$ "problems"]) && !is_array(_inst[$ "problems"])) show_error($"{_where} :: 'problems' expected string", true);
+	if (!is_undefined(_inst[$ "instanceStatus"]))
+	{
+		if (!is_struct(_inst[$ "instanceStatus"])) show_error($"{_where} :: 'instanceStatus' expected ElementsInstanceHealthStatus", true);
+		ElementsInstanceHealthStatus_validate(_inst[$ "instanceStatus"], _where);
+	}
+	if (!is_undefined(_inst[$ "databaseStatus"]) && !is_array(_inst[$ "databaseStatus"])) show_error($"{_where} :: 'databaseStatus' expected ElementsDatabaseHealthStatus", true);
+	if (!is_undefined(_inst[$ "discoveryHealthStatus"]))
+	{
+		if (!is_struct(_inst[$ "discoveryHealthStatus"])) show_error($"{_where} :: 'discoveryHealthStatus' expected ElementsDiscoveryHealthStatus", true);
+		ElementsDiscoveryHealthStatus_validate(_inst[$ "discoveryHealthStatus"], _where);
+	}
+	if (!is_undefined(_inst[$ "routingHealthStatus"]))
+	{
+		if (!is_struct(_inst[$ "routingHealthStatus"])) show_error($"{_where} :: 'routingHealthStatus' expected ElementsRoutingHealthStatus", true);
+		ElementsRoutingHealthStatus_validate(_inst[$ "routingHealthStatus"], _where);
+	}
+	if (!is_undefined(_inst[$ "invokerHealthStatus"]))
+	{
+		if (!is_struct(_inst[$ "invokerHealthStatus"])) show_error($"{_where} :: 'invokerHealthStatus' expected ElementsInvokerHealthStatus", true);
+		ElementsInvokerHealthStatus_validate(_inst[$ "invokerHealthStatus"], _where);
+	}
+}
+
+/**
+ * @func ElementsVersion_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsVersion_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsVersion_validate";
+	
+	if (!is_undefined(_inst[$ "version"]) && !is_string(_inst[$ "version"])) show_error($"{_where} :: 'version' expected string", true);
+	if (!is_undefined(_inst[$ "revision"]) && !is_string(_inst[$ "revision"])) show_error($"{_where} :: 'revision' expected string", true);
+	if (!is_undefined(_inst[$ "timestamp"]) && !is_string(_inst[$ "timestamp"])) show_error($"{_where} :: 'timestamp' expected string", true);
+}
+
+/**
+ * @func ElementsUserCreateResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUserCreateResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUserCreateResponse_validate";
+	
+	if (!is_undefined(_inst[$ "id"]) && !is_string(_inst[$ "id"])) show_error($"{_where} :: 'id' expected string", true);
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "email"]) && !is_string(_inst[$ "email"])) show_error($"{_where} :: 'email' expected string", true);
+	if (!is_undefined(_inst[$ "firstName"]) && !is_string(_inst[$ "firstName"])) show_error($"{_where} :: 'firstName' expected string", true);
+	if (!is_undefined(_inst[$ "lastName"]) && !is_string(_inst[$ "lastName"])) show_error($"{_where} :: 'lastName' expected string", true);
+	if (!is_undefined(_inst[$ "level"]) && !is_string(_inst[$ "level"])) show_error($"{_where} :: 'level' expected string", true);
+	if (!is_undefined(_inst[$ "active"]) && !is_real(_inst[$ "active"])) show_error($"{_where} :: 'active' expected bool", true);
+	if (!is_undefined(_inst[$ "facebookId"]) && !is_string(_inst[$ "facebookId"])) show_error($"{_where} :: 'facebookId' expected string", true);
+	if (!is_undefined(_inst[$ "firebaseId"]) && !is_string(_inst[$ "firebaseId"])) show_error($"{_where} :: 'firebaseId' expected string", true);
+	if (!is_undefined(_inst[$ "appleSignInId"]) && !is_string(_inst[$ "appleSignInId"])) show_error($"{_where} :: 'appleSignInId' expected string", true);
+	if (!is_undefined(_inst[$ "primaryPhoneNb"]) && !is_string(_inst[$ "primaryPhoneNb"])) show_error($"{_where} :: 'primaryPhoneNb' expected string", true);
+	if (!is_undefined(_inst[$ "profiles"]) && !is_array(_inst[$ "profiles"])) show_error($"{_where} :: 'profiles' expected ElementsProfile", true);
+	if (!is_undefined(_inst[$ "password"]) && !is_string(_inst[$ "password"])) show_error($"{_where} :: 'password' expected string", true);
+	if (!is_undefined(_inst[$ "linkedAccounts"]) && !is_array(_inst[$ "linkedAccounts"])) show_error($"{_where} :: 'linkedAccounts' expected string", true);
+}
+
+/**
+ * @func ElementsCreateProfileSignupRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsCreateProfileSignupRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsCreateProfileSignupRequest_validate";
+	
+	if (!is_string(_inst[$ "applicationId"])) show_error($"{_where} :: 'applicationId' expected string", true);
+	if (!is_undefined(_inst[$ "displayName"]) && !is_string(_inst[$ "displayName"])) show_error($"{_where} :: 'displayName' expected string", true);
+	if (!is_undefined(_inst[$ "imageUrl"]) && !is_string(_inst[$ "imageUrl"])) show_error($"{_where} :: 'imageUrl' expected string", true);
+}
+
+/**
+ * @func ElementsUserCreateRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUserCreateRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUserCreateRequest_validate";
+	
+	if (!is_undefined(_inst[$ "name"]) && !is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_undefined(_inst[$ "email"]) && !is_string(_inst[$ "email"])) show_error($"{_where} :: 'email' expected string", true);
+	if (!is_undefined(_inst[$ "primaryPhoneNb"]) && !is_string(_inst[$ "primaryPhoneNb"])) show_error($"{_where} :: 'primaryPhoneNb' expected string", true);
+	if (!is_undefined(_inst[$ "firstName"]) && !is_string(_inst[$ "firstName"])) show_error($"{_where} :: 'firstName' expected string", true);
+	if (!is_undefined(_inst[$ "lastName"]) && !is_string(_inst[$ "lastName"])) show_error($"{_where} :: 'lastName' expected string", true);
+	if (!is_undefined(_inst[$ "password"]) && !is_string(_inst[$ "password"])) show_error($"{_where} :: 'password' expected string", true);
+	if (!is_undefined(_inst[$ "level"]) && !is_string(_inst[$ "level"])) show_error($"{_where} :: 'level' expected string", true);
+	if (!is_undefined(_inst[$ "profiles"]) && !is_array(_inst[$ "profiles"])) show_error($"{_where} :: 'profiles' expected ElementsCreateProfileSignupRequest", true);
+}
+
+/**
+ * @func ElementsPaginationUser_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsPaginationUser_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsPaginationUser_validate";
+	
+	if (!is_undefined(_inst[$ "offset"]) && !is_real(_inst[$ "offset"])) show_error($"{_where} :: 'offset' expected int32", true);
+	if (!is_undefined(_inst[$ "total"]) && !is_real(_inst[$ "total"])) show_error($"{_where} :: 'total' expected int32", true);
+	if (!is_undefined(_inst[$ "approximation"]) && !is_real(_inst[$ "approximation"])) show_error($"{_where} :: 'approximation' expected bool", true);
+	if (!is_undefined(_inst[$ "objects"]) && !is_array(_inst[$ "objects"])) show_error($"{_where} :: 'objects' expected ElementsUser", true);
+}
+
+/**
+ * @func ElementsUserUpdateRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUserUpdateRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUserUpdateRequest_validate";
+	
+	if (!is_string(_inst[$ "name"])) show_error($"{_where} :: 'name' expected string", true);
+	if (!is_string(_inst[$ "email"])) show_error($"{_where} :: 'email' expected string", true);
+	if (!is_string(_inst[$ "level"])) show_error($"{_where} :: 'level' expected string", true);
+	if (!is_undefined(_inst[$ "primaryPhoneNb"]) && !is_string(_inst[$ "primaryPhoneNb"])) show_error($"{_where} :: 'primaryPhoneNb' expected string", true);
+	if (!is_undefined(_inst[$ "firstName"]) && !is_string(_inst[$ "firstName"])) show_error($"{_where} :: 'firstName' expected string", true);
+	if (!is_undefined(_inst[$ "lastName"]) && !is_string(_inst[$ "lastName"])) show_error($"{_where} :: 'lastName' expected string", true);
+	if (!is_undefined(_inst[$ "password"]) && !is_string(_inst[$ "password"])) show_error($"{_where} :: 'password' expected string", true);
+}
+
+/**
+ * @func ElementsUserUpdatePasswordRequest_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsUserUpdatePasswordRequest_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsUserUpdatePasswordRequest_validate";
+	
+	if (!is_string(_inst[$ "oldPassword"])) show_error($"{_where} :: 'oldPassword' expected string", true);
+	if (!is_string(_inst[$ "newPassword"])) show_error($"{_where} :: 'newPassword' expected string", true);
+	if (!is_undefined(_inst[$ "profileId"]) && !is_string(_inst[$ "profileId"])) show_error($"{_where} :: 'profileId' expected string", true);
+}
+
+/**
+ * @func ElementsErrorResponse_validate()
+ * @param {Struct} _inst The struct to be validated.
+ * @param {String} _where What is the callee of this function (used for debug).
+ * @ignore 
+ */
+function ElementsErrorResponse_validate(_inst, _where = _GMFUNCTION_)
+{
+	_where = $"{_where} :: ElementsErrorResponse_validate";
+	
+	if (!is_undefined(_inst[$ "code"]) && !is_string(_inst[$ "code"])) show_error($"{_where} :: 'code' expected string", true);
+	if (!is_undefined(_inst[$ "message"]) && !is_string(_inst[$ "message"])) show_error($"{_where} :: 'message' expected string", true);
 }
 

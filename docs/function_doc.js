@@ -2269,15 +2269,3 @@ function elements_update_user(_user_id, _body = undefined, _callback = undefined
 function elements_update_user_password(_user_id, _body = undefined, _callback = undefined)
 {
 }
-
-/**
- * @module elements_rest_api
- * @title Elements REST API
- * @desc This module holds the documentation for the entire REST API.
- * 
- * @section_func
- * @ref elements_*
- * @section_end
- * 
- * @module_end
- */
