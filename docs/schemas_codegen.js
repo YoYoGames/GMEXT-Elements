@@ -3,7 +3,7 @@
 // #####################################################################
 
 /**
- * @struct ElementsMetadataSpecProperty
+ * @struct_partial ElementsMetadataSpecProperty
  * @member {String} _name The unique name of the field
  * @member {String} _display_name The display name of the field
  * @member {String} _type The field type
@@ -15,7 +15,7 @@
  */
 
 /**
- * @struct ElementsMetadataSpec
+ * @struct_partial ElementsMetadataSpec
  * @member {String} _id The unique ID of the schema itself.
  * @member {String} _name The Name of the schema.
  * @member {String} _type The type of the tab itself.
@@ -24,7 +24,7 @@
  */
 
 /**
- * @struct ElementsItem
+ * @struct_partial ElementsItem
  * @member {String} _name
  * @member {String} _display_name
  * @member {String} _description
@@ -38,7 +38,7 @@
  */
 
 /**
- * @struct ElementsUser
+ * @struct_partial ElementsUser
  * @member {String} _id The user's database assigned unique ID.
  * @member {String} _level The user's access level.
  * @member {String} [_name] A unique name for the user.
@@ -51,7 +51,7 @@
  */
 
 /**
- * @struct ElementsRewardIssuance
+ * @struct_partial ElementsRewardIssuance
  * @member {String} _id The unique ID of the issuance.
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
  * @member {String} _state The state of the reward. On creation, this is automatically assigned to be ISSUED. If the current value of the state is REDEEMED, then the state is no longer allowed to be updated. This valuemay not be directly modified--the redeem DAO method should be used instead to perform the redemption process.
@@ -68,14 +68,14 @@
  */
 
 /**
- * @struct ElementsCreateAppleIapReceipt
+ * @struct_partial ElementsCreateAppleIapReceipt
  * @member {String} _receipt_data The base64-encoded string of the raw IAP receipt.
  * @member {String} [_create_apple_iap_receipt_environment]
  * @struct_end
  */
 
 /**
- * @struct ElementsApplicationConfiguration
+ * @struct_partial ElementsApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -85,7 +85,7 @@
  */
 
 /**
- * @struct ElementsApplication
+ * @struct_partial ElementsApplication
  * @member {String} _name
  * @member {String} [_id]
  * @member {String} [_description]
@@ -100,7 +100,7 @@
  */
 
 /**
- * @struct ElementsPaginationApplicationConfiguration
+ * @struct_partial ElementsPaginationApplicationConfiguration
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -109,7 +109,7 @@
  */
 
 /**
- * @struct ElementsCreateApplicationRequest
+ * @struct_partial ElementsCreateApplicationRequest
  * @member {String} _name
  * @member {String} [_description]
  * @member {Struct} [_attributes]
@@ -117,7 +117,7 @@
  */
 
 /**
- * @struct ElementsPaginationApplication
+ * @struct_partial ElementsPaginationApplication
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -126,7 +126,7 @@
  */
 
 /**
- * @struct ElementsUpdateApplicationRequest
+ * @struct_partial ElementsUpdateApplicationRequest
  * @member {String} _name
  * @member {String} [_description]
  * @member {Struct} [_attributes]
@@ -134,7 +134,7 @@
  */
 
 /**
- * @struct ElementsFacebookApplicationConfiguration
+ * @struct_partial ElementsFacebookApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -147,7 +147,7 @@
  */
 
 /**
- * @struct ElementsFirebaseApplicationConfiguration
+ * @struct_partial ElementsFirebaseApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -159,14 +159,14 @@
  */
 
 /**
- * @struct ElementsProductBundleReward
+ * @struct_partial ElementsProductBundleReward
  * @member {String} _item_id The id of the item to be rewarded.
  * @member {Real} _quantity The quantity of the item to be rewarded.
  * @struct_end
  */
 
 /**
- * @struct ElementsProductBundle
+ * @struct_partial ElementsProductBundle
  * @member {String} _product_id The platform-specific unique SKU/product identifier that, when purchased, will result in the items in this product bundle to be issued to the user.
  * @member {Array[Struct.ElementsProductBundleReward]} _product_bundle_rewards The list of product bundle rewards that will be issued to the user upon purchase.
  * @member {Real} _display Whether or not the frontend should display this product bundle to end users.
@@ -177,7 +177,7 @@
  */
 
 /**
- * @struct ElementsGooglePlayApplicationConfiguration
+ * @struct_partial ElementsGooglePlayApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -190,7 +190,7 @@
  */
 
 /**
- * @struct ElementsIosApplicationConfiguration
+ * @struct_partial ElementsIosApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -202,7 +202,7 @@
  */
 
 /**
- * @struct ElementsElementServiceReference
+ * @struct_partial ElementsElementServiceReference
  * @member {String} _element_name The name of the Element to reference.
  * @member {String} [_service_type] Specifies the type of the service within the Element. May be null.
  * @member {String} [_service_name] Specifies the name of the service within the Element. May be null.
@@ -210,14 +210,14 @@
  */
 
 /**
- * @struct ElementsCallbackDefinition
+ * @struct_partial ElementsCallbackDefinition
  * @member {String} _method Specifies the method to invoke.
  * @member {Struct.ElementsElementServiceReference} _service Describes the matchmaker (dev.getelements.elements.sdk.dao.Matchmaker) to use for this configuration.
  * @struct_end
  */
 
 /**
- * @struct ElementsMatchmakingApplicationConfiguration
+ * @struct_partial ElementsMatchmakingApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -232,7 +232,7 @@
  */
 
 /**
- * @struct ElementsPSNApplicationConfiguration
+ * @struct_partial ElementsPSNApplicationConfiguration
  * @member {String} _id The database assigned ID for the application configuration.
  * @member {String} _name The application-configuration specific unique ID. Unique per application per category.
  * @member {String} _type The fully-qualified Java type of ApplicationConfiguration.
@@ -244,7 +244,7 @@
  */
 
 /**
- * @struct ElementsAuthScheme
+ * @struct_partial ElementsAuthScheme
  * @member {String} _id The unique ID of the auth scheme.
  * @member {String} _audience A unique name used to identify the scheme within the instance of Elements.
  * @member {String} _public_key A base-64 encoded string representing an x509 encoded public key.
@@ -256,7 +256,7 @@
  */
 
 /**
- * @struct ElementsCreateAuthSchemeResponse
+ * @struct_partial ElementsCreateAuthSchemeResponse
  * @member {Struct.ElementsAuthScheme} _scheme The full JSON response as described in AuthScheme
  * @member {String} _public_key The Base64 public key that was either given or generated during creation. See https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html for details on the specifics of the format.
  * @member {String} [_private_key] The Base64 public key that was either given or generated during creation. See https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html for details on the specifics of the format.
@@ -264,7 +264,7 @@
  */
 
 /**
- * @struct ElementsCreateAuthSchemeRequest
+ * @struct_partial ElementsCreateAuthSchemeRequest
  * @member {String} _audience The JWT audience for the scheme. Must be unique.
  * @member {String} _algorithm
  * @member {String} _user_level The highest permitted user level this particular scheme will authorize.
@@ -275,7 +275,7 @@
  */
 
 /**
- * @struct ElementsPaginationAuthScheme
+ * @struct_partial ElementsPaginationAuthScheme
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -284,7 +284,7 @@
  */
 
 /**
- * @struct ElementsUpdateAuthSchemeResponse
+ * @struct_partial ElementsUpdateAuthSchemeResponse
  * @member {String} _public_key The Base64 public key that was either given or generated during creation. See https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html for details on the specifics of the format.
  * @member {Struct.ElementsAuthScheme} [_scheme] The full JSON response as described in AuthScheme
  * @member {String} [_private_key] The Base64 public key that was either given or generated during creation. See https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html for details on the specifics of the format.
@@ -292,7 +292,7 @@
  */
 
 /**
- * @struct ElementsUpdateAuthSchemeRequest
+ * @struct_partial ElementsUpdateAuthSchemeRequest
  * @member {String} _audience The JWT audience for the scheme. Must be unique.
  * @member {String} _algorithm The algorithm that Elements will use with the supplied key.
  * @member {String} _user_level The highest permitted user level this particular scheme will authorize.
@@ -304,7 +304,7 @@
  */
 
 /**
- * @struct ElementsLargeObjectReference
+ * @struct_partial ElementsLargeObjectReference
  * @member {String} [_id] The unique ID of the LargeObject.
  * @member {String} [_url] The URL where the binary contents of the LargeObject may be read.
  * @member {String} [_mime_type] The MIME type of the LargeObject.
@@ -314,7 +314,7 @@
  */
 
 /**
- * @struct ElementsProfile
+ * @struct_partial ElementsProfile
  * @member {String} _id The unique ID of the profile itself.
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
  * @member {Struct.ElementsApplication} _application
@@ -327,7 +327,7 @@
  */
 
 /**
- * @struct ElementsSession
+ * @struct_partial ElementsSession
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
  * @member {Struct.ElementsProfile} [_profile]
  * @member {Struct.ElementsApplication} [_application]
@@ -336,14 +336,14 @@
  */
 
 /**
- * @struct ElementsSessionCreation
+ * @struct_partial ElementsSessionCreation
  * @member {String} [_session_secret] The Session Secret to pass to subsequent requests through headers.
  * @member {Struct.ElementsSession} [_session] The Session object generated by the request.
  * @struct_end
  */
 
 /**
- * @struct ElementsOAuth2SessionRequest
+ * @struct_partial ElementsOAuth2SessionRequest
  * @member {String} _scheme_id The OAuth2 scheme ID to use.
  * @member {Struct} [_request_parameters] The request parameters to be used in the token validation request. This should adhere to any params marked as fromClient in the auth scheme.
  * @member {Struct} [_request_headers] The request headers to be used in the token validation request. This should adhere to any headers marked as fromClient in the auth scheme.
@@ -353,7 +353,7 @@
  */
 
 /**
- * @struct ElementsOAuth2RequestKeyValue
+ * @struct_partial ElementsOAuth2RequestKeyValue
  * @member {String} [_key] The key.
  * @member {String} [_value] The value.
  * @member {Real} [_from_client] If this value should be received from the client, or predefined and stored in the DB.
@@ -361,7 +361,7 @@
  */
 
 /**
- * @struct ElementsOAuth2AuthScheme
+ * @struct_partial ElementsOAuth2AuthScheme
  * @member {String} _id The unique ID of the auth scheme.
  * @member {String} _name A unique name used to identify the scheme within the instance of Elements. If using the same OAuth2 provider (e.g. Steam), it is recommended to suffix the name for each application when using multitenancy, e.g. steam_game1, steam_game2, etc.
  * @member {String} _validation_url The URL to send the user token validation request to.
@@ -372,13 +372,13 @@
  */
 
 /**
- * @struct ElementsCreateOrUpdateOAuth2AuthSchemeResponse
+ * @struct_partial ElementsCreateOrUpdateOAuth2AuthSchemeResponse
  * @member {Struct.ElementsOAuth2AuthScheme} [_scheme] The full JSON response as described in AuthScheme
  * @struct_end
  */
 
 /**
- * @struct ElementsCreateOrUpdateOAuth2AuthSchemeRequest
+ * @struct_partial ElementsCreateOrUpdateOAuth2AuthSchemeRequest
  * @member {String} _id The unique ID of the auth scheme.
  * @member {String} _name A unique name used to identify the scheme within the instance of Elements. If using the same OAuth2 provider (e.g. Steam), it is recommended to suffix the name for each application when using multitenancy, e.g. steam_game1, steam_game2, etc.
  * @member {String} _validation_url The URL to send the user token validation request to.
@@ -389,7 +389,7 @@
  */
 
 /**
- * @struct ElementsPaginationOAuth2AuthScheme
+ * @struct_partial ElementsPaginationOAuth2AuthScheme
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -398,7 +398,7 @@
  */
 
 /**
- * @struct ElementsOidcSessionRequest
+ * @struct_partial ElementsOidcSessionRequest
  * @member {String} _jwt The JWT to parse
  * @member {String} [_profile_id] The profile ID to assign to the session.
  * @member {String} [_profile_selector] A query string to select the profile to use. NOTE: This will not be run if a profileId is specified.
@@ -406,7 +406,7 @@
  */
 
 /**
- * @struct ElementsJWK
+ * @struct_partial ElementsJWK
  * @member {String} [_alg] Algorithm (e.g. RS256)
  * @member {String} [_kid] Key id (unique to issuer)
  * @member {String} [_kty] Key type (e.g. RSA)
@@ -417,7 +417,7 @@
  */
 
 /**
- * @struct ElementsOidcAuthScheme
+ * @struct_partial ElementsOidcAuthScheme
  * @member {String} _id The unique ID of the auth scheme.
  * @member {String} _issuer A unique name used to identify the scheme within the instance of Elements. When validating from an external source (e.g. Google or Apple SSO), must match the 'iss' property of the decoded JWT.
  * @member {Array[Struct.ElementsJWK]} _keys A set of JWKs containing the keys required to validate JWT signatures.
@@ -428,13 +428,13 @@
  */
 
 /**
- * @struct ElementsCreateOrUpdateOidcAuthSchemeResponse
+ * @struct_partial ElementsCreateOrUpdateOidcAuthSchemeResponse
  * @member {Struct.ElementsOidcAuthScheme} [_scheme] The full JSON response as described in AuthScheme
  * @struct_end
  */
 
 /**
- * @struct ElementsCreateOrUpdateOidcAuthSchemeRequest
+ * @struct_partial ElementsCreateOrUpdateOidcAuthSchemeRequest
  * @member {String} _id The unique ID of the auth scheme.
  * @member {String} _issuer A unique name used to identify the scheme within the instance of Elements. When validating from an external source (e.g. Google or Apple SSO), must match the 'iss' property of the decoded JWT.
  * @member {Array[Struct.ElementsJWK]} _keys A set of JWKs containing the keys required to validate JWT signatures.
@@ -444,7 +444,7 @@
  */
 
 /**
- * @struct ElementsPaginationOidcAuthScheme
+ * @struct_partial ElementsPaginationOidcAuthScheme
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -453,7 +453,7 @@
  */
 
 /**
- * @struct ElementsVaultKey
+ * @struct_partial ElementsVaultKey
  * @member {String} _algorithm Specifies the private key encryption algorithm used to secure the vault.
  * @member {String} _public_key The public key portion of the vault key.
  * @member {String} _private_key The private key portion of the vault key.
@@ -463,7 +463,7 @@
  */
 
 /**
- * @struct ElementsVault
+ * @struct_partial ElementsVault
  * @member {String} _id The system assigned unique id of the vault.
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
  * @member {String} _display_name The display name given to this vault.
@@ -472,7 +472,7 @@
  */
 
 /**
- * @struct ElementsSmartContract
+ * @struct_partial ElementsSmartContract
  * @member {String} _id The Elements database id of the contract.
  * @member {String} _name The unique symbolic name of the smart contract.
  * @member {String} _display_name The name given to this contract for display purposes.
@@ -483,13 +483,13 @@
  */
 
 /**
- * @struct ElementsSmartContractAddress
+ * @struct_partial ElementsSmartContractAddress
  * @member {String} [_address]
  * @struct_end
  */
 
 /**
- * @struct ElementsCreateSmartContractRequest
+ * @struct_partial ElementsCreateSmartContractRequest
  * @member {String} _name The unique symbolic name of the smart contract.
  * @member {String} _display_name The name given to this contract for display purposes.
  * @member {Struct} _addresses The address of the contract from the blockchain. Depending on the network or protocol this may have several meanings and vary depending on the specific API or network.
@@ -499,7 +499,7 @@
  */
 
 /**
- * @struct ElementsPaginationSmartContract
+ * @struct_partial ElementsPaginationSmartContract
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -508,7 +508,7 @@
  */
 
 /**
- * @struct ElementsUpdateSmartContractRequest
+ * @struct_partial ElementsUpdateSmartContractRequest
  * @member {String} _name The unique symbolic name of the smart contract.
  * @member {String} _display_name The name given to this contract for display purposes.
  * @member {Struct} _addresses The address of the contract from the blockchain. Depending on the network or protocol this may have several meanings and vary depending on the specific API or network.
@@ -518,7 +518,7 @@
  */
 
 /**
- * @struct ElementsCreateVaultRequest
+ * @struct_partial ElementsCreateVaultRequest
  * @member {String} _user_id The elements-defined user ID to own the vault.
  * @member {String} _display_name A user-defined name for the vault. This is used simply for the user's reference and has no bearing  onthe vault's functionality.
  * @member {String} [_passphrase] The passphrase used to to encrypt the vault. If empty, then the vault will not be encrypted. Some configurations may opt to disallow encryption entirely.
@@ -527,7 +527,7 @@
  */
 
 /**
- * @struct ElementsPaginationVault
+ * @struct_partial ElementsPaginationVault
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -536,7 +536,7 @@
  */
 
 /**
- * @struct ElementsUpdateVaultRequest
+ * @struct_partial ElementsUpdateVaultRequest
  * @member {String} _display_name A user-defined name for the vault. This is used simply for the user's reference and has no bearing  onthe vault's functionality.
  * @member {String} _user_id The elements-defined user ID to own the vault.
  * @member {String} [_passphrase] The current passphrase for the vault. If left null, no updates to the passphrase will be made. If not-null, then the new password must also not be null.
@@ -545,7 +545,7 @@
  */
 
 /**
- * @struct ElementsWalletAccount
+ * @struct_partial ElementsWalletAccount
  * @member {String} _address The Wallet Address - id public identity. Required.
  * @member {String} [_private_key] The Wallet Account - id private identity. May be null if the wallet is for receive only.
  * @member {Real} [_encrypted] Indicates if this identity is encrypted.
@@ -553,7 +553,7 @@
  */
 
 /**
- * @struct ElementsWallet
+ * @struct_partial ElementsWallet
  * @member {String} _id The system assigned unique id of the wallet.
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
  * @member {Struct.ElementsVault} _vault
@@ -566,7 +566,7 @@
  */
 
 /**
- * @struct ElementsCreateWalletRequestAccount
+ * @struct_partial ElementsCreateWalletRequestAccount
  * @member {String} _address The Wallet Address - id public identity. Must be null for generated wallets.
  * @member {Real} [_generate] Flag which indicates if the account should be generated or imported.
  * @member {String} [_private_key] The Wallet Account - id private identity. May be null if the wallet is for receive only.
@@ -574,7 +574,7 @@
  */
 
 /**
- * @struct ElementsCreateWalletRequest
+ * @struct_partial ElementsCreateWalletRequest
  * @member {String} _display_name A user-defined name for the wallet. This is used simply for the user's reference and has no bearing  onthe wallet's functionality.
  * @member {String} _api The protocol of this wallet. Once set, this cannot be unset.
  * @member {Array[String]} _networks The networks associated with this wallet. All must support the Wallet's protocol.
@@ -584,7 +584,7 @@
  */
 
 /**
- * @struct ElementsPaginationWallet
+ * @struct_partial ElementsPaginationWallet
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -593,7 +593,7 @@
  */
 
 /**
- * @struct ElementsUpdateWalletRequest
+ * @struct_partial ElementsUpdateWalletRequest
  * @member {Array[String]} _networks The networks associated with this wallet. All must support the Wallet's protocol.
  * @member {String} [_display_name] The new display name of the wallet.
  * @member {Real} [_preferred_account] The default identity. Must not be larger than the count of identities.
@@ -601,7 +601,7 @@
  */
 
 /**
- * @struct ElementsDeployment
+ * @struct_partial ElementsDeployment
  * @member {String} _id The unique ID of the deployment itself.
  * @member {String} _version The deployment version. Allows for overriding versions with new content.
  * @member {String} _revision The revision that this deployment points to.
@@ -610,14 +610,14 @@
  */
 
 /**
- * @struct ElementsCreateDeploymentRequest
+ * @struct_partial ElementsCreateDeploymentRequest
  * @member {String} _version
  * @member {String} _revision
  * @struct_end
  */
 
 /**
- * @struct ElementsPaginationDeployment
+ * @struct_partial ElementsPaginationDeployment
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -626,13 +626,13 @@
  */
 
 /**
- * @struct ElementsUpdateDeploymentRequest
+ * @struct_partial ElementsUpdateDeploymentRequest
  * @member {String} _revision
  * @struct_end
  */
 
 /**
- * @struct ElementsCodegenRequest
+ * @struct_partial ElementsCodegenRequest
  * @member {String} [_element_spec_url] The URL for the Element OpenApi spec. Usually /app/rest/elementName/openapi.json
  * @member {String} [_language] The target language that you want to generate the code to.
  * @member {String} [_package_name] The package name to set the generated code to. E.g. com.mycompany.mygame.Elements
@@ -641,7 +641,7 @@
  */
 
 /**
- * @struct ElementsFilterRegistration
+ * @struct_partial ElementsFilterRegistration
  * @member {Array[String]} [_servlet_name_mappings]
  * @member {Array[String]} [_url_pattern_mappings]
  * @member {String} [_name]
@@ -651,14 +651,14 @@
  */
 
 /**
- * @struct ElementsTaglibDescriptor
+ * @struct_partial ElementsTaglibDescriptor
  * @member {String} [_taglib_uri]
  * @member {String} [_taglib_location]
  * @struct_end
  */
 
 /**
- * @struct ElementsJspPropertyGroupDescriptor
+ * @struct_partial ElementsJspPropertyGroupDescriptor
  * @member {String} [_buffer]
  * @member {Array[String]} [_url_patterns]
  * @member {String} [_el_ignored]
@@ -676,14 +676,14 @@
  */
 
 /**
- * @struct ElementsJspConfigDescriptor
+ * @struct_partial ElementsJspConfigDescriptor
  * @member {Array[Struct.ElementsTaglibDescriptor]} [_taglibs]
  * @member {Array[Struct.ElementsJspPropertyGroupDescriptor]} [_jsp_property_groups]
  * @struct_end
  */
 
 /**
- * @struct ElementsSessionCookieConfig
+ * @struct_partial ElementsSessionCookieConfig
  * @member {String} [_path]
  * @member {String} [_domain]
  * @member {String} [_name]
@@ -696,7 +696,7 @@
  */
 
 /**
- * @struct ElementsServletContext
+ * @struct_partial ElementsServletContext
  * @member {Struct} [_class_loader]
  * @member {Real} [_major_version]
  * @member {Real} [_minor_version]
@@ -722,7 +722,7 @@
  */
 
 /**
- * @struct ElementsServletConfig
+ * @struct_partial ElementsServletConfig
  * @member {String} [_servlet_name]
  * @member {Struct.ElementsServletContext} [_servlet_context]
  * @member {Struct} [_init_parameter_names]
@@ -730,7 +730,7 @@
  */
 
 /**
- * @struct ElementsServletRegistration
+ * @struct_partial ElementsServletRegistration
  * @member {Array[String]} [_mappings]
  * @member {String} [_run_as_role]
  * @member {String} [_name]
@@ -740,7 +740,7 @@
  */
 
 /**
- * @struct ElementsPaginationProfile
+ * @struct_partial ElementsPaginationProfile
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -749,13 +749,13 @@
  */
 
 /**
- * @struct ElementsCreateFollowerRequest
+ * @struct_partial ElementsCreateFollowerRequest
  * @member {String} _followed_id The profile id which to follow.
  * @struct_end
  */
 
 /**
- * @struct ElementsFriend
+ * @struct_partial ElementsFriend
  * @member {String} [_id] The unique ID of the friendship.
  * @member {Struct.ElementsUser} [_user] The User associated with this Profile.
  * @member {String} [_friendship] The friendship type.
@@ -764,7 +764,7 @@
  */
 
 /**
- * @struct ElementsPaginationFriend
+ * @struct_partial ElementsPaginationFriend
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -773,7 +773,7 @@
  */
 
 /**
- * @struct ElementsCreateItemRequest
+ * @struct_partial ElementsCreateItemRequest
  * @member {String} _name
  * @member {String} _display_name
  * @member {String} _description
@@ -787,7 +787,7 @@
  */
 
 /**
- * @struct ElementsPaginationItem
+ * @struct_partial ElementsPaginationItem
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -796,7 +796,7 @@
  */
 
 /**
- * @struct ElementsUpdateItemRequest
+ * @struct_partial ElementsUpdateItemRequest
  * @member {String} _name
  * @member {String} _display_name
  * @member {String} _description
@@ -808,7 +808,7 @@
  */
 
 /**
- * @struct ElementsCreateGooglePlayIapReceipt
+ * @struct_partial ElementsCreateGooglePlayIapReceipt
  * @member {String} _package_name The package name of the app. Note that this may be different from the applicationId/uniqueIdentifier which is why it should be provided with the request.
  * @member {String} _product_id The product id purchased by the user, e.g. `com.namazustudios.example_app.pack_10_coins`.
  * @member {String} _purchase_token The token issued to the user upon successful Google Play purchase transaction.
@@ -816,20 +816,20 @@
  */
 
 /**
- * @struct ElementsBuildIndexRequest
+ * @struct_partial ElementsBuildIndexRequest
  * @member {Real} [_plan] Set to true to plan the index building.
  * @member {Array[String]} [_to_index] Set to true to perform the index building.
  * @struct_end
  */
 
 /**
- * @struct ElementsIndexMetadataObject
+ * @struct_partial ElementsIndexMetadataObject
  * @member {Struct} [_identifier]
  * @struct_end
  */
 
 /**
- * @struct ElementsIndexPlanStepObject
+ * @struct_partial ElementsIndexPlanStepObject
  * @member {String} [_description]
  * @member {String} [_operation]
  * @member {Struct.ElementsIndexMetadataObject} [_index_metadata]
@@ -837,7 +837,7 @@
  */
 
 /**
- * @struct ElementsIndexPlanObject
+ * @struct_partial ElementsIndexPlanObject
  * @member {String} [_id]
  * @member {String} [_state]
  * @member {Struct.ElementsIndexPlanStepObject} [_steps]
@@ -845,7 +845,7 @@
  */
 
 /**
- * @struct ElementsPaginationIndexPlanObject
+ * @struct_partial ElementsPaginationIndexPlanObject
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -854,7 +854,7 @@
  */
 
 /**
- * @struct ElementsInventoryItem
+ * @struct_partial ElementsInventoryItem
  * @member {String} _id The unique ID of the inventory item itself.
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
  * @member {Struct.ElementsItem} _item The Item to be issued upon redemption.
@@ -864,7 +864,7 @@
  */
 
 /**
- * @struct ElementsAdvancedInventoryItemQuantityAdjustment
+ * @struct_partial ElementsAdvancedInventoryItemQuantityAdjustment
  * @member {String} _user_id The User whose inventory to modify.ß
  * @member {Real} _quantity_delta The delta to be applied to the inventory item quantity (positive or negative)
  * @member {Real} [_priority] The priority slot for the item.
@@ -872,7 +872,7 @@
  */
 
 /**
- * @struct ElementsCreateAdvancedInventoryItemRequest
+ * @struct_partial ElementsCreateAdvancedInventoryItemRequest
  * @member {String} _user_id The User ID
  * @member {String} _item_id The item to reference.
  * @member {Real} [_quantity] The quantity of the Item in inventory
@@ -881,7 +881,7 @@
  */
 
 /**
- * @struct ElementsPaginationInventoryItem
+ * @struct_partial ElementsPaginationInventoryItem
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -890,13 +890,13 @@
  */
 
 /**
- * @struct ElementsUpdateInventoryItemRequest
+ * @struct_partial ElementsUpdateInventoryItemRequest
  * @member {Real} [_quantity] The quantity of the Item in inventory
  * @struct_end
  */
 
 /**
- * @struct ElementsDistinctInventoryItem
+ * @struct_partial ElementsDistinctInventoryItem
  * @member {String} _id The unique ID of the inventory item itself.
  * @member {Struct.ElementsItem} _item The Item to be issued upon redemption.
  * @member {Struct.ElementsUser} _user The User associated with this Profile.
@@ -906,7 +906,7 @@
  */
 
 /**
- * @struct ElementsCreateDistinctInventoryItemRequest
+ * @struct_partial ElementsCreateDistinctInventoryItemRequest
  * @member {String} _item_id The digital goods item id.
  * @member {String} [_user_id] The id of the User owning this inventory item id.
  * @member {String} [_profile_id] The the profileid of hte Profile owning this inventory item.
@@ -915,7 +915,7 @@
  */
 
 /**
- * @struct ElementsPaginationDistinctInventoryItem
+ * @struct_partial ElementsPaginationDistinctInventoryItem
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -924,7 +924,7 @@
  */
 
 /**
- * @struct ElementsUpdateDistinctInventoryItemRequest
+ * @struct_partial ElementsUpdateDistinctInventoryItemRequest
  * @member {String} [_user_id] The id of the User owning this inventory item id.
  * @member {String} [_profile_id] The the profile id of hte Profile owning this inventory item.
  * @member {Struct} [_metadata]
@@ -932,14 +932,14 @@
  */
 
 /**
- * @struct ElementsSimpleInventoryItemQuantityAdjustment
+ * @struct_partial ElementsSimpleInventoryItemQuantityAdjustment
  * @member {String} _user_id The User whose inventory to modify.ß
  * @member {Real} _quantity_delta The delta to be applied to the inventory item quantity (positive or negative)
  * @struct_end
  */
 
 /**
- * @struct ElementsCreateSimpleInventoryItemRequest
+ * @struct_partial ElementsCreateSimpleInventoryItemRequest
  * @member {String} _user_id The User ID
  * @member {String} _item_id The item to reference.
  * @member {Real} [_quantity] The quantity of the Item in inventory
@@ -947,26 +947,26 @@
  */
 
 /**
- * @struct ElementsPhoneMatchedInvitation
+ * @struct_partial ElementsPhoneMatchedInvitation
  * @member {String} [_phone_number] Phone number
  * @member {Array[String]} [_profile_ids] The list of profile Ids that phone was matched
  * @struct_end
  */
 
 /**
- * @struct ElementsInviteViaPhonesResponse
+ * @struct_partial ElementsInviteViaPhonesResponse
  * @member {Array[Struct.ElementsPhoneMatchedInvitation]} [_matched] The list of objects representing matched phone numbers
  * @struct_end
  */
 
 /**
- * @struct ElementsInviteViaPhonesRequest
+ * @struct_partial ElementsInviteViaPhonesRequest
  * @member {Array[String]} [_phone_numbers] The list of phone numbers
  * @struct_end
  */
 
 /**
- * @struct ElementsSubjects
+ * @struct_partial ElementsSubjects
  * @member {Array[Struct.ElementsUser]} _users Users which may perform the operations.
  * @member {Array[Struct.ElementsProfile]} _profiles Profiles, which owners may perform the operations.
  * @member {Real} [_wildcard] Flag to check who may perform the operations. True if all users may access the object.
@@ -974,7 +974,7 @@
  */
 
 /**
- * @struct ElementsAccessPermissions
+ * @struct_partial ElementsAccessPermissions
  * @member {Struct.ElementsSubjects} _read Subjects allowed to delete
  * @member {Struct.ElementsSubjects} _write Subjects allowed to delete
  * @member {Struct.ElementsSubjects} _delete Subjects allowed to delete
@@ -982,7 +982,7 @@
  */
 
 /**
- * @struct ElementsLargeObject
+ * @struct_partial ElementsLargeObject
  * @member {String} _id The unique ID of the LargeObject.
  * @member {String} _path The path to the file in the underlying bucket.
  * @member {Struct.ElementsAccessPermissions} _access_permissions Permission associated with LargeObject.
@@ -994,7 +994,7 @@
  */
 
 /**
- * @struct ElementsContentDisposition
+ * @struct_partial ElementsContentDisposition
  * @member {String} [_type]
  * @member {Struct} [_parameters]
  * @member {String} [_file_name]
@@ -1006,7 +1006,7 @@
  */
 
 /**
- * @struct ElementsMediaType
+ * @struct_partial ElementsMediaType
  * @member {String} [_type]
  * @member {String} [_subtype]
  * @member {Struct} [_parameters]
@@ -1016,7 +1016,7 @@
  */
 
 /**
- * @struct ElementsMultiPart
+ * @struct_partial ElementsMultiPart
  * @member {Struct.ElementsContentDisposition} [_content_disposition]
  * @member {Struct} [_entity]
  * @member {Struct} [_headers]
@@ -1030,7 +1030,7 @@
  */
 
 /**
- * @struct ElementsBodyPart
+ * @struct_partial ElementsBodyPart
  * @member {Struct.ElementsContentDisposition} [_content_disposition]
  * @member {Struct} [_entity]
  * @member {Struct} [_headers]
@@ -1043,7 +1043,7 @@
  */
 
 /**
- * @struct ElementsFormDataContentDisposition
+ * @struct_partial ElementsFormDataContentDisposition
  * @member {String} [_type]
  * @member {Struct} [_parameters]
  * @member {String} [_file_name]
@@ -1056,7 +1056,7 @@
  */
 
 /**
- * @struct ElementsFormDataBodyPart
+ * @struct_partial ElementsFormDataBodyPart
  * @member {Struct.ElementsContentDisposition} [_content_disposition]
  * @member {Struct} [_entity]
  * @member {Struct} [_headers]
@@ -1075,26 +1075,26 @@
  */
 
 /**
- * @struct ElementsMultivaluedMapStringParameterizedHeader
+ * @struct_partial ElementsMultivaluedMapStringParameterizedHeader
  * @member {Real} [_empty]
  * @struct_end
  */
 
 /**
- * @struct ElementsMultivaluedMapStringString
+ * @struct_partial ElementsMultivaluedMapStringString
  * @member {Real} [_empty]
  * @struct_end
  */
 
 /**
- * @struct ElementsParameterizedHeader
+ * @struct_partial ElementsParameterizedHeader
  * @member {String} [_value]
  * @member {Struct} [_parameters]
  * @struct_end
  */
 
 /**
- * @struct ElementsSubjectRequest
+ * @struct_partial ElementsSubjectRequest
  * @member {Array[String]} _user_ids A List of all UserIds which can operate against the LargeObject.
  * @member {Array[String]} _profile_ids A List of all ProfileIds which can operate against the LargeObject.
  * @member {Real} [_wildcard] Flag to check who may perform the operation. If true, all anonymous users may perform the operation.
@@ -1102,7 +1102,7 @@
  */
 
 /**
- * @struct ElementsCreateLargeObjectRequest
+ * @struct_partial ElementsCreateLargeObjectRequest
  * @member {String} _mime_type The MIME type associated with the object.
  * @member {Struct.ElementsSubjectRequest} _read Specifies the Subjects which can delete the LargeObject.
  * @member {Struct.ElementsSubjectRequest} _write Specifies the Subjects which can delete the LargeObject.
@@ -1111,7 +1111,7 @@
  */
 
 /**
- * @struct ElementsCreateLargeObjectFromUrlRequest
+ * @struct_partial ElementsCreateLargeObjectFromUrlRequest
  * @member {String} _mime_type The MIME type associated with the object.
  * @member {Struct.ElementsSubjectRequest} _read Specifies the Subjects which can delete the LargeObject.
  * @member {Struct.ElementsSubjectRequest} _write Specifies the Subjects which can delete the LargeObject.
@@ -1121,7 +1121,7 @@
  */
 
 /**
- * @struct ElementsUpdateLargeObjectRequest
+ * @struct_partial ElementsUpdateLargeObjectRequest
  * @member {String} _mime_type The MIME type associated with the object.
  * @member {Struct.ElementsSubjectRequest} _read Specifies the Subjects which can delete the LargeObject.
  * @member {Struct.ElementsSubjectRequest} _write Specifies the Subjects which can delete the LargeObject.
@@ -1130,7 +1130,7 @@
  */
 
 /**
- * @struct ElementsLeaderboard
+ * @struct_partial ElementsLeaderboard
  * @member {String} _name The name of the leaderboard.  This must be unique across all leaderboards.
  * @member {String} _time_strategy_type The time strategy for the leaderboard. Current options are ALL_TIME and EPOCHAL.
  * @member {String} _score_strategy_type The score strategy for the leaderboard. Current options are OVERWRITE_IF_GREATER and ACCUMULATE.
@@ -1143,7 +1143,7 @@
  */
 
 /**
- * @struct ElementsPaginationLeaderboard
+ * @struct_partial ElementsPaginationLeaderboard
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1152,7 +1152,7 @@
  */
 
 /**
- * @struct ElementsScore
+ * @struct_partial ElementsScore
  * @member {String} _id The ID of the Score
  * @member {Struct.ElementsProfile} _profile
  * @member {Real} _creation_timestamp The time at which the score was created on the server.
@@ -1163,14 +1163,14 @@
  */
 
 /**
- * @struct ElementsRank
+ * @struct_partial ElementsRank
  * @member {Struct.ElementsScore} _score
  * @member {Real} [_position] The position of the associated score in the result set.
  * @struct_end
  */
 
 /**
- * @struct ElementsPaginationRank
+ * @struct_partial ElementsPaginationRank
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1179,7 +1179,7 @@
  */
 
 /**
- * @struct ElementsRankRow
+ * @struct_partial ElementsRankRow
  * @member {String} _profile_id The profile ID of the user who holds this rank.
  * @member {String} _profile_display_name The profile display name of the user who holds this rank.
  * @member {String} _profile_image_url The profile image url of the user who holds this rank.
@@ -1194,13 +1194,13 @@
  */
 
 /**
- * @struct ElementsTabulationRankRow
+ * @struct_partial ElementsTabulationRankRow
  * @member {Array[Struct.ElementsRankRow]} _rows
  * @struct_end
  */
 
 /**
- * @struct ElementsMatch
+ * @struct_partial ElementsMatch
  * @member {String} _scheme The scheme to use when matching with other players.
  * @member {Struct.ElementsProfile} _player
  * @member {String} [_id] The unique ID of the match.
@@ -1213,7 +1213,7 @@
  */
 
 /**
- * @struct ElementsPaginationMatch
+ * @struct_partial ElementsPaginationMatch
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1222,7 +1222,7 @@
  */
 
 /**
- * @struct ElementsMetadata
+ * @struct_partial ElementsMetadata
  * @member {String} _id The metadata object's database assigned unique ID.
  * @member {String} _name A unique name for the metadata object.
  * @member {Struct} _metadata An object containing the metadata payload as key-value pairs.
@@ -1232,7 +1232,7 @@
  */
 
 /**
- * @struct ElementsCreateMetadataRequest
+ * @struct_partial ElementsCreateMetadataRequest
  * @member {String} _name A unique name for the metadata object.
  * @member {Struct} [_metadata] An object containing the metadata payload as key-value pairs.
  * @member {Struct.ElementsMetadataSpec} [_metadata_spec] Represents a spec for metadata.
@@ -1241,7 +1241,7 @@
  */
 
 /**
- * @struct ElementsPaginationMetadata
+ * @struct_partial ElementsPaginationMetadata
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1250,7 +1250,7 @@
  */
 
 /**
- * @struct ElementsUpdateMetadataRequest
+ * @struct_partial ElementsUpdateMetadataRequest
  * @member {Struct} [_metadata] An object containing the metadata payload as key-value pairs.
  * @member {Struct.ElementsMetadataSpec} [_metadata_spec] Represents a spec for metadata.
  * @member {String} [_access_level] The minimum level of access required to view this metadata.
@@ -1258,7 +1258,7 @@
  */
 
 /**
- * @struct ElementsReward
+ * @struct_partial ElementsReward
  * @member {Struct.ElementsItem} _item The Item to be issued upon redemption.
  * @member {Real} _quantity The quantity of the Item that is rewarded
  * @member {Struct} [_metadata]
@@ -1266,7 +1266,7 @@
  */
 
 /**
- * @struct ElementsStep
+ * @struct_partial ElementsStep
  * @member {String} _display_name The display name for the step
  * @member {String} _description The description of the step
  * @member {Real} _count The number of times the step must be completed to receive the reward(s)
@@ -1276,7 +1276,7 @@
  */
 
 /**
- * @struct ElementsMission
+ * @struct_partial ElementsMission
  * @member {String} _id The unique ID of the mission
  * @member {String} _name The name of the mission
  * @member {String} _display_name The display name for the mission
@@ -1289,7 +1289,7 @@
  */
 
 /**
- * @struct ElementsPaginationMission
+ * @struct_partial ElementsPaginationMission
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1298,7 +1298,7 @@
  */
 
 /**
- * @struct ElementsProgressMissionInfo
+ * @struct_partial ElementsProgressMissionInfo
  * @member {String} _id The id of the mission
  * @member {String} _name The name of the mission
  * @member {String} _display_name The display name for the mission
@@ -1311,7 +1311,7 @@
  */
 
 /**
- * @struct ElementsSchedule
+ * @struct_partial ElementsSchedule
  * @member {String} _id The unique ID of the schedule.
  * @member {String} _name The unique name of the schedule.
  * @member {String} _display_name
@@ -1320,7 +1320,7 @@
  */
 
 /**
- * @struct ElementsScheduleEvent
+ * @struct_partial ElementsScheduleEvent
  * @member {String} _id
  * @member {Struct.ElementsSchedule} _schedule
  * @member {Array[Struct.ElementsMission]} _missions
@@ -1330,7 +1330,7 @@
  */
 
 /**
- * @struct ElementsProgress
+ * @struct_partial ElementsProgress
  * @member {String} _id The unique ID of the progress instance
  * @member {Struct.ElementsProfile} _profile
  * @member {Struct.ElementsProgressMissionInfo} _mission The mission
@@ -1345,7 +1345,7 @@
  */
 
 /**
- * @struct ElementsPaginationProgress
+ * @struct_partial ElementsPaginationProgress
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1354,7 +1354,7 @@
  */
 
 /**
- * @struct ElementsProgressRow
+ * @struct_partial ElementsProgressRow
  * @member {String} [_id]
  * @member {String} [_profile_id]
  * @member {String} [_profile_image_url]
@@ -1367,13 +1367,13 @@
  */
 
 /**
- * @struct ElementsTabulationProgressRow
+ * @struct_partial ElementsTabulationProgressRow
  * @member {Array[Struct.ElementsProgressRow]} _rows
  * @struct_end
  */
 
 /**
- * @struct ElementsPaginationRewardIssuance
+ * @struct_partial ElementsPaginationRewardIssuance
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1382,7 +1382,7 @@
  */
 
 /**
- * @struct ElementsRewardIssuanceRedemptionResult
+ * @struct_partial ElementsRewardIssuanceRedemptionResult
  * @member {String} [_reward_issuance_id] The id as originally provided in the request.
  * @member {Struct.ElementsRewardIssuance} [_reward_issuance] Represents a Reward that has been issued but has not yet been claimed by the user.  The reward is assigned a unique ID to ensure that it may not have been applied more than once.
  * @member {Struct.ElementsInventoryItem} [_inventory_item] Should the redemption be successful, the Inventory Item that was updated. Otherwise, null.
@@ -1391,7 +1391,7 @@
  */
 
 /**
- * @struct ElementsCreateScheduleEventRequest
+ * @struct_partial ElementsCreateScheduleEventRequest
  * @member {Array[String]} _mission_names_or_ids
  * @member {Real} [_begin]
  * @member {Real} [_end]
@@ -1399,7 +1399,7 @@
  */
 
 /**
- * @struct ElementsPaginationScheduleEvent
+ * @struct_partial ElementsPaginationScheduleEvent
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1408,7 +1408,7 @@
  */
 
 /**
- * @struct ElementsUpdateScheduleEventRequest
+ * @struct_partial ElementsUpdateScheduleEventRequest
  * @member {Array[String]} _mission_names_or_ids
  * @member {Real} [_begin]
  * @member {Real} [_end]
@@ -1416,7 +1416,7 @@
  */
 
 /**
- * @struct ElementsCreateScheduleRequest
+ * @struct_partial ElementsCreateScheduleRequest
  * @member {String} _name
  * @member {String} _display_name
  * @member {String} _description
@@ -1424,7 +1424,7 @@
  */
 
 /**
- * @struct ElementsPaginationSchedule
+ * @struct_partial ElementsPaginationSchedule
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1433,7 +1433,7 @@
  */
 
 /**
- * @struct ElementsUpdateScheduleRequest
+ * @struct_partial ElementsUpdateScheduleRequest
  * @member {String} _name
  * @member {String} _display_name
  * @member {String} _description
@@ -1441,7 +1441,7 @@
  */
 
 /**
- * @struct ElementsFCMRegistration
+ * @struct_partial ElementsFCMRegistration
  * @member {String} _registration_token The actual Firebase registration.
  * @member {String} [_id] The the unique id of the token stored in the database.
  * @member {Struct.ElementsProfile} [_profile]
@@ -1449,7 +1449,7 @@
  */
 
 /**
- * @struct ElementsCreateProfileRequest
+ * @struct_partial ElementsCreateProfileRequest
  * @member {String} _user_id The user id this profile belongs to.
  * @member {String} _application_id The application id this profile belongs to.
  * @member {String} [_image_url] A URL to the image of the profile.  (ie the User's Avatar).
@@ -1459,7 +1459,7 @@
  */
 
 /**
- * @struct ElementsUpdateProfileRequest
+ * @struct_partial ElementsUpdateProfileRequest
  * @member {String} [_image_url] A URL to the image of the profile.  (ie the User's Avatar).
  * @member {String} [_display_name] A non-unique display name for this profile.
  * @member {Struct} [_metadata] A map of arbitrary metadata.
@@ -1467,13 +1467,13 @@
  */
 
 /**
- * @struct ElementsUpdateProfileImageRequest
+ * @struct_partial ElementsUpdateProfileImageRequest
  * @member {String} _mime_type MimeType of image
  * @struct_end
  */
 
 /**
- * @struct ElementsSaveDataDocument
+ * @struct_partial ElementsSaveDataDocument
  * @member {String} _version The revision of the save data document.
  * @member {String} _contents The contents of the save data.
  * @member {String} [_id] The database assigned unique ID of the document.
@@ -1485,7 +1485,7 @@
  */
 
 /**
- * @struct ElementsCreateSaveDataDocumentRequest
+ * @struct_partial ElementsCreateSaveDataDocumentRequest
  * @member {Real} _slot The slot of the property. Must be unique for user or profile.
  * @member {String} _contents The contents of the save data.
  * @member {String} [_user_id] The id of the user which owns the save data. If specified, the user will own this save data and the profileId must be null or be owned by the user specified.
@@ -1494,7 +1494,7 @@
  */
 
 /**
- * @struct ElementsPaginationSaveDataDocument
+ * @struct_partial ElementsPaginationSaveDataDocument
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1503,7 +1503,7 @@
  */
 
 /**
- * @struct ElementsUpdateSaveDataDocumentRequest
+ * @struct_partial ElementsUpdateSaveDataDocumentRequest
  * @member {String} _contents
  * @member {Real} [_force]
  * @member {String} [_version]
@@ -1511,7 +1511,7 @@
  */
 
 /**
- * @struct ElementsCreateMetadataSpecRequest
+ * @struct_partial ElementsCreateMetadataSpecRequest
  * @member {Array[Struct.ElementsMetadataSpecProperty]} _properties The token template tabs to create.
  * @member {String} [_name] The name of the metadata spec.
  * @member {String} [_type] The type of the metadata spec.
@@ -1519,7 +1519,7 @@
  */
 
 /**
- * @struct ElementsEditorLayout
+ * @struct_partial ElementsEditorLayout
  * @member {String} [_key]
  * @member {String} [_title]
  * @member {String} [_placeholder]
@@ -1527,7 +1527,7 @@
  */
 
 /**
- * @struct ElementsJsonSchema
+ * @struct_partial ElementsJsonSchema
  * @member {String} [_get_id] See - https://json-schema.org/draft/2020-12/json-schema-core
  * @member {String} [_get_schema] See - https://json-schema.org/draft/2020-12/json-schema-core
  * @member {String} [_title] See - https://json-schema.org/draft/2020-12/json-schema-core
@@ -1539,7 +1539,7 @@
  */
 
 /**
- * @struct ElementsEditorSchema
+ * @struct_partial ElementsEditorSchema
  * @member {Struct} [_data] The data itself.
  * @member {Struct.ElementsJsonSchema} [_schema] A Subset of the JSON-Schema - https://json-schema.org/draft/2020-12/json-schema-core
  * @member {Array[Struct.ElementsEditorLayout]} [_layout] The editor layout.
@@ -1547,7 +1547,7 @@
  */
 
 /**
- * @struct ElementsJsonSchemaProperty
+ * @struct_partial ElementsJsonSchemaProperty
  * @member {String} [_type] See - https://json-schema.org/draft/2020-12/json-schema-core
  * @member {String} [_title] See - https://json-schema.org/draft/2020-12/json-schema-core
  * @member {String} [_description] See - https://json-schema.org/draft/2020-12/json-schema-core
@@ -1556,7 +1556,7 @@
  */
 
 /**
- * @struct ElementsPaginationMetadataSpec
+ * @struct_partial ElementsPaginationMetadataSpec
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1565,7 +1565,7 @@
  */
 
 /**
- * @struct ElementsUpdateMetadataSpecRequest
+ * @struct_partial ElementsUpdateMetadataSpecRequest
  * @member {String} [_name] The name of the metadata spec.
  * @member {String} [_type] The type of the metadata spec.
  * @member {Array[Struct.ElementsMetadataSpecProperty]} [_properties] The updated list of properties.
@@ -1573,7 +1573,7 @@
  */
 
 /**
- * @struct ElementsMockSessionCreation
+ * @struct_partial ElementsMockSessionCreation
  * @member {String} [_session_secret] The Session Secret to pass to subsequent requests through headers.
  * @member {Struct.ElementsSession} [_session] The Session object generated by the request.
  * @member {Real} [_user_expires_at] The assocaited mock user will automatically be deleted at supplied time.
@@ -1582,14 +1582,14 @@
  */
 
 /**
- * @struct ElementsMockSessionRequest
+ * @struct_partial ElementsMockSessionRequest
  * @member {Real} [_lifetime_in_seconds] The lifetime of the user in seconds.  After this amount of time,
  * @member {Struct.ElementsApplication} [_application]
  * @struct_end
  */
 
 /**
- * @struct ElementsUsernamePasswordSessionRequest
+ * @struct_partial ElementsUsernamePasswordSessionRequest
  * @member {String} _user_id The user ID.
  * @member {String} _password The password.
  * @member {String} [_profile_id] The profile ID to assign to the session.
@@ -1598,28 +1598,28 @@
  */
 
 /**
- * @struct ElementsDatabaseHealthStatus
+ * @struct_partial ElementsDatabaseHealthStatus
  * @member {String} [_name]
  * @member {String} [_metadata]
  * @struct_end
  */
 
 /**
- * @struct ElementsDiscoveryHealthStatus
+ * @struct_partial ElementsDiscoveryHealthStatus
  * @member {Array[String]} [_records]
  * @member {Array[String]} [_known_hosts]
  * @struct_end
  */
 
 /**
- * @struct ElementsInstanceHealthStatus
+ * @struct_partial ElementsInstanceHealthStatus
  * @member {String} [_instance_id]
  * @member {Array[String]} [_node_ids]
  * @struct_end
  */
 
 /**
- * @struct ElementsRoutingHealthStatus
+ * @struct_partial ElementsRoutingHealthStatus
  * @member {String} [_instance_id]
  * @member {Array[String]} [_routing_table]
  * @member {Array[String]} [_master_node_routing_table]
@@ -1628,14 +1628,14 @@
  */
 
 /**
- * @struct ElementsInvokerHealthStatus
+ * @struct_partial ElementsInvokerHealthStatus
  * @member {Array[String]} [_priorities]
  * @member {Array[String]} [_connected_peers]
  * @struct_end
  */
 
 /**
- * @struct ElementsHealthStatus
+ * @struct_partial ElementsHealthStatus
  * @member {Real} [_checks_failed]
  * @member {Real} [_checks_performed]
  * @member {Real} [_overall_health]
@@ -1649,7 +1649,7 @@
  */
 
 /**
- * @struct ElementsVersion
+ * @struct_partial ElementsVersion
  * @member {String} [_version]
  * @member {String} [_revision]
  * @member {String} [_timestamp]
@@ -1657,7 +1657,7 @@
  */
 
 /**
- * @struct ElementsUserCreateResponse
+ * @struct_partial ElementsUserCreateResponse
  * @member {String} [_id]
  * @member {String} [_name]
  * @member {String} [_email]
@@ -1676,7 +1676,7 @@
  */
 
 /**
- * @struct ElementsCreateProfileSignupRequest
+ * @struct_partial ElementsCreateProfileSignupRequest
  * @member {String} _application_id The application id this profile belongs to.
  * @member {String} [_display_name] A non-unique display name for this profile. If left null, the server will assign.
  * @member {String} [_image_url] A URL to the image of the profile.  (ie the User's Avatar). If left null, the server will no assign any URL.
@@ -1684,7 +1684,7 @@
  */
 
 /**
- * @struct ElementsUserCreateRequest
+ * @struct_partial ElementsUserCreateRequest
  * @member {String} [_name]
  * @member {String} [_email]
  * @member {String} [_primary_phone_nb]
@@ -1697,7 +1697,7 @@
  */
 
 /**
- * @struct ElementsPaginationUser
+ * @struct_partial ElementsPaginationUser
  * @member {Real} [_offset]
  * @member {Real} [_total]
  * @member {Real} [_approximation]
@@ -1706,7 +1706,7 @@
  */
 
 /**
- * @struct ElementsUserUpdateRequest
+ * @struct_partial ElementsUserUpdateRequest
  * @member {String} _name
  * @member {String} _email
  * @member {String} _level
@@ -1718,7 +1718,7 @@
  */
 
 /**
- * @struct ElementsUserUpdatePasswordRequest
+ * @struct_partial ElementsUserUpdatePasswordRequest
  * @member {String} _old_password The user's current password.
  * @member {String} _new_password The user's updated password.
  * @member {String} [_profile_id] The user's profile id to assign the new session. Leave blank for no profile id.
@@ -1726,7 +1726,7 @@
  */
 
 /**
- * @struct ElementsErrorResponse
+ * @struct_partial ElementsErrorResponse
  * @member {String} [_code] A machine readable code of the error.
  * @member {String} [_message] A description of the error. This error is not intended to be displayed to the end-user, rather it is it designed to relay information to the application developer.
  * @struct_end

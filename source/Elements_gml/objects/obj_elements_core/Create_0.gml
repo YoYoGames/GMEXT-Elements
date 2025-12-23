@@ -24,7 +24,6 @@ type_converters[$ "application/json"] = function(_i) {
 	    return _value; // We return the value as normal
     }); 
 };
-type_converters[$ "application/x-www-form-urlencoded"] = function(_i) { return _i; };
 type_converters[$ "text/plain"] = function(_i) { return string(_i) };
 
 // Where all auth-tokens are stored
