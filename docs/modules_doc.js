@@ -44,7 +44,7 @@
  * 
  * @section Guides
  * @desc 
- * Before you start using this extension make sure to check the ${page.api_structure} for a better understanding of it's features.
+ * Before you start using this extension make sure to check the ${page.api_structure} for a better understanding of its features.
  * @section_end
  * 
  * @section Modules
