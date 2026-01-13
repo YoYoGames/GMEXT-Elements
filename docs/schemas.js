@@ -142,8 +142,8 @@
  * @member {String} [_http_documentation_url]
  * @member {String} [_http_documentation_ui_url]
  * @member {String} [_http_tunnel_endpoint_url]
- * @member {Struct} [_attributes]
- * @member {Struct.ElementsApplicationConfiguration} [_application_configuration]
+ * @member {Struct} [_attributes] The application's attributes.
+ * @member {Struct.ElementsApplicationConfiguration} [_application_configuration] The application configuration.
  * @struct_end
  */
 

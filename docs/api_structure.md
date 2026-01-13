@@ -3,7 +3,7 @@
 ## 1. Big picture
 
 * Every exported `elements_...` function is a thin wrapper around **one HTTP request**.
-* Requests are **async and callback-based** (GameMaker’s HTTP async event).
+* Requests are **async and callback-based** (GameMaker's HTTP async event).
 * Auth is handled via **named tokens** (`"auth_bearer"`, `"session_secret"`) that you store once and which are then injected into all requests that need them.
 * Request bodies are formatted based on a **Content-Type → converter** mapping.
 * Responses go through an optional **hook system** and then into your callback.
@@ -92,7 +92,7 @@ function _elements_get_singleton(_where)
 }
 ```
 
-So you don’t manually create it; using any of the helper functions will.
+So you don't manually create it; using any of the helper functions will.
 
 ### 3.2. How tokens are injected into requests
 
@@ -126,7 +126,7 @@ case "session_secret":
 
 So:
 
-* If you **don’t** set a token, that scheme is simply skipped (no header added).
+* If you **don't** set a token, that scheme is simply skipped (no header added).
 * If you **do** set it, it will be applied automatically on all endpoints that list that scheme.
 
 ### 3.3. What you must do after login
@@ -156,13 +156,13 @@ Pattern:
    * Store them using `_elements_request_auth_set_token`.
 3. After that, all other endpoints needing those schemes will automatically send the right headers.
 
-That’s the main thing a user of this API needs to understand about auth.
+That's the main thing a user of this API needs to understand about auth.
 
 ---
 
 ## 4. The async HTTP flow (callbacks)
 
-Here’s the lifecycle:
+Here's the lifecycle:
 
 1. You call an `elements_*` function.
 2. It creates an `ElementsRequest` and calls `.send()`.
@@ -201,7 +201,7 @@ if (is_callable(_hook) && _hook(_code, _data, _request) == true) {
 ```
 
 * A **hook** is a global handler you can register per HTTP status code.
-* If it returns `true`, it “consumes” the response and the per-request callback is skipped.
+* If it returns `true`, it "consumes" the response and the per-request callback is skipped.
 
 You register a hook like:
 
@@ -311,7 +311,7 @@ This means:
 
 * For **application/json**:
 
-  * You’re expected to have a converter that `json_encode`s your struct/array.
+  * You're expected to have a converter that `json_encode`s your struct/array.
 * For other content types:
 
   * You can define your own converters (e.g. multipart, binary, etc.).
@@ -326,7 +326,7 @@ For the product bundle endpoint:
 ```gml
 var bundles = [ /* array of ElementsProductBundle structs */ ];
 
-// Let’s say your converter expects JSON when content_type is "application/json"
+// Let's say your converter expects JSON when content_type is "application/json"
 elements_update_product_bundle_for_application_configuration(
     "my-app",
     "my-config",
@@ -336,7 +336,7 @@ elements_update_product_bundle_for_application_configuration(
 );
 ```
 
-If you pass `"*/*"` and no converter is registered for `"*/*"`, you’ll get an error. So in practice, you nearly always want `"application/json"` unless you’ve set up something custom.
+If you pass `"*/*"` and no converter is registered for `"*/*"`, you'll get an error. So in practice, you nearly always want `"application/json"` unless you've set up something custom.
 
 ---
 
@@ -370,7 +370,7 @@ Key points:
 
 The user of the API mostly needs to know:
 
-* You don’t need to call `ElementsXXX_validate()` yourself – the endpoint does it – but you *can* call it early to fail fast.
+* You don't need to call `ElementsXXX_validate()` yourself – the endpoint does it – but you *can* call it early to fail fast.
 
 ---
 
@@ -383,7 +383,7 @@ attempts = 0;
 static retry = function() { return send(); }
 ```
 
-* The `send()` method increments `attempts` each time it’s called.
+* The `send()` method increments `attempts` each time it's called.
 * If you keep a reference to `_request` (e.g. via `_request` in your callback), you can manually call `_request.retry()` to resend it.
 * This is useful if you want a **per-request** retry after a specific error, rather than a global hook.
 
@@ -409,7 +409,7 @@ static retry = function() { return send(); }
    _elements_request_response_set_hook(401, function(_code, _data, _request) {
        show_debug_message("Unauthorized, redirecting to login...");
        // change room, clear saved session, whatever
-       return true; // don’t call the per-request callback
+       return true; // don't call the per-request callback
    });
    ```
 
