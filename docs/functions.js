@@ -513,7 +513,7 @@ function elements_delete_psn_application_configuration(_application_name_or_id, 
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
  */
@@ -600,7 +600,7 @@ function elements_create_oauth2_session(_body = undefined, _callback = undefined
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
  */
@@ -687,7 +687,7 @@ function elements_create_oidc_session(_body = undefined, _callback = undefined)
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
  */
@@ -1226,7 +1226,7 @@ function elements_get_friends(_offset = undefined, _count = undefined, _search =
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)). 
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)). 
  * @param {String} [_category] One of two particular inventory item values: `"Fungible"` or `"Distinct"` (see [Inventory](https://namazustudios.com/docs/namazu-elements-core/features/digital-goods/#h-inventory))
  * @param {String} [_search] The search filter to use.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -1973,7 +1973,7 @@ function elements_delete_metadata(_id, _callback = undefined)
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {String} [_search] The search filter to use.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
@@ -2132,7 +2132,7 @@ function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
  * @param {Array[String]} [_states] ( one of: `"ISSUED"` | `"REDEEMED"`).
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
  */
@@ -2178,7 +2178,7 @@ function elements_redeem_reward_issuances(_body = undefined, _content_type = "*/
  * @param {String} _schedule_name_or_id The name or ID of the schedule.
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {String} [_search] The search filter to use.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
@@ -2257,7 +2257,7 @@ function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id
  * @param {String} _schedule_name_or_id The name or ID of the schedule.
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
  */
@@ -2273,7 +2273,7 @@ function elements_get_schedule_progresses(_schedule_name_or_id, _offset = undefi
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
- * @param {Array[String]} [_tags] An array specifying all tags an item must have (all-inclusive, see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
+ * @param {Array[String]} [_tags] An array specifying tags (see [tags Property](https://namazustudios.com/docs/getting-started/general-concepts/#h-tags-property)).
  * @param {String} [_search] The search filter to use.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
  * @func_end
