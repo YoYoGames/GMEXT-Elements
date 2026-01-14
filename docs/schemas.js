@@ -566,7 +566,7 @@
  * @member {String} _validation_url The URL to send the user token validation request to.
  * @member {Array[Struct.ElementsOAuth2RequestKeyValue]} [_headers] The headers required for the validation request.
  * @member {Array[Struct.ElementsOAuth2RequestKeyValue]} [_params] The query parameters required for the validation request.
- * @member {String} [_response_id_mapping] Determines how to map the user id in the response. For example "response.params.steamid"
+ * @member {String} [_response_id_mapping] Determines how to map the user ID in the response. For example "response.params.steamid"
  * @struct_end
  */
 
@@ -593,7 +593,7 @@
  * 
  * See: [OIDC](https://namazustudios.com/docs/namazu-elements-core/user-authentication-sign-in/auth-schemes/oidc/)
  * 
- * @member {String} _jwt The JWT to parse
+ * @member {String} _jwt The JWT to parse.
  * @member {String} [_profile_id] The profile ID to assign to the session.
  * @member {String} [_profile_selector] A query string to select the profile to use. NOTE: This will not be run if a profileId is specified.
  * @struct_end
