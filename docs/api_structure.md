@@ -156,8 +156,6 @@ Pattern:
    * Store them using `_elements_request_auth_set_token`.
 3. After that, all other endpoints needing those schemes will automatically send the right headers.
 
-That's the main thing a user of this API needs to understand about auth.
-
 ---
 
 ## 4. The async HTTP flow (callbacks)
