@@ -40,8 +40,6 @@
  * * **Commerce support:** Receipt validation flows (e.g., Apple IAP) to connect purchases to in-game rewards. 
  * * **Optional advanced capabilities:** "Omni" modules for wallets/vaults/smart contracts if your project needs multi-chain features. 
  * 
- * If you want, paste your extension's actual selling points (async pattern, caching, retries, error handling, example projects, supported platforms like desktop/mobile/HTML5), and I'll rewrite this into a tighter "launch post" with a punchy headline + feature sections + CTA.
- * 
  * @section Guides
  * @desc 
  * Before you start using this extension make sure to check the ${page.api_structure} for a better understanding of its features.
