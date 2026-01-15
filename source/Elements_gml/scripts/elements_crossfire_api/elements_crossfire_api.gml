@@ -4,9 +4,19 @@
 /// @returns {Struct.ElementsCrossfireClient} The shared Crossfire client instance.
 /// @ignore
 function _elements_crossfire_get_singleton()  {
-	with(obj_elements_crossfire) return client;
-	var _manager = instance_create_depth(0, 0, 0, obj_elements_crossfire);
-	return _manager.client;
+    
+    /// @ignore
+    static _host = _elements_options_get_crossfire_url();
+    /// @ignore
+    static _port = _elements_options_get_crossfire_port();
+    /// @ignore
+    static __client = new ElementsCrossfireClient(_host, _port);
+    
+    with (obj_elements_crossfire) return __client;
+        
+    instance_create_depth(0, 0, 0, obj_elements_crossfire);
+    
+    return __client;
 }
 
 /// @func elements_crossfire_set_identity(_profile_id, _session_key)
