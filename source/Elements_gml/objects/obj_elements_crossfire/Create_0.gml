@@ -1,9 +1,6 @@
 /// obj_client – Create
-
-var _host = _elements_options_get_crossfire_url();
-var _port = _elements_options_get_crossfire_port();
-
-client = new ElementsCrossfireClient(_host, _port);
+/// 
+client = _elements_crossfire_get_singleton();
 
 client.on_signal = function(_msg) {
     var t = _msg[$ "type"];
