@@ -12,11 +12,12 @@ function _elements_crossfire_get_singleton()  {
     /// @ignore
     static __client = new ElementsCrossfireClient(_host, _port);
     
-    with (obj_elements_crossfire) return __client;
+    var _client = __client; // store in a local variable
+    with (obj_elements_crossfire) return _client;
         
     instance_create_depth(0, 0, 0, obj_elements_crossfire);
     
-    return __client;
+    return _client;
 }
 
 /// @func elements_crossfire_set_identity(_profile_id, _session_key)
