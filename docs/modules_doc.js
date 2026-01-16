@@ -54,6 +54,7 @@
  * @desc The following are the available modules from the Elements API:
  * @ref module.elements_rest_api
  * @ref module.elements_rest_schemas
+ * @ref module.crossfire
  * @section_end
  * 
  * @module_end
