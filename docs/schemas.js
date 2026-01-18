@@ -13,7 +13,7 @@
  * @member {String} _type The field type.
  * @member {Real} [_required] True if the field is required.
  * @member {String} [_placeholder] The placeholder description when displaying in the editor.
- * @member {Struct} [_default_value] The default description, null if left unspecified.
+ * @member {Struct} [_default_value] The default description, `undefined` if left unspecified.
  * @member {Array[Struct.ElementsMetadataSpecProperty]} [_properties] The updated list of properties.
  * @struct_end
  */
@@ -298,8 +298,8 @@
  * See: [Matchmaking – Comprehensive Guide](https://namazustudios.com/docs/namazu-elements-core/features/configuration/matchmaking/)
  * 
  * @member {String} _element_name The name of the Element to reference.
- * @member {String} [_service_type] Specifies the type of the service within the Element. May be null.
- * @member {String} [_service_name] Specifies the name of the service within the Element. May be null.
+ * @member {String} [_service_type] Specifies the type of the service within the Element. May be `undefined`.
+ * @member {String} [_service_name] Specifies the name of the service within the Element. May be `undefined`.
  * @struct_end
  */
 
@@ -432,7 +432,7 @@
  * @member {String} _user_level The highest permitted user level this particular scheme will authorize.
  * @member {Array[String]} _tags The list of tags for tagging the auth scheme.
  * @member {Array[String]} _allowed_issuers The list of issuers allowed to use this scheme.
- * @member {Real} [_regenerate] If set to true, Elements will regenerate the key and pubKey must be null or omitted
+ * @member {Real} [_regenerate] If set to true, Elements will regenerate the key and `_public_key` must be `undefined` or omitted
  * @member {String} [_public_key] The Base64 public key that was either given or generated during creation. See https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html for details on the specifics of the format.
  * @struct_end
  */
@@ -819,8 +819,8 @@
  * 
  * @member {String} _display_name A user-defined name for the vault. This is used simply for the user's reference and has no bearing on the vault's functionality.
  * @member {String} _user_id The elements-defined user ID to own the vault.
- * @member {String} [_passphrase] The current passphrase for the vault. If left null, no updates to the passphrase will be made. If not-null, then the new password must also not be null.
- * @member {String} [_new_passphrase] The updated passphrase for the vault. If left null, no updates to the passphrase will be made. If not-null, then the password must also not be null.
+ * @member {String} [_passphrase] The current passphrase for the vault. If left `undefined`, no updates to the passphrase will be made. If not-`undefined`, then the new password must also not be `undefined`.
+ * @member {String} [_new_passphrase] The updated passphrase for the vault. If left `undefined`, no updates to the passphrase will be made. If not-`undefined`, then the password must also not be `undefined`.
  * @struct_end
  */
 
@@ -833,7 +833,7 @@
  * See: [Wallets](https://namazustudios.com/docs/namazu-elements-core/features/web3/wallets/)
  * 
  * @member {String} _address The Wallet Address - ID public identity. Required.
- * @member {String} [_private_key] The Wallet Account - ID private identity. May be null if the wallet is for receive only.
+ * @member {String} [_private_key] The Wallet Account - ID private identity. May be `undefined` if the wallet is for receive only.
  * @member {Real} [_encrypted] Indicates if this identity is encrypted.
  * @struct_end
  */
@@ -865,9 +865,9 @@
  * 
  * See: [Wallets](https://namazustudios.com/docs/namazu-elements-core/features/web3/wallets/)
  * 
- * @member {String} _address The Wallet Address - ID public identity. Must be null for generated wallets.
+ * @member {String} _address The Wallet Address - ID public identity. Must be `undefined` for generated wallets.
  * @member {Real} [_generate] Flag which indicates if the account should be generated or imported.
- * @member {String} [_private_key] The Wallet Account - ID private identity. May be null if the wallet is for receive only.
+ * @member {String} [_private_key] The Wallet Account - ID private identity. May be `undefined` if the wallet is for receive only.
  * @struct_end
  */
 
@@ -1474,7 +1474,7 @@
  * @member {String} _id The unique ID of the LargeObject.
  * @member {String} _path The path to the file in the underlying bucket.
  * @member {Struct.ElementsAccessPermissions} _access_permissions Permission associated with LargeObject.
- * @member {String} [_url] The URL where the binary contents of the LargeObject may be read. May be null, since Path param or Id is pointer for object.
+ * @member {String} [_url] The URL where the binary contents of the LargeObject may be read. May be `undefined`, since Path param or Id is pointer for object.
  * @member {String} [_mime_type] The MIME type of the LargeObject.
  * @member {String} [_state] Current state of large object, Allowed values: `"EMPTY"`, `"UPLOADED"`
  * @member {String} [_last_modified] Date of last modification
@@ -1681,8 +1681,8 @@
  * @member {String} _title The user-presentable name or title for for the leaderboard.
  * @member {String} _score_units The units-of measure for the score type of the leaderboard.
  * @member {String} [_id] The leaderboard ID.
- * @member {Real} [_first_epoch_timestamp] The time at which the leaderboard epoch intervals should begin (in ms). If null, then the leaderboard is all-time and not epochal. During creation, if this value is provided, then `_epoch_interval` must also be provided.
- * @member {Real} [_epoch_interval] The duration for a leaderboard epoch interval (in ms). If null, then the leaderboard is all-time and not epochal. During creation, if this value is provided, then `_first_epoch_timestamp` must also be provided.
+ * @member {Real} [_first_epoch_timestamp] The time at which the leaderboard epoch intervals should begin (in ms). If `undefined`, then the leaderboard is all-time and not epochal. During creation, if this value is provided, then `_epoch_interval` must also be provided.
+ * @member {Real} [_epoch_interval] The duration for a leaderboard epoch interval (in ms). If `undefined`, then the leaderboard is all-time and not epochal. During creation, if this value is provided, then `_first_epoch_timestamp` must also be provided.
  * @struct_end
  */
 
@@ -1781,7 +1781,7 @@
  * @member {String} [_scope] An optional scope for the match. For example, if the match were part of a tournament, it could be scoped to the unique ID of the tournament.
  * @member {Struct.ElementsProfile} [_opponent] The opponent's profile.
  * @member {Real} [_last_updated_timestamp] The time of the last modification of the match.
- * @member {String} [_game_id] The system-assigned game ID of the match. Null until the match is successfully made.
+ * @member {String} [_game_id] The system-assigned game ID of the match. `undefined` until the match is successfully made.
  * @member {Struct} [_metadata] Additional arbitrary metadata that is attached to the match.
  * @struct_end
  */
@@ -1894,8 +1894,8 @@
  * @member {String} _display_name The display name for the mission
  * @member {String} _description The description of the mission
  * @member {Array[String]} [_tags] The tags used to categorize this mission
- * @member {Array[Struct.ElementsStep]} [_steps] The steps that constitute the mission (may be null if finalRepeatStep is specified)
- * @member {Struct.ElementsStep} [_final_repeat_step] The final repeating step (may be null if step(s) are specified)
+ * @member {Array[Struct.ElementsStep]} [_steps] The steps that constitute the mission (may be `undefined` if `_final_repeat_step` is specified)
+ * @member {Struct.ElementsStep} [_final_repeat_step] The final repeating step (may be `undefined` if step(s) are specified)
  * @member {Struct} [_metadata] The metadata for this mission
  * @struct_end
  */
@@ -1923,8 +1923,8 @@
  * @member {String} _name The name of the mission
  * @member {String} _display_name The display name for the mission
  * @member {String} _description The description of the mission
- * @member {Array[Struct.ElementsStep]} [_steps] The steps that constitute the mission (may be null if `"_final_repeat_step"` is specified)
- * @member {Struct.ElementsStep} [_final_repeat_step] The final repeating step (may be null if step(s) are specified)
+ * @member {Array[Struct.ElementsStep]} [_steps] The steps that constitute the mission (may be `undefined` if `"_final_repeat_step"` is specified)
+ * @member {Struct.ElementsStep} [_final_repeat_step] The final repeating step (may be `undefined` if step(s) are specified)
  * @member {Array[String]} [_tags] The tags used to categorize this mission
  * @member {Struct} [_metadata] The metadata for this mission
  * @struct_end
@@ -1947,7 +1947,7 @@
  * @struct ElementsScheduleEvent
  * @desc > **Elements Schema**: [ScheduleEvent](https://namazustudios.com/rest/api/?version=3.3.10/#/schemas/ScheduleEvent)
  * 
- * This struct represents a listing of ScheduleEvents which are managing this Progress. Empty or null if the Progress is not managed as part of a Schedule.
+ * This struct represents a listing of ScheduleEvents which are managing this Progress. Empty or `undefined` if the Progress is not managed as part of a Schedule.
  * 
  * @member {String} _id The ID of the listing
  * @member {Struct.ElementsSchedule} _schedule The schedule
@@ -1966,13 +1966,13 @@
  * @member {String} _id The unique ID of the progress instance
  * @member {Struct.ElementsProfile} _profile The profile.
  * @member {Struct.ElementsProgressMissionInfo} _mission The mission
- * @member {Struct.ElementsStep} [_current_step] The final repeating step (may be null if step(s) are specified)
+ * @member {Struct.ElementsStep} [_current_step] The final repeating step (may be `undefined` if step(s) are specified)
  * @member {Real} [_remaining] The remaining actions
  * @member {Array[Struct.ElementsRewardIssuance]} [_reward_issuances] List of all reward issuances that are issued but not expired, or redeemed but persistent.
  * @member {Real} [_sequence] The current number of completed steps. Note that this may exceed the total number of steps, i.e. the final step may be repeated infinitely.
  * @member {Real} [_managed_by_schedule] Indicates that this progress is managed by a Schedule. If true, the Progress will be deleted when no schedules have the progress active. This will be true if the Progress was created as part of a Schedule.
- * @member {Array[Struct.ElementsSchedule]} [_schedules] A listing of the Schedules which are managing this Progress. Empty or null if the Progress is not managed as part of a Schedule.
- * @member {Array[Struct.ElementsScheduleEvent]} [_schedule_events] A listing of ScheduleEvents which are managing this Progress. Empty or null if the Progress is not managed as part of a Schedule.
+ * @member {Array[Struct.ElementsSchedule]} [_schedules] A listing of the Schedules which are managing this Progress. Empty or `undefined` if the Progress is not managed as part of a Schedule.
+ * @member {Array[Struct.ElementsScheduleEvent]} [_schedule_events] A listing of ScheduleEvents which are managing this Progress. Empty or `undefined` if the Progress is not managed as part of a Schedule.
  * @struct_end
  */
 
@@ -2037,8 +2037,8 @@
  * 
  * @member {String} [_reward_issuance_id] The ID as originally provided in the request.
  * @member {Struct.ElementsRewardIssuance} [_reward_issuance] Represents a Reward that has been issued but has not yet been claimed by the user. The reward is assigned a unique ID to ensure that it may not have been applied more than once.
- * @member {Struct.ElementsInventoryItem} [_inventory_item] Should the redemption be successful, the Inventory Item that was updated. Otherwise, null.
- * @member {String} [_error_details] Should the redemption fail, the error details. Otherwise, null.
+ * @member {Struct.ElementsInventoryItem} [_inventory_item] Should the redemption be successful, the Inventory Item that was updated. Otherwise, `undefined`.
+ * @member {String} [_error_details] Should the redemption fail, the error details. Otherwise, `undefined`.
  * @struct_end
  */
 
@@ -2188,8 +2188,8 @@
  * 
  * @member {Real} _slot The slot of the property. Must be unique for user or profile.
  * @member {String} _contents The contents of the save data.
- * @member {String} [_user_id] The ID of the user which owns the save data. If specified, the user will own this save data and the `_profile_id` must be null or be owned by the user specified.
- * @member {String} [_profile_id] The ID of the profile which owns the save data. If specified, the profile will own this save data and the `_user_id` must be null or be owned by the user specified.
+ * @member {String} [_user_id] The ID of the user which owns the save data. If specified, the user will own this save data and the `_profile_id` must be `undefined` or be owned by the user specified.
+ * @member {String} [_profile_id] The ID of the profile which owns the save data. If specified, the profile will own this save data and the `_user_id` must be `undefined` or be owned by the user specified.
  * @struct_end
  */
 
@@ -2466,8 +2466,8 @@
  * This struct represents a profile signup request, which is used in conjunction with the user creation request to specify.
  * 
  * @member {String} _application_id The application ID this profile belongs to.
- * @member {String} [_display_name] A non-unique display name for this profile. If left null, the server will assign.
- * @member {String} [_image_url] A URL to the image of the profile. (i.e. the User's Avatar). If left null, the server will not assign any URL.
+ * @member {String} [_display_name] A non-unique display name for this profile. If left `undefined`, the server will assign.
+ * @member {String} [_image_url] A URL to the image of the profile. (i.e. the User's Avatar). If left `undefined`, the server will not assign any URL.
  * @struct_end
  */
 
