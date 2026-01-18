@@ -31,7 +31,7 @@
  * @ref module.elements_rest_schemas
  * @section_end
  * 
- * @section_func Modules
+ * @section Modules
  * @desc These are the modules in the Elements extension:
  * @ref module.ios
  * @ref module.application
