@@ -190,6 +190,8 @@ function elements_crossfire_is_ready()
  * @desc This function returns whether this client is currently the host of the match.
  * 
  * @returns {Bool} True if this client is the host, false otherwise.
+ * @func_end
+ */
 function elements_crossfire_is_host()
 {
 };
