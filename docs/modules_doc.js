@@ -27,7 +27,7 @@
  * @section_end
  * 
  * @section Schemas
- * @desc The following are the schemas as used by the Elements API:
+ * @desc The schemas used by the Elements extension can be found under the following module:
  * @ref module.elements_rest_schemas
  * @section_end
  * 
@@ -72,9 +72,12 @@
 /**
  * @module elements_rest_schemas
  * @title Schemas
- * @desc This module contains the structs used by the Elements extension.
+ * @desc This module contains the schemas used by the Elements extension.
+ * 
+ * [[Note: Structs don't have to be an instance of the given type to use them with the extension functions.]]
  * 
  * @section_struct
+ * @desc The following schemas are used:
  * @ref Elements*
  * @section_end
  * @module_end
