@@ -2539,3 +2539,10 @@
  * @member {String} [_message] A description of the error. This error is not intended to be displayed to the end-user, rather it is designed to relay information to the application developer.
  * @struct_end
  */
+
+/**
+ * @struct ElementsRequest
+ * @desc This struct represents an request to an Elements endpoint.
+ * 
+ * @struct_end
+ */
