@@ -25,7 +25,7 @@ In the extension options, set the **Server URL** to the API Base URL:
 
 > http://localhost:8080/api/rest
 
-(See the [REST API Overview](namazustudios.com/rest/api/))
+(See the [REST API Overview](https://namazustudios.com/rest/api/))
 
 If you're also using the CrossFire API, also enter the **Server URL** under the **CROSSFIRE** section:
 
