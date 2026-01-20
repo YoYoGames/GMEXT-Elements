@@ -6,7 +6,7 @@
  * @func elements_ios_upload_apple_iap_receipt
  * @desc > **Elements Operation**: [uploadAppleIapReceipt](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/uploadAppleIapReceipt)
  * 
- * This function uploads an Apple IAP Receipt. Returns an array of ${Struct.ElementsRewardIssuance}, which may contain already-redeemed issuances.
+ * This function uploads an Apple IAP Receipt. Returns an array of reward issuances, which may contain already-redeemed issuances.
  * 
  * @param {Struct.ElementsCreateAppleIapReceipt} [_body] The body to be included in the HTTP request.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -582,7 +582,7 @@ function elements_auth_scheme_delete_auth_scheme(_auth_scheme_id, _callback = un
  * @func elements_auth_create_oauth2_session
  * @desc > **Elements Operation**: [createOauth2Session](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/createOauth2Session)
  * 
- * This function begins a session by accepting a session request with parameters matching the specified OAuth2 Scheme. Upon successful validation against the scheme provided in the path, this will return a ${Struct.ElementsSession} which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
+ * This function begins a session by accepting a session request with parameters matching the specified OAuth2 Scheme. Upon successful validation against the scheme provided in the path, this will return a session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
  * 
  * @param {Struct.ElementsOAuth2SessionRequest} [_body] The body to be included in the HTTP request.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -669,7 +669,7 @@ function elements_auth_scheme_delete_auth_scheme_1(_oauth2_auth_scheme_id, _call
  * @func elements_auth_create_oidc_session
  * @desc > **Elements Operation**: [createOidcSession](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/createOidcSession)
  * 
- * This function begins a session by accepting a JWT. Upon successful validation against the scheme provided in the path, this will return a ${Struct.ElementsSession} which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
+ * This function begins a session by accepting a JWT. Upon successful validation against the scheme provided in the path, this will return a session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
  * 
  * @param {Struct.ElementsOidcSessionRequest} [_body] The body to be included in the HTTP request.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -756,7 +756,7 @@ function elements_auth_scheme_delete_auth_scheme_2(_oidc_auth_scheme_id, _callba
  * @func elements_blockchain_get_smart_contracts
  * @desc > **Elements Operation**: [getSmartContracts](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/getSmartContracts)
  * 
- * This function gets a pagination of SmartContracts (see ${Struct.ElementsSmartContract}).
+ * This function gets a pagination of SmartContracts.
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
@@ -1178,7 +1178,7 @@ function elements_follower_get_follower(_profile_id, _followed_id, _callback = u
  * @func elements_friend_get_friend
  * @desc > **Elements Operation**: [getFriend](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/getFriend)
  * 
- * This function gets a specific ${Struct.ElementsFriend} using the ID of the friend.
+ * This function gets a specific friend using the ID of the friend.
  * 
  * @param {String} _friend_id The ID of the friend.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -1222,7 +1222,7 @@ function elements_friend_get_friends(_offset = undefined, _count = undefined, _s
  * @func elements_item_get_items
  * @desc > **Elements Operation**: [getItems](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/getItems)
  * 
- * This function searches all items and returns all matching items (see ${Struct.ElementsItem}), filtered by the passed in search parameters. If multiple tags are specified, then all items that contain at least one of the passed in tags is returned.
+ * This function searches all items and returns all matching items, filtered by the passed in search parameters. If multiple tags are specified, then all items that contain at least one of the passed in tags is returned.
  * 
  * @param {Real} [_offset] The offset of the first result to return in the page.
  * @param {Real} [_count] The number of results to return in the page.
@@ -1240,7 +1240,7 @@ function elements_item_get_items(_offset = undefined, _count = undefined, _tags 
  * @func elements_item_create_item
  * @desc > **Elements Operation**: [createItem](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/createItem)
  * 
- * Supplying an item object, this function will create a new item with a newly assigned unique ID. The Item representation returned in the response body (${Struct.ElementsItem}) is a representation of the Item as persisted with a unique identifier signed and with its fields properly normalized. The supplied item object submitted with the request must have a name property that is unique across all items.
+ * Supplying an item object, this function will create a new item with a newly assigned unique ID. The Item representation returned in the response body is a representation of the Item as persisted with a unique identifier signed and with its fields properly normalized. The supplied item object submitted with the request must have a name property that is unique across all items.
  * 
  * @param {Struct.ElementsCreateItemRequest} [_body] The body to be included in the HTTP request.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -1283,7 +1283,7 @@ function elements_item_update_item(_identifier, _body = undefined, _callback = u
  * @func elements_google_upload_google_play_iap_purchase
  * @desc > **Elements Operation**: [uploadGooglePlayIapPurchase](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/uploadGooglePlayIapPurchase)
  * 
- * This function uploads Google Play IAP Receipt data (package name, product ID and Google Play-issued purchase token). Returns an array of ${Struct.ElementsRewardIssuance}, some or all of which may be already redeemed.
+ * This function uploads Google Play IAP Receipt data (package name, product ID and Google Play-issued purchase token). Returns an array of reward issuances, some or all of which may be already redeemed.
  * 
  * @param {Struct.ElementsCreateGooglePlayIapReceipt} [_body] The body to be included in the HTTP request.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
@@ -2113,7 +2113,7 @@ function elements_progress_update_progress(_progress_id, _body = undefined, _cal
  * @func elements_reward_issuance_get_reward_issuance
  * @desc > **Elements Operation**: [getRewardIssuance](https://namazustudios.com/rest/api/?version=3.3.10/#/operations/getRewardIssuance)
  * 
- * This function retrieves a single RewardIssuance (${Struct.ElementsRewardIssuance}) by ID.
+ * This function retrieves a single RewardIssuance by ID.
  * 
  * @param {String} _reward_issuance_id The ID of the RewardIssuance.
  * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
