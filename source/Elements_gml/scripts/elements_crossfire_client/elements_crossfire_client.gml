@@ -1,7 +1,10 @@
 
 #macro CF_MSG_FIND              "FIND"
 #macro CF_MSG_JOIN              "JOIN"
+#macro CF_MSG_CREATE            "CREATE"
+#macro CF_MSG_JOIN_CODE         "JOIN_CODE"
 #macro CF_MSG_MATCHED           "MATCHED"
+#macro CF_MSG_CREATED           "CREATED"
 #macro CF_MSG_ERROR             "ERROR"
 
 #macro CF_MSG_SIGNAL_JOIN       "SIGNAL_JOIN"
@@ -47,7 +50,7 @@ function ElementsCrossfireClient(_host, _port) constructor {
     port = _port;
     socket = -1;
     phase = CF_PHASE.DISCONNECTED;
-    version = "V_1_0";
+    version = "V_1_1";
 
 	// Connection state
 	handshake_sent = false;
@@ -56,6 +59,7 @@ function ElementsCrossfireClient(_host, _port) constructor {
     profile_id = undefined;
     session_key = undefined;
     match_id = undefined;
+    join_code = undefined;
 	
 	// Match data
 	participants = {}; // profileId -> { connected: bool }
@@ -66,6 +70,7 @@ function ElementsCrossfireClient(_host, _port) constructor {
     on_connection_error = undefined;
     on_disconnected = undefined;
     on_matched = undefined; // MATCHED
+    on_created = undefined; // CREATED (response to CREATE handshake)
     on_signal = undefined; // SIGNAL_* / CONNECT / DISCONNECT / HOST / STRING/BINARY*
     on_control = undefined; // LEAVE / OPEN / CLOSE / END (if server ever notifies)
     on_error = undefined; // ERROR
@@ -111,6 +116,8 @@ function ElementsCrossfireClient(_host, _port) constructor {
 		handshake_sent = false;
 		participants = {};
 		host_profile = undefined;
+		match_id = undefined;
+		join_code = undefined;
 		
         _set_phase(CF_PHASE.DISCONNECTED);
     };
@@ -161,6 +168,50 @@ function ElementsCrossfireClient(_host, _port) constructor {
 	        matchId : _match_id
 	    });
 	};
+
+    /// @func send_create(_configuration)
+    /// @desc Sends a CREATE handshake to create a new invite-based match. Valid only in HANDSHAKE phase and only once per connection.
+    /// @param {String} _configuration The matchmaking configuration name or ID.
+    /// @returns {Bool} True if the message was sent, false if phase/identity/handshake state is invalid.
+    static send_create = function(_configuration) {
+        if (phase != CF_PHASE.HANDSHAKE) return false;
+        if (handshake_sent) return false;
+        if (!_identity_ready()) {
+            if (_elements_options_is_debug()) show_debug_message("[CF] WARNING :: send_create called before identity set");
+            return false;
+        }
+
+        handshake_sent = true;
+
+        return _send(CF_MSG_CREATE, {
+            version : version,
+            profileId : profile_id,
+            sessionKey : session_key,
+            configuration : _configuration
+        });
+    };
+
+    /// @func send_join_code(_join_code)
+    /// @desc Sends a JOIN_CODE handshake to join a match using a share code. Valid only in HANDSHAKE phase and only once per connection.
+    /// @param {String} _join_code The join code provided by the match creator.
+    /// @returns {Bool} True if the message was sent, false if phase/identity/handshake state is invalid.
+    static send_join_code = function(_join_code) {
+        if (phase != CF_PHASE.HANDSHAKE) return false;
+        if (handshake_sent) return false;
+        if (!_identity_ready()) {
+            if (_elements_options_is_debug()) show_debug_message("[CF] WARNING :: send_join_code called before identity set");
+            return false;
+        }
+
+        handshake_sent = true;
+
+        return _send(CF_MSG_JOIN_CODE, {
+            version : version,
+            profileId : profile_id,
+            sessionKey : session_key,
+            joinCode : _join_code
+        });
+    };
 
     // --- control messages (client -> server) ---
 
@@ -332,6 +383,13 @@ function ElementsCrossfireClient(_host, _port) constructor {
 		return match_id;
 	}
 
+	/// @func get_join_code()
+    /// @desc Returns the join code for the current match. Set after a successful CREATE handshake.
+    /// @returns {String|Undefined}
+	static get_join_code = function() {
+		return join_code;
+	}
+
     // --- Async Networking hook ---
 
     /// @func handle_async(_async_load)
@@ -486,13 +544,26 @@ function ElementsCrossfireClient(_host, _port) constructor {
 		handlers[$ CF_MSG_MATCHED] = function(_msg) {
 		    match_id = _msg.matchId;
 		    var _pid = _msg.profileId;
-			
+
 		    if (!is_undefined(_pid)) profile_id = _pid;
-			
+
 			if (_elements_options_is_debug()) show_debug_message($"[CF] INFO :: Matched with {_msg}");
 
 			_set_phase(CF_PHASE.SIGNALING);
 		    if (is_callable(on_matched)) on_matched(_msg);
+		};
+
+		handlers[$ CF_MSG_CREATED] = function(_msg) {
+		    match_id  = _msg.matchId;
+		    join_code = _msg.joinCode;
+		    var _pid  = _msg.profileId;
+
+		    if (!is_undefined(_pid)) profile_id = _pid;
+
+		    if (_elements_options_is_debug()) show_debug_message($"[CF] INFO :: Created match {_msg}");
+
+		    _set_phase(CF_PHASE.SIGNALING);
+		    if (is_callable(on_created)) on_created(_msg);
 		};
 
 		handlers[$ CF_MSG_ERROR] = function(_msg) {
