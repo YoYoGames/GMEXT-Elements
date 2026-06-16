@@ -62,6 +62,24 @@ function elements_crossfire_join_match(_match_id) {
     return _client.send_join(_match_id);
 }
 
+/// @func elements_crossfire_create_match(_configuration)
+/// @desc Sends a CREATE handshake to create a new invite-based match. Server responds with CREATED containing a joinCode.
+/// @param {String} _configuration The matchmaking configuration name or ID.
+/// @returns {Bool} True if the message was sent, false if phase/identity/handshake state is invalid.
+function elements_crossfire_create_match(_configuration) {
+    var _client = _elements_crossfire_get_singleton();
+    return _client.send_create(_configuration);
+}
+
+/// @func elements_crossfire_join_match_by_code(_join_code)
+/// @desc Sends a JOIN_CODE handshake to join a match using a share code. Server responds with MATCHED.
+/// @param {String} _join_code The join code provided by the match creator.
+/// @returns {Bool} True if the message was sent, false if phase/identity/handshake state is invalid.
+function elements_crossfire_join_match_by_code(_join_code) {
+    var _client = _elements_crossfire_get_singleton();
+    return _client.send_join_code(_join_code);
+}
+
 /// Control messages
 
 /// @func elements_crossfire_leave_match()
@@ -186,6 +204,14 @@ function elements_crossfire_get_match_id() {
 	return _client.get_match_id();
 };
 
+/// @func elements_crossfire_get_join_code()
+/// @desc Returns the join code for the current match. Available after a successful CREATE handshake.
+/// @returns {String|Undefined}
+function elements_crossfire_get_join_code() {
+	var _client = _elements_crossfire_get_singleton();
+	return _client.get_join_code();
+};
+
 /// Callbacks
 
 /// @func elements_crossfire_events_on_connected_callback(_callback)
@@ -210,6 +236,14 @@ function elements_crossfire_events_on_connection_error_callback(_callback) {
 function elements_crossfire_events_on_matched_callback(_callback) {
 	var _client = _elements_crossfire_get_singleton();
 	_client.on_matched = _callback;
+}
+
+/// @func elements_crossfire_events_on_created_callback(_callback)
+/// @desc Sets the callback invoked when a CREATED message is received after a CREATE handshake. The message includes matchId and joinCode.
+/// @param {Function} _callback The function to call when the match is created.
+function elements_crossfire_events_on_created_callback(_callback) {
+	var _client = _elements_crossfire_get_singleton();
+	_client.on_created = _callback;
 }
 
 /// @func elements_crossfire_events_on_signal_callback(_callback)
