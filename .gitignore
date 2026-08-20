@@ -1,0 +1,11 @@
+# Packages built by `gm-ext createPackage`
+output/
+
+# Editor and OS noise
+.vs/
+*.DS_store
+*.xcuserstate
+*.vcxproj.user
+
+# Note: the GameMaker project carries its own .gitignore
+# (source/Elements_gml/.gitignore) for options/ and *.resource_order.
