@@ -2,44 +2,55 @@
 // # Create Event (auto-generated, DO NOT EDIT)
 // #####################################################################
 
-// These are the builtin converters from some of the content types.
-// More can be added or replaced using the `request_body_set_converter` function.
 /// @ignore
-type_converters = { };
-type_converters[$ "*/*"] = function(_i) { return _i; };
-type_converters[$ "application/json"] = function(_i) { 
-    return json_stringify(_i, false, function(_key, _value) {
-        // This is an helper function to remove undefined from structs
-	    static __strip = function(_key, _value) {
-		    if (is_undefined(_value)) return;
-		    self[$ _key] = _value;
+type_converters = {};
+type_converters[$ "*/*"] = function(__body__) { return __body__; };
+type_converters[$ "application/json"] = function(__body__) {
+    // The replacer drops undefined fields so optional properties are omitted
+    // rather than serialised as null.
+    return json_stringify(__body__, false, function(__key__, __value__) {
+	    static __strip__ = function(__k__, __v__) {
+		    if (is_undefined(__v__)) return;
+		    self[$ __k__] = __v__;
 	    }
-        // If we find a struct we create a new one with stripped undefined values
-	    if (is_struct(_value)) {
-            with({}) { // This is the most performant way to change context
-	            struct_foreach(_value, __strip);
+	    if (is_struct(__value__)) {
+            with({}) {
+	            struct_foreach(__value__, __strip__);
 	            return self;
             }
 	    }
-	    return _value; // We return the value as normal
-    }); 
+	    return __value__;
+    });
 };
-type_converters[$ "text/plain"] = function(_i) { return string(_i) };
+type_converters[$ "application/x-www-form-urlencoded"] = function(__body__) { return __body__; };
+type_converters[$ "text/plain"] = function(__body__) { return string(__body__); };
+type_converters[$ "multipart/form-data"] = function(__body__, __header__) {
+    var __boundary__ = "----Boundary" + string(current_time) + string(irandom(999999));
+    __header__[? "Content-Type"] = $"multipart/form-data; boundary={__boundary__}";
+    var __parts__ = "";
+    var __keys__ = struct_get_names(__body__);
+    for (var __j__ = 0; __j__ < array_length(__keys__); __j__++) {
+        var __k__ = __keys__[__j__];
+        var __v__ = __body__[$ __k__];
+        if (is_undefined(__v__)) continue;
+        __parts__ += $"--{__boundary__}\r\nContent-Disposition: form-data; name=\"{__k__}\"";
+        // is_handle guards buffer_exists, which throws on a string and reports true
+        // for any real matching a live buffer id — buffer ids start at 0.
+        if (is_handle(__v__) && buffer_exists(__v__)) {
+            // A buffer is binary: interpolating it would write "ref buffer".
+            __parts__ += $"; filename=\"{__k__}\"\r\nContent-Type: application/octet-stream\r\n";
+            __parts__ += "Content-Transfer-Encoding: base64\r\n\r\n";
+            __parts__ += buffer_base64_encode(__v__, 0, buffer_get_size(__v__)) + "\r\n";
+        } else {
+            __parts__ += $"\r\n\r\n{__v__}\r\n";
+        }
+    }
+    return __parts__ + $"--{__boundary__}--\r\n";
+};
 
-// Where all auth-tokens are stored
 auth_tokens = {};
-
-// Store in-progress requests and also registered response hooks.
-// These serve as lookup tables (ds_map are used due to the nature of the indices)
+cookie_jar = {};
 
 requests = ds_map_create();
 response_hooks = ds_map_create();
-
-/**
- * @param {Real} _request_id
- * @param {Struct.ElementsHttpRequest} _request_data
- */
-function register_request(_request_id, _request_data) {
-	requests[? _request_id] = _request_data;
-}
 

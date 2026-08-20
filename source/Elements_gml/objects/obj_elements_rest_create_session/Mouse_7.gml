@@ -13,8 +13,8 @@ elements_create_username_password_session(_session_request, function(_code, _dat
 		obj_game.session_data = _data;
 
 		var _session_secret = _data.sessionSecret;		
-		_elements_request_auth_set_token("auth_bearer", _session_secret);	
-		_elements_request_auth_set_token("session_secret", _session_secret);	
+		elements_request_auth_set_token("auth_bearer", _session_secret);	
+		elements_request_auth_set_token("session_secret", _session_secret);	
 	}
 	show_debug_message($"elements_create_username_password_session :: {_data}");
 });

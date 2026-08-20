@@ -2,43 +2,51 @@
 // # Http Event (auto-generated, DO NOT EDIT)
 // #####################################################################
 
-var _async_id = async_load[? "id"];
+var __async_id__ = async_load[? "id"];
+var __request__ = requests[? __async_id__];
 
-// Early exit if there is no registered request with given id
-if (!ds_map_exists(requests, _async_id)) exit;
+if (is_undefined(__request__)) {
+	exit;
+}
 
-var _request = requests[? _async_id];
-var _status = async_load[? "status"];
+var __status__ = async_load[? "status"];
 
-// Early exit if the _request has not finished yet
-if (_status == 1) exit;
+// status 1 means "in progress" — wait for the terminal event.
+if (__status__ == 1) exit;
 
 if (_elements_options_is_debug()) {
-	var _encoded_async_load = json_encode(async_load);
-	show_debug_message("HTTP: " + _encoded_async_load)
+	// async_load is a ds_map, which json_stringify cannot serialise.
+	show_debug_message("HTTP: " + json_encode(async_load));
 }
 
-var _code = async_load[? "http_status"];
-var _data = async_load[? "result"];
+var __code__ = async_load[? "http_status"];
+var __data__ = async_load[? "result"];
 
-// Make sure we check for respose hooks for the given http code
-var _hook = response_hooks[? _code];
-if (is_callable(_hook) && _hook(_code, _data, _request) == true) {
-	// Hook returned true-ish stop propagation
-    ds_map_delete(requests, _async_id);
-	return; 
-}
+// response_headers is a ds_map, not a struct.
+var __headers__ = async_load[? "response_headers"];
 
-// Get callback for the request
-var _callback = _request.get_callback();
-if (is_callable(_callback)) {
-	try {
-		_data = json_parse(_data);
+if (!is_undefined(__headers__) && ds_exists(__headers__, ds_type_map)) {
+	var __set_cookie__ = string_trim(__headers__[? "Set-Cookie"] ?? "");
+	if (string_length(__set_cookie__) > 0) {
+		_elements_cookie_capture(__set_cookie__);
 	}
-	catch(_ex) { /* ignore it */ };
-	_callback(_code, _data, _request);
 }
 
-// Request will be handled (remove from map)
-ds_map_delete(requests, _async_id);
+try {
+	__data__ = json_parse(__data__);
+}
+catch (__ex__) { /* body is not JSON; hand it back untouched */ };
+
+var __hook__ = response_hooks[? __code__];
+if (is_callable(__hook__) && __hook__(__code__, __data__, __request__) == true) {
+	ds_map_delete(requests, __async_id__);
+	exit;
+}
+
+var __callback__ = __request__.get_callback();
+if (is_callable(__callback__)) {
+	__callback__(__code__, __data__, __request__);
+}
+
+ds_map_delete(requests, __async_id__);
 
