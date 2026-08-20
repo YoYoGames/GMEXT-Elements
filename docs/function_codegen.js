@@ -3,1090 +3,17 @@
 // #####################################################################
 
 /**
- * @func_partial elements_upload_apple_iap_receipt
- * @desc Upload Apple IAP Receipt. Returns a list of RewardIssuances, which may contain already-redeemed issuances.
- * @param {Struct.ElementsCreateAppleIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_application_profiles
- * @desc Searches all instances of ApplicationProfiles associated with  the application.  The search query may be a full text search.
- * @param {String} _application_name_or_id
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_application_profiles(_application_name_or_id, _offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_applications
- * @desc Performs a full-text search of all applications known to the server.  As with other full-text endpoints this allows for pagination and offset.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_applications(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_application
- * @desc Gets the metadata for a single application.  This may include more specific details not available in the bulk-get or fetch operation.
- * @param {Struct.ElementsCreateApplicationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_application(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_application
- * @desc Gets the metadata for a single application.  This may include more specific details not available in the bulk-get or fetch operation.
- * @param {String} _name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_application(_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_application
- * @desc Performs an update to an existing application known to the server.
- * @param {String} _name_or_id
- * @param {Struct.ElementsUpdateApplicationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_application(_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_application
- * @desc Deletes a specific application known to the server.
- * @param {String} _name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_application(_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_facebook_application_configuration
- * @desc Creates a new Facebook ApplicationConfiguration with the specific ID or application.
- * @param {String} _application_name_or_id
- * @param {Struct.ElementsFacebookApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_facebook_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_facebook_application_configuration
- * @desc Gets a single Facebook application based on unique name or ID.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_facebook_application_configuration
- * @desc Updates an existing Facebook Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Struct.ElementsFacebookApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_facebook_application_configuration
- * @desc Deletes an existing Facebook Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_firebase_application_configuration
- * @desc Creates a new Firebase ApplicationConfiguration with the specific ID or application.
- * @param {String} _application_name_or_id
- * @param {Struct.ElementsFirebaseApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_firebase_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_firebase_application_configuration
- * @desc Gets a single Firebase application based on unique name or ID.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_firebase_application_configuration
- * @desc Updates an existing Firebase Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Struct.ElementsFirebaseApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_firebase_application_configuration
- * @desc Deletes an existing Firebase Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_google_play_application_configuration
- * @desc Creates a new GooglePlay ApplicationConfiguration with the specific ID or application.
- * @param {String} _application_name_or_id
- * @param {Struct.ElementsGooglePlayApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_google_play_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_google_play_application_configuration
- * @desc Gets a single Google Play application based on unique name or ID.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_google_play_application_configuration
- * @desc Updates an existing Google Play Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Struct.ElementsGooglePlayApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_google_play_application_configuration
- * @desc Deletes an existing Google Play Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_product_bundle_for_application_configuration
- * @desc Updates the ProductBundle for the given ApplicationConfiguration
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Array[Struct.ElementsProductBundle]} [_body] The body to be included in the http request.
- * @param {String} [_content_type] The type of the body (this will be used by the mapper to convert the body argument to the correct type).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_product_bundle_for_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _content_type = "*/*", _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_ios_application_configuration
- * @desc Creates a new iOS ApplicationConfiguration with the specific ID or application.
- * @param {String} _application_name_or_id
- * @param {Struct.ElementsIosApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_ios_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_ios_application_configuration
- * @desc Gets a single iOS application based on unique name or ID.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_ios_application_configuration
- * @desc Updates an existing iOS Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Struct.ElementsIosApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_ios_application_configuration
- * @desc Deletes an existing iOS Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_product_bundle_for_application_configuration_1
- * @desc Updates the ProductBundle for the given ApplicationConfiguration
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Array[Struct.ElementsProductBundle]} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_product_bundle_for_application_configuration_1(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_matchmaking_application_configuration
- * @desc Creates a new iOS ApplicationConfiguration with the specific ID or application.
- * @param {String} _application_name_or_id
- * @param {Struct.ElementsMatchmakingApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_matchmaking_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_matchmaking_application_configuration
- * @desc Gets a single iOS application based on unique name or ID.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_matchmaking_application_configuration
- * @desc Updates an existing iOS Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Struct.ElementsMatchmakingApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_matchmaking_application_configuration
- * @desc Deletes an existing iOS Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_psn_application_configuration
- * @desc Creates a new PSN ApplicationConfiguration with the specific ID or application.
- * @param {String} _application_name_or_id
- * @param {Struct.ElementsPSNApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_psn_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_psn_application_configuration
- * @desc Gets a single PSN application based on unique name or ID.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_psn_application_configuration
- * @desc Updates an existing PSN Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Struct.ElementsPSNApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_psn_application_configuration
- * @desc Deletes an existing PSN Application profile if it is known to the server.
- * @param {String} _application_name_or_id
- * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_auth_schemes
- * @desc Requires SUPERUSER access. Gets a pagination of Auth Schemes for the given query.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_auth_schemes(_offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_auth_scheme
- * @desc Creates a new Auth Scheme, from the data in the given auth scheme request
- * @param {Struct.ElementsCreateAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_auth_scheme(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_auth_scheme
- * @desc Gets a specific Auth Scheme by the authSchemeId.
- * @param {String} _auth_scheme_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_auth_scheme(_auth_scheme_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_auth_scheme
- * @desc Updates an Auth Scheme with the specified data in the auth scheme request.
- * @param {String} _auth_scheme_id
- * @param {Struct.ElementsUpdateAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_auth_scheme(_auth_scheme_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_auth_scheme
- * @desc Deletes an Auth Scheme with the specified id.
- * @param {String} _auth_scheme_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_auth_scheme(_auth_scheme_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_oauth2_session
- * @desc Begins a session by accepting a session request with parameters matching the specified OAuth2 Scheme. Upon successful validation against the scheme provided in the path, this will return a Session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
- * @param {Struct.ElementsOAuth2SessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_oauth2_session(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_auth_schemes_1
- * @desc Requires SUPERUSER access. Gets a pagination of Auth Schemes for the given query.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_auth_schemes_1(_offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_auth_scheme_1
- * @desc Creates a new Auth Scheme, from the data in the given auth scheme request
- * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_auth_scheme_1(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_auth_scheme_1
- * @desc Gets a specific Auth Scheme by the oAuth2AuthSchemeId.
- * @param {String} _oauth2_auth_scheme_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_auth_scheme_1(_oauth2_auth_scheme_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_auth_scheme_1
- * @desc Updates an Auth Scheme with the specified data in the auth scheme request.
- * @param {String} _oauth2_auth_scheme_id
- * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_auth_scheme_1(_oauth2_auth_scheme_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_auth_scheme_1
- * @desc Deletes an Auth Scheme with the specified id.
- * @param {String} _oauth2_auth_scheme_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_auth_scheme_1(_oauth2_auth_scheme_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_oidc_session
- * @desc Begins a session by accepting a JWT. Upon successful validation against the scheme provided in the path, this will return a Session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
- * @param {Struct.ElementsOidcSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_oidc_session(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_auth_schemes_2
- * @desc Requires SUPERUSER access. Gets a pagination of Auth Schemes for the given query.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_auth_schemes_2(_offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_auth_scheme_2
- * @desc Creates a new Auth Scheme, from the data in the given auth scheme request
- * @param {Struct.ElementsCreateOrUpdateOidcAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_auth_scheme_2(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_auth_scheme_2
- * @desc Gets a specific Auth Scheme by the oidcAuthSchemeId.
- * @param {String} _oidc_auth_scheme_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_auth_scheme_2
- * @desc Updates an Auth Scheme with the specified data in the auth scheme request.
- * @param {String} _oidc_auth_scheme_id
- * @param {Struct.ElementsCreateOrUpdateOidcAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_auth_scheme_2(_oidc_auth_scheme_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_auth_scheme_2
- * @desc Deletes an Auth Scheme with the specified id.
- * @param {String} _oidc_auth_scheme_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_auth_scheme_2(_oidc_auth_scheme_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_smart_contracts
- * @desc Gets a pagination of  SmartContracts.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_api] ( one of: NEO | ETHEREUM | SOLANA | FLOW | NEAR).
- * @param {Array[String]} [_network] ( one of: NEO | NEO_TEST | ETHEREUM | ETHEREUM_TEST | BSC | BSC_TEST | POLYGON | POLYGON_TEST | SOLANA | SOLANA_TEST | FLOW | FLOW_TEST | NEAR | NEAR_TEST).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_smart_contracts(_offset = undefined, _count = undefined, _api = undefined, _network = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_smart_contract
- * @desc Patches a  Smart Contract entry, associated with the specified deployed script hash.
- * @param {Struct.ElementsCreateSmartContractRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_smart_contract(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_smart_contract
- * @desc Gets a specific  Smart Contract by contractId.
- * @param {String} _contract_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_smart_contract(_contract_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_smart_contract
- * @desc Patches a  Smart Contract entry, associated with the specified deployed script hash.
- * @param {String} _contract_id
- * @param {Struct.ElementsUpdateSmartContractRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_smart_contract(_contract_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_contract
- * @desc Deletes a  Smart Contract with the specified contractId.
- * @param {String} _contract_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_contract(_contract_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_vaults
- * @desc Gets a pagination of  Wallets. Optionally a user Id can be specified to filter for a given user.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_user_id]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_vaults(_offset = undefined, _count = undefined, _user_id = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_vault
- * @desc Creates a new  Vault, associated with the given user.
- * @param {Struct.ElementsCreateVaultRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_vault(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_vault
- * @desc Gets a specific  Vault by Id.
- * @param {String} _vault_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_vault(_vault_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_vault
- * @desc Updates a  Vault with the specified name or id.
- * @param {String} _vault_id
- * @param {Struct.ElementsUpdateVaultRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_vault(_vault_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_vault
- * @desc Deletes a  Vault with the specified id.
- * @param {String} _vault_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_vault(_vault_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_wallets
- * @desc Gets a pagination of  Wallets. Optionally a user Id can be specified to filter for a given user.
- * @param {String} _vault_id
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_user_id]
- * @param {String} [_api] ( one of: NEO | ETHEREUM | SOLANA | FLOW | NEAR).
- * @param {Array[String]} [_network] ( one of: NEO | NEO_TEST | ETHEREUM | ETHEREUM_TEST | BSC | BSC_TEST | POLYGON | POLYGON_TEST | SOLANA | SOLANA_TEST | FLOW | FLOW_TEST | NEAR | NEAR_TEST).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_wallets(_vault_id, _offset = undefined, _count = undefined, _user_id = undefined, _api = undefined, _network = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_wallet
- * @desc Creates a new  Wallet, associated with the given user.
- * @param {String} _vault_id
- * @param {Struct.ElementsCreateWalletRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_wallet(_vault_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_wallet
- * @desc Gets a specific  Wallet by Id.
- * @param {String} _vault_id
- * @param {String} _wallet_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_wallet(_vault_id, _wallet_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_wallet
- * @desc Updates a  Wallet with the specified name or id.
- * @param {String} _vault_id
- * @param {String} _wallet_id
- * @param {Struct.ElementsUpdateWalletRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_wallet
- * @desc Deletes a  Wallet with the specified id.
- * @param {String} _vault_id
- * @param {String} _wallet_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_wallet(_vault_id, _wallet_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_wallet_1
- * @desc Gets a specific  Wallet by Id.
- * @param {String} _wallet_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_wallet_1(_wallet_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_deployments
- * @param {String} _application_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_deployments(_application_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_new_deployment
- * @param {String} _application_id
- * @param {Struct.ElementsCreateDeploymentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_new_deployment(_application_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_deployment
- * @param {String} _application_id
- * @param {String} _deployment_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_deployment(_application_id, _deployment_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_deployment
- * @param {String} _application_id
- * @param {String} _deployment_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_deployment(_application_id, _deployment_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_current_deployment
- * @param {String} _application_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_current_deployment(_application_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_deployment
- * @param {String} _application_id
- * @param {String} _version
- * @param {Struct.ElementsUpdateDeploymentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_deployment(_application_id, _version, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_generate_code
- * @desc Generates API code for use on the client. Will generate Elements core if no application is specified in the request body.
- * @param {Struct.ElementsCodegenRequest} [_body] The body to be included in the http request.
- * @param {String} [_content_type] The type of the body (this will be used by the mapper to convert the body argument to the correct type).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_generate_code(_body = undefined, _content_type = "*/*", _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_followers
- * @desc Searches all followers in the system and returning the metadata for all matches against the given profile id.
- * @param {String} _profile_id
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_followers(_profile_id, _offset = undefined, _count = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_followers_1
- * @desc Searches all followers in the system and returning the metadata for all matches against the given profile id.
- * @param {String} _profile_id
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_followers_1(_profile_id, _offset = undefined, _count = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_follower
- * @desc Supplying the follower object, this will store the information supplied in the body of the request.
- * @param {String} _profile_id
- * @param {Struct.ElementsCreateFollowerRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_follower(_profile_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_follower
- * @param {String} _profile_id
- * @param {String} _profile_to_unfollow_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_follower(_profile_id, _profile_to_unfollow_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_follower
- * @param {String} _profile_id
- * @param {String} _followed_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_follower(_profile_id, _followed_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_friend
- * @desc Gets a specific friend using the ID of the friend.
- * @param {String} _friend_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_friend(_friend_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_friend_registration
- * @desc Once a friend is deleted, re-creating a friend will set the friendship status to outgoing.
- * @param {String} _friend_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_friend_registration(_friend_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_friends
- * @desc Searches all friends in the system and returning the metadata for all matches against the given search filter.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_friends(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_items
- * @desc Searches all items and returns all matching items, filtered by the passed in search parameters.  If multiple tags are specified, then all items that contain at least one of the passed in tags is returned.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {String} [_category]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_items(_offset = undefined, _count = undefined, _tags = undefined, _category = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_item
- * @desc Supplying an item object, this will create a new item with a newly assigned unique id.  The Item representation returned in the response body is a representation of the Item as persisted with a unique identifier signed and with its fields properly normalized.  The supplied item object submitted with the request must have a name property that is unique across all items.
- * @param {Struct.ElementsCreateItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_item(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_item_by_identifier
- * @desc Looks up an item by the passed in identifier
- * @param {String} _identifier
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_item_by_identifier(_identifier, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_item
- * @desc Supplying an item, this will update the Item identified by the identifier in the path with contents from the passed in request body. 
- * @param {String} _identifier
- * @param {Struct.ElementsUpdateItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_item(_identifier, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_upload_google_play_iap_purchase
- * @param {Struct.ElementsCreateGooglePlayIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_upload_google_play_iap_purchase(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_build_indexes
- * @param {Struct.ElementsBuildIndexRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_build_indexes(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_plans
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_plans(_offset = undefined, _count = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_advanced_inventory_item
- * @desc Gets the first (primary) inventory item for the specified item
- * @param {String} _inventory_item_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_advanced_inventory_item(_inventory_item_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_simple_inventory_item
- * @desc Updates an inventory item for the specified item
- * @param {String} _inventory_item_id
- * @param {Struct.ElementsUpdateInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_simple_inventory_item(_inventory_item_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_advanced_inventory_item
- * @desc Delete the inventory item as identified by the given item name/id
- * @param {String} _inventory_item_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_advanced_inventory_item(_inventory_item_id, _callback = undefined)
-{
-}
-
-/**
  * @func_partial elements_adjust_advanced_inventory_item_quantity
- * @desc Adjust the quantity of the first (primary) inventory item for the specified item.  This implicitly will create the InventoryItem if it does not exist.  The inventory item value
+ * Adjust the quantity of the first (primary) inventory item for the specified item.  This implicitly will create the InventoryItem if it does not exist.  The inventory item value
  * @param {String} _inventory_item_id
  * @param {Struct.ElementsAdvancedInventoryItemQuantityAdjustment} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _body = undefined, _callback = undefined)
@@ -1094,130 +21,17 @@ function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _b
 }
 
 /**
- * @func_partial elements_get_advanced_inventory_items
- * @desc Searches all inventory items in the system and returns the metadata for all matches against the given search filter.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_user_id]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_advanced_inventory_items(_offset = undefined, _count = undefined, _user_id = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_advanced_inventory_item
- * @desc Create an inventory item for the specified item
- * @param {Struct.ElementsCreateAdvancedInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_advanced_inventory_item(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_distinct_inventory_items
- * @desc Searches all inventory items in the system and returns the metadata for all matches against the given search filter.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_user_id]
- * @param {String} [_profile_id]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_distinct_inventory_items(_offset = undefined, _count = undefined, _user_id = undefined, _profile_id = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_distinct_inventory_item
- * @desc Create an inventory item for the specified item
- * @param {Struct.ElementsCreateDistinctInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_distinct_inventory_item(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_distinct_inventory_item
- * @desc Updates an inventory item for the specified item
- * @param {String} _distinct_inventory_item_id
- * @param {Struct.ElementsUpdateDistinctInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_distinct_inventory_item
- * @desc Delete the inventory item as identified by the given item name/id
- * @param {String} _distinct_inventory_item_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_distinct_inventory_item(_distinct_inventory_item_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_distinct_inventory_item
- * @desc Gets the first (primary) inventory item for the specified item
- * @param {String} _inventory_item_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_distinct_inventory_item(_inventory_item_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_simple_inventory_item
- * @desc Gets the first (primary) inventory item for the specified item
- * @param {String} _inventory_item_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_simple_inventory_item(_inventory_item_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_simple_inventory_item_1
- * @desc Updates an inventory item for the specified item
- * @param {String} _inventory_item_id
- * @param {Struct.ElementsUpdateInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_simple_inventory_item_1(_inventory_item_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_simple_inventory_item
- * @desc Delete the inventory item as identified by the given item name/id
- * @param {String} _inventory_item_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_simple_inventory_item(_inventory_item_id, _callback = undefined)
-{
-}
-
-/**
  * @func_partial elements_adjust_simple_inventory_item_quantity
- * @desc Adjust the quantity of the first (primary) inventory item for the specified item.  This implicitly will create the InventoryItem if it does not exist.  The inventory item value
+ * Adjust the quantity of the first (primary) inventory item for the specified item.  This implicitly will create the InventoryItem if it does not exist.  The inventory item value
  * @param {String} _inventory_item_id
  * @param {Struct.ElementsSimpleInventoryItemQuantityAdjustment} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _body = undefined, _callback = undefined)
@@ -1225,47 +39,346 @@ function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _bod
 }
 
 /**
- * @func_partial elements_get_simple_inventory_items
- * @desc Searches all inventory items in the system and returns the metadata for all matches against the given search filter.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_user_id]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_blacklist_session
+ * Destroys the Session
+ * @param {String} _session_secret
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_simple_inventory_items(_offset = undefined, _count = undefined, _user_id = undefined, _search = undefined, _callback = undefined)
+function elements_blacklist_session(_session_secret, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_create_simple_inventory_item
- * @desc Create an inventory item for the specified item
- * @param {Struct.ElementsCreateSimpleInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_build_indexes
+ * Builds all indexes.
+ * @param {Struct.ElementsBuildIndexRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_create_simple_inventory_item(_body = undefined, _callback = undefined)
+function elements_build_indexes(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_get_matched_user_profiles_with_phone_numbers
- * @desc Both phones from request and from DB are normalized and compared.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Struct.ElementsInviteViaPhonesRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_callback
+ * Not called by game clients. The provider redirects the system browser here after the user completes (or denies) authorization.
+ * @param {String} _provider
+ * @param {String} [_code]
+ * @param {String} [_state]
+ * @param {String} [_error]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_matched_user_profiles_with_phone_numbers(_offset = undefined, _count = undefined, _body = undefined, _callback = undefined)
+function elements_callback(_provider, _code = undefined, _state = undefined, _error = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_complete_reset
+ * Validates the reset token and sets the new password. All existing sessions are invalidated. Returns 400 if the token is invalid or expired.
+ * @param {Struct.ElementsCompletePasswordResetRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_complete_reset(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_complete_verification
+ * Completes email verification by consuming the single-use token from a verification link. Moves the associated UID status to VERIFIED.
+ * @param {String} [_token]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUserUid|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_complete_verification(_token = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_consume_oculus_iap_purchase
+ * Attempts to consume the Oculus IAP Receipt data. Returns the result of the consume action.
+ * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusIapConsumeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_consume_oculus_iap_purchase(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_advanced_inventory_item
+ * Create an inventory item for the specified item
+ * @param {Struct.ElementsCreateAdvancedInventoryItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_advanced_inventory_item(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_application
+ * Gets the metadata for a single application.  This may include more specific details not available in the bulk-get or fetch operation.
+ * @param {Struct.ElementsCreateApplicationRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsApplication|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_application(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_custom_auth_scheme
+ * Creates a new Auth Scheme, from the data in the given auth scheme request
+ * @param {Struct.ElementsCreateAuthSchemeRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateAuthSchemeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_custom_auth_scheme(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_distinct_inventory_item
+ * Create an inventory item for the specified item
+ * @param {Struct.ElementsCreateDistinctInventoryItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDistinctInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_distinct_inventory_item(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_element_deployment
+ * @param {Struct.ElementsCreateElementDeploymentRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsElementDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_element_deployment(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_facebook_application_configuration
+ * Creates a new Facebook ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsFacebookApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFacebookApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_facebook_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_facebook_iap_receipt
+ * Attempts to create the Facebook IAP Receipt data.
+ * @param {Struct.ElementsFacebookIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFacebookIapReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_facebook_iap_receipt(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_fcm_registration
+ * Supplying FCM registration token, this will create a new token based on the information supplied to the endpoint.  The response will contain the token as it was written to the database.  Clients may subsequently update the token string with new values as they are issued by Firebase.
+ * @param {Struct.ElementsFCMRegistration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFCMRegistration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_fcm_registration(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_firebase_application_configuration
+ * Creates a new Firebase ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsFirebaseApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFirebaseApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_firebase_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_follower
+ * Supplying the follower object, this will store the information supplied in the body of the request.
+ * @param {String} _profile_id
+ * @param {Struct.ElementsCreateFollowerRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_follower(_profile_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_google_play_application_configuration
+ * Creates a new GooglePlay ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsGooglePlayApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsGooglePlayApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_google_play_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_ios_application_configuration
+ * Creates a new iOS ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsIosApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsIosApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_ios_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_item
+ * Supplying an item object, this will create a new item with a newly assigned unique id.  The Item representation returned in the response body is a representation of the Item as persisted with a unique identifier signed and with its fields properly normalized.  The supplied item object submitted with the request must have a name property that is unique across all items.
+ * @param {Struct.ElementsCreateItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_item(_body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_create_large_object
- * @param {Struct} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * Creates a LargeObject
+ * @param {Struct.ElementsCreateLargeObjectRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_create_large_object(_body = undefined, _callback = undefined)
@@ -1273,19 +386,16 @@ function elements_create_large_object(_body = undefined, _callback = undefined)
 }
 
 /**
- * @func_partial elements_create_large_object_1
- * @param {Struct.ElementsCreateLargeObjectRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_large_object_1(_body = undefined, _callback = undefined)
-{
-}
-
-/**
  * @func_partial elements_create_large_object_from_url
+ * Creates a LargeObject from provided URL
  * @param {Struct.ElementsCreateLargeObjectFromUrlRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_create_large_object_from_url(_body = undefined, _callback = undefined)
@@ -1293,66 +403,16 @@ function elements_create_large_object_from_url(_body = undefined, _callback = un
 }
 
 /**
- * @func_partial elements_get_large_object
- * @param {String} _large_object_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_large_object(_large_object_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_large_object
- * @param {String} _large_object_id
- * @param {Struct.ElementsUpdateLargeObjectRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_large_object(_large_object_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_large_object
- * @param {String} _large_object_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_large_object(_large_object_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_large_object_contents
- * @param {String} _large_object_id
- * @param {Struct} [_body] The body to be included in the http request.
- * @param {String} [_content_type] The type of the body (this will be used by the mapper to convert the body argument to the correct type).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_large_object_contents(_large_object_id, _body = undefined, _content_type = "*/*", _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_leaderboards
- * @desc Performs a full-text search of all leaderboards known to the server.  As with other full-text endpoints this allows for pagination and offset.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_leaderboards(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
  * @func_partial elements_create_leaderboard
- * @desc Gets the metadata for a single leaderboard.  This may include more specific details not available in the bulk-get or fetch operation.
- * @param {Struct.ElementsLeaderboard} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * Gets the metadata for a single leaderboard.  This may include more specific details not available in the bulk-get or fetch operation.
+ * @param {Struct.ElementsCreateLeaderboardRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLeaderboard|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_create_leaderboard(_body = undefined, _callback = undefined)
@@ -1360,111 +420,16 @@ function elements_create_leaderboard(_body = undefined, _callback = undefined)
 }
 
 /**
- * @func_partial elements_get_leaderboard
- * @desc Gets the metadata for a single leaderboard.  This may include more specific details not availble in the bulk-get or fetch operation.
- * @param {String} _name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_leaderboard(_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_leaderboard
- * @desc Performs an update to an existing leaderboard known to the server.
- * @param {String} _name_or_id
- * @param {Struct.ElementsLeaderboard} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_leaderboard(_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_leaderboard
- * @desc Deletes a specific leaderboard known to the server.
- * @param {String} _name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_leaderboard(_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_global_rank_tabular
- * @desc Gets the current Profile's rank among all players for the particular leaderboard.
- * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
- * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If not provided, the current epoch will be used by default for epochal leaderboards. This value will be ignored for all-time leaderboards. Set this value to 0 to explicitly reference the current epoch (when applicable).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_global_rank_tabular(_leaderboard_name_or_id, _leaderboard_epoch = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_rank_among_friends
- * @desc Gets the current Profile's rank among friends for the particular leaderboard.
- * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
- * @param {Real} [_offset] May be negative to place the requested player in the middle of the page.
- * @param {Real} [_count] The number of results to return in the page.
- * @param {Real} [_relative] Indicates whether or not to fetch results in a relative fashion.
- * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If no value is provided, the current epoch will befetched.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = undefined, _count = undefined, _relative = undefined, _leaderboard_epoch = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_rank_among_mutual_followers
- * @desc Gets the current Profile's rank among mutual followers for the particular leaderboard.
- * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
- * @param {Real} [_offset] May be negative to place the requested player in the middle of the page.
- * @param {Real} [_count] The number of results to return in the page.
- * @param {Real} [_relative] Indicates whether or not to fetch results in a relative fashion.
- * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If no value is provided, the current epoch will befetched.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offset = undefined, _count = undefined, _relative = undefined, _leaderboard_epoch = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_score
- * @desc Posts a single score for the currently logged-in profile. Conceptually, this is creationg a new resource, however the server may opt to overwrite the existing identifier if it sees fit.
- * @param {String} _leaderboard_name_or_id The name or id of the leaderboard.
- * @param {Struct.ElementsScore} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_score(_leaderboard_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_matches
- * @desc Lists all matches available.  Under most circumstances, this will requires that a profile be made available to the request.  The server may choose to return an error if no suitable profile can be determined.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_matches(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
  * @func_partial elements_create_match
- * @desc This method accepts an instance of Match, effectively requesting that the server find a suitable opponent for a game.  As other suitable players create matches the created match object may be updated as a suitable opponent is found.  The client must poll matches for updates and react accordingly.
- * @param {Struct.ElementsMatch} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * This method accepts an instance of MultiMatch and creates a new DB entry for it. Though it is generally recommended to create a new MultiMatch via matchmaking code in an Element, it can be created via REST for the purposes of testing or custom workflows.
+ * @param {Struct.ElementsMultiMatch} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMultiMatch|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_create_match(_body = undefined, _callback = undefined)
@@ -1472,107 +437,68 @@ function elements_create_match(_body = undefined, _callback = undefined)
 }
 
 /**
- * @func_partial elements_get_match
- * @desc Gets a specific match given the match's unique ID.  Additionally, it is possible to instruct the API to wait for a period of time before sending the response.  The request will intentionally hang until the requested Match with ID has been updated in the database.
- * @param {String} _match_id
- * @param {Real} [_social_engine_long_poll_timeout] The maximum amount time the server will wait until a request returns a default set of data for long polling.  Specifying a zero will request that the server wait indefinitely until responding.  Though, the server may enforce a practical upper limit on the amount of time it takes to return.  Omitting this header will prompt the server to treat the request as a normal request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_create_matchmaking_application_configuration
+ * Creates a new iOS ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsMatchmakingApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMatchmakingApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_match(_match_id, _social_engine_long_poll_timeout = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_match
- * @desc Deletes and permanently removes the Match fromt he server.  This effectively will cancel any pending request for a match.  If a game is currently being played agaist the match, the server may reject the request to delete the match until the game concludes.
- * @param {String} _match_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_match(_match_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_metadata_objects
- * @desc Searches all metadata in the system and returning all matches against the given search filter.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_metadata_objects(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
+function elements_create_matchmaking_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_create_metadata
- * @desc Creates a new Metadata object with the provided details.
+ * Creates a new Metadata object with the provided details.
  * @param {Struct.ElementsCreateMetadataRequest} [_body] The body to be included in the http request.
- * @param {String} [_content_type] The type of the body (this will be used by the mapper to convert the body argument to the correct type).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMetadata|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_create_metadata(_body = undefined, _content_type = "*/*", _callback = undefined)
+function elements_create_metadata(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_get_metadata_object
- * @desc Gets a specific metadata object by name or id.
- * @param {String} _id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_create_metadata_spec
+ * Creates a new Metadata Spec definition.
+ * @param {Struct.ElementsCreateMetadataSpecRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMetadataSpec|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_metadata_object(_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_metadata
- * @desc Updates a specific metadata object by name or id.
- * @param {String} _id
- * @param {Struct.ElementsUpdateMetadataRequest} [_body] The body to be included in the http request.
- * @param {String} [_content_type] The type of the body (this will be used by the mapper to convert the body argument to the correct type).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_metadata(_id, _body = undefined, _content_type = "*/*", _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_metadata
- * @desc Deletes a specific metadata object by name or id.
- * @param {String} _id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_metadata(_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_missions
- * @desc Searches all missions in the system and returning a number of matches against the given search filter, delimited by the offset and count.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_missions(_offset = undefined, _count = undefined, _tags = undefined, _search = undefined, _callback = undefined)
+function elements_create_metadata_spec(_body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_create_mission
- * @desc Supplying a mission object, this will create a new mission with a newly assigned unique id.  The Mission representation returned in the response body is a representation of the Mission as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied mission object submitted with the request must have a name property that is unique across all items.
- * @param {Struct.ElementsMission} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * Supplying a mission object, this will create a new mission with a newly assigned unique id.  The Mission representation returned in the response body is a representation of the Mission as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied mission object submitted with the request must have a name property that is unique across all items.
+ * @param {Struct.ElementsCreateMissionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMission|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_create_mission(_body = undefined, _callback = undefined)
@@ -1580,54 +506,238 @@ function elements_create_mission(_body = undefined, _callback = undefined)
 }
 
 /**
- * @func_partial elements_get_mission_by_name_or_id
- * @desc Looks up a mission by the passed in identifier
- * @param {String} _mission_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_create_mock_session
+ * Begins a session by accepting a mock session request.  The request must be made with an authenticated super-user.
+ * @param {Struct.ElementsMockSessionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMockSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_mission_by_name_or_id(_mission_name_or_id, _callback = undefined)
+function elements_create_mock_session(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_update_mission
- * @desc Supplying a mission, this will update the Mission identified by the name or ID in the path with contents from the passed in request body. 
- * @param {String} _mission_name_or_id
- * @param {Struct.ElementsMission} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_create_multipart_large_object
+ * Creates a LargeObject with content
+ * @param {Struct.ElementsCreateMultipartLargeObjectBody} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_update_mission(_mission_name_or_id, _body = undefined, _callback = undefined)
+function elements_create_multipart_large_object(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_delete_mission
- * @desc Deletes a mission by the passed in identifier
- * @param {String} _mission_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_create_new_deployment
+ * @param {String} _application_id
+ * @param {Struct.ElementsCreateDeploymentRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_delete_mission(_mission_name_or_id, _callback = undefined)
+function elements_create_new_deployment(_application_id, _body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_get_progress_tabular
- * @desc Gets the current Profile's rank among all players for the particular leaderboard.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_create_oauth2_auth_scheme
+ * Creates a new Auth Scheme, from the data in the given auth scheme request
+ * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_progress_tabular(_callback = undefined)
+function elements_create_oauth2_auth_scheme(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_oauth2_session
+ * Begins a session by accepting a session request with parameters matching the specified OAuth2 Scheme. Upon successful validation against the scheme provided in the path, this will return a Session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
+ * @param {Struct.ElementsOAuth2SessionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_oauth2_session(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_oculus_application_configuration
+ * Creates a new Oculus ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsOculusApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_oculus_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_oculus_iap_receipt
+ * Attempts to create the Oculus IAP Receipt data.
+ * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusIapReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_oculus_iap_receipt(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_oidc_auth_scheme
+ * Creates a new Auth Scheme, from the data in the given auth scheme request
+ * @param {Struct.ElementsCreateOrUpdateOidcAuthSchemeRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateOrUpdateOidcAuthSchemeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_oidc_auth_scheme(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_oidc_session
+ * Begins a session by accepting a JWT. Upon successful validation against the scheme provided in the path, this will return a Session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
+ * @param {Struct.ElementsOidcSessionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_oidc_session(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_oidc_session_1
+ * Supplying only 'provider' starts a pending browser-redirect login attempt and returns an id plus the authorize URL to open in the system browser. Additionally supplying 'idToken' instead validates it directly and returns a completed session synchronously, sharing validation code with the callback path.
+ * @param {Struct.ElementsOidcLoginAttemptRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_oidc_session_1(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_product_bundle
+ * Creates a new Product Bundle mapping an application + provider schema + productId to a set of rewards.
+ * @param {Struct.ElementsProductBundle} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_product_bundle(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_product_sku_schema
+ * Registers a payment-provider schema identifier. Returns an existing record if the schema value already exists.
+ * @param {Struct.ElementsProductSkuSchema} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_product_sku_schema(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_profile
+ * Supplying the create profile request, this will update the profile with the new information supplied in the body of the request. This will fire an event, dev.getelements.elements.service.profile.created, from the event manifest.
+ * @param {Struct.ElementsCreateProfileRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_profile(_body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_create_progress
- * @desc Supplying a progress object, this will create a new progress with a newly assigned unique id.  The Progress representation returned in the response body is a representation of the Progress as persisted with a unique identifier assigned and with its fields properly normalized.
- * @param {Struct.ElementsProgress} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * This will create a new progress with a compound id of the profile and mission.  The Progress representation returned in the response body is a representation of the Progress as persisted with a unique identifier assigned and with its fields properly normalized.
+ * @param {Struct.ElementsCreateProgressRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProgress|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_create_progress(_body = undefined, _callback = undefined)
@@ -1635,10 +745,773 @@ function elements_create_progress(_body = undefined, _callback = undefined)
 }
 
 /**
+ * @func_partial elements_create_provider_configuration
+ * Requires SUPERUSER access. Resolves the discovery document at the supplied discoveryUrl and auto-provisions the matching OIDC auth scheme by issuer, so a single request fully activates a new provider (e.g. Twitch) with no code changes.
+ * @param {Struct.ElementsCreateOrUpdateOidcProviderConfigurationRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateOrUpdateOidcProviderConfigurationResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_provider_configuration(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_psn_application_configuration
+ * Creates a new PSN ApplicationConfiguration with the specific ID or application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsPSNApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPSNApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_psn_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_receipt
+ * Creates a new Receipt record.
+ * @param {Struct.ElementsCreateReceiptRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_receipt(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_save_document
+ * Gets a single save data document.
+ * @param {Struct.ElementsCreateSaveDataDocumentRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSaveDataDocument|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_save_document(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_schedule
+ * Supplying a schedule object, this will create a new schedule with a newly assigned unique id.  The Schedule representation returned in the response body is a representation of the Schedule as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied schedule object submitted with the request must have a name property that is unique across all items.
+ * @param {Struct.ElementsCreateScheduleRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSchedule|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_schedule(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_schedule_event
+ * Supplying a schedule object, this will create a new schedule with a newly assigned unique id.  The ScheduleEvent representation returned in the response body is a representation of the ScheduleEvent as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied schedule object submitted with the request must have a name property that is unique across all items.
+ * @param {String} _schedule_name_or_id
+ * @param {Struct.ElementsCreateScheduleEventRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsScheduleEvent|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_schedule_event(_schedule_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_score
+ * Posts a single score for the currently logged-in profile. Conceptually, this is creationg a new resource, however the server may opt to overwrite the existing identifier if it sees fit.
+ * @param {String} _leaderboard_name_or_id The name or id of the leaderboard.
+ * @param {Struct.ElementsScore} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsScore|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_score(_leaderboard_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_simple_inventory_item
+ * Create an inventory item for the specified item
+ * @param {Struct.ElementsCreateSimpleInventoryItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_simple_inventory_item(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_smart_contract
+ * Patches a  Smart Contract entry, associated with the specified deployed script hash.
+ * @param {Struct.ElementsCreateSmartContractRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSmartContract|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_smart_contract(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_steam_application_configuration
+ * Creates a new Steam ApplicationConfiguration for the specified application.
+ * @param {String} _application_name_or_id
+ * @param {Struct.ElementsSteamApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSteamApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_steam_application_configuration(_application_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_user
+ * Supplying the user object, this will update the user with the new information supplied in the body of the request.  Optionally, the user's password may be provided in the User object.
+ * @param {Struct.ElementsUserCreateRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUserCreateResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_user(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_username_password_session
+ * Begins a session by accepting both the UserID and the Password.  Upon successful completion of this call, the user will be added to the current HTTP session.  If the session expires, the user will have to reestablish the session by supplying credentials again.  This is most useful for applications delivered in a web page.
+ * @param {Struct.ElementsUsernamePasswordSessionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_username_password_session(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_vault
+ * Creates a new  Vault, associated with the given user.
+ * @param {Struct.ElementsCreateVaultRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsVault|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_vault(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_create_wallet
+ * Creates a new  Wallet, associated with the given user.
+ * @param {String} _vault_id
+ * @param {Struct.ElementsCreateWalletRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsWallet|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_create_wallet(_vault_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_deactivate_profile
+ * Deletes and permanently removes the Profile from the server.  The server maykeep some record around to preserve relationships and references, but this profile will not be accessible again until it is recreated.
+ * @param {String} _profile_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_deactivate_profile(_profile_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_deactivate_user
+ * Deletes and permanently removes the user from the server.  The server may keep some metadata as necessary to avoid data inconsistency.  However, the user has been deleted from the client standpoint and will not be accessible through any of the existing APIs.
+ * @param {String} _name
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_deactivate_user(_name, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_advanced_inventory_item
+ * Delete the inventory item as identified by the given item name/id
+ * @param {String} _inventory_item_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_advanced_inventory_item(_inventory_item_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_all_matches
+ * Deletes and permanently removes all MultiMatches from he server.  This effectively will cancel any pending request for a match.  If a game is currently being played against the match, the server may reject the request to delete the match until the game concludes.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_all_matches(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_application
+ * Deletes a specific application known to the server.
+ * @param {String} _name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_application(_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_contract
+ * Deletes a  Smart Contract with the specified contractId.
+ * @param {String} _contract_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_contract(_contract_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_custom_auth_scheme
+ * Deletes an Auth Scheme with the specified id.
+ * @param {String} _auth_scheme_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_custom_auth_scheme(_auth_scheme_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_deployment
+ * @param {String} _application_id
+ * @param {String} _deployment_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_deployment(_application_id, _deployment_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_distinct_inventory_item
+ * Delete the inventory item as identified by the given item name/id
+ * @param {String} _distinct_inventory_item_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_distinct_inventory_item(_distinct_inventory_item_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_element_deployment
+ * @param {String} _deployment_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_element_deployment(_deployment_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_facebook_application_configuration
+ * Deletes an existing Facebook Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_fcm_registration
+ * @param {String} _fcm_registration_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_fcm_registration(_fcm_registration_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_firebase_application_configuration
+ * Deletes an existing Firebase Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_follower
+ * Deletes a Follower relationship
+ * @param {String} _profile_id
+ * @param {String} _profile_to_unfollow_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_follower(_profile_id, _profile_to_unfollow_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_friend_registration
+ * Once a friend is deleted, re-creating a friend will set the friendship status to outgoing.
+ * @param {String} _friend_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_friend_registration(_friend_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_google_play_application_configuration
+ * Deletes an existing Google Play Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_ios_application_configuration
+ * Deletes an existing iOS Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_item
+ * Delete the item as identified by the given item name/id
+ * @param {String} _identifier
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_item(_identifier, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_large_object
+ * Deletes a LargeObject
+ * @param {String} _large_object_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_large_object(_large_object_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_leaderboard
+ * Deletes a specific leaderboard known to the server.
+ * @param {String} _name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_leaderboard(_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_match
+ * Deletes and permanently removes the MultiMatch from he server.  This effectively will cancel any pending request for a match.  If a game is currently being played against the match, the server may reject the request to delete the match until the game concludes.
+ * @param {String} _match_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_match(_match_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_matchmaking_application_configuration
+ * Deletes an existing iOS Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_metadata
+ * Deletes a specific metadata object by name or id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_metadata(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_metadata_spec
+ * Deletes a MetadataSpec with the specified id.
+ * @param {String} _metadata_spec_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_metadata_spec(_metadata_spec_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_mission
+ * Deletes a mission by the passed in identifier
+ * @param {String} _mission_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_mission(_mission_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_oauth2_auth_scheme
+ * Deletes an Auth Scheme with the specified id.
+ * @param {String} _oauth2_auth_scheme_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_oauth2_auth_scheme(_oauth2_auth_scheme_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_oculus_application_configuration
+ * Deletes an existing Oculus Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_oculus_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_oidc_auth_scheme
+ * Deletes an Auth Scheme with the specified id.
+ * @param {String} _oidc_auth_scheme_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_oidc_auth_scheme(_oidc_auth_scheme_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_product_bundle
+ * Permanently removes the Product Bundle identified by the given database id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_product_bundle(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_product_sku_schema
+ * Permanently removes the schema identifier with the given database id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_product_sku_schema(_id, _callback = undefined)
+{
+}
+
+/**
  * @func_partial elements_delete_progress
- * @desc Deletes a progress by the passed in identifier
+ * Deletes a progress by the passed in identifier
  * @param {String} _progress_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_delete_progress(_progress_id, _callback = undefined)
@@ -1646,10 +1519,1457 @@ function elements_delete_progress(_progress_id, _callback = undefined)
 }
 
 /**
+ * @func_partial elements_delete_provider_configuration
+ * Deletes an OIDC provider configuration
+ * @param {String} _provider_configuration_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_provider_configuration(_provider_configuration_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_psn_application_configuration
+ * Deletes an existing PSN Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_receipt
+ * Deletes and permanently removes the Receipt from the server.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_receipt(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_save_document
+ * Deletes a save data document
+ * @param {String} _save_data_document_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_save_document(_save_data_document_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_schedule
+ * Deletes a schedule by the passed in identifier
+ * @param {String} _schedule_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_schedule(_schedule_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_schedule_event
+ * Deletes a schedule by the passed in identifier
+ * @param {String} _schedule_name_or_id
+ * @param {String} _schedule_event_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_simple_inventory_item
+ * Delete the inventory item as identified by the given item name/id
+ * @param {String} _inventory_item_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_simple_inventory_item(_inventory_item_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_steam_application_configuration
+ * Deletes an existing Steam application configuration if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_steam_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_vault
+ * Deletes a  Vault with the specified id.
+ * @param {String} _vault_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_vault(_vault_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_delete_wallet
+ * Deletes a  Wallet with the specified id.
+ * @param {String} _vault_id
+ * @param {String} _wallet_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_delete_wallet(_vault_id, _wallet_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_generate_code
+ * Generates API code for use on the client. Will generate Elements core if no application is specified in the request body.The generated code will always be returned in JSON format. To get a YAML representation, use the Oas3DocumentationResource directly, such as /api/rest/openapi.yaml
+ * @param {Struct.ElementsCodegenRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_generate_code(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_advanced_inventory_item
+ * Gets the first (primary) inventory item for the specified item
+ * @param {String} _inventory_item_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_advanced_inventory_item(_inventory_item_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_advanced_inventory_items
+ * Searches all inventory items in the system and returns the metadata for all matches against the given search filter.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_user_id]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_advanced_inventory_items(_offset = 0, _count = 20, _user_id = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_all_builtin_spis
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementSpi]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_all_builtin_spis(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_all_containers
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementContainerStatus]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_all_containers(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_all_features
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementFeature]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_all_features(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_all_runtimes
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementRuntimeStatus]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_all_runtimes(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_all_system_elements
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementMetadata]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_all_system_elements(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_application
+ * Gets the metadata for a single application.  This may include more specific details not available in the bulk-get or fetch operation.
+ * @param {String} _name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsApplication|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_application(_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_application_profiles
+ * Searches all instances of ApplicationProfiles associated with  the application.  The search query may be a full text search.
+ * @param {String} _application_name_or_id
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_application_profiles(_application_name_or_id, _offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_applications
+ * Performs a full-text search of all applications known to the server.  As with other full-text endpoints this allows for pagination and offset.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationApplication|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_applications(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_current_deployment
+ * @param {String} _application_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_current_deployment(_application_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_current_profile
+ * This is a special endpoing which fetches the current Profile based on current auth credentials.  This considers the currently loggged-in Dser as well as the Application or Application Configuration against which the User is operating.  This may not be availble, in which case the appopraite error is rasied.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_current_profile(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_current_user
+ * A special endpoint used to get the current user for the request.  The current user is typically associated with the session but may be derived any other way.  This is essentially an alias for using GET /user/myUserId
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUser|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_current_user(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_custom_auth_scheme
+ * Gets a specific Auth Scheme by the authSchemeId.
+ * @param {String} _auth_scheme_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsAuthScheme|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_custom_auth_scheme(_auth_scheme_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_custom_auth_schemes
+ * Requires SUPERUSER access. Gets a pagination of Auth Schemes for the given query.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationAuthScheme|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_custom_auth_schemes(_offset = 0, _count = 20, _tags = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_deployment
+ * @param {String} _application_id
+ * @param {String} _deployment_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_deployment(_application_id, _deployment_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_deployments
+ * @param {String} _application_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_deployments(_application_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_distinct_inventory_item
+ * Gets the first (primary) inventory item for the specified item
+ * @param {String} _inventory_item_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDistinctInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_distinct_inventory_item(_inventory_item_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_distinct_inventory_items
+ * Searches all inventory items in the system and returns the metadata for all matches against the given search filter.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_user_id]
+ * @param {String} [_profile_id]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationDistinctInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_distinct_inventory_items(_offset = 0, _count = 20, _user_id = undefined, _profile_id = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_editor_schema
+ * Gets a specific Metadata Editor Schema backed by the supplied MetadataSpec by name.
+ * @param {String} _metadata_spec_name
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsEditorSchema|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_editor_schema(_metadata_spec_name, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_element_deployment
+ * @param {String} _deployment_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsElementDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_element_deployment(_deployment_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_element_deployments
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationElementDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_element_deployments(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_element_path_record_for_artifact
+ * Inspects the artifact with the supplied coordinates.
+ * @param {String} _coordinates
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementPathRecordMetadata]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_element_path_record_for_artifact(_coordinates, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_element_path_record_for_large_object_id
+ * Inspects the artifact with the supplied large object id.
+ * @param {String} _large_object_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementPathRecordMetadata]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_element_path_record_for_large_object_id(_large_object_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_facebook_application_configuration
+ * Gets a single Facebook application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFacebookApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_facebook_iap_receipt
+ * Fetches the facebook iap receipt with the matching database id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFacebookIapReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_facebook_iap_receipt(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_facebook_iap_receipts
+ * Fetches the facebook iap receipt with the matching database id.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationFacebookIapReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_facebook_iap_receipts(_offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_firebase_application_configuration
+ * Gets a single Firebase application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFirebaseApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_followees
+ * Searches for all profiles that are being followed by the given profile id.
+ * @param {String} _profile_id
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_followees(_profile_id, _offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_follower
+ * Gets a specific profile using the ID of the profile and followed id.
+ * @param {String} _profile_id
+ * @param {String} _followed_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_follower(_profile_id, _followed_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_followers
+ * Searches all followers in the system and returning the metadata for all matches against the given profile id.
+ * @param {String} _profile_id
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_followers(_profile_id, _offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_friend
+ * Gets a specific friend using the ID of the friend.
+ * @param {String} _friend_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFriend|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_friend(_friend_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_friends
+ * Searches all friends in the system and returning the metadata for all matches against the given search filter.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationFriend|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_friends(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_global_rank_tabular
+ * Gets the current Profile's rank among all players for the particular leaderboard.
+ * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
+ * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If not provided, the current epoch will be used by default for epochal leaderboards. This value will be ignored for all-time leaderboards. Set this value to 0 to explicitly reference the current epoch (when applicable).
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_global_rank_tabular(_leaderboard_name_or_id, _leaderboard_epoch = 0, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_google_play_application_configuration
+ * Gets a single Google Play application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsGooglePlayApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_ios_application_configuration
+ * Gets a single iOS application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsIosApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_item_by_identifier
+ * Looks up an item by the passed in identifier
+ * @param {String} _identifier
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_item_by_identifier(_identifier, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_items
+ * Searches all items and returns all matching items, filtered by the passed in search parameters.  If multiple tags are specified, then all items that contain at least one of the passed in tags is returned.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {String} [_category]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_items(_offset = 0, _count = 20, _tags = undefined, _category = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_json_schema
+ * Gets a specific JSON Schema backed by the supplied MetadataSpec by name.
+ * @param {String} _metadata_spec_name
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsJsonSchema|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_json_schema(_metadata_spec_name, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_large_object
+ * Get a LargeObject
+ * @param {String} _large_object_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_large_object(_large_object_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_large_objects
+ * Get a LargeObject
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_large_objects(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_leaderboard
+ * Gets the metadata for a single leaderboard.  This may include more specific details not availble in the bulk-get or fetch operation.
+ * @param {String} _name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLeaderboard|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_leaderboard(_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_leaderboards
+ * Performs a full-text search of all leaderboards known to the server.  As with other full-text endpoints this allows for pagination and offset.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationLeaderboard|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_leaderboards(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_ledger_entries
+ * Returns paginated ledger entries for a specific inventory item or user, sorted most-recent first. Exactly one of inventoryItemId or userId must be supplied. All other parameters are optional filters.
+ * @param {String} [_inventory_item_id] Filter entries for a specific inventory item ID.
+ * @param {String} [_user_id] Filter entries for a specific user ID (across all their inventory items).
+ * @param {String} [_event_type] Optional event type filter. When omitted, all event types are returned.
+ * @param {Real} [_from] Optional inclusive lower bound as epoch milliseconds. When omitted, no lower bound is applied.
+ * @param {Real} [_to] Optional inclusive upper bound as epoch milliseconds. When omitted, no upper bound is applied.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationItemLedgerEntry|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_ledger_entries(_inventory_item_id = undefined, _user_id = undefined, _event_type = undefined, _from = undefined, _to = undefined, _offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_match
+ * Gets a specific match given the match's unique ID.  Additionally, it is possible to instruct the API to wait for a period of time before sending the response.  The request will intentionally hang until the requested MultiMatch with ID has been updated in the database.
+ * @param {String} _match_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMultiMatch|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_match(_match_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_matched_user_profiles_with_phone_numbers
+ * Both phones from request and from DB are normalized and compared.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Struct.ElementsInviteViaPhonesRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInviteViaPhonesResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_matched_user_profiles_with_phone_numbers(_offset = 0, _count = 20, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_matches
+ * Lists all matches available.  Under most circumstances, this will requires that a profile be made available to the request.  The server may choose to return an error if no suitable profile can be determined.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationMultiMatch|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_matches(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_matchmaking_application_configuration
+ * Gets a single iOS application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMatchmakingApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_metadata_object
+ * Gets a specific metadata object by name or id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMetadata|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_metadata_object(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_metadata_objects
+ * Searches all metadata in the system and returning all matches against the given search filter.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationMetadata|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_metadata_objects(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_metadata_spec
+ * Gets a specific MetadataSpec by name or Id.
+ * @param {String} _metadata_spec_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMetadataSpec|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_metadata_spec(_metadata_spec_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_metadata_specs
+ * Gets a pagination of Metadata Specs for the given query.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationMetadataSpec|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_metadata_specs(_offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_mission_by_name_or_id
+ * Looks up a mission by the passed in identifier
+ * @param {String} _mission_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMission|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_mission_by_name_or_id(_mission_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_missions
+ * Searches all missions in the system and returning a number of matches against the given search filter, delimited by the offset and count.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationMission|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_missions(_offset = 0, _count = 20, _tags = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oauth2_auth_scheme
+ * Gets a specific Auth Scheme by the oAuth2AuthSchemeId.
+ * @param {String} _oauth2_auth_scheme_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOAuth2AuthScheme|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oauth2_auth_scheme(_oauth2_auth_scheme_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oauth2_auth_schemes
+ * Requires SUPERUSER access. Gets a pagination of Auth Schemes for the given query.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationOAuth2AuthScheme|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oauth2_auth_schemes(_offset = 0, _count = 20, _tags = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oculus_application_configuration
+ * Gets a single Oculus application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oculus_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oculus_iap_receipt
+ * Fetches the oculus iap receipt with the matching database id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusIapReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oculus_iap_receipt(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oculus_iap_receipts
+ * Fetches the oculus iap receipt with the matching database id.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationOculusIapReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oculus_iap_receipts(_offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oidc_auth_scheme
+ * Gets a specific Auth Scheme by the oidcAuthSchemeId.
+ * @param {String} _oidc_auth_scheme_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOidcAuthScheme|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oidc_auth_scheme(_oidc_auth_scheme_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_oidc_auth_schemes
+ * Requires SUPERUSER access. Gets a pagination of Auth Schemes for the given query.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationOidcAuthScheme|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_oidc_auth_schemes(_offset = 0, _count = 20, _tags = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_plans
+ * Gets all index plans.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationIndexPlanObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_plans(_offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_product_bundle
+ * Returns the Product Bundle identified by the given database id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProductBundle|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_product_bundle(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_product_bundle_by_key
+ * Returns the Product Bundle matching the given application, provider schema and product id.
+ * @param {String} _application_name_or_id
+ * @param {String} _schema
+ * @param {String} _product_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProductBundle|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_product_bundle_by_key(_application_name_or_id, _schema, _product_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_product_bundles
+ * Returns all Product Bundles, optionally filtered by application and/or schema.
+ * @param {String} [_application_name_or_id]
+ * @param {String} [_schema]
+ * @param {String} [_product_id]
+ * @param {Array[String]} [_tag]
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationProductBundle|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_product_bundles(_application_name_or_id = undefined, _schema = undefined, _product_id = undefined, _tag = undefined, _offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_product_sku_schema
+ * Returns the schema identifier with the given database id.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProductSkuSchema|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_product_sku_schema(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_product_sku_schemas
+ * Returns all registered payment-provider schema identifiers.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationProductSkuSchema|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_product_sku_schemas(_offset = 0, _count = 20, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_profile
+ * Gets a specific profile by profile ID.
+ * @param {String} _name
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_profile(_name, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_profile_save_data_document_by_slot
+ * Gets a single save data document based on Profile ID and slot. This is a convenience method whichallows the client to fetch a save data based on slot an profile id.
+ * @param {String} _profile_id
+ * @param {Real} _slot
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSaveDataDocument|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_profile_save_data_document_by_slot(_profile_id, _slot, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_profiles
+ * Searches all users in the system and returning the metadata for all matches against the given search filter. Optionally provide `before` and `after` params to specify a time range [`after`, `before`] for last-logged-in profiles matching in that range (inclusive). If `before` is not specified (or a negative number is provided) but `after` is valid, the query will return all records successive to the given `after` timestamp. Similarly, if `after` is not specified (or a negative number is provided) but `before` is valid, the query will return all records preceding the given `before` timestamp. Note that search and time range parameters currently cannot be combined in the same query.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Real} [_before]
+ * @param {Real} [_after]
+ * @param {String} [_application]
+ * @param {String} [_user]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_profiles(_offset = 0, _count = 20, _before = undefined, _after = undefined, _application = undefined, _user = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
  * @func_partial elements_get_progress_by_name_or_id
- * @desc Looks up a progress by the passed in identifier
+ * Looks up a progress by the passed in identifier
  * @param {String} _progress_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProgress|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_get_progress_by_name_or_id(_progress_id, _callback = undefined)
@@ -1657,21 +2977,165 @@ function elements_get_progress_by_name_or_id(_progress_id, _callback = undefined
 }
 
 /**
- * @func_partial elements_update_progress
- * @desc Supplying a progress, this will update the Progress identified by the ID in the path with contents from the passed in request body. 
- * @param {String} _progress_id
- * @param {Struct.ElementsProgress} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_get_progress_tabular
+ * Gets the current Profile's rank among all players for the particular leaderboard.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_update_progress(_progress_id, _body = undefined, _callback = undefined)
+function elements_get_progress_tabular(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_provider_configuration
+ * Gets a specific OIDC provider configuration
+ * @param {String} _provider_configuration_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOidcProviderConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_provider_configuration(_provider_configuration_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_provider_configurations
+ * Requires SUPERUSER access. Gets a pagination of OIDC provider configurations.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationOidcProviderConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_provider_configurations(_offset = 0, _count = 20, _tags = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_psn_application_configuration
+ * Gets a single PSN application based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPSNApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_rank_among_friends
+ * Gets the current Profile's rank among friends for the particular leaderboard.
+ * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
+ * @param {Real} [_offset] May be negative to place the requested player in the middle of the page.
+ * @param {Real} [_count] The number of results to return in the page.
+ * @param {Bool} [_relative] Indicates whether or not to fetch results in a relative fashion.
+ * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If no value is provided, the current epoch will befetched.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationRank|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = 0, _count = 20, _relative = false, _leaderboard_epoch = 0, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_rank_among_mutual_followers
+ * Gets the current Profile's rank among mutual followers for the particular leaderboard.
+ * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
+ * @param {Real} [_offset] May be negative to place the requested player in the middle of the page.
+ * @param {Real} [_count] The number of results to return in the page.
+ * @param {Bool} [_relative] Indicates whether or not to fetch results in a relative fashion.
+ * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If no value is provided, the current epoch will befetched.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationRank|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offset = 0, _count = 20, _relative = false, _leaderboard_epoch = 0, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_receipt
+ * Gets a Receipt using the database id provided in the URL path.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_receipt(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_receipts
+ * Retrieves a pagination of Receipt objects for the given user (SUPERUSER level), or the current user (USER level).Can search by originalTransactionId or scheme.
+ * @param {String} [_user_id]
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationReceipt|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_receipts(_user_id = undefined, _offset = 0, _count = 20, _search = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_get_reward_issuance
+ * Retrieves a single RewardIssuance by id.
  * @param {String} _reward_issuance_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsRewardIssuance|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined)
@@ -1680,21 +3144,576 @@ function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined
 
 /**
  * @func_partial elements_get_reward_issuances
+ * Retrieves the current user's reward issuances, optionally filtered by the given state.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Array[String]} [_states] ( one of: ISSUED | REDEEMED).
+ * @param {Array[String]} [_states]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationRewardIssuance|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_reward_issuances(_offset = undefined, _count = undefined, _states = undefined, _tags = undefined, _callback = undefined)
+function elements_get_reward_issuances(_offset = 0, _count = 20, _states = undefined, _tags = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_reward_issuances_for_oculus_iap_receipt
+ * Attempts to verify the Oculus IAP Receipt data.Returns a list of RewardIssuances, some or all of which may be already redeemed.
+ * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_reward_issuances_for_oculus_iap_receipt(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_save_data_document
+ * Gets a single save data document
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSaveDataDocument|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_save_data_document(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_save_data_documents
+ * Gets all save data documents available to the user.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_user_id]
+ * @param {String} [_profile_id]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationSaveDataDocument|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_save_data_documents(_offset = 0, _count = 20, _user_id = undefined, _profile_id = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_schedule_by_name_or_id
+ * Looks up a schedule by the passed in identifier
+ * @param {String} _schedule_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSchedule|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_schedule_by_name_or_id(_schedule_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_schedule_event_by_name_or_id
+ * Looks up a schedule by the passed in identifier
+ * @param {String} _schedule_name_or_id
+ * @param {String} _schedule_event_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsScheduleEvent|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_schedule_event_by_name_or_id(_schedule_name_or_id, _schedule_event_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_schedule_events
+ * Searches all schedules in the system and returning a number of matches against the given search filter, delimited by the offset and count.
+ * @param {String} _schedule_name_or_id
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationScheduleEvent|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_schedule_events(_schedule_name_or_id, _offset = 0, _count = 20, _tags = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_schedule_progresses
+ * Fetches all current assignments to the currently logged-in profile.
+ * @param {String} _schedule_name_or_id
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationProgress|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_schedule_progresses(_schedule_name_or_id, _offset = 0, _count = 20, _tags = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_schedules
+ * Searches all schedules in the system and returning a number of matches against the given search filter, delimited by the offset and count.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {Array[String]} [_tags]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationSchedule|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_schedules(_offset = 0, _count = 20, _tags = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_server_health
+ * Performs the health check for the server. What this actually does is deployment and implementation specific. However, any successful response code should indicate that the service is capable of servicing requests. Any unsuccessful error codes should indicate that the instance has internal issues and should be taken offline.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsHealthStatus|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_server_health(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_simple_inventory_item
+ * Gets the first (primary) inventory item for the specified item
+ * @param {String} _inventory_item_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_simple_inventory_item(_inventory_item_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_simple_inventory_items
+ * Searches all inventory items in the system and returns the metadata for all matches against the given search filter.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_user_id]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_simple_inventory_items(_offset = 0, _count = 20, _user_id = undefined, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_smart_contract
+ * Gets a specific  Smart Contract by contractId.
+ * @param {String} _contract_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSmartContract|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_smart_contract(_contract_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_smart_contracts
+ * Gets a pagination of  SmartContracts.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_api]
+ * @param {Array[String]} [_network]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationSmartContract|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_smart_contracts(_offset = 0, _count = 20, _api = undefined, _network = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_steam_application_configuration
+ * Gets a single Steam application configuration based on unique name or ID.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSteamApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_steam_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_user
+ * Gets a specific user by name, email, or unique user ID.
+ * @param {String} _name
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUser|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_user(_name, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_user_save_data_document_by_slot
+ * Gets a single save data document based on UserID and slot. This is a convenience method whichallows the client to fetch a save data based on slot an user id.
+ * @param {String} _user_id
+ * @param {Real} _slot
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSaveDataDocument|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_user_save_data_document_by_slot(_user_id, _slot, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_users
+ * Searches all users in the system and returning the metadata for all matches against the given search filter.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_search]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationUser|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_users(_offset = 0, _count = 20, _search = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_vault
+ * Gets a specific  Vault by Id.
+ * @param {String} _vault_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsVault|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_vault(_vault_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_vaults
+ * Gets a pagination of  Wallets. Optionally a user Id can be specified to filter for a given user.
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_user_id]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationVault|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_vaults(_offset = 0, _count = 20, _user_id = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_version
+ * Returns information about the current server version.  This should always return theversion metadata.  This information is only known in packaged releases.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsVersion|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_version(_callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_wallet
+ * Gets a specific  Wallet by Id.
+ * @param {String} _wallet_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsWallet|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_wallet(_wallet_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_wallet_for_vault
+ * Gets a specific  Wallet by Id.
+ * @param {String} _vault_id
+ * @param {String} _wallet_id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsWallet|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_wallet_for_vault(_vault_id, _wallet_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_get_wallets
+ * Gets a pagination of  Wallets. Optionally a user Id can be specified to filter for a given user.
+ * @param {String} _vault_id
+ * @param {Real} [_offset]
+ * @param {Real} [_count]
+ * @param {String} [_user_id]
+ * @param {String} [_api]
+ * @param {Array[String]} [_network]
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPaginationWallet|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_get_wallets(_vault_id, _offset = 0, _count = 20, _user_id = undefined, _api = undefined, _network = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_inspect_uploaded_elm
+ * Inspects an ELM file uploaded via multipart form.
+ * @param {Struct.ElementsInspectUploadedElmBody} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsElementPathRecordMetadata]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_inspect_uploaded_elm(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_link_email_password
+ * Links email+password credentials to the currently authenticated user. The email must first be verified via POST /user/me/email/verify.
+ * @param {Struct.ElementsLinkEmailPasswordRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUser|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_link_email_password(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_link_oauth2
+ * Links an external OAuth2 identity to the currently authenticated user. Requires an active user session. Returns the updated session information.
+ * @param {Struct.ElementsOAuth2SessionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_link_oauth2(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_link_oidc
+ * Links an external OIDC identity to the currently authenticated user. Requires an active user session. Returns the updated session information.
+ * @param {Struct.ElementsOidcSessionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_link_oidc(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_link_username_password
+ * Links username+password credentials to the currently authenticated user. If the account has no username yet, the supplied username is claimed. If a username is already set it must match; name changes must be done explicitly.
+ * @param {Struct.ElementsLinkUsernamePasswordRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUser|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_link_username_password(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_poll_oidc_session
+ * Returns COMPLETE with the session exactly once, on the poll that first observes completion; a subsequent poll for the same id, or a poll for an unknown/expired id, returns 404.
+ * @param {String} _id
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOidcLoginAttemptStatusResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_poll_oidc_session(_id, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_redeem_facebook_iap_purchase
+ * Attempts to verify the Facebook IAP Receipt data.Returns a list of RewardIssuances, some or all of which may be already redeemed.
+ * @param {Struct.ElementsFacebookIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_redeem_facebook_iap_purchase(_body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_redeem_reward_issuance
+ * Redeems the RewardIssuance.
  * @param {String} _reward_issuance_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsRewardIssuanceRedemptionResult|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_redeem_reward_issuance(_reward_issuance_id, _callback = undefined)
@@ -1703,487 +3722,66 @@ function elements_redeem_reward_issuance(_reward_issuance_id, _callback = undefi
 
 /**
  * @func_partial elements_redeem_reward_issuances
+ * Redeems the given list of RewardIssuances.
  * @param {Array[String]} [_body] The body to be included in the http request.
- * @param {String} [_content_type] The type of the body (this will be used by the mapper to convert the body argument to the correct type).
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsRewardIssuanceRedemptionResult]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_redeem_reward_issuances(_body = undefined, _content_type = "*/*", _callback = undefined)
+function elements_redeem_reward_issuances(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_get_schedule_events
- * @desc Searches all schedules in the system and returning a number of matches against the given search filter, delimited by the offset and count.
- * @param {String} _schedule_name_or_id
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_request_reset
+ * Sends a password reset link to the given email address if an account exists. Always returns 200 to prevent user enumeration.
+ * @param {Struct.ElementsPasswordResetRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_schedule_events(_schedule_name_or_id, _offset = undefined, _count = undefined, _tags = undefined, _search = undefined, _callback = undefined)
+function elements_request_reset(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_create_schedule_event
- * @desc Supplying a schedule object, this will create a new schedule with a newly assigned unique id.  The ScheduleEvent representation returned in the response body is a representation of the ScheduleEvent as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied schedule object submitted with the request must have a name property that is unique across all items.
- * @param {String} _schedule_name_or_id
- * @param {Struct.ElementsCreateScheduleEventRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_request_verification
+ * Sends a verification link to the given email address associated with the current user.
+ * @param {Struct.ElementsEmailVerificationRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUserUid|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_create_schedule_event(_schedule_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_schedule_event_by_name_or_id
- * @desc Looks up a schedule by the passed in identifier
- * @param {String} _schedule_name_or_id
- * @param {String} _schedule_event_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_schedule_event_by_name_or_id(_schedule_name_or_id, _schedule_event_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_schedule_event
- * @desc Supplying a schedule, this will update the ScheduleEvent identified by the name or ID in the path with contents from the passed in request body. 
- * @param {String} _schedule_name_or_id
- * @param {String} _schedule_event_id
- * @param {Struct.ElementsUpdateScheduleEventRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_schedule_event
- * @desc Deletes a schedule by the passed in identifier
- * @param {String} _schedule_name_or_id
- * @param {String} _schedule_event_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_schedule_progresses
- * @desc Fetches all current assignments to the currently logged-in profile.
- * @param {String} _schedule_name_or_id
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_schedule_progresses(_schedule_name_or_id, _offset = undefined, _count = undefined, _tags = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_schedules
- * @desc Searches all schedules in the system and returning a number of matches against the given search filter, delimited by the offset and count.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Array[String]} [_tags]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_schedules(_offset = undefined, _count = undefined, _tags = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_schedule
- * @desc Supplying a schedule object, this will create a new schedule with a newly assigned unique id.  The Schedule representation returned in the response body is a representation of the Schedule as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied schedule object submitted with the request must have a name property that is unique across all items.
- * @param {Struct.ElementsCreateScheduleRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_schedule(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_schedule_by_name_or_id
- * @desc Looks up a schedule by the passed in identifier
- * @param {String} _schedule_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_schedule_by_name_or_id(_schedule_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_schedule
- * @desc Supplying a schedule, this will update the Schedule identified by the name or ID in the path with contents from the passed in request body. 
- * @param {String} _schedule_name_or_id
- * @param {Struct.ElementsUpdateScheduleRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_schedule(_schedule_name_or_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_schedule
- * @desc Deletes a schedule by the passed in identifier
- * @param {String} _schedule_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_schedule(_schedule_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_fcm_registration
- * @desc Supplying FCM registration token, this will create a new token based on the information supplied to the endpoint.  The response will contain the token as it was written to the database.  Clients may subsequently update the token string with new values as they are issued by Firebase.
- * @param {Struct.ElementsFCMRegistration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_fcm_registration(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_registration
- * @desc Supplying FCM registration token, this will update the token string with the supplied values.  Clients may update the same registration with a different token issued with Firebase if they wish to simply retain the association with the 
- * @param {String} _fcm_registration_id
- * @param {Struct.ElementsFCMRegistration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_registration(_fcm_registration_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_fcm_registration
- * @param {String} _fcm_registration_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_fcm_registration(_fcm_registration_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_profiles
- * @desc Searches all users in the system and returning the metadata for all matches against the given search filter. Optionally provide `before` and `after` params to specify a time range [`after`, `before`] for last-logged-in profiles matching in that range (inclusive). If `before` is not specified (or a negative number is provided) but `after` is valid, the query will return all records successive to the given `after` timestamp. Similarly, if `after` is not specified (or a negative number is provided) but `before` is valid, the query will return all records preceding the given `before` timestamp. Note that search and time range parameters currently cannot be combined in the same query.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Real} [_before]
- * @param {Real} [_after]
- * @param {String} [_application]
- * @param {String} [_user]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_profiles(_offset = undefined, _count = undefined, _before = undefined, _after = undefined, _application = undefined, _user = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_profile
- * @desc Supplying the create profile request, this will update the profile with the new information supplied in the body of the request. This will fire an event, dev.getelements.elements.service.profile.created, from the event manifest.
- * @param {Struct.ElementsCreateProfileRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_profile(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_profile
- * @desc Supplying an update request will attempt to update the profile.  The call will return the profile as it was written to the database.
- * @param {String} _profile_id
- * @param {Struct.ElementsUpdateProfileRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_profile(_profile_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_deactivate_profile
- * @desc Deletes and permanently removes the Profile from the server.  The server maykeep some record around to preserve relationships and references, but this profile will not be accessible again until it is recreated.
- * @param {String} _profile_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_deactivate_profile(_profile_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_current_profile
- * @desc This is a special endpoing which fetches the current Profile based on current auth credentials.  This considers the currently loggged-in Dser as well as the Application or Application Configuration against which the User is operating.  This may not be availble, in which case the appopraite error is rasied.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_current_profile(_callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_profile
- * @desc Gets a specific profile by profile ID.
- * @param {String} _name
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_profile(_name, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_profile_image
- * @param {String} _profile_id
- * @param {Struct.ElementsUpdateProfileImageRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_profile_image(_profile_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_save_data_documents
- * @desc Gets all save data documents available to the user.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_user_id]
- * @param {String} [_profile_id]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_save_data_documents(_offset = undefined, _count = undefined, _user_id = undefined, _profile_id = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_save_document
- * @desc Gets a single save data document.
- * @param {Struct.ElementsCreateSaveDataDocumentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_save_document(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_save_document
- * @desc Gets a single save data document.
- * @param {String} _save_data_document_id
- * @param {Struct.ElementsUpdateSaveDataDocumentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_save_document(_save_data_document_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_save_document
- * @param {String} _save_data_document_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_save_document(_save_data_document_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_profile_save_data_document_by_slot
- * @desc Gets a single save data document based on Profile ID and slot. This is a convenience method whichallows the client to fetch a save data based on slot an profile id.
- * @param {String} _profile_id
- * @param {Real} _slot
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_profile_save_data_document_by_slot(_profile_id, _slot, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_save_data_document
- * @desc Gets a single save data document
- * @param {String} _id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_save_data_document(_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_user_save_data_document_by_slot
- * @desc Gets a single save data document based on UserID and slot. This is a convenience method whichallows the client to fetch a save data based on slot an user id.
- * @param {String} _user_id
- * @param {Real} _slot
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_user_save_data_document_by_slot(_user_id, _slot, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_metadata_specs
- * @desc Gets a pagination of Metadata Specs for the given query.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_metadata_specs(_offset = undefined, _count = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_metadata_spec
- * @desc Creates a new Metadata Spec definition.
- * @param {Struct.ElementsCreateMetadataSpecRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_metadata_spec(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_update_metadata_spec
- * @desc Updates a MetadataSpec with the specified id.
- * @param {String} _metadata_spec_id
- * @param {Struct.ElementsUpdateMetadataSpecRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_delete_metadata_spec
- * @desc Deletes a MetadataSpec with the specified id.
- * @param {String} _metadata_spec_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_delete_metadata_spec(_metadata_spec_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_editor_schema
- * @desc Gets a specific Metadata Editor Schema backed by the supplied MetadataSpec by name.
- * @param {String} _metadata_spec_name
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_editor_schema(_metadata_spec_name, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_json_schema
- * @desc Gets a specific JSON Schema backed by the supplied MetadataSpec by name.
- * @param {String} _metadata_spec_name
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_json_schema(_metadata_spec_name, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_metadata_spec
- * @desc Gets a specific MetadataSpec by name or Id.
- * @param {String} _metadata_spec_name_or_id
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_metadata_spec(_metadata_spec_name_or_id, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_mock_session
- * @desc Begins a session by accepting a mock session request.  The request must be made with an authenticated super-user.
- * @param {Struct.ElementsMockSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_mock_session(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_blacklist_session
- * @param {String} _session_secret
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_blacklist_session(_session_secret, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_username_password_session
- * @desc Begins a session by accepting both the UserID and the Passoword.  Upon successful completion of this call, the user will be added to the current HTTP session.  If the session expires, the user will have to reestablish the session by supplying credentials again.  This is most useful for applications delivered in a web page.
- * @param {Struct.ElementsUsernamePasswordSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_create_username_password_session(_body = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_server_health
- * @desc Performs the health check for the server. What this actually does is deployment and implementation specific. However, any successful response code should indicate that the service is capable of servicing requests. Any unsuccessful error codes should indicate that the instance has internal issues and should be taken offline.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_server_health(_callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_get_version
- * @desc Returns information about the current server version.  This should always return theversion metadata.  This information is only known in packaged releases.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_version(_callback = undefined)
+function elements_request_verification(_body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_sign_up_user
- * @desc Supplying the user create request object, this will create a new user.
+ * Supplying the user create request object, this will create a new user.
  * @param {Struct.ElementsUserCreateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUserCreateResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_sign_up_user(_body = undefined, _callback = undefined)
@@ -2191,67 +3789,710 @@ function elements_sign_up_user(_body = undefined, _callback = undefined)
 }
 
 /**
- * @func_partial elements_get_users
- * @desc Searches all users in the system and returning the metadata for all matches against the given search filter.
- * @param {Real} [_offset]
- * @param {Real} [_count]
- * @param {String} [_search]
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
- * @func_end
- */
-function elements_get_users(_offset = undefined, _count = undefined, _search = undefined, _callback = undefined)
-{
-}
-
-/**
- * @func_partial elements_create_user
- * @desc Supplying the user object, this will update the user with the new information supplied in the body of the request.  Optionally, the user's password may be provided in the User object.
+ * @func_partial elements_sign_up_user_and_create_session
+ * Supplying the UserCreateRequest object, this will create a new user and create a session for it.  If any Profiles are supplied, the first one will be selected for the session creation.
  * @param {Struct.ElementsUserCreateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_create_user(_body = undefined, _callback = undefined)
+function elements_sign_up_user_and_create_session(_body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_get_user
- * @desc Gets a specific user by name, email, or unique user ID.
- * @param {String} _name
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_update_advanced_inventory_item
+ * Updates an inventory item for the specified item
+ * @param {String} _inventory_item_id
+ * @param {Struct.ElementsUpdateInventoryItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_user(_name, _callback = undefined)
+function elements_update_advanced_inventory_item(_inventory_item_id, _body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_deactivate_user
- * @desc Deletes and permanently removes the user from the server.  The server may keep some metadata as necessary to avoid data inconsistency.  However, the user has been deleted from the client standpoint and will not be accessible through any of the existing APIs.
- * @param {String} _name
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_update_application
+ * Performs an update to an existing application known to the server.
+ * @param {String} _name_or_id
+ * @param {Struct.ElementsUpdateApplicationRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsApplication|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_deactivate_user(_name, _callback = undefined)
+function elements_update_application(_name_or_id, _body = undefined, _callback = undefined)
 {
 }
 
 /**
- * @func_partial elements_get_current_user
- * @desc A special endpoint used to get the current user for the request.  The current user is typically associated with the session but may be derived any other way.  This is essentially an alias for using GET /user/myUserId
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @func_partial elements_update_custom_auth_scheme
+ * Updates an Auth Scheme with the specified data in the auth scheme request.
+ * @param {String} _auth_scheme_id
+ * @param {Struct.ElementsUpdateAuthSchemeRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUpdateAuthSchemeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
-function elements_get_current_user(_callback = undefined)
+function elements_update_custom_auth_scheme(_auth_scheme_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_deployment
+ * @param {String} _application_id
+ * @param {String} _version
+ * @param {Struct.ElementsUpdateDeploymentRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_deployment(_application_id, _version, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_distinct_inventory_item
+ * Updates an inventory item for the specified item
+ * @param {String} _distinct_inventory_item_id
+ * @param {Struct.ElementsUpdateDistinctInventoryItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsDistinctInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_element_deployment
+ * @param {String} _deployment_id
+ * @param {Struct.ElementsUpdateElementDeploymentRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsElementDeployment|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_element_deployment(_deployment_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_facebook_application_configuration
+ * Updates an existing Facebook Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsFacebookApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFacebookApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_facebook_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_firebase_application_configuration
+ * Updates an existing Firebase Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsFirebaseApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFirebaseApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_firebase_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_google_play_application_configuration
+ * Updates an existing Google Play Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsGooglePlayApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsGooglePlayApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_ios_application_configuration
+ * Updates an existing iOS Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsIosApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsIosApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_item
+ * Supplying an item, this will update the Item identified by the identifier in the path with contents from the passed in request body. 
+ * @param {String} _identifier
+ * @param {Struct.ElementsUpdateItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_item(_identifier, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_large_object
+ * Updates a LargeObject
+ * @param {String} _large_object_id
+ * @param {Struct.ElementsUpdateLargeObjectRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_large_object(_large_object_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_large_object_contents
+ * Updates a LargeObject content
+ * @param {String} _large_object_id
+ * @param {Struct.ElementsUpdateLargeObjectContentsBody} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLargeObject|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_large_object_contents(_large_object_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_leaderboard
+ * Performs an update to an existing leaderboard known to the server.
+ * @param {String} _name_or_id
+ * @param {Struct.ElementsUpdateLeaderboardRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsLeaderboard|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_leaderboard(_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_match
+ * This method accepts an instance of MultiMatch and updates the DB entry for it that matches the matchId. Though it is generally recommended to update a MultiMatch via matchmaking code in an Element, it can be updated via REST for the purposes of testing or custom workflows.
+ * @param {String} _match_id
+ * @param {Struct.ElementsMultiMatch} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMultiMatch|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_match(_match_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_matchmaking_application_configuration
+ * Updates an existing iOS Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsMatchmakingApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMatchmakingApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_matchmaking_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_metadata
+ * Updates a specific metadata object by name or id.
+ * @param {String} _id
+ * @param {Struct.ElementsUpdateMetadataRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMetadata|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_metadata(_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_metadata_spec
+ * Updates a MetadataSpec with the specified id.
+ * @param {String} _metadata_spec_id
+ * @param {Struct.ElementsUpdateMetadataSpecRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMetadataSpec|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_mission
+ * Supplying a mission, this will update the Mission identified by the name or ID in the path with contents from the passed in request body. 
+ * @param {String} _mission_name_or_id
+ * @param {Struct.ElementsUpdateMissionRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsMission|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_mission(_mission_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_oauth2_auth_scheme
+ * Updates an Auth Scheme with the specified data in the auth scheme request.
+ * @param {String} _oauth2_auth_scheme_id
+ * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_oauth2_auth_scheme(_oauth2_auth_scheme_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_oculus_application_configuration
+ * Updates an existing Oculus Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsOculusApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_oculus_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_oidc_auth_scheme
+ * Updates an Auth Scheme with the specified data in the auth scheme request.
+ * @param {String} _oidc_auth_scheme_id
+ * @param {Struct.ElementsCreateOrUpdateOidcAuthSchemeRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateOrUpdateOidcAuthSchemeResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_oidc_auth_scheme(_oidc_auth_scheme_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_product_bundle
+ * Updates the Product Bundle identified by the given database id.
+ * @param {String} _id
+ * @param {Struct.ElementsProductBundle} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProductBundle|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_product_bundle(_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_product_bundle_for_google_play_application_configuration
+ * Updates the ProductBundle for the given ApplicationConfiguration
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Array[Struct.ElementsProductBundle]} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_product_bundle_for_google_play_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_product_bundle_for_ios_application_configuration
+ * Updates the ProductBundle for the given ApplicationConfiguration
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Array[Struct.ElementsProductBundle]} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_product_bundle_for_ios_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_profile
+ * Supplying an update request will attempt to update the profile.  The call will return the profile as it was written to the database.
+ * @param {String} _profile_id
+ * @param {Struct.ElementsUpdateProfileRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_profile(_profile_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_profile_image
+ * Updates a Profile image object
+ * @param {String} _profile_id
+ * @param {Struct.ElementsUpdateProfileImageRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProfile|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_profile_image(_profile_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_progress
+ * This will update the Progress identified by the ID in the path with contents from the passed in request body. 
+ * @param {String} _progress_id
+ * @param {Struct.ElementsUpdateProgressRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsProgress|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_progress(_progress_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_provider_configuration
+ * Updates an OIDC provider configuration
+ * @param {String} _provider_configuration_id
+ * @param {Struct.ElementsCreateOrUpdateOidcProviderConfigurationRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsCreateOrUpdateOidcProviderConfigurationResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_provider_configuration(_provider_configuration_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_psn_application_configuration
+ * Updates an existing PSN Application profile if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsPSNApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsPSNApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_psn_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_registration
+ * Supplying FCM registration token, this will update the token string with the supplied values.  Clients may update the same registration with a different token issued with Firebase if they wish to simply retain the association with the 
+ * @param {String} _fcm_registration_id
+ * @param {Struct.ElementsFCMRegistration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsFCMRegistration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_registration(_fcm_registration_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_save_document
+ * Gets a single save data document.
+ * @param {String} _save_data_document_id
+ * @param {Struct.ElementsUpdateSaveDataDocumentRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSaveDataDocument|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_save_document(_save_data_document_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_schedule
+ * Supplying a schedule, this will update the Schedule identified by the name or ID in the path with contents from the passed in request body. 
+ * @param {String} _schedule_name_or_id
+ * @param {Struct.ElementsUpdateScheduleRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSchedule|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_schedule(_schedule_name_or_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_schedule_event
+ * Supplying a schedule, this will update the ScheduleEvent identified by the name or ID in the path with contents from the passed in request body. 
+ * @param {String} _schedule_name_or_id
+ * @param {String} _schedule_event_id
+ * @param {Struct.ElementsUpdateScheduleEventRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsScheduleEvent|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_simple_inventory_item
+ * Updates an inventory item for the specified item
+ * @param {String} _inventory_item_id
+ * @param {Struct.ElementsUpdateInventoryItemRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsInventoryItem|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_simple_inventory_item(_inventory_item_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_smart_contract
+ * Patches a  Smart Contract entry, associated with the specified deployed script hash.
+ * @param {String} _contract_id
+ * @param {Struct.ElementsUpdateSmartContractRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSmartContract|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_smart_contract(_contract_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_steam_application_configuration
+ * Updates an existing Steam application configuration if it is known to the server.
+ * @param {String} _application_name_or_id
+ * @param {String} _application_configuration_name_or_id
+ * @param {Struct.ElementsSteamApplicationConfiguration} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSteamApplicationConfiguration|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_steam_application_configuration(_application_name_or_id, _application_configuration_name_or_id, _body = undefined, _callback = undefined)
 {
 }
 
 /**
  * @func_partial elements_update_user
- * @desc Supplying the user object, this will update the user with the new information supplied in the body of the request.  Optionally, the user's password may be provided in the User object.
+ * Supplying the user object, this will update the user with the new information supplied in the body of the request.  Optionally, the user's password may be provided in the User object.
  * @param {String} _user_id
  * @param {Struct.ElementsUserUpdateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsUser|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_update_user(_user_id, _body = undefined, _callback = undefined)
@@ -2260,13 +4501,124 @@ function elements_update_user(_user_id, _body = undefined, _callback = undefined
 
 /**
  * @func_partial elements_update_user_password
- * @desc Supplying the UserUpdatePasswordRequest, this will attempt to update the user's password only if they supply the correct existing password.
+ * Supplying the UserUpdatePasswordRequest, this will attempt to update the user's password only if they supply the correct existing password.
  * @param {String} _user_id
  * @param {Struct.ElementsUserUpdatePasswordRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] The function - with signature (status, data, request) - that will be executed upon request completion.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
  * @func_end
  */
 function elements_update_user_password(_user_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_vault
+ * Updates a  Vault with the specified name or id.
+ * @param {String} _vault_id
+ * @param {Struct.ElementsUpdateVaultRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsVault|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_vault(_vault_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_update_wallet
+ * Updates a  Wallet with the specified name or id.
+ * @param {String} _vault_id
+ * @param {String} _wallet_id
+ * @param {Struct.ElementsUpdateWalletRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsWallet|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_upload_apple_iap_receipt
+ * Upload Apple IAP Receipt. Returns a list of RewardIssuances, which may contain already-redeemed issuances.
+ * @param {Struct.ElementsCreateAppleIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_upload_google_play_iap_purchase
+ * Upload Google Play IAP Receipt data (package name, product id and Google Play-issued purchase token). Returns a list of RewardIssuances, some or all of which may be already redeemed.
+ * @param {Struct.ElementsCreateGooglePlayIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_upload_google_play_iap_purchase(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_upload_steam_iap_purchase
+ * Verify a Steam IAP purchase by order ID and return a list of RewardIssuances. The order ID is validated against the Steam ISteamMicroTxn API using the publisher key and app ID stored in the application's SteamApplicationConfiguration. Some or all of the returned RewardIssuances may already be redeemed.
+ * @param {Struct.ElementsCreateSteamIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_upload_steam_iap_purchase(_body = undefined, _callback = undefined)
+{
+}
+
+/**
+ * @func_partial elements_verify_oculus_iap_purchase
+ * Attempts to verify the Oculus IAP Receipt data.Returns the result of the verification.
+ * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request).
+ * 
+ * @event callback
+ * @member {Real} _status
+ * @member {Struct.ElementsOculusIapVerifyReceiptResponse|Undefined} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_verify_oculus_iap_purchase(_body = undefined, _callback = undefined)
 {
 }
 

@@ -1,29 +1,3 @@
-
-/**
- * @module elements_rest_api
- * @title Elements REST API
- * @desc This module holds the documentation for the entire REST API.
- * 
- * @section_func
- * @ref elements_*
- * @section_end
- * 
- * @module_end
- */
-
-
-/**
- * @module elements_rest_schemas
- * @title Schemas
- * @desc This module contains the structs used by the Elements extension.
- * 
- * @section_struct
- * @ref Elements*
- * @section_end
- * @module_end
- */
-
-
 /**
  * @module home 
  * @title Elements
@@ -48,9 +22,9 @@
  * @section_end
  * 
  * @section Modules
- * @desc The following are the available modules from the Elements API:
- * @ref module.elements_rest_api
- * @ref module.elements_rest_schemas
+ * @desc The following are the available modules from the Elements API. One page per REST resource,
+ * plus the structs they exchange. These are generated from the OpenAPI specification.
+ * @ref module.elements_*
  * @section_end
  * 
  * @module_end
