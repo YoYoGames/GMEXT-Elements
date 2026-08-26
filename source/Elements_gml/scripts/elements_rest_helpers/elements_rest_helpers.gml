@@ -93,7 +93,7 @@ function _elements_request_auth_get_token(_token_id)
 
 /**
  * @param {String} _content_type
- * @param {Function} _function function(_body, _header_ds_map) → String|Id.Buffer
+ * @param {Function} _function function(_body, _header_ds_map) -> String|Id.Buffer
  */
 function elements_request_body_set_converter(_content_type, _function)
 {

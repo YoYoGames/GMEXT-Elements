@@ -257,16 +257,24 @@ function ElementsCreateAppleIapReceipt(_receipt_data, _create_apple_iap_receipt_
 }
 
 /**
- * @func ElementsCreateApplicationRequest(_name, _description = undefined, _attributes = undefined)
+ * @func ElementsCreateApplicationRequest(_name, _description = undefined, _attributes = undefined, _max_profiles = undefined, _auto_create_profile = undefined, _authoritative_profile_picture = undefined, _display_name_regex = undefined)
  * @param {String} _name
  * @param {String} [_description]
  * @param {Struct.ElementsCreateApplicationRequestAttributes} [_attributes]
+ * @param {Real} [_max_profiles] The maximum number of profiles a user may create for this application. If unspecified, defaults to 1.
+ * @param {Bool} [_auto_create_profile] Whether a user's primary profile for this application should be created automatically when the user is created. If unspecified, defaults to true.
+ * @param {Bool} [_authoritative_profile_picture] If true, a user cannot edit their own profile picture for this application via the REST API -- it must be set by backend/Element code instead. If false (the default), users may edit their own profile picture via the REST API.
+ * @param {String} [_display_name_regex] A Java regular expression that a profile's display name must match for this application, or the profile create/update is rejected. If blank or unspecified, no additional check is performed.
  */
-function ElementsCreateApplicationRequest(_name, _description = undefined, _attributes = undefined) constructor
+function ElementsCreateApplicationRequest(_name, _description = undefined, _attributes = undefined, _max_profiles = undefined, _auto_create_profile = undefined, _authoritative_profile_picture = undefined, _display_name_regex = undefined) constructor
 {
     name = _name;
     description = _description;
     attributes = _attributes;
+    maxProfiles = _max_profiles;
+    autoCreateProfile = _auto_create_profile;
+    authoritativeProfilePicture = _authoritative_profile_picture;
+    displayNameRegex = _display_name_regex;
 }
 
 /**
@@ -1995,16 +2003,19 @@ function ElementsJsonSchemaProperty(_type = undefined, _title = undefined, _desc
 }
 
 /**
- * @func ElementsJWK(_alg = undefined, _kid = undefined, _kty = undefined, _use = undefined, _e = undefined, _n = undefined)
+ * @func ElementsJWK(_alg = undefined, _kid = undefined, _kty = undefined, _use = undefined, _e = undefined, _n = undefined, _crv = undefined, _x = undefined, _y = undefined)
  * A set of JWKs containing the keys required to validate JWT signatures.
  * @param {String} [_alg] Algorithm (e.g. RS256)
  * @param {String} [_kid] Key id (unique to issuer)
  * @param {String} [_kty] Key type (e.g. RSA)
  * @param {String} [_use] The intended use (e.g. sig)
- * @param {String} [_e] Base64url encoded exponent
- * @param {String} [_n] Pub key modulus
+ * @param {String} [_e] Base64url encoded exponent (RSA keys only)
+ * @param {String} [_n] Pub key modulus (RSA keys only)
+ * @param {String} [_crv] Curve name, e.g. P-256, P-384, P-521 (EC keys only)
+ * @param {String} [_x] Base64url encoded x coordinate (EC keys only)
+ * @param {String} [_y] Base64url encoded y coordinate (EC keys only)
  */
-function ElementsJWK(_alg = undefined, _kid = undefined, _kty = undefined, _use = undefined, _e = undefined, _n = undefined) constructor
+function ElementsJWK(_alg = undefined, _kid = undefined, _kty = undefined, _use = undefined, _e = undefined, _n = undefined, _crv = undefined, _x = undefined, _y = undefined) constructor
 {
     alg = _alg;
     kid = _kid;
@@ -2012,6 +2023,9 @@ function ElementsJWK(_alg = undefined, _kid = undefined, _kty = undefined, _use 
     use = _use;
     e = _e;
     n = _n;
+    crv = _crv;
+    x = _x;
+    y = _y;
 }
 
 /**
@@ -2579,15 +2593,27 @@ function ElementsOidcAuthScheme(_issuer, _keys, _id = undefined, _name = undefin
 }
 
 /**
- * @func ElementsOidcLoginAttemptRequest(_provider, _id_token = undefined)
+ * @func ElementsOidcLoginAttemptConfirmRequest(_confirm_token)
+ * Finalizes an account-linking OIDC login attempt by presenting the confirmToken returned when the attempt was started.
+ * @param {String} _confirm_token The confirmToken returned in the original POST /oidc/session response.
+ */
+function ElementsOidcLoginAttemptConfirmRequest(_confirm_token) constructor
+{
+    confirmToken = _confirm_token;
+}
+
+/**
+ * @func ElementsOidcLoginAttemptRequest(_provider, _id_token = undefined, _application_name_or_id = undefined)
  * Starts a browser-redirect OIDC login attempt, or, if idToken is supplied, validates a possessed id_token directly and returns a completed session synchronously.
  * @param {String} _provider The provider identifier (e.g. 'twitch').
  * @param {String} [_id_token] An already-possessed id_token to validate directly, skipping the browser-redirect flow.
+ * @param {String} [_application_name_or_id] The name or ID of an application whose primary profile should be attached to the session, reusing an existing primary profile if one is already present, or else auto-creating it (subject to the application's autoCreateProfile/maxProfiles settings). Applies to both anonymous and account-linking attempts. If unspecified, the application encoded in the resulting id_token's own 'aud' claim (if any) is used instead, via the legacy, ungated get-or-create profile behavior rather than the gated auto-create path above.
  */
-function ElementsOidcLoginAttemptRequest(_provider, _id_token = undefined) constructor
+function ElementsOidcLoginAttemptRequest(_provider, _id_token = undefined, _application_name_or_id = undefined) constructor
 {
     provider = _provider;
     idToken = _id_token;
+    applicationNameOrId = _application_name_or_id;
 }
 
 /**
@@ -2643,16 +2669,19 @@ function ElementsOidcProviderConfigurationExtraAuthorizeParams() constructor
 }
 
 /**
- * @func ElementsOidcSessionRequest(_jwt, _profile_id = undefined, _profile_selector = undefined)
+ * @func ElementsOidcSessionRequest(_jwt, _profile_id = undefined, _profile_selector = undefined, _application_name_or_id = undefined)
+ * Validates a possessed id_token and returns the resulting session, either creating a new account or linking to/reusing an existing one.
  * @param {String} _jwt The JWT to parse
  * @param {String} [_profile_id] The profile ID to assign to the session.
  * @param {String} [_profile_selector] A query string to select the profile to use. NOTE: This will not be run if a profileId is specified.
+ * @param {String} [_application_name_or_id] The name or ID of an application whose primary profile should be attached to the session, auto-creating it (subject to the application's autoCreateProfile/maxProfiles settings) if it does not exist. Only used if profileId and profileSelector are not specified. If unspecified, the application encoded in the JWT's own claims (if any) is used instead, without auto-create.
  */
-function ElementsOidcSessionRequest(_jwt, _profile_id = undefined, _profile_selector = undefined) constructor
+function ElementsOidcSessionRequest(_jwt, _profile_id = undefined, _profile_selector = undefined, _application_name_or_id = undefined) constructor
 {
     jwt = _jwt;
     profileId = _profile_id;
     profileSelector = _profile_selector;
+    applicationNameOrId = _application_name_or_id;
 }
 
 /**
@@ -3877,16 +3906,24 @@ function ElementsUniqueCode(_id = undefined, _linger = undefined, _timeout = und
 }
 
 /**
- * @func ElementsUpdateApplicationRequest(_name, _description = undefined, _attributes = undefined)
+ * @func ElementsUpdateApplicationRequest(_name, _description = undefined, _attributes = undefined, _max_profiles = undefined, _auto_create_profile = undefined, _authoritative_profile_picture = undefined, _display_name_regex = undefined)
  * @param {String} _name
  * @param {String} [_description]
  * @param {Struct.ElementsUpdateApplicationRequestAttributes} [_attributes]
+ * @param {Real} [_max_profiles] The maximum number of profiles a user may create for this application. If unspecified, defaults to 1.
+ * @param {Bool} [_auto_create_profile] Whether a user's primary profile for this application should be created automatically when the user is created. If unspecified, defaults to true.
+ * @param {Bool} [_authoritative_profile_picture] If true, a user cannot edit their own profile picture for this application via the REST API -- it must be set by backend/Element code instead. If false (the default), users may edit their own profile picture via the REST API.
+ * @param {String} [_display_name_regex] A Java regular expression that a profile's display name must match for this application, or the profile create/update is rejected. If blank or unspecified, no additional check is performed.
  */
-function ElementsUpdateApplicationRequest(_name, _description = undefined, _attributes = undefined) constructor
+function ElementsUpdateApplicationRequest(_name, _description = undefined, _attributes = undefined, _max_profiles = undefined, _auto_create_profile = undefined, _authoritative_profile_picture = undefined, _display_name_regex = undefined) constructor
 {
     name = _name;
     description = _description;
     attributes = _attributes;
+    maxProfiles = _max_profiles;
+    autoCreateProfile = _auto_create_profile;
+    authoritativeProfilePicture = _authoritative_profile_picture;
+    displayNameRegex = _display_name_regex;
 }
 
 /**
@@ -5114,6 +5151,22 @@ function ElementsCreateApplicationRequest_validate(__inst__, __where__ = _GMFUNC
     if (!is_undefined(__inst__[$ "attributes"]))
     {
         ElementsCreateApplicationRequestAttributes_validate(__inst__[$ "attributes"], $"{__where__} :: 'attributes'");
+    }
+    if (!is_undefined(__inst__[$ "maxProfiles"]))
+    {
+        if (!is_numeric(__inst__[$ "maxProfiles"])) throw $"{__where__} :: 'maxProfiles' expected Real";
+    }
+    if (!is_undefined(__inst__[$ "autoCreateProfile"]))
+    {
+        if (!(is_bool(__inst__[$ "autoCreateProfile"]) || __inst__[$ "autoCreateProfile"] == 0 || __inst__[$ "autoCreateProfile"] == 1)) throw $"{__where__} :: 'autoCreateProfile' expected Bool";
+    }
+    if (!is_undefined(__inst__[$ "authoritativeProfilePicture"]))
+    {
+        if (!(is_bool(__inst__[$ "authoritativeProfilePicture"]) || __inst__[$ "authoritativeProfilePicture"] == 0 || __inst__[$ "authoritativeProfilePicture"] == 1)) throw $"{__where__} :: 'authoritativeProfilePicture' expected Bool";
+    }
+    if (!is_undefined(__inst__[$ "displayNameRegex"]))
+    {
+        if (!is_string(__inst__[$ "displayNameRegex"])) throw $"{__where__} :: 'displayNameRegex' expected String";
     }
 }
 
@@ -8716,6 +8769,18 @@ function ElementsJWK_validate(__inst__, __where__ = _GMFUNCTION_)
     {
         if (!is_string(__inst__[$ "n"])) throw $"{__where__} :: 'n' expected String";
     }
+    if (!is_undefined(__inst__[$ "crv"]))
+    {
+        if (!is_string(__inst__[$ "crv"])) throw $"{__where__} :: 'crv' expected String";
+    }
+    if (!is_undefined(__inst__[$ "x"]))
+    {
+        if (!is_string(__inst__[$ "x"])) throw $"{__where__} :: 'x' expected String";
+    }
+    if (!is_undefined(__inst__[$ "y"]))
+    {
+        if (!is_string(__inst__[$ "y"])) throw $"{__where__} :: 'y' expected String";
+    }
 }
 
 /**
@@ -9934,6 +9999,21 @@ function ElementsOidcAuthScheme_validate(__inst__, __where__ = _GMFUNCTION_)
 }
 
 /**
+ * @func ElementsOidcLoginAttemptConfirmRequest_validate(__inst__, __where__)
+ * @param {Any} __inst__ The value to be validated.
+ * @param {String} [__where__] Caller location, used in error messages.
+ * @ignore 
+ */
+function ElementsOidcLoginAttemptConfirmRequest_validate(__inst__, __where__ = _GMFUNCTION_)
+{
+    __where__ = $"{__where__} :: ElementsOidcLoginAttemptConfirmRequest_validate";
+
+    if (!is_struct(__inst__)) throw $"{__where__} :: expected Struct.ElementsOidcLoginAttemptConfirmRequest";
+
+    if (!is_string(__inst__[$ "confirmToken"])) throw $"{__where__} :: 'confirmToken' expected String";
+}
+
+/**
  * @func ElementsOidcLoginAttemptRequest_validate(__inst__, __where__)
  * @param {Any} __inst__ The value to be validated.
  * @param {String} [__where__] Caller location, used in error messages.
@@ -9949,6 +10029,10 @@ function ElementsOidcLoginAttemptRequest_validate(__inst__, __where__ = _GMFUNCT
     if (!is_undefined(__inst__[$ "idToken"]))
     {
         if (!is_string(__inst__[$ "idToken"])) throw $"{__where__} :: 'idToken' expected String";
+    }
+    if (!is_undefined(__inst__[$ "applicationNameOrId"]))
+    {
+        if (!is_string(__inst__[$ "applicationNameOrId"])) throw $"{__where__} :: 'applicationNameOrId' expected String";
     }
 }
 
@@ -10105,6 +10189,10 @@ function ElementsOidcSessionRequest_validate(__inst__, __where__ = _GMFUNCTION_)
     if (!is_undefined(__inst__[$ "profileSelector"]))
     {
         if (!is_string(__inst__[$ "profileSelector"])) throw $"{__where__} :: 'profileSelector' expected String";
+    }
+    if (!is_undefined(__inst__[$ "applicationNameOrId"]))
+    {
+        if (!is_string(__inst__[$ "applicationNameOrId"])) throw $"{__where__} :: 'applicationNameOrId' expected String";
     }
 }
 
@@ -12636,6 +12724,22 @@ function ElementsUpdateApplicationRequest_validate(__inst__, __where__ = _GMFUNC
     if (!is_undefined(__inst__[$ "attributes"]))
     {
         ElementsUpdateApplicationRequestAttributes_validate(__inst__[$ "attributes"], $"{__where__} :: 'attributes'");
+    }
+    if (!is_undefined(__inst__[$ "maxProfiles"]))
+    {
+        if (!is_numeric(__inst__[$ "maxProfiles"])) throw $"{__where__} :: 'maxProfiles' expected Real";
+    }
+    if (!is_undefined(__inst__[$ "autoCreateProfile"]))
+    {
+        if (!(is_bool(__inst__[$ "autoCreateProfile"]) || __inst__[$ "autoCreateProfile"] == 0 || __inst__[$ "autoCreateProfile"] == 1)) throw $"{__where__} :: 'autoCreateProfile' expected Bool";
+    }
+    if (!is_undefined(__inst__[$ "authoritativeProfilePicture"]))
+    {
+        if (!(is_bool(__inst__[$ "authoritativeProfilePicture"]) || __inst__[$ "authoritativeProfilePicture"] == 0 || __inst__[$ "authoritativeProfilePicture"] == 1)) throw $"{__where__} :: 'authoritativeProfilePicture' expected Bool";
+    }
+    if (!is_undefined(__inst__[$ "displayNameRegex"]))
+    {
+        if (!is_string(__inst__[$ "displayNameRegex"])) throw $"{__where__} :: 'displayNameRegex' expected String";
     }
 }
 

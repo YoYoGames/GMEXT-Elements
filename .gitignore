@@ -1,6 +1,9 @@
 # Packages built by `gm-ext createPackage`
 output/
 
+# Igor build artefacts
+cache/
+
 # Editor and OS noise
 .vs/
 *.DS_store

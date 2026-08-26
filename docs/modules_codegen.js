@@ -474,6 +474,7 @@
  * 
  * @section_func Functions
  * @ref elements_callback
+ * @ref elements_confirm_oidc_session_link
  * @ref elements_create_oidc_session_1
  * @ref elements_poll_oidc_session
  * @section_end

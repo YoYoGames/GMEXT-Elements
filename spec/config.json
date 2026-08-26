@@ -1,0 +1,49 @@
+{
+  "$schema": "./openapigen.schema.json",
+  "input": "./elements-openapi.json",
+  "root": "../",
+  "prefix": "elements",
+  "requireOperationId": true,
+  "code": {
+    "endPoints": {
+      "outputFile": "./source/Elements_gml/scripts/elements_rest_api/elements_rest_api.gml",
+      "enabled": true
+    },
+    "schemas": {
+      "outputFile": "./source/Elements_gml/scripts/elements_rest_schemas/elements_rest_schemas.gml",
+      "enabled": true
+    },
+    "helpers": {
+      "outputFile": "./source/Elements_gml/scripts/elements_rest_helpers/elements_rest_helpers.gml",
+      "enabled": true
+    }
+  },
+  "controller": {
+    "createEvent": {
+      "outputFile": "./source/Elements_gml/objects/obj_elements_core/Create_0.gml",
+      "enabled": true
+    },
+    "cleanupEvent": {
+      "outputFile": "./source/Elements_gml/objects/obj_elements_core/CleanUp_0.gml",
+      "enabled": true
+    },
+    "httpAsyncEvent": {
+      "outputFile": "./source/Elements_gml/objects/obj_elements_core/Other_62.gml",
+      "enabled": true
+    }
+  },
+  "docs": {
+    "schemas": {
+      "outputFile": "./docs/schemas_codegen.js",
+      "enabled": true
+    },
+    "functions": {
+      "outputFile": "./docs/function_codegen.js",
+      "enabled": true
+    },
+    "modules": {
+      "outputFile": "./docs/modules_codegen.js",
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "root": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "requireOperationId": {
+      "type": "boolean"
+    },
+    "code": {
+      "type": "object",
+      "properties": {
+        "endPoints": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "schemas": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "helpers": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "controller": {
+      "type": "object",
+      "properties": {
+        "createEvent": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "cleanupEvent": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "httpAsyncEvent": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "docs": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "functions": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "modules": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "outputFile": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

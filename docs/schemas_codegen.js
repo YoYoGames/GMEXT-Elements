@@ -157,6 +157,10 @@
  * @member {String} name
  * @member {String} [description]
  * @member {Struct.ElementsCreateApplicationRequestAttributes} [attributes]
+ * @member {Real} [maxProfiles] The maximum number of profiles a user may create for this application. If unspecified, defaults to 1.
+ * @member {Bool} [autoCreateProfile] Whether a user's primary profile for this application should be created automatically when the user is created. If unspecified, defaults to true.
+ * @member {Bool} [authoritativeProfilePicture] If true, a user cannot edit their own profile picture for this application via the REST API -- it must be set by backend/Element code instead. If false (the default), users may edit their own profile picture via the REST API.
+ * @member {String} [displayNameRegex] A Java regular expression that a profile's display name must match for this application, or the profile create/update is rejected. If blank or unspecified, no additional check is performed.
  * @struct_end
  */
 
@@ -1183,8 +1187,11 @@
  * @member {String} [kid] Key id (unique to issuer)
  * @member {String} [kty] Key type (e.g. RSA)
  * @member {String} [use] The intended use (e.g. sig)
- * @member {String} [e] Base64url encoded exponent
- * @member {String} [n] Pub key modulus
+ * @member {String} [e] Base64url encoded exponent (RSA keys only)
+ * @member {String} [n] Pub key modulus (RSA keys only)
+ * @member {String} [crv] Curve name, e.g. P-256, P-384, P-521 (EC keys only)
+ * @member {String} [x] Base64url encoded x coordinate (EC keys only)
+ * @member {String} [y] Base64url encoded y coordinate (EC keys only)
  * @struct_end
  */
 
@@ -1520,9 +1527,16 @@
  */
 
 /**
+ * @struct_partial ElementsOidcLoginAttemptConfirmRequest
+ * @member {String} confirmToken The confirmToken returned in the original POST /oidc/session response.
+ * @struct_end
+ */
+
+/**
  * @struct_partial ElementsOidcLoginAttemptRequest
  * @member {String} provider The provider identifier (e.g. 'twitch').
  * @member {String} [idToken] An already-possessed id_token to validate directly, skipping the browser-redirect flow.
+ * @member {String} [applicationNameOrId] The name or ID of an application whose primary profile should be attached to the session, reusing an existing primary profile if one is already present, or else auto-creating it (subject to the application's autoCreateProfile/maxProfiles settings). Applies to both anonymous and account-linking attempts. If unspecified, the application encoded in the resulting id_token's own 'aud' claim (if any) is used instead, via the legacy, ungated get-or-create profile behavior rather than the gated auto-create path above.
  * @struct_end
  */
 
@@ -1560,6 +1574,7 @@
  * @member {String} jwt The JWT to parse
  * @member {String} [profileId] The profile ID to assign to the session.
  * @member {String} [profileSelector] A query string to select the profile to use. NOTE: This will not be run if a profileId is specified.
+ * @member {String} [applicationNameOrId] The name or ID of an application whose primary profile should be attached to the session, auto-creating it (subject to the application's autoCreateProfile/maxProfiles settings) if it does not exist. Only used if profileId and profileSelector are not specified. If unspecified, the application encoded in the JWT's own claims (if any) is used instead, without auto-create.
  * @struct_end
  */
 
@@ -2286,6 +2301,10 @@
  * @member {String} name
  * @member {String} [description]
  * @member {Struct.ElementsUpdateApplicationRequestAttributes} [attributes]
+ * @member {Real} [maxProfiles] The maximum number of profiles a user may create for this application. If unspecified, defaults to 1.
+ * @member {Bool} [autoCreateProfile] Whether a user's primary profile for this application should be created automatically when the user is created. If unspecified, defaults to true.
+ * @member {Bool} [authoritativeProfilePicture] If true, a user cannot edit their own profile picture for this application via the REST API -- it must be set by backend/Element code instead. If false (the default), users may edit their own profile picture via the REST API.
+ * @member {String} [displayNameRegex] A Java regular expression that a profile's display name must match for this application, or the profile create/update is rejected. If blank or unspecified, no additional check is performed.
  * @struct_end
  */
 
@@ -2692,7 +2711,7 @@
 /**
  * @struct_partial ElementsRequest
  * @desc The in-flight HTTP request, handed to every callback as its third argument.
- * Call `retry()` on it to send the same request again — useful from a response hook that
+ * Call `retry()` on it to send the same request again - useful from a response hook that
  * has just refreshed a credential. `get_callback()` returns the callback it will invoke.
  * @member {Real} attempts How many times this request has been sent, including retries.
  * @struct_end

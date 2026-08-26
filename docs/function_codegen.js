@@ -7,10 +7,10 @@
  * Adjust the quantity of the first (primary) inventory item for the specified item.  This implicitly will create the InventoryItem if it does not exist.  The inventory item value
  * @param {String} _inventory_item_id
  * @param {Struct.ElementsAdvancedInventoryItemQuantityAdjustment} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -25,10 +25,10 @@ function elements_adjust_advanced_inventory_item_quantity(_inventory_item_id, _b
  * Adjust the quantity of the first (primary) inventory item for the specified item.  This implicitly will create the InventoryItem if it does not exist.  The inventory item value
  * @param {String} _inventory_item_id
  * @param {Struct.ElementsSimpleInventoryItemQuantityAdjustment} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -42,10 +42,10 @@ function elements_adjust_simple_inventory_item_quantity(_inventory_item_id, _bod
  * @func_partial elements_blacklist_session
  * Destroys the Session
  * @param {String} _session_secret
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -59,10 +59,10 @@ function elements_blacklist_session(_session_secret, _callback = undefined)
  * @func_partial elements_build_indexes
  * Builds all indexes.
  * @param {Struct.ElementsBuildIndexRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -75,14 +75,14 @@ function elements_build_indexes(_body = undefined, _callback = undefined)
 /**
  * @func_partial elements_callback
  * Not called by game clients. The provider redirects the system browser here after the user completes (or denies) authorization.
- * @param {String} _provider
- * @param {String} [_code]
- * @param {String} [_state]
- * @param {String} [_error]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {String} _provider The provider identifier this login attempt was begun for.
+ * @param {String} [_code] The authorization code from the provider, absent if error is set.
+ * @param {String} [_state] The state value identifying the pending attempt.
+ * @param {String} [_error] The provider's reported error, e.g. the user denied consent.
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -96,10 +96,10 @@ function elements_callback(_provider, _code = undefined, _state = undefined, _er
  * @func_partial elements_complete_reset
  * Validates the reset token and sets the new password. All existing sessions are invalidated. Returns 400 if the token is invalid or expired.
  * @param {Struct.ElementsCompletePasswordResetRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -113,10 +113,10 @@ function elements_complete_reset(_body = undefined, _callback = undefined)
  * @func_partial elements_complete_verification
  * Completes email verification by consuming the single-use token from a verification link. Moves the associated UID status to VERIFIED.
  * @param {String} [_token]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUserUid|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -127,13 +127,31 @@ function elements_complete_verification(_token = undefined, _callback = undefine
 }
 
 /**
+ * @func_partial elements_confirm_oidc_session_link
+ * Presents the confirmToken returned in the original POST /oidc/session response for this attempt, completing the deferred account-link mutation and returning the resulting session. Only applicable to a linking attempt; not needed for an anonymous one.
+ * @param {String} _id The opaque poll id returned by POST /oidc/session.
+ * @param {Struct.ElementsOidcLoginAttemptConfirmRequest} [_body] The body to be included in the http request.
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
+ * 
+ * @event callback
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
+ * @member {Any} _data
+ * @member {Struct.ElementsRequest} _request
+ * @event_end 
+ * @func_end
+ */
+function elements_confirm_oidc_session_link(_id, _body = undefined, _callback = undefined)
+{
+}
+
+/**
  * @func_partial elements_consume_oculus_iap_purchase
  * Attempts to consume the Oculus IAP Receipt data. Returns the result of the consume action.
  * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusIapConsumeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -147,10 +165,10 @@ function elements_consume_oculus_iap_purchase(_body = undefined, _callback = und
  * @func_partial elements_create_advanced_inventory_item
  * Create an inventory item for the specified item
  * @param {Struct.ElementsCreateAdvancedInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -164,10 +182,10 @@ function elements_create_advanced_inventory_item(_body = undefined, _callback = 
  * @func_partial elements_create_application
  * Gets the metadata for a single application.  This may include more specific details not available in the bulk-get or fetch operation.
  * @param {Struct.ElementsCreateApplicationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsApplication|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -181,10 +199,10 @@ function elements_create_application(_body = undefined, _callback = undefined)
  * @func_partial elements_create_custom_auth_scheme
  * Creates a new Auth Scheme, from the data in the given auth scheme request
  * @param {Struct.ElementsCreateAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateAuthSchemeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -198,10 +216,10 @@ function elements_create_custom_auth_scheme(_body = undefined, _callback = undef
  * @func_partial elements_create_distinct_inventory_item
  * Create an inventory item for the specified item
  * @param {Struct.ElementsCreateDistinctInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDistinctInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -214,10 +232,10 @@ function elements_create_distinct_inventory_item(_body = undefined, _callback = 
 /**
  * @func_partial elements_create_element_deployment
  * @param {Struct.ElementsCreateElementDeploymentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsElementDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -232,10 +250,10 @@ function elements_create_element_deployment(_body = undefined, _callback = undef
  * Creates a new Facebook ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsFacebookApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFacebookApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -249,10 +267,10 @@ function elements_create_facebook_application_configuration(_application_name_or
  * @func_partial elements_create_facebook_iap_receipt
  * Attempts to create the Facebook IAP Receipt data.
  * @param {Struct.ElementsFacebookIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFacebookIapReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -266,10 +284,10 @@ function elements_create_facebook_iap_receipt(_body = undefined, _callback = und
  * @func_partial elements_create_fcm_registration
  * Supplying FCM registration token, this will create a new token based on the information supplied to the endpoint.  The response will contain the token as it was written to the database.  Clients may subsequently update the token string with new values as they are issued by Firebase.
  * @param {Struct.ElementsFCMRegistration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFCMRegistration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -284,10 +302,10 @@ function elements_create_fcm_registration(_body = undefined, _callback = undefin
  * Creates a new Firebase ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsFirebaseApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFirebaseApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -302,10 +320,10 @@ function elements_create_firebase_application_configuration(_application_name_or
  * Supplying the follower object, this will store the information supplied in the body of the request.
  * @param {String} _profile_id
  * @param {Struct.ElementsCreateFollowerRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -320,10 +338,10 @@ function elements_create_follower(_profile_id, _body = undefined, _callback = un
  * Creates a new GooglePlay ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsGooglePlayApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsGooglePlayApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -338,10 +356,10 @@ function elements_create_google_play_application_configuration(_application_name
  * Creates a new iOS ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsIosApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsIosApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -355,10 +373,10 @@ function elements_create_ios_application_configuration(_application_name_or_id, 
  * @func_partial elements_create_item
  * Supplying an item object, this will create a new item with a newly assigned unique id.  The Item representation returned in the response body is a representation of the Item as persisted with a unique identifier signed and with its fields properly normalized.  The supplied item object submitted with the request must have a name property that is unique across all items.
  * @param {Struct.ElementsCreateItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -372,10 +390,10 @@ function elements_create_item(_body = undefined, _callback = undefined)
  * @func_partial elements_create_large_object
  * Creates a LargeObject
  * @param {Struct.ElementsCreateLargeObjectRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -389,10 +407,10 @@ function elements_create_large_object(_body = undefined, _callback = undefined)
  * @func_partial elements_create_large_object_from_url
  * Creates a LargeObject from provided URL
  * @param {Struct.ElementsCreateLargeObjectFromUrlRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -406,10 +424,10 @@ function elements_create_large_object_from_url(_body = undefined, _callback = un
  * @func_partial elements_create_leaderboard
  * Gets the metadata for a single leaderboard.  This may include more specific details not available in the bulk-get or fetch operation.
  * @param {Struct.ElementsCreateLeaderboardRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLeaderboard|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -423,10 +441,10 @@ function elements_create_leaderboard(_body = undefined, _callback = undefined)
  * @func_partial elements_create_match
  * This method accepts an instance of MultiMatch and creates a new DB entry for it. Though it is generally recommended to create a new MultiMatch via matchmaking code in an Element, it can be created via REST for the purposes of testing or custom workflows.
  * @param {Struct.ElementsMultiMatch} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMultiMatch|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -441,10 +459,10 @@ function elements_create_match(_body = undefined, _callback = undefined)
  * Creates a new iOS ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsMatchmakingApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMatchmakingApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -458,10 +476,10 @@ function elements_create_matchmaking_application_configuration(_application_name
  * @func_partial elements_create_metadata
  * Creates a new Metadata object with the provided details.
  * @param {Struct.ElementsCreateMetadataRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMetadata|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -475,10 +493,10 @@ function elements_create_metadata(_body = undefined, _callback = undefined)
  * @func_partial elements_create_metadata_spec
  * Creates a new Metadata Spec definition.
  * @param {Struct.ElementsCreateMetadataSpecRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMetadataSpec|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -492,10 +510,10 @@ function elements_create_metadata_spec(_body = undefined, _callback = undefined)
  * @func_partial elements_create_mission
  * Supplying a mission object, this will create a new mission with a newly assigned unique id.  The Mission representation returned in the response body is a representation of the Mission as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied mission object submitted with the request must have a name property that is unique across all items.
  * @param {Struct.ElementsCreateMissionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMission|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -509,10 +527,10 @@ function elements_create_mission(_body = undefined, _callback = undefined)
  * @func_partial elements_create_mock_session
  * Begins a session by accepting a mock session request.  The request must be made with an authenticated super-user.
  * @param {Struct.ElementsMockSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMockSessionCreation|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -526,10 +544,10 @@ function elements_create_mock_session(_body = undefined, _callback = undefined)
  * @func_partial elements_create_multipart_large_object
  * Creates a LargeObject with content
  * @param {Struct.ElementsCreateMultipartLargeObjectBody} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -543,10 +561,10 @@ function elements_create_multipart_large_object(_body = undefined, _callback = u
  * @func_partial elements_create_new_deployment
  * @param {String} _application_id
  * @param {Struct.ElementsCreateDeploymentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -560,10 +578,10 @@ function elements_create_new_deployment(_application_id, _body = undefined, _cal
  * @func_partial elements_create_oauth2_auth_scheme
  * Creates a new Auth Scheme, from the data in the given auth scheme request
  * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -577,10 +595,10 @@ function elements_create_oauth2_auth_scheme(_body = undefined, _callback = undef
  * @func_partial elements_create_oauth2_session
  * Begins a session by accepting a session request with parameters matching the specified OAuth2 Scheme. Upon successful validation against the scheme provided in the path, this will return a Session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
  * @param {Struct.ElementsOAuth2SessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSessionCreation|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -595,10 +613,10 @@ function elements_create_oauth2_session(_body = undefined, _callback = undefined
  * Creates a new Oculus ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsOculusApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -612,10 +630,10 @@ function elements_create_oculus_application_configuration(_application_name_or_i
  * @func_partial elements_create_oculus_iap_receipt
  * Attempts to create the Oculus IAP Receipt data.
  * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusIapReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -629,10 +647,10 @@ function elements_create_oculus_iap_receipt(_body = undefined, _callback = undef
  * @func_partial elements_create_oidc_auth_scheme
  * Creates a new Auth Scheme, from the data in the given auth scheme request
  * @param {Struct.ElementsCreateOrUpdateOidcAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateOrUpdateOidcAuthSchemeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -646,11 +664,11 @@ function elements_create_oidc_auth_scheme(_body = undefined, _callback = undefin
  * @func_partial elements_create_oidc_session
  * Begins a session by accepting a JWT. Upon successful validation against the scheme provided in the path, this will return a Session which can be used for authentication. If there is no User associated with the supplied credentials, this will implicitly create a new account and will include that account information in the response. If there is an account, or this method receives an existing session key, this will link to the existing scheme if the account was not previously linked.
  * @param {Struct.ElementsOidcSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
- * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
+ * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
  * @func_end
@@ -663,10 +681,10 @@ function elements_create_oidc_session(_body = undefined, _callback = undefined)
  * @func_partial elements_create_oidc_session_1
  * Supplying only 'provider' starts a pending browser-redirect login attempt and returns an id plus the authorize URL to open in the system browser. Additionally supplying 'idToken' instead validates it directly and returns a completed session synchronously, sharing validation code with the callback path.
  * @param {Struct.ElementsOidcLoginAttemptRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -680,10 +698,10 @@ function elements_create_oidc_session_1(_body = undefined, _callback = undefined
  * @func_partial elements_create_product_bundle
  * Creates a new Product Bundle mapping an application + provider schema + productId to a set of rewards.
  * @param {Struct.ElementsProductBundle} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -697,10 +715,10 @@ function elements_create_product_bundle(_body = undefined, _callback = undefined
  * @func_partial elements_create_product_sku_schema
  * Registers a payment-provider schema identifier. Returns an existing record if the schema value already exists.
  * @param {Struct.ElementsProductSkuSchema} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -714,10 +732,10 @@ function elements_create_product_sku_schema(_body = undefined, _callback = undef
  * @func_partial elements_create_profile
  * Supplying the create profile request, this will update the profile with the new information supplied in the body of the request. This will fire an event, dev.getelements.elements.service.profile.created, from the event manifest.
  * @param {Struct.ElementsCreateProfileRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -731,10 +749,10 @@ function elements_create_profile(_body = undefined, _callback = undefined)
  * @func_partial elements_create_progress
  * This will create a new progress with a compound id of the profile and mission.  The Progress representation returned in the response body is a representation of the Progress as persisted with a unique identifier assigned and with its fields properly normalized.
  * @param {Struct.ElementsCreateProgressRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProgress|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -748,10 +766,10 @@ function elements_create_progress(_body = undefined, _callback = undefined)
  * @func_partial elements_create_provider_configuration
  * Requires SUPERUSER access. Resolves the discovery document at the supplied discoveryUrl and auto-provisions the matching OIDC auth scheme by issuer, so a single request fully activates a new provider (e.g. Twitch) with no code changes.
  * @param {Struct.ElementsCreateOrUpdateOidcProviderConfigurationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateOrUpdateOidcProviderConfigurationResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -766,10 +784,10 @@ function elements_create_provider_configuration(_body = undefined, _callback = u
  * Creates a new PSN ApplicationConfiguration with the specific ID or application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsPSNApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPSNApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -783,10 +801,10 @@ function elements_create_psn_application_configuration(_application_name_or_id, 
  * @func_partial elements_create_receipt
  * Creates a new Receipt record.
  * @param {Struct.ElementsCreateReceiptRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -800,10 +818,10 @@ function elements_create_receipt(_body = undefined, _callback = undefined)
  * @func_partial elements_create_save_document
  * Gets a single save data document.
  * @param {Struct.ElementsCreateSaveDataDocumentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSaveDataDocument|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -817,10 +835,10 @@ function elements_create_save_document(_body = undefined, _callback = undefined)
  * @func_partial elements_create_schedule
  * Supplying a schedule object, this will create a new schedule with a newly assigned unique id.  The Schedule representation returned in the response body is a representation of the Schedule as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied schedule object submitted with the request must have a name property that is unique across all items.
  * @param {Struct.ElementsCreateScheduleRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSchedule|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -835,10 +853,10 @@ function elements_create_schedule(_body = undefined, _callback = undefined)
  * Supplying a schedule object, this will create a new schedule with a newly assigned unique id.  The ScheduleEvent representation returned in the response body is a representation of the ScheduleEvent as persisted with a unique identifier assigned and with its fields properly normalized.  The supplied schedule object submitted with the request must have a name property that is unique across all items.
  * @param {String} _schedule_name_or_id
  * @param {Struct.ElementsCreateScheduleEventRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsScheduleEvent|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -853,10 +871,10 @@ function elements_create_schedule_event(_schedule_name_or_id, _body = undefined,
  * Posts a single score for the currently logged-in profile. Conceptually, this is creationg a new resource, however the server may opt to overwrite the existing identifier if it sees fit.
  * @param {String} _leaderboard_name_or_id The name or id of the leaderboard.
  * @param {Struct.ElementsScore} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsScore|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -870,10 +888,10 @@ function elements_create_score(_leaderboard_name_or_id, _body = undefined, _call
  * @func_partial elements_create_simple_inventory_item
  * Create an inventory item for the specified item
  * @param {Struct.ElementsCreateSimpleInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -887,10 +905,10 @@ function elements_create_simple_inventory_item(_body = undefined, _callback = un
  * @func_partial elements_create_smart_contract
  * Patches a  Smart Contract entry, associated with the specified deployed script hash.
  * @param {Struct.ElementsCreateSmartContractRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSmartContract|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -905,10 +923,10 @@ function elements_create_smart_contract(_body = undefined, _callback = undefined
  * Creates a new Steam ApplicationConfiguration for the specified application.
  * @param {String} _application_name_or_id
  * @param {Struct.ElementsSteamApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSteamApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -922,10 +940,10 @@ function elements_create_steam_application_configuration(_application_name_or_id
  * @func_partial elements_create_user
  * Supplying the user object, this will update the user with the new information supplied in the body of the request.  Optionally, the user's password may be provided in the User object.
  * @param {Struct.ElementsUserCreateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUserCreateResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -939,10 +957,10 @@ function elements_create_user(_body = undefined, _callback = undefined)
  * @func_partial elements_create_username_password_session
  * Begins a session by accepting both the UserID and the Password.  Upon successful completion of this call, the user will be added to the current HTTP session.  If the session expires, the user will have to reestablish the session by supplying credentials again.  This is most useful for applications delivered in a web page.
  * @param {Struct.ElementsUsernamePasswordSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSessionCreation|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -956,10 +974,10 @@ function elements_create_username_password_session(_body = undefined, _callback 
  * @func_partial elements_create_vault
  * Creates a new  Vault, associated with the given user.
  * @param {Struct.ElementsCreateVaultRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsVault|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -974,10 +992,10 @@ function elements_create_vault(_body = undefined, _callback = undefined)
  * Creates a new  Wallet, associated with the given user.
  * @param {String} _vault_id
  * @param {Struct.ElementsCreateWalletRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsWallet|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -991,10 +1009,10 @@ function elements_create_wallet(_vault_id, _body = undefined, _callback = undefi
  * @func_partial elements_deactivate_profile
  * Deletes and permanently removes the Profile from the server.  The server maykeep some record around to preserve relationships and references, but this profile will not be accessible again until it is recreated.
  * @param {String} _profile_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1008,10 +1026,10 @@ function elements_deactivate_profile(_profile_id, _callback = undefined)
  * @func_partial elements_deactivate_user
  * Deletes and permanently removes the user from the server.  The server may keep some metadata as necessary to avoid data inconsistency.  However, the user has been deleted from the client standpoint and will not be accessible through any of the existing APIs.
  * @param {String} _name
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1025,10 +1043,10 @@ function elements_deactivate_user(_name, _callback = undefined)
  * @func_partial elements_delete_advanced_inventory_item
  * Delete the inventory item as identified by the given item name/id
  * @param {String} _inventory_item_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1041,10 +1059,10 @@ function elements_delete_advanced_inventory_item(_inventory_item_id, _callback =
 /**
  * @func_partial elements_delete_all_matches
  * Deletes and permanently removes all MultiMatches from he server.  This effectively will cancel any pending request for a match.  If a game is currently being played against the match, the server may reject the request to delete the match until the game concludes.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1058,10 +1076,10 @@ function elements_delete_all_matches(_callback = undefined)
  * @func_partial elements_delete_application
  * Deletes a specific application known to the server.
  * @param {String} _name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1075,10 +1093,10 @@ function elements_delete_application(_name_or_id, _callback = undefined)
  * @func_partial elements_delete_contract
  * Deletes a  Smart Contract with the specified contractId.
  * @param {String} _contract_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1092,10 +1110,10 @@ function elements_delete_contract(_contract_id, _callback = undefined)
  * @func_partial elements_delete_custom_auth_scheme
  * Deletes an Auth Scheme with the specified id.
  * @param {String} _auth_scheme_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1109,10 +1127,10 @@ function elements_delete_custom_auth_scheme(_auth_scheme_id, _callback = undefin
  * @func_partial elements_delete_deployment
  * @param {String} _application_id
  * @param {String} _deployment_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1126,10 +1144,10 @@ function elements_delete_deployment(_application_id, _deployment_id, _callback =
  * @func_partial elements_delete_distinct_inventory_item
  * Delete the inventory item as identified by the given item name/id
  * @param {String} _distinct_inventory_item_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1142,10 +1160,10 @@ function elements_delete_distinct_inventory_item(_distinct_inventory_item_id, _c
 /**
  * @func_partial elements_delete_element_deployment
  * @param {String} _deployment_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1160,10 +1178,10 @@ function elements_delete_element_deployment(_deployment_id, _callback = undefine
  * Deletes an existing Facebook Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1176,10 +1194,10 @@ function elements_delete_facebook_application_configuration(_application_name_or
 /**
  * @func_partial elements_delete_fcm_registration
  * @param {String} _fcm_registration_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1194,10 +1212,10 @@ function elements_delete_fcm_registration(_fcm_registration_id, _callback = unde
  * Deletes an existing Firebase Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1212,10 +1230,10 @@ function elements_delete_firebase_application_configuration(_application_name_or
  * Deletes a Follower relationship
  * @param {String} _profile_id
  * @param {String} _profile_to_unfollow_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1229,10 +1247,10 @@ function elements_delete_follower(_profile_id, _profile_to_unfollow_id, _callbac
  * @func_partial elements_delete_friend_registration
  * Once a friend is deleted, re-creating a friend will set the friendship status to outgoing.
  * @param {String} _friend_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1247,10 +1265,10 @@ function elements_delete_friend_registration(_friend_id, _callback = undefined)
  * Deletes an existing Google Play Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1265,10 +1283,10 @@ function elements_delete_google_play_application_configuration(_application_name
  * Deletes an existing iOS Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1282,10 +1300,10 @@ function elements_delete_ios_application_configuration(_application_name_or_id, 
  * @func_partial elements_delete_item
  * Delete the item as identified by the given item name/id
  * @param {String} _identifier
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1299,10 +1317,10 @@ function elements_delete_item(_identifier, _callback = undefined)
  * @func_partial elements_delete_large_object
  * Deletes a LargeObject
  * @param {String} _large_object_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1316,10 +1334,10 @@ function elements_delete_large_object(_large_object_id, _callback = undefined)
  * @func_partial elements_delete_leaderboard
  * Deletes a specific leaderboard known to the server.
  * @param {String} _name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1333,10 +1351,10 @@ function elements_delete_leaderboard(_name_or_id, _callback = undefined)
  * @func_partial elements_delete_match
  * Deletes and permanently removes the MultiMatch from he server.  This effectively will cancel any pending request for a match.  If a game is currently being played against the match, the server may reject the request to delete the match until the game concludes.
  * @param {String} _match_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1351,10 +1369,10 @@ function elements_delete_match(_match_id, _callback = undefined)
  * Deletes an existing iOS Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1368,10 +1386,10 @@ function elements_delete_matchmaking_application_configuration(_application_name
  * @func_partial elements_delete_metadata
  * Deletes a specific metadata object by name or id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1385,10 +1403,10 @@ function elements_delete_metadata(_id, _callback = undefined)
  * @func_partial elements_delete_metadata_spec
  * Deletes a MetadataSpec with the specified id.
  * @param {String} _metadata_spec_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1402,10 +1420,10 @@ function elements_delete_metadata_spec(_metadata_spec_id, _callback = undefined)
  * @func_partial elements_delete_mission
  * Deletes a mission by the passed in identifier
  * @param {String} _mission_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1419,10 +1437,10 @@ function elements_delete_mission(_mission_name_or_id, _callback = undefined)
  * @func_partial elements_delete_oauth2_auth_scheme
  * Deletes an Auth Scheme with the specified id.
  * @param {String} _oauth2_auth_scheme_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1437,10 +1455,10 @@ function elements_delete_oauth2_auth_scheme(_oauth2_auth_scheme_id, _callback = 
  * Deletes an existing Oculus Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1454,10 +1472,10 @@ function elements_delete_oculus_application_configuration(_application_name_or_i
  * @func_partial elements_delete_oidc_auth_scheme
  * Deletes an Auth Scheme with the specified id.
  * @param {String} _oidc_auth_scheme_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1471,10 +1489,10 @@ function elements_delete_oidc_auth_scheme(_oidc_auth_scheme_id, _callback = unde
  * @func_partial elements_delete_product_bundle
  * Permanently removes the Product Bundle identified by the given database id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1488,10 +1506,10 @@ function elements_delete_product_bundle(_id, _callback = undefined)
  * @func_partial elements_delete_product_sku_schema
  * Permanently removes the schema identifier with the given database id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1505,10 +1523,10 @@ function elements_delete_product_sku_schema(_id, _callback = undefined)
  * @func_partial elements_delete_progress
  * Deletes a progress by the passed in identifier
  * @param {String} _progress_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1522,10 +1540,10 @@ function elements_delete_progress(_progress_id, _callback = undefined)
  * @func_partial elements_delete_provider_configuration
  * Deletes an OIDC provider configuration
  * @param {String} _provider_configuration_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1540,10 +1558,10 @@ function elements_delete_provider_configuration(_provider_configuration_id, _cal
  * Deletes an existing PSN Application profile if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1557,10 +1575,10 @@ function elements_delete_psn_application_configuration(_application_name_or_id, 
  * @func_partial elements_delete_receipt
  * Deletes and permanently removes the Receipt from the server.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1574,10 +1592,10 @@ function elements_delete_receipt(_id, _callback = undefined)
  * @func_partial elements_delete_save_document
  * Deletes a save data document
  * @param {String} _save_data_document_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1591,10 +1609,10 @@ function elements_delete_save_document(_save_data_document_id, _callback = undef
  * @func_partial elements_delete_schedule
  * Deletes a schedule by the passed in identifier
  * @param {String} _schedule_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1609,10 +1627,10 @@ function elements_delete_schedule(_schedule_name_or_id, _callback = undefined)
  * Deletes a schedule by the passed in identifier
  * @param {String} _schedule_name_or_id
  * @param {String} _schedule_event_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1626,10 +1644,10 @@ function elements_delete_schedule_event(_schedule_name_or_id, _schedule_event_id
  * @func_partial elements_delete_simple_inventory_item
  * Delete the inventory item as identified by the given item name/id
  * @param {String} _inventory_item_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1644,10 +1662,10 @@ function elements_delete_simple_inventory_item(_inventory_item_id, _callback = u
  * Deletes an existing Steam application configuration if it is known to the server.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1661,10 +1679,10 @@ function elements_delete_steam_application_configuration(_application_name_or_id
  * @func_partial elements_delete_vault
  * Deletes a  Vault with the specified id.
  * @param {String} _vault_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1679,10 +1697,10 @@ function elements_delete_vault(_vault_id, _callback = undefined)
  * Deletes a  Wallet with the specified id.
  * @param {String} _vault_id
  * @param {String} _wallet_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1696,10 +1714,10 @@ function elements_delete_wallet(_vault_id, _wallet_id, _callback = undefined)
  * @func_partial elements_generate_code
  * Generates API code for use on the client. Will generate Elements core if no application is specified in the request body.The generated code will always be returned in JSON format. To get a YAML representation, use the Oas3DocumentationResource directly, such as /api/rest/openapi.yaml
  * @param {Struct.ElementsCodegenRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1713,10 +1731,10 @@ function elements_generate_code(_body = undefined, _callback = undefined)
  * @func_partial elements_get_advanced_inventory_item
  * Gets the first (primary) inventory item for the specified item
  * @param {String} _inventory_item_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1733,10 +1751,10 @@ function elements_get_advanced_inventory_item(_inventory_item_id, _callback = un
  * @param {Real} [_count]
  * @param {String} [_user_id]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1748,10 +1766,10 @@ function elements_get_advanced_inventory_items(_offset = 0, _count = 20, _user_i
 
 /**
  * @func_partial elements_get_all_builtin_spis
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementSpi]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1763,10 +1781,10 @@ function elements_get_all_builtin_spis(_callback = undefined)
 
 /**
  * @func_partial elements_get_all_containers
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementContainerStatus]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1778,10 +1796,10 @@ function elements_get_all_containers(_callback = undefined)
 
 /**
  * @func_partial elements_get_all_features
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementFeature]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1793,10 +1811,10 @@ function elements_get_all_features(_callback = undefined)
 
 /**
  * @func_partial elements_get_all_runtimes
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementRuntimeStatus]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1808,10 +1826,10 @@ function elements_get_all_runtimes(_callback = undefined)
 
 /**
  * @func_partial elements_get_all_system_elements
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementMetadata]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1825,10 +1843,10 @@ function elements_get_all_system_elements(_callback = undefined)
  * @func_partial elements_get_application
  * Gets the metadata for a single application.  This may include more specific details not available in the bulk-get or fetch operation.
  * @param {String} _name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsApplication|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1845,10 +1863,10 @@ function elements_get_application(_name_or_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1864,10 +1882,10 @@ function elements_get_application_profiles(_application_name_or_id, _offset = 0,
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationApplication|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1880,10 +1898,10 @@ function elements_get_applications(_offset = 0, _count = 20, _search = undefined
 /**
  * @func_partial elements_get_current_deployment
  * @param {String} _application_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1896,10 +1914,10 @@ function elements_get_current_deployment(_application_id, _callback = undefined)
 /**
  * @func_partial elements_get_current_profile
  * This is a special endpoing which fetches the current Profile based on current auth credentials.  This considers the currently loggged-in Dser as well as the Application or Application Configuration against which the User is operating.  This may not be availble, in which case the appopraite error is rasied.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1912,10 +1930,10 @@ function elements_get_current_profile(_callback = undefined)
 /**
  * @func_partial elements_get_current_user
  * A special endpoint used to get the current user for the request.  The current user is typically associated with the session but may be derived any other way.  This is essentially an alias for using GET /user/myUserId
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUser|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1929,10 +1947,10 @@ function elements_get_current_user(_callback = undefined)
  * @func_partial elements_get_custom_auth_scheme
  * Gets a specific Auth Scheme by the authSchemeId.
  * @param {String} _auth_scheme_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsAuthScheme|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1948,10 +1966,10 @@ function elements_get_custom_auth_scheme(_auth_scheme_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationAuthScheme|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1965,10 +1983,10 @@ function elements_get_custom_auth_schemes(_offset = 0, _count = 20, _tags = unde
  * @func_partial elements_get_deployment
  * @param {String} _application_id
  * @param {String} _deployment_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1981,10 +1999,10 @@ function elements_get_deployment(_application_id, _deployment_id, _callback = un
 /**
  * @func_partial elements_get_deployments
  * @param {String} _application_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -1998,10 +2016,10 @@ function elements_get_deployments(_application_id, _callback = undefined)
  * @func_partial elements_get_distinct_inventory_item
  * Gets the first (primary) inventory item for the specified item
  * @param {String} _inventory_item_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDistinctInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2019,10 +2037,10 @@ function elements_get_distinct_inventory_item(_inventory_item_id, _callback = un
  * @param {String} [_user_id]
  * @param {String} [_profile_id]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationDistinctInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2036,10 +2054,10 @@ function elements_get_distinct_inventory_items(_offset = 0, _count = 20, _user_i
  * @func_partial elements_get_editor_schema
  * Gets a specific Metadata Editor Schema backed by the supplied MetadataSpec by name.
  * @param {String} _metadata_spec_name
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsEditorSchema|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2052,10 +2070,10 @@ function elements_get_editor_schema(_metadata_spec_name, _callback = undefined)
 /**
  * @func_partial elements_get_element_deployment
  * @param {String} _deployment_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsElementDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2070,10 +2088,10 @@ function elements_get_element_deployment(_deployment_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationElementDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2087,10 +2105,10 @@ function elements_get_element_deployments(_offset = 0, _count = 20, _search = un
  * @func_partial elements_get_element_path_record_for_artifact
  * Inspects the artifact with the supplied coordinates.
  * @param {String} _coordinates
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementPathRecordMetadata]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2104,10 +2122,10 @@ function elements_get_element_path_record_for_artifact(_coordinates, _callback =
  * @func_partial elements_get_element_path_record_for_large_object_id
  * Inspects the artifact with the supplied large object id.
  * @param {String} _large_object_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementPathRecordMetadata]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2122,10 +2140,10 @@ function elements_get_element_path_record_for_large_object_id(_large_object_id, 
  * Gets a single Facebook application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFacebookApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2139,10 +2157,10 @@ function elements_get_facebook_application_configuration(_application_name_or_id
  * @func_partial elements_get_facebook_iap_receipt
  * Fetches the facebook iap receipt with the matching database id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFacebookIapReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2157,10 +2175,10 @@ function elements_get_facebook_iap_receipt(_id, _callback = undefined)
  * Fetches the facebook iap receipt with the matching database id.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationFacebookIapReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2175,10 +2193,10 @@ function elements_get_facebook_iap_receipts(_offset = 0, _count = 20, _callback 
  * Gets a single Firebase application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFirebaseApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2194,10 +2212,10 @@ function elements_get_firebase_application_configuration(_application_name_or_id
  * @param {String} _profile_id
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2212,10 +2230,10 @@ function elements_get_followees(_profile_id, _offset = 0, _count = 20, _callback
  * Gets a specific profile using the ID of the profile and followed id.
  * @param {String} _profile_id
  * @param {String} _followed_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2231,10 +2249,10 @@ function elements_get_follower(_profile_id, _followed_id, _callback = undefined)
  * @param {String} _profile_id
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2248,10 +2266,10 @@ function elements_get_followers(_profile_id, _offset = 0, _count = 20, _callback
  * @func_partial elements_get_friend
  * Gets a specific friend using the ID of the friend.
  * @param {String} _friend_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFriend|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2267,10 +2285,10 @@ function elements_get_friend(_friend_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationFriend|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2285,10 +2303,10 @@ function elements_get_friends(_offset = 0, _count = 20, _search = undefined, _ca
  * Gets the current Profile's rank among all players for the particular leaderboard.
  * @param {String} _leaderboard_name_or_id Specifies the leaderboard name or ID.
  * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If not provided, the current epoch will be used by default for epochal leaderboards. This value will be ignored for all-time leaderboards. Set this value to 0 to explicitly reference the current epoch (when applicable).
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2303,10 +2321,10 @@ function elements_get_global_rank_tabular(_leaderboard_name_or_id, _leaderboard_
  * Gets a single Google Play application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsGooglePlayApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2321,10 +2339,10 @@ function elements_get_google_play_application_configuration(_application_name_or
  * Gets a single iOS application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsIosApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2338,10 +2356,10 @@ function elements_get_ios_application_configuration(_application_name_or_id, _ap
  * @func_partial elements_get_item_by_identifier
  * Looks up an item by the passed in identifier
  * @param {String} _identifier
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2359,10 +2377,10 @@ function elements_get_item_by_identifier(_identifier, _callback = undefined)
  * @param {Array[String]} [_tags]
  * @param {String} [_category]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2376,10 +2394,10 @@ function elements_get_items(_offset = 0, _count = 20, _tags = undefined, _catego
  * @func_partial elements_get_json_schema
  * Gets a specific JSON Schema backed by the supplied MetadataSpec by name.
  * @param {String} _metadata_spec_name
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsJsonSchema|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2393,10 +2411,10 @@ function elements_get_json_schema(_metadata_spec_name, _callback = undefined)
  * @func_partial elements_get_large_object
  * Get a LargeObject
  * @param {String} _large_object_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2412,10 +2430,10 @@ function elements_get_large_object(_large_object_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2429,10 +2447,10 @@ function elements_get_large_objects(_offset = 0, _count = 20, _search = undefine
  * @func_partial elements_get_leaderboard
  * Gets the metadata for a single leaderboard.  This may include more specific details not availble in the bulk-get or fetch operation.
  * @param {String} _name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLeaderboard|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2448,10 +2466,10 @@ function elements_get_leaderboard(_name_or_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationLeaderboard|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2471,10 +2489,10 @@ function elements_get_leaderboards(_offset = 0, _count = 20, _search = undefined
  * @param {Real} [_to] Optional inclusive upper bound as epoch milliseconds. When omitted, no upper bound is applied.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationItemLedgerEntry|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2488,10 +2506,10 @@ function elements_get_ledger_entries(_inventory_item_id = undefined, _user_id = 
  * @func_partial elements_get_match
  * Gets a specific match given the match's unique ID.  Additionally, it is possible to instruct the API to wait for a period of time before sending the response.  The request will intentionally hang until the requested MultiMatch with ID has been updated in the database.
  * @param {String} _match_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMultiMatch|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2507,10 +2525,10 @@ function elements_get_match(_match_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {Struct.ElementsInviteViaPhonesRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInviteViaPhonesResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2526,10 +2544,10 @@ function elements_get_matched_user_profiles_with_phone_numbers(_offset = 0, _cou
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationMultiMatch|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2544,10 +2562,10 @@ function elements_get_matches(_offset = 0, _count = 20, _search = undefined, _ca
  * Gets a single iOS application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMatchmakingApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2561,10 +2579,10 @@ function elements_get_matchmaking_application_configuration(_application_name_or
  * @func_partial elements_get_metadata_object
  * Gets a specific metadata object by name or id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMetadata|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2580,10 +2598,10 @@ function elements_get_metadata_object(_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationMetadata|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2597,10 +2615,10 @@ function elements_get_metadata_objects(_offset = 0, _count = 20, _search = undef
  * @func_partial elements_get_metadata_spec
  * Gets a specific MetadataSpec by name or Id.
  * @param {String} _metadata_spec_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMetadataSpec|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2615,10 +2633,10 @@ function elements_get_metadata_spec(_metadata_spec_name_or_id, _callback = undef
  * Gets a pagination of Metadata Specs for the given query.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationMetadataSpec|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2632,10 +2650,10 @@ function elements_get_metadata_specs(_offset = 0, _count = 20, _callback = undef
  * @func_partial elements_get_mission_by_name_or_id
  * Looks up a mission by the passed in identifier
  * @param {String} _mission_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMission|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2652,10 +2670,10 @@ function elements_get_mission_by_name_or_id(_mission_name_or_id, _callback = und
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationMission|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2669,10 +2687,10 @@ function elements_get_missions(_offset = 0, _count = 20, _tags = undefined, _sea
  * @func_partial elements_get_oauth2_auth_scheme
  * Gets a specific Auth Scheme by the oAuth2AuthSchemeId.
  * @param {String} _oauth2_auth_scheme_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOAuth2AuthScheme|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2688,10 +2706,10 @@ function elements_get_oauth2_auth_scheme(_oauth2_auth_scheme_id, _callback = und
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationOAuth2AuthScheme|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2706,10 +2724,10 @@ function elements_get_oauth2_auth_schemes(_offset = 0, _count = 20, _tags = unde
  * Gets a single Oculus application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2723,10 +2741,10 @@ function elements_get_oculus_application_configuration(_application_name_or_id, 
  * @func_partial elements_get_oculus_iap_receipt
  * Fetches the oculus iap receipt with the matching database id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusIapReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2741,10 +2759,10 @@ function elements_get_oculus_iap_receipt(_id, _callback = undefined)
  * Fetches the oculus iap receipt with the matching database id.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationOculusIapReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2758,10 +2776,10 @@ function elements_get_oculus_iap_receipts(_offset = 0, _count = 20, _callback = 
  * @func_partial elements_get_oidc_auth_scheme
  * Gets a specific Auth Scheme by the oidcAuthSchemeId.
  * @param {String} _oidc_auth_scheme_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOidcAuthScheme|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2777,10 +2795,10 @@ function elements_get_oidc_auth_scheme(_oidc_auth_scheme_id, _callback = undefin
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationOidcAuthScheme|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2795,10 +2813,10 @@ function elements_get_oidc_auth_schemes(_offset = 0, _count = 20, _tags = undefi
  * Gets all index plans.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationIndexPlanObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2812,10 +2830,10 @@ function elements_get_plans(_offset = 0, _count = 20, _callback = undefined)
  * @func_partial elements_get_product_bundle
  * Returns the Product Bundle identified by the given database id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProductBundle|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2831,10 +2849,10 @@ function elements_get_product_bundle(_id, _callback = undefined)
  * @param {String} _application_name_or_id
  * @param {String} _schema
  * @param {String} _product_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProductBundle|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2853,10 +2871,10 @@ function elements_get_product_bundle_by_key(_application_name_or_id, _schema, _p
  * @param {Array[String]} [_tag]
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationProductBundle|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2870,10 +2888,10 @@ function elements_get_product_bundles(_application_name_or_id = undefined, _sche
  * @func_partial elements_get_product_sku_schema
  * Returns the schema identifier with the given database id.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProductSkuSchema|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2888,10 +2906,10 @@ function elements_get_product_sku_schema(_id, _callback = undefined)
  * Returns all registered payment-provider schema identifiers.
  * @param {Real} [_offset]
  * @param {Real} [_count]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationProductSkuSchema|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2905,10 +2923,10 @@ function elements_get_product_sku_schemas(_offset = 0, _count = 20, _callback = 
  * @func_partial elements_get_profile
  * Gets a specific profile by profile ID.
  * @param {String} _name
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2923,10 +2941,10 @@ function elements_get_profile(_name, _callback = undefined)
  * Gets a single save data document based on Profile ID and slot. This is a convenience method whichallows the client to fetch a save data based on slot an profile id.
  * @param {String} _profile_id
  * @param {Real} _slot
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSaveDataDocument|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2946,10 +2964,10 @@ function elements_get_profile_save_data_document_by_slot(_profile_id, _slot, _ca
  * @param {String} [_application]
  * @param {String} [_user]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2963,10 +2981,10 @@ function elements_get_profiles(_offset = 0, _count = 20, _before = undefined, _a
  * @func_partial elements_get_progress_by_name_or_id
  * Looks up a progress by the passed in identifier
  * @param {String} _progress_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProgress|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2979,10 +2997,10 @@ function elements_get_progress_by_name_or_id(_progress_id, _callback = undefined
 /**
  * @func_partial elements_get_progress_tabular
  * Gets the current Profile's rank among all players for the particular leaderboard.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -2996,10 +3014,10 @@ function elements_get_progress_tabular(_callback = undefined)
  * @func_partial elements_get_provider_configuration
  * Gets a specific OIDC provider configuration
  * @param {String} _provider_configuration_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOidcProviderConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3015,10 +3033,10 @@ function elements_get_provider_configuration(_provider_configuration_id, _callba
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationOidcProviderConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3033,10 +3051,10 @@ function elements_get_provider_configurations(_offset = 0, _count = 20, _tags = 
  * Gets a single PSN application based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPSNApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3054,10 +3072,10 @@ function elements_get_psn_application_configuration(_application_name_or_id, _ap
  * @param {Real} [_count] The number of results to return in the page.
  * @param {Bool} [_relative] Indicates whether or not to fetch results in a relative fashion.
  * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If no value is provided, the current epoch will befetched.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationRank|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3075,10 +3093,10 @@ function elements_get_rank_among_friends(_leaderboard_name_or_id, _offset = 0, _
  * @param {Real} [_count] The number of results to return in the page.
  * @param {Bool} [_relative] Indicates whether or not to fetch results in a relative fashion.
  * @param {Real} [_leaderboard_epoch] Specifies the epoch for the leaderboard. If no value is provided, the current epoch will befetched.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationRank|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3092,10 +3110,10 @@ function elements_get_rank_among_mutual_followers(_leaderboard_name_or_id, _offs
  * @func_partial elements_get_receipt
  * Gets a Receipt using the database id provided in the URL path.
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3112,10 +3130,10 @@ function elements_get_receipt(_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationReceipt|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3129,10 +3147,10 @@ function elements_get_receipts(_user_id = undefined, _offset = 0, _count = 20, _
  * @func_partial elements_get_reward_issuance
  * Retrieves a single RewardIssuance by id.
  * @param {String} _reward_issuance_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsRewardIssuance|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3149,10 +3167,10 @@ function elements_get_reward_issuance(_reward_issuance_id, _callback = undefined
  * @param {Real} [_count]
  * @param {Array[String]} [_states]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationRewardIssuance|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3166,10 +3184,10 @@ function elements_get_reward_issuances(_offset = 0, _count = 20, _states = undef
  * @func_partial elements_get_reward_issuances_for_oculus_iap_receipt
  * Attempts to verify the Oculus IAP Receipt data.Returns a list of RewardIssuances, some or all of which may be already redeemed.
  * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3183,10 +3201,10 @@ function elements_get_reward_issuances_for_oculus_iap_receipt(_body = undefined,
  * @func_partial elements_get_save_data_document
  * Gets a single save data document
  * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSaveDataDocument|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3204,10 +3222,10 @@ function elements_get_save_data_document(_id, _callback = undefined)
  * @param {String} [_user_id]
  * @param {String} [_profile_id]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationSaveDataDocument|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3221,10 +3239,10 @@ function elements_get_save_data_documents(_offset = 0, _count = 20, _user_id = u
  * @func_partial elements_get_schedule_by_name_or_id
  * Looks up a schedule by the passed in identifier
  * @param {String} _schedule_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSchedule|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3239,10 +3257,10 @@ function elements_get_schedule_by_name_or_id(_schedule_name_or_id, _callback = u
  * Looks up a schedule by the passed in identifier
  * @param {String} _schedule_name_or_id
  * @param {String} _schedule_event_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsScheduleEvent|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3260,10 +3278,10 @@ function elements_get_schedule_event_by_name_or_id(_schedule_name_or_id, _schedu
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationScheduleEvent|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3280,10 +3298,10 @@ function elements_get_schedule_events(_schedule_name_or_id, _offset = 0, _count 
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationProgress|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3300,10 +3318,10 @@ function elements_get_schedule_progresses(_schedule_name_or_id, _offset = 0, _co
  * @param {Real} [_count]
  * @param {Array[String]} [_tags]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationSchedule|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3316,10 +3334,10 @@ function elements_get_schedules(_offset = 0, _count = 20, _tags = undefined, _se
 /**
  * @func_partial elements_get_server_health
  * Performs the health check for the server. What this actually does is deployment and implementation specific. However, any successful response code should indicate that the service is capable of servicing requests. Any unsuccessful error codes should indicate that the instance has internal issues and should be taken offline.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsHealthStatus|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3333,10 +3351,10 @@ function elements_get_server_health(_callback = undefined)
  * @func_partial elements_get_simple_inventory_item
  * Gets the first (primary) inventory item for the specified item
  * @param {String} _inventory_item_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3353,10 +3371,10 @@ function elements_get_simple_inventory_item(_inventory_item_id, _callback = unde
  * @param {Real} [_count]
  * @param {String} [_user_id]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3370,10 +3388,10 @@ function elements_get_simple_inventory_items(_offset = 0, _count = 20, _user_id 
  * @func_partial elements_get_smart_contract
  * Gets a specific  Smart Contract by contractId.
  * @param {String} _contract_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSmartContract|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3390,10 +3408,10 @@ function elements_get_smart_contract(_contract_id, _callback = undefined)
  * @param {Real} [_count]
  * @param {String} [_api]
  * @param {Array[String]} [_network]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationSmartContract|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3408,10 +3426,10 @@ function elements_get_smart_contracts(_offset = 0, _count = 20, _api = undefined
  * Gets a single Steam application configuration based on unique name or ID.
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSteamApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3425,10 +3443,10 @@ function elements_get_steam_application_configuration(_application_name_or_id, _
  * @func_partial elements_get_user
  * Gets a specific user by name, email, or unique user ID.
  * @param {String} _name
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUser|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3443,10 +3461,10 @@ function elements_get_user(_name, _callback = undefined)
  * Gets a single save data document based on UserID and slot. This is a convenience method whichallows the client to fetch a save data based on slot an user id.
  * @param {String} _user_id
  * @param {Real} _slot
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSaveDataDocument|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3462,10 +3480,10 @@ function elements_get_user_save_data_document_by_slot(_user_id, _slot, _callback
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_search]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationUser|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3479,10 +3497,10 @@ function elements_get_users(_offset = 0, _count = 20, _search = undefined, _call
  * @func_partial elements_get_vault
  * Gets a specific  Vault by Id.
  * @param {String} _vault_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsVault|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3498,10 +3516,10 @@ function elements_get_vault(_vault_id, _callback = undefined)
  * @param {Real} [_offset]
  * @param {Real} [_count]
  * @param {String} [_user_id]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationVault|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3514,10 +3532,10 @@ function elements_get_vaults(_offset = 0, _count = 20, _user_id = undefined, _ca
 /**
  * @func_partial elements_get_version
  * Returns information about the current server version.  This should always return theversion metadata.  This information is only known in packaged releases.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsVersion|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3531,10 +3549,10 @@ function elements_get_version(_callback = undefined)
  * @func_partial elements_get_wallet
  * Gets a specific  Wallet by Id.
  * @param {String} _wallet_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsWallet|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3549,10 +3567,10 @@ function elements_get_wallet(_wallet_id, _callback = undefined)
  * Gets a specific  Wallet by Id.
  * @param {String} _vault_id
  * @param {String} _wallet_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsWallet|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3571,10 +3589,10 @@ function elements_get_wallet_for_vault(_vault_id, _wallet_id, _callback = undefi
  * @param {String} [_user_id]
  * @param {String} [_api]
  * @param {Array[String]} [_network]
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPaginationWallet|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3588,10 +3606,10 @@ function elements_get_wallets(_vault_id, _offset = 0, _count = 20, _user_id = un
  * @func_partial elements_inspect_uploaded_elm
  * Inspects an ELM file uploaded via multipart form.
  * @param {Struct.ElementsInspectUploadedElmBody} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsElementPathRecordMetadata]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3605,10 +3623,10 @@ function elements_inspect_uploaded_elm(_body = undefined, _callback = undefined)
  * @func_partial elements_link_email_password
  * Links email+password credentials to the currently authenticated user. The email must first be verified via POST /user/me/email/verify.
  * @param {Struct.ElementsLinkEmailPasswordRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUser|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3622,10 +3640,10 @@ function elements_link_email_password(_body = undefined, _callback = undefined)
  * @func_partial elements_link_oauth2
  * Links an external OAuth2 identity to the currently authenticated user. Requires an active user session. Returns the updated session information.
  * @param {Struct.ElementsOAuth2SessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSessionCreation|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3639,11 +3657,11 @@ function elements_link_oauth2(_body = undefined, _callback = undefined)
  * @func_partial elements_link_oidc
  * Links an external OIDC identity to the currently authenticated user. Requires an active user session. Returns the updated session information.
  * @param {Struct.ElementsOidcSessionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
- * @member {Struct.ElementsSessionCreation|Undefined} _data
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
+ * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
  * @func_end
@@ -3656,10 +3674,10 @@ function elements_link_oidc(_body = undefined, _callback = undefined)
  * @func_partial elements_link_username_password
  * Links username+password credentials to the currently authenticated user. If the account has no username yet, the supplied username is claimed. If a username is already set it must match; name changes must be done explicitly.
  * @param {Struct.ElementsLinkUsernamePasswordRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUser|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3671,13 +3689,13 @@ function elements_link_username_password(_body = undefined, _callback = undefine
 
 /**
  * @func_partial elements_poll_oidc_session
- * Returns COMPLETE with the session exactly once, on the poll that first observes completion; a subsequent poll for the same id, or a poll for an unknown/expired id, returns 404.
- * @param {String} _id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * Returns COMPLETE with the session exactly once, on the poll that first observes completion; a subsequent poll for the same id, or a poll for an unknown/expired id, returns 404. An account-linking attempt cannot be finalized this way -- once its external identity is validated, this returns an error directing the caller to POST {id}/confirm instead.
+ * @param {String} _id The opaque poll id returned by POST /oidc/session.
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
- * @member {Struct.ElementsOidcLoginAttemptStatusResponse|Undefined} _data
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
+ * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
  * @func_end
@@ -3690,10 +3708,10 @@ function elements_poll_oidc_session(_id, _callback = undefined)
  * @func_partial elements_redeem_facebook_iap_purchase
  * Attempts to verify the Facebook IAP Receipt data.Returns a list of RewardIssuances, some or all of which may be already redeemed.
  * @param {Struct.ElementsFacebookIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3707,10 +3725,10 @@ function elements_redeem_facebook_iap_purchase(_body = undefined, _callback = un
  * @func_partial elements_redeem_reward_issuance
  * Redeems the RewardIssuance.
  * @param {String} _reward_issuance_id
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsRewardIssuanceRedemptionResult|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3724,10 +3742,10 @@ function elements_redeem_reward_issuance(_reward_issuance_id, _callback = undefi
  * @func_partial elements_redeem_reward_issuances
  * Redeems the given list of RewardIssuances.
  * @param {Array[String]} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsRewardIssuanceRedemptionResult]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3741,10 +3759,10 @@ function elements_redeem_reward_issuances(_body = undefined, _callback = undefin
  * @func_partial elements_request_reset
  * Sends a password reset link to the given email address if an account exists. Always returns 200 to prevent user enumeration.
  * @param {Struct.ElementsPasswordResetRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Any} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3758,10 +3776,10 @@ function elements_request_reset(_body = undefined, _callback = undefined)
  * @func_partial elements_request_verification
  * Sends a verification link to the given email address associated with the current user.
  * @param {Struct.ElementsEmailVerificationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUserUid|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3775,10 +3793,10 @@ function elements_request_verification(_body = undefined, _callback = undefined)
  * @func_partial elements_sign_up_user
  * Supplying the user create request object, this will create a new user.
  * @param {Struct.ElementsUserCreateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUserCreateResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3792,10 +3810,10 @@ function elements_sign_up_user(_body = undefined, _callback = undefined)
  * @func_partial elements_sign_up_user_and_create_session
  * Supplying the UserCreateRequest object, this will create a new user and create a session for it.  If any Profiles are supplied, the first one will be selected for the session creation.
  * @param {Struct.ElementsUserCreateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSessionCreation|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3810,10 +3828,10 @@ function elements_sign_up_user_and_create_session(_body = undefined, _callback =
  * Updates an inventory item for the specified item
  * @param {String} _inventory_item_id
  * @param {Struct.ElementsUpdateInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3828,10 +3846,10 @@ function elements_update_advanced_inventory_item(_inventory_item_id, _body = und
  * Performs an update to an existing application known to the server.
  * @param {String} _name_or_id
  * @param {Struct.ElementsUpdateApplicationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsApplication|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3846,10 +3864,10 @@ function elements_update_application(_name_or_id, _body = undefined, _callback =
  * Updates an Auth Scheme with the specified data in the auth scheme request.
  * @param {String} _auth_scheme_id
  * @param {Struct.ElementsUpdateAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUpdateAuthSchemeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3864,10 +3882,10 @@ function elements_update_custom_auth_scheme(_auth_scheme_id, _body = undefined, 
  * @param {String} _application_id
  * @param {String} _version
  * @param {Struct.ElementsUpdateDeploymentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3882,10 +3900,10 @@ function elements_update_deployment(_application_id, _version, _body = undefined
  * Updates an inventory item for the specified item
  * @param {String} _distinct_inventory_item_id
  * @param {Struct.ElementsUpdateDistinctInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsDistinctInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3899,10 +3917,10 @@ function elements_update_distinct_inventory_item(_distinct_inventory_item_id, _b
  * @func_partial elements_update_element_deployment
  * @param {String} _deployment_id
  * @param {Struct.ElementsUpdateElementDeploymentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsElementDeployment|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3918,10 +3936,10 @@ function elements_update_element_deployment(_deployment_id, _body = undefined, _
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsFacebookApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFacebookApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3937,10 +3955,10 @@ function elements_update_facebook_application_configuration(_application_name_or
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsFirebaseApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFirebaseApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3956,10 +3974,10 @@ function elements_update_firebase_application_configuration(_application_name_or
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsGooglePlayApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsGooglePlayApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3975,10 +3993,10 @@ function elements_update_google_play_application_configuration(_application_name
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsIosApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsIosApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -3993,10 +4011,10 @@ function elements_update_ios_application_configuration(_application_name_or_id, 
  * Supplying an item, this will update the Item identified by the identifier in the path with contents from the passed in request body. 
  * @param {String} _identifier
  * @param {Struct.ElementsUpdateItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4011,10 +4029,10 @@ function elements_update_item(_identifier, _body = undefined, _callback = undefi
  * Updates a LargeObject
  * @param {String} _large_object_id
  * @param {Struct.ElementsUpdateLargeObjectRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4029,10 +4047,10 @@ function elements_update_large_object(_large_object_id, _body = undefined, _call
  * Updates a LargeObject content
  * @param {String} _large_object_id
  * @param {Struct.ElementsUpdateLargeObjectContentsBody} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLargeObject|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4047,10 +4065,10 @@ function elements_update_large_object_contents(_large_object_id, _body = undefin
  * Performs an update to an existing leaderboard known to the server.
  * @param {String} _name_or_id
  * @param {Struct.ElementsUpdateLeaderboardRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsLeaderboard|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4065,10 +4083,10 @@ function elements_update_leaderboard(_name_or_id, _body = undefined, _callback =
  * This method accepts an instance of MultiMatch and updates the DB entry for it that matches the matchId. Though it is generally recommended to update a MultiMatch via matchmaking code in an Element, it can be updated via REST for the purposes of testing or custom workflows.
  * @param {String} _match_id
  * @param {Struct.ElementsMultiMatch} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMultiMatch|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4084,10 +4102,10 @@ function elements_update_match(_match_id, _body = undefined, _callback = undefin
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsMatchmakingApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMatchmakingApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4102,10 +4120,10 @@ function elements_update_matchmaking_application_configuration(_application_name
  * Updates a specific metadata object by name or id.
  * @param {String} _id
  * @param {Struct.ElementsUpdateMetadataRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMetadata|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4120,10 +4138,10 @@ function elements_update_metadata(_id, _body = undefined, _callback = undefined)
  * Updates a MetadataSpec with the specified id.
  * @param {String} _metadata_spec_id
  * @param {Struct.ElementsUpdateMetadataSpecRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMetadataSpec|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4138,10 +4156,10 @@ function elements_update_metadata_spec(_metadata_spec_id, _body = undefined, _ca
  * Supplying a mission, this will update the Mission identified by the name or ID in the path with contents from the passed in request body. 
  * @param {String} _mission_name_or_id
  * @param {Struct.ElementsUpdateMissionRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsMission|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4156,10 +4174,10 @@ function elements_update_mission(_mission_name_or_id, _body = undefined, _callba
  * Updates an Auth Scheme with the specified data in the auth scheme request.
  * @param {String} _oauth2_auth_scheme_id
  * @param {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateOrUpdateOAuth2AuthSchemeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4175,10 +4193,10 @@ function elements_update_oauth2_auth_scheme(_oauth2_auth_scheme_id, _body = unde
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsOculusApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4193,10 +4211,10 @@ function elements_update_oculus_application_configuration(_application_name_or_i
  * Updates an Auth Scheme with the specified data in the auth scheme request.
  * @param {String} _oidc_auth_scheme_id
  * @param {Struct.ElementsCreateOrUpdateOidcAuthSchemeRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateOrUpdateOidcAuthSchemeResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4211,10 +4229,10 @@ function elements_update_oidc_auth_scheme(_oidc_auth_scheme_id, _body = undefine
  * Updates the Product Bundle identified by the given database id.
  * @param {String} _id
  * @param {Struct.ElementsProductBundle} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProductBundle|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4230,10 +4248,10 @@ function elements_update_product_bundle(_id, _body = undefined, _callback = unde
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Array[Struct.ElementsProductBundle]} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4249,10 +4267,10 @@ function elements_update_product_bundle_for_google_play_application_configuratio
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Array[Struct.ElementsProductBundle]} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4267,10 +4285,10 @@ function elements_update_product_bundle_for_ios_application_configuration(_appli
  * Supplying an update request will attempt to update the profile.  The call will return the profile as it was written to the database.
  * @param {String} _profile_id
  * @param {Struct.ElementsUpdateProfileRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4285,10 +4303,10 @@ function elements_update_profile(_profile_id, _body = undefined, _callback = und
  * Updates a Profile image object
  * @param {String} _profile_id
  * @param {Struct.ElementsUpdateProfileImageRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProfile|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4303,10 +4321,10 @@ function elements_update_profile_image(_profile_id, _body = undefined, _callback
  * This will update the Progress identified by the ID in the path with contents from the passed in request body. 
  * @param {String} _progress_id
  * @param {Struct.ElementsUpdateProgressRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsProgress|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4321,10 +4339,10 @@ function elements_update_progress(_progress_id, _body = undefined, _callback = u
  * Updates an OIDC provider configuration
  * @param {String} _provider_configuration_id
  * @param {Struct.ElementsCreateOrUpdateOidcProviderConfigurationRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsCreateOrUpdateOidcProviderConfigurationResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4340,10 +4358,10 @@ function elements_update_provider_configuration(_provider_configuration_id, _bod
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsPSNApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsPSNApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4358,10 +4376,10 @@ function elements_update_psn_application_configuration(_application_name_or_id, 
  * Supplying FCM registration token, this will update the token string with the supplied values.  Clients may update the same registration with a different token issued with Firebase if they wish to simply retain the association with the 
  * @param {String} _fcm_registration_id
  * @param {Struct.ElementsFCMRegistration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsFCMRegistration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4376,10 +4394,10 @@ function elements_update_registration(_fcm_registration_id, _body = undefined, _
  * Gets a single save data document.
  * @param {String} _save_data_document_id
  * @param {Struct.ElementsUpdateSaveDataDocumentRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSaveDataDocument|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4394,10 +4412,10 @@ function elements_update_save_document(_save_data_document_id, _body = undefined
  * Supplying a schedule, this will update the Schedule identified by the name or ID in the path with contents from the passed in request body. 
  * @param {String} _schedule_name_or_id
  * @param {Struct.ElementsUpdateScheduleRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSchedule|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4413,10 +4431,10 @@ function elements_update_schedule(_schedule_name_or_id, _body = undefined, _call
  * @param {String} _schedule_name_or_id
  * @param {String} _schedule_event_id
  * @param {Struct.ElementsUpdateScheduleEventRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsScheduleEvent|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4431,10 +4449,10 @@ function elements_update_schedule_event(_schedule_name_or_id, _schedule_event_id
  * Updates an inventory item for the specified item
  * @param {String} _inventory_item_id
  * @param {Struct.ElementsUpdateInventoryItemRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsInventoryItem|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4449,10 +4467,10 @@ function elements_update_simple_inventory_item(_inventory_item_id, _body = undef
  * Patches a  Smart Contract entry, associated with the specified deployed script hash.
  * @param {String} _contract_id
  * @param {Struct.ElementsUpdateSmartContractRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSmartContract|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4468,10 +4486,10 @@ function elements_update_smart_contract(_contract_id, _body = undefined, _callba
  * @param {String} _application_name_or_id
  * @param {String} _application_configuration_name_or_id
  * @param {Struct.ElementsSteamApplicationConfiguration} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSteamApplicationConfiguration|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4486,10 +4504,10 @@ function elements_update_steam_application_configuration(_application_name_or_id
  * Supplying the user object, this will update the user with the new information supplied in the body of the request.  Optionally, the user's password may be provided in the User object.
  * @param {String} _user_id
  * @param {Struct.ElementsUserUpdateRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsUser|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4504,10 +4522,10 @@ function elements_update_user(_user_id, _body = undefined, _callback = undefined
  * Supplying the UserUpdatePasswordRequest, this will attempt to update the user's password only if they supply the correct existing password.
  * @param {String} _user_id
  * @param {Struct.ElementsUserUpdatePasswordRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsSessionCreation|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4522,10 +4540,10 @@ function elements_update_user_password(_user_id, _body = undefined, _callback = 
  * Updates a  Vault with the specified name or id.
  * @param {String} _vault_id
  * @param {Struct.ElementsUpdateVaultRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsVault|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4541,10 +4559,10 @@ function elements_update_vault(_vault_id, _body = undefined, _callback = undefin
  * @param {String} _vault_id
  * @param {String} _wallet_id
  * @param {Struct.ElementsUpdateWalletRequest} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsWallet|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4558,10 +4576,10 @@ function elements_update_wallet(_vault_id, _wallet_id, _body = undefined, _callb
  * @func_partial elements_upload_apple_iap_receipt
  * Upload Apple IAP Receipt. Returns a list of RewardIssuances, which may contain already-redeemed issuances.
  * @param {Struct.ElementsCreateAppleIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4575,10 +4593,10 @@ function elements_upload_apple_iap_receipt(_body = undefined, _callback = undefi
  * @func_partial elements_upload_google_play_iap_purchase
  * Upload Google Play IAP Receipt data (package name, product id and Google Play-issued purchase token). Returns a list of RewardIssuances, some or all of which may be already redeemed.
  * @param {Struct.ElementsCreateGooglePlayIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4592,10 +4610,10 @@ function elements_upload_google_play_iap_purchase(_body = undefined, _callback =
  * @func_partial elements_upload_steam_iap_purchase
  * Verify a Steam IAP purchase by order ID and return a list of RewardIssuances. The order ID is validated against the Steam ISteamMicroTxn API using the publisher key and app ID stored in the application's SteamApplicationConfiguration. Some or all of the returned RewardIssuances may already be redeemed.
  * @param {Struct.ElementsCreateSteamIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Array[Struct.ElementsRewardIssuance]|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
@@ -4609,10 +4627,10 @@ function elements_upload_steam_iap_purchase(_body = undefined, _callback = undef
  * @func_partial elements_verify_oculus_iap_purchase
  * Attempts to verify the Oculus IAP Receipt data.Returns the result of the verification.
  * @param {Struct.ElementsOculusIapReceipt} [_body] The body to be included in the http request.
- * @param {Function} [_callback] Callback with signature (status, data, request).
+ * @param {Function} [_callback] Callback with signature (status, data, request). status is the HTTP status code, or negative when the request never reached a server.
  * 
  * @event callback
- * @member {Real} _status
+ * @member {Real} _status The HTTP status code, or a negative value if the request never reached a server (no connection). Check for a negative value before treating it as an HTTP code.
  * @member {Struct.ElementsOculusIapVerifyReceiptResponse|Undefined} _data
  * @member {Struct.ElementsRequest} _request
  * @event_end 
