@@ -294,3 +294,10 @@ function elements_crossfire_events_on_phase_changed_callback(_callback) {
 	_client.on_phase_changed = _callback;
 }
 
+/// Exports
+
+// Hand-maintained, unlike the generated elements_rest_* scripts: a new public function,
+// macro or enum has to be added below by hand, or it stays invisible to a project that
+// installs Elements as a prefab. CF_* live in elements_crossfire_client; #export resolves
+// against the whole project, not one file.
+#export CF_MSG_FIND, CF_MSG_JOIN, CF_MSG_CREATE, CF_MSG_JOIN_CODE, CF_MSG_MATCHED, CF_MSG_CREATED, CF_MSG_ERROR, CF_MSG_SIGNAL_JOIN, CF_MSG_SIGNAL_LEAVE, CF_MSG_SIGNAL_END, CF_MSG_CONNECT, CF_MSG_DISCONNECT, CF_MSG_HOST, CF_MSG_SDP_OFFER, CF_MSG_SDP_ANSWER, CF_MSG_CANDIDATE, CF_MSG_STRING_RELAY, CF_MSG_BINARY_RELAY, CF_MSG_STRING_BROADCAST, CF_MSG_BINARY_BROADCAST, CF_MSG_LEAVE, CF_MSG_OPEN, CF_MSG_CLOSE, CF_MSG_END, CF_LIFECYCLE_ONCE, CF_LIFECYCLE_SESSION, CF_LIFECYCLE_MATCH, CF_PHASE, elements_crossfire_set_identity, elements_crossfire_connect, elements_crossfire_disconnect, elements_crossfire_find_match, elements_crossfire_join_match, elements_crossfire_create_match, elements_crossfire_join_match_by_code, elements_crossfire_leave_match, elements_crossfire_open_match, elements_crossfire_close_match, elements_crossfire_end_match, elements_crossfire_send_string_relay, elements_crossfire_send_string_broadcast, elements_crossfire_send_binary_relay, elements_crossfire_send_binary_broadcast, elements_crossfire_is_socket_open, elements_crossfire_is_ready, elements_crossfire_is_host, elements_crossfire_get_participants, elements_crossfire_get_match_id, elements_crossfire_get_join_code, elements_crossfire_events_on_connected_callback, elements_crossfire_events_on_connection_error_callback, elements_crossfire_events_on_matched_callback, elements_crossfire_events_on_created_callback, elements_crossfire_events_on_signal_callback, elements_crossfire_events_on_control_callback, elements_crossfire_events_on_error_callback, elements_crossfire_events_on_disconnected_callback, elements_crossfire_events_on_unknown_callback, elements_crossfire_events_on_phase_changed_callback
