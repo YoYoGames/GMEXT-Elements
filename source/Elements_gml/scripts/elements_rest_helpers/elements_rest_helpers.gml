@@ -488,3 +488,8 @@ function _elements_cookie_capture(_set_cookie_header)
     }
 }
 
+// #####################################################################
+// # Exports
+// #####################################################################
+
+#export ElementsRequest, elements_request_auth_set_token, elements_request_body_set_converter, elements_request_response_set_hook, elements_cookie_set, elements_cookie_get, elements_cookie_delete, elements_cookie_clear
