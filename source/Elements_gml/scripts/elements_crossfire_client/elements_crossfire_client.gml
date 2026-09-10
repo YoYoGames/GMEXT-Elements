@@ -98,6 +98,10 @@ function ElementsCrossfireClient(_host, _port) constructor {
     static connect = function() {
         if (phase != CF_PHASE.DISCONNECTED) return;
 
+		// Start every connection from a clean match state
+		match_id = undefined;
+		join_code = undefined;
+
         socket = network_create_socket(network_socket_ws);
         _set_phase(CF_PHASE.HANDSHAKE);
 
@@ -116,9 +120,7 @@ function ElementsCrossfireClient(_host, _port) constructor {
 		handshake_sent = false;
 		participants = {};
 		host_profile = undefined;
-		match_id = undefined;
-		join_code = undefined;
-		
+
         _set_phase(CF_PHASE.DISCONNECTED);
     };
 
@@ -408,8 +410,8 @@ function ElementsCrossfireClient(_host, _port) constructor {
 					if (_elements_options_is_debug()) show_debug_message("[CF] INFO :: Connected...");
                     if (is_callable(on_connected)) on_connected();
                 } else {
-                    phase = CF_PHASE.DISCONNECTED;
 					show_debug_message("[CF] ERROR :: Connection error (disconnected)");
+					disconnect();
                     if (is_callable(on_connection_error)) on_connection_error();
                 }
             break;
@@ -427,8 +429,8 @@ function ElementsCrossfireClient(_host, _port) constructor {
             break;
 
             case network_type_disconnect:
-				_set_phase(CF_PHASE.DISCONNECTED);
 				if (_elements_options_is_debug()) show_debug_message("[CF] INFO :: Disconnected...");
+				disconnect();
                 if (is_callable(on_disconnected)) on_disconnected();
             break;
         }
@@ -570,10 +572,11 @@ function ElementsCrossfireClient(_host, _port) constructor {
 			var _code = _msg.code;
 		    var _text = _msg.message;
 			show_debug_message($"[CF] ERROR :: {_code}: {_text}");
-			
-		    if (is_callable(on_error)) on_error(_msg);
+
 			_set_phase(CF_PHASE.TERMINATED);
 			disconnect(); // force close immediately
+
+		    if (is_callable(on_error)) on_error(_msg);
 		};
 
 		// group of types that are just "signals":
